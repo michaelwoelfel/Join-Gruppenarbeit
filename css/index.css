@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    background-color: #F6F7F8;
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+/*
+  header
+*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.joinlogo {
+    width: 100px;
+    padding-top: 80px;
+    padding-left: 77px;
+}
+
+.signuptop{
+    display: flex;
+    gap: 35px;
+    padding-right: 30px;
+    padding-top: 80px;
+    align-items: center;
+    font-size: 21px;
+}
+
+.signupbutton {
+    height: 51px;
+    width: 91px;
+    background-color: #2A3647;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+
+}
+/*
+  header
+*/
+
+/*
+ maincontainer
+*/
+
+.maincontainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 200px;
+    align-items: center;
+}
+.login {
+    background-color: #FFFFFF;
+    width: 500px;
+    height: 400px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+    
+}
+
+/*
+ maincontainer
+*/
