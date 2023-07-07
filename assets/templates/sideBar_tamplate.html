@@ -1,38 +1,103 @@
 <nav>
-    <a></a>
-
-    <div>
-        <a>
-            <div>
-                <div><img src="./img/join.png"></div>
-                <div>Summary</div>
-            </div>
-        </a>
-        <a>
-            <div>
-                <div>Board Bild</div>
-                <div>Board</div>
-            </div>
-        </a>
-        <a>
-            <div>
-                <div>Add Task Bild</div>
-                <div>Add Task</div>
-            </div>
-        </a>
-        <a>
-            <div>
-                <div>Contacts Bild</div>
-                <div>Contacts</div>
-            </div>
-        </a>
-    </div>
-
-    <a>
+    <div class="side-bar">
         <div>
-            <div>Legal notice Bild</div>
-            <div>Legal notice</div>
+            <a>
+                <img src="/assets/img/join_logo.png">
+            </a>
         </div>
-    </a>
-
+        <div class="side-bar-top-container">
+            <a href="/summary.html">
+                <div class="justify-sidebar-menu">
+                    <img src="/assets/img/summary_img.png" class="side-bar-image">
+                    <span>
+                        <h2>Summary</h2>
+                    </span>
+                </div>
+            </a>
+            <a href="/board.html">
+                <div class="justify-sidebar-menu">
+                    <img src="/assets/img/board_img.png" class="side-bar-image">
+                    <span>
+                        <h2>Board</h2>
+                    </span>
+                </div>
+            </a>
+            <a href="/add_task.html">
+                <div class="justify-sidebar-menu">
+                    <img src="/assets/img/add_task.png" class="side-bar-image">
+                    <span>
+                        <h2>Add Task</h2>
+                    </span>
+                </div>
+            </a>
+            <a href="/contacts.html">
+                <div class="justify-sidebar-menu">
+                    <img src="/assets/img/contacts_img.png" class="side-bar-image">
+                    <span>
+                        <h2>Contacts</h2>
+                    </span>
+                </div>
+            </a>
+        </div>
+        <div class="side-bar-menu-bot">
+            <a href="/legal_notice">
+                <div class="justify-sidebar-menu">
+                    <img src="/assets/img/legal_notice.png" class="side-bar-image">
+                    <span>
+                        <h2>Legal notice</h2>
+                    </span>
+                </div>
+            </a>
+        </div>
 </nav>
+
+<style>
+    .side-bar {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+        width: 232px;
+        height: 90vh;
+        padding: 66px 20px;
+        background-color: #2A3647;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .side-bar-image {
+        height: 30px;
+        width: 30px;
+    }
+
+    .side-bar-top-container {
+        height: 230px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .justify-sidebar-menu {
+        width: 232px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .justify-sidebar-menu:hover {
+        background-color: black;
+    }
+
+    h2 {
+        color: #CDCDCD;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+    }
+</style>
