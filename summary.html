@@ -3,7 +3,7 @@
 
     <div class="content-top-container">
         <h2>Summary</h2>
-        <img src="xxx">
+        <img src="./assets/img/separator_blue.png">
         <p>Everything in a nutshell!</p>
     </div>
 
@@ -11,20 +11,20 @@
 
 
     <div class="content-task-container">
-        <div>
-            <div>
+        <div class="task-container-top">
+            <div class="small-container task-box-style">
                 <a href="board ...">
                     <div>Nr ...</div>
                     <p>Tasks in board</p>
                 </a>
             </div>
-            <div>
+            <div class="small-container task-box-style">
                 <a href="board ...">
                     <div>Nr ...</div>
                     <p>Tasks in Progress</p>
                 </a>
             </div>
-            <div>
+            <div class="small-container task-box-style">
                 <a href="board ...">
                     <div>Nr ...</div>
                     <p>Awaiting Feedback</p>
@@ -36,32 +36,32 @@
 
 
 
-        <a href="board ...">
-            <div>
+
+        <a href="board.html">
+            <div class="task-container-middle task-box-style">
                 <div>
-                    <img src="xxx">
+                    <img src="./assets/img/urgent_img.png" class="task-img">
                 </div>
                 <div>
                     <div>Nr ...</div>
                     <p>Urgent</p>
                 </div>
-            </div>
-
-            <img src="xxx">
-
-            <div>
-                <div>Date ...</div>
-                <p>Upcoming Deadline</p>
+                <img src="./assets/img/separator_white.png">
+                <div>
+                    <div>Date ...</div>
+                    <p>Upcoming Deadline</p>
+                </div>
             </div>
         </a>
 
 
 
-        <div>
-            <div>
+
+        <div class="task-container-bottom">
+            <div class="task-box-style">
                 <a href="board ...">
                     <div>
-                        <img src="xxx">
+                        <img src="./assets/img/todo_img.png" class="task-img">
                     </div>
                     <div>
                         <div>Nr. </div>
@@ -69,10 +69,10 @@
                     </div>
                 </a>
             </div>
-            <div>
+            <div class="task-box-style">
                 <a href="board ...">
                     <div>
-                        <img src="xxx">
+                        <img src="./assets/img/done_img.png" class="task-img">
                     </div>
                     <div>
                         <div>Nr. </div>
@@ -102,15 +102,59 @@
 
 <style>
     .content-all-container {
+        width: 100vw;
         margin-left: 230px;
         margin-top: 80px;
         display: flex;
         flex-direction: column;
+        background-color: #F5F5F5;
     }
 
     .content-top-container {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .task-container-top {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .small-container {
+        display: flex;
+        width: 170px;
+        height: 170px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .task-container-middle {
+        width: 580px;
+        height: 150px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .task-container-bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .task-box-style {
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 30px;
+        cursor: pointer;
+        text-decoration: none;
+        background-color: white;
+    }
+
+    .task-box-style:hover {
+        background-color: #2A3647;
+    }
+
+    .task-img {
+        height: 60px;
+        width: 60px;
     }
 </style>
