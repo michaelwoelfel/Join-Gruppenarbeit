@@ -59,11 +59,12 @@ body {
     left: 80%;
     top: 67px;
     padding-right: 20px;
+    white-space: nowrap;
 }
 
 .signupbutton {
     height: 51px;
-    width: 91px;
+    min-width: 91px;
     background-color: #2A3647;
     color: white;
     border-radius: 8px;
