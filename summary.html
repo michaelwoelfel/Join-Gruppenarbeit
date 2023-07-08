@@ -12,19 +12,19 @@
 
     <div class="content-task-container">
         <div class="task-container-top">
-            <div class="small-container task-box-style">
+            <div class="small-task-container task-box-style">
                 <a href="board ...">
                     <div>Nr ...</div>
                     <p>Tasks in board</p>
                 </a>
             </div>
-            <div class="small-container task-box-style">
+            <div class="small-task-container task-box-style">
                 <a href="board ...">
                     <div>Nr ...</div>
                     <p>Tasks in Progress</p>
                 </a>
             </div>
-            <div class="small-container task-box-style">
+            <div class="small-task-container task-box-style">
                 <a href="board ...">
                     <div>Nr ...</div>
                     <p>Awaiting Feedback</p>
@@ -38,7 +38,7 @@
 
 
         <a href="board.html">
-            <div class="task-container-middle task-box-style">
+            <div class="big-task-container task-box-style">
                 <div>
                     <img src="./assets/img/urgent_img.png" class="task-img">
                 </div>
@@ -58,25 +58,29 @@
 
 
         <div class="task-container-bottom">
-            <div class="task-box-style">
-                <a href="board ...">
-                    <div>
-                        <img src="./assets/img/todo_img.png" class="task-img">
-                    </div>
-                    <div>
-                        <div>Nr. </div>
-                        <p>To-do</p>
+            <div class="task-box-style middle-task-container">
+                <a href="board.html">
+                    <div class="justify-task-container-content">
+                        <div>
+                            <img src="./assets/img/todo_img.png" class="task-img">
+                        </div>
+                        <div>
+                            <div>Nr. </div>
+                            <p>To-do</p>
+                        </div>
                     </div>
                 </a>
             </div>
-            <div class="task-box-style">
-                <a href="board ...">
-                    <div>
-                        <img src="./assets/img/done_img.png" class="task-img">
-                    </div>
-                    <div>
-                        <div>Nr. </div>
-                        <p>Done</p>
+            <div class="task-box-style middle-task-container">
+                <a href="board.html">
+                    <div class="justify-task-container-content">
+                        <div>
+                            <img src="./assets/img/done_img.png" class="task-img">
+                        </div>
+                        <div>
+                            <div>Nr. </div>
+                            <p>Done</p>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -102,9 +106,11 @@
 
 <style>
     .content-all-container {
-        width: 100vw;
+        /* width: 100vw; */
+        /* height: 580px; */
         margin-left: 230px;
         margin-top: 80px;
+        padding-left: 80px;
         display: flex;
         flex-direction: column;
         background-color: #F5F5F5;
@@ -113,15 +119,18 @@
     .content-top-container {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        gap: 30px;
+        height: 73px;
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
 
     .task-container-top {
         display: flex;
-        justify-content: space-between;
+        gap: 35px;
     }
 
-    .small-container {
+    .small-task-container {
         display: flex;
         width: 170px;
         height: 170px;
@@ -129,16 +138,30 @@
         align-items: center;
     }
 
-    .task-container-middle {
+    .big-task-container {
         width: 580px;
         height: 150px;
         display: flex;
-        justify-content: space-between;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        align-items: center;
+    }
+
+    .middle-task-container {
+        width: 272.5px;
+        height: 150px;
     }
 
     .task-container-bottom {
         display: flex;
-        justify-content: space-between;
+        gap: 35px;
+    }
+
+    .middle-task-container {
+        width: 272.5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .task-box-style {
@@ -148,6 +171,15 @@
         text-decoration: none;
         background-color: white;
     }
+
+    .justify-task-container-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+    }
+
+
 
     .task-box-style:hover {
         background-color: #2A3647;
