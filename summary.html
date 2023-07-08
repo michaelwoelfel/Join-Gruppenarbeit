@@ -11,23 +11,23 @@
 
     <div class="content-task-container">
         <div class="task-container-top">
-            <div class="small-task-container task-box-style">
-                <a href="board ...">
-                    <div>Nr ...</div>
-                    <p>Tasks in board</p>
-                </a>
+            <div onclick="location.href='/board.html'" class="small-task-container task-box-style">
+                <div>
+                    <div class="number-style">1</div>
+                    <p class="text-style">Tasks <br> in board</p>
+                </div>
             </div>
-            <div class="small-task-container task-box-style">
-                <a href="board ...">
-                    <div>Nr ...</div>
-                    <p>Tasks in Progress</p>
-                </a>
+            <div onclick="location.href='/board.html'" class="small-task-container task-box-style">
+                <div>
+                    <div class="number-style">2</div>
+                    <p class="text-style">Tasks <br> in Progress</p>
+                </div>
             </div>
-            <div class="small-task-container task-box-style">
-                <a href="board ...">
-                    <div>Nr ...</div>
-                    <p>Awaiting Feedback</p>
-                </a>
+            <div onclick="location.href='/board.html'" class="small-task-container task-box-style">
+                <div>
+                    <div class="number-style">3</div>
+                    <p class="text-style">Awaiting <br> Feedback</p>
+                </div>
             </div>
         </div>
 
@@ -36,57 +36,60 @@
 
 
 
-        <a href="board.html">
-            <div class="big-task-container task-box-style">
-                <div>
-                    <img src="./assets/img/urgent_img.png" class="task-img">
-                </div>
-                <div>
-                    <div>Nr ...</div>
-                    <p>Urgent</p>
-                </div>
-                <img src="./assets/img/separator_white.png" class="separator_white">
-                <div>
-                    <div>Date ...</div>
-                    <p>Upcoming Deadline</p>
-                </div>
+
+        <div onclick="location.href='/board.html'" class="big-task-container task-box-style">
+            <div>
+                <img src="./assets/img/urgent_img.png" class="task-img urgent-margin">
             </div>
-        </a>
+            <div>
+                <div class="number-style">4</div>
+                <p class="text-style">Urgent</p>
+            </div>
+            <img src="./assets/img/separator_white.png" class="separator-white">
+            <div>
+                <div>Date ...</div>
+                <p>Upcoming Deadline</p>
+            </div>
+        </div>
 
 
 
 
         <div class="task-container-bottom">
-            <div class="task-box-style middle-task-container">
-                <a href="board.html">
-                    <div class="justify-task-container-content">
-                        <div>
-                            <img src="./assets/img/todo_img.png" class="task-img">
-                        </div>
-                        <div>
-                            <div>Nr. </div>
-                            <p>To-do</p>
-                        </div>
+            <div onclick="location.href='/board.html'" class="task-box-style middle-task-container" id="toDo-container"
+                onmouseover="changeImage('toDo-container')" onmouseout="resetImage('toDo-container')">
+                <div class="justify-task-container-content">
+                    <div>
+                        <img src="./assets/img/todo_white.png" class="task-img white d-none">
+                        <img src="./assets/img/todo_black.png" class="task-img black">
                     </div>
-                </a>
+                    <div>
+                        <div class="number-style">5</div>
+                        <p class="text-style">To-do</p>
+                    </div>
+                </div>
             </div>
-            <div class="task-box-style middle-task-container">
-                <a href="board.html">
-                    <div class="justify-task-container-content">
-                        <div>
-                            <img src="./assets/img/done_img.png" class="task-img">
-                        </div>
-                        <div>
-                            <div>Nr. </div>
-                            <p>Done</p>
-                        </div>
+            <div onclick="location.href='/board.html'" class="task-box-style middle-task-container" id="done-container"
+                onmouseover="changeImage('done-container')" onmouseout="resetImage('done-container')">
+                <div class="justify-task-container-content">
+                    <div>
+                        <img src="./assets/img/done_white.png" class="task-img white d-none">
+                        <img src="./assets/img/done_black.png" class="task-img black">
                     </div>
-                </a>
+                    <div>
+                        <div class="number-style">6</div>
+                        <p class="text-style">Done</p>
+                    </div>
+                </div>
             </div>
         </div>
 
 
+
+
+
     </div>
+
 
 
 
@@ -96,10 +99,29 @@
         <h3>Person</h3>
     </div>
 
-
-
 </div>
 
+
+
+
+
+<script>
+    function changeImage(i) {
+        const container = document.getElementById(i);
+        const whiteImage = container.querySelector('.white');
+        whiteImage.classList.remove('d-none');
+        const blackImage = container.querySelector('.black');
+        blackImage.classList.add('d-none');
+    }
+
+    function resetImage(i) {
+        const container = document.getElementById(i);
+        const whiteImage = container.querySelector('.white');
+        whiteImage.classList.add('d-none');
+        const blackImage = container.querySelector('.black');
+        blackImage.classList.remove('d-none');
+    }
+</script>
 
 
 
@@ -135,6 +157,7 @@
         height: 170px;
         justify-content: center;
         align-items: center;
+        text-align: center;
     }
 
     .big-task-container {
@@ -144,11 +167,13 @@
         margin-top: 30px;
         margin-bottom: 30px;
         align-items: center;
+        text-align: center;
     }
 
     .middle-task-container {
         width: 272.5px;
         height: 150px;
+        text-align: center;
     }
 
     .task-container-bottom {
@@ -175,11 +200,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 18px;
+        gap: 50px;
     }
 
     .task-box-style:hover {
         background-color: #2A3647;
+        color: white;
     }
 
     .task-img {
@@ -187,12 +213,32 @@
         width: 60px;
     }
 
-    .separator_white {
+    .separator-white {
         width: 0px;
         height: 100px;
         border: 2px solid #D1D1D1;
         border-radius: 10px;
         margin-left: 60px;
         margin-right: 66px;
+    }
+
+    .number-style {
+        font-size: 64px;
+        margin-top: 20px;
+    }
+
+    .text-style {
+        font-size: 21px;
+        font-weight: 400;
+        margin-top: 0px;
+    }
+
+    .urgent-margin {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .d-none {
+        display: none;
     }
 </style>
