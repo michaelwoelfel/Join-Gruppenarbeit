@@ -7,12 +7,24 @@
     <link rel="stylesheet" href="css/index.css">
     <title>Join</title>
 </head>
-<header><img class="joinlogo" src="assets/img/logo_dark.png">
-    <div class="signuptop"><span id="signuptop">Not a Join user ?</span><button class="signupbutton">Sign up</button>
-    </div>
-</header>
+<img class="joinlogo" src="assets/img/logo_dark.png">
+<div class="signuptop"><span id="signuptop">Not a Join user ?</span><button class="signupbutton">Sign up</button>
+</div>
+
 <div class="maincontainer">
-    <form class="login"></form> 
+    <form class="login">
+        <div class="heading">
+            Log in
+            <div class="blueline"></div>
+        </div>
+        <div class="email"><input id="inputmail" type="text" required placeholder="Email"><img class="imgmail"
+                src="assets/img/mail_img.png"> </div>
+                <div class="email"><input id="inputpassword" type="text" required placeholder="Password"><img class="imglock"
+                    src="assets/img/lock.png"> </div>
+        <div class="rememberme"><input type="checkbox" id="checkbox" value="checked"><span id="rememberme">Remember
+                me</span><span id="forgotpw">Forgot my password</span></div>
+                <div class="bottombuttons"><button class="loginbutton">Log in</button><button class="guestbutton">Guest Log in</button></div>
+    </form>
 </div>
 
 <body>

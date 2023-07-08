@@ -4,30 +4,31 @@ body {
     font-family: 'Inter', sans-serif;
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /*
   header
 */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 20px;
-}
+
 
 .joinlogo {
     width: 100px;
-    padding-top: 80px;
-    padding-left: 77px;
+    position: absolute;
+    left: 77px;
+    top: 80px;
 }
 
 .signuptop{
     display: flex;
     gap: 35px;
-    padding-right: 30px;
-    padding-top: 80px;
     align-items: center;
     font-size: 21px;
+    position: absolute;
+    left: 80%;
+    top: 67px;
+    padding-right: 20px;
 }
 
 .signupbutton {
@@ -37,6 +38,7 @@ header {
     color: white;
     border-radius: 8px;
     font-size: 16px;
+    cursor: pointer;
 
 }
 /*
@@ -47,19 +49,142 @@ header {
  maincontainer
 */
 
+form {
+    align-items: center;
+}
+
 .maincontainer {
     display: flex;
     justify-content: center;
-    margin-bottom: 200px;
     align-items: center;
+    top: 274px;
+    width: 100%
 }
 .login {
     background-color: #FFFFFF;
-    width: 500px;
-    height: 400px;
+    width: 40%;
+    height: 500px;
     border-radius: 30px;
     box-shadow: 0px 0px 14px 3px #0000000A;
-    
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+}
+.heading {
+    text-align: center;
+    font-size: 61px;
+    font-weight: bold;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blueline {
+    margin-top: 10px;
+    height: 3px;
+    width: 150px;
+    background-color: #29ABE2;
+}
+
+input {
+    width: 100%;
+    color: #D1D1D1!important;
+}
+
+.email {
+    width: 70%;
+    display: flex;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    margin-bottom: 29px;
+    align-items: center;
+}
+
+.password {
+    width: 70%;
+}
+
+#inputmail {
+    margin-left: 20px;
+    border: none;
+    height: 40px;
+    outline: none;
+    font-size: 21px;
+   
+}
+
+input, select, textarea{
+    color: #D1D1D1!important;
+}
+
+#inputpassword {
+    margin-left: 20px;
+    border: none;
+    height: 40px;
+    outline: none;
+    font-size: 21px;
+}
+
+
+.imgmail {
+    padding-right: 20px;
+    height: 25px;
+}
+
+.imglock {
+    padding-right: 23px;
+    height: 30px;
+}
+
+
+.rememberme {
+    display: flex;
+    white-space: nowrap;
+    gap: 35px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    align-items: center;
+}
+
+#checkbox{
+ width: 20px;
+ height: 20px;
+  background-color:  #D1D1D1;
+  border-radius: 3px;
+}
+
+#forgotpw {
+    color: #29ABE2;
+}
+.bottombuttons{
+    display: flex;
+    gap: 35px;
+}
+
+.loginbutton {
+    height: 51px;
+    width: 91px;
+    background-color: #2A3647;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.guestbutton {
+
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+
 }
 
 /*
