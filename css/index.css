@@ -211,7 +211,9 @@ input {
 }
 
 .guestbutton {
-
+    width: 110px;
+    border: 1px solid black;
+    height: 51px;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
@@ -222,6 +224,15 @@ input {
 
 ::placeholder {
     color: #D1D1D1;
+}
+
+a{
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
 }
 
 /*
