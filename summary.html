@@ -1,4 +1,17 @@
-<body onload="getTime()">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+</head>
+
+<body onload="includeHTML(), getTime()">
+    <div w3-include-html="assets/templates/sideBar_template.html"></div>
+
+
+
     <div class="content-all-container">
 
 
@@ -113,6 +126,14 @@
 
 
 
+</html>
+
+
+
+
+
+
+
 <script>
     function changeImage(i) {
         const container = document.getElementById(i);
@@ -144,6 +165,8 @@
         }
     }
 </script>
+
+<script src="js/include_html.js"></script>
 
 
 
@@ -303,5 +326,16 @@
 
     .d-none {
         display: none;
+    }
+
+    @media (max-width: 1250px) {
+        .greeting-text {
+            display: none;
+        }
+
+        .greeting-person {
+            display: none;
+        }
+
     }
 </style>
