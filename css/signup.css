@@ -34,6 +34,17 @@ input {
     border: none;
     padding-left: 20px;
 }
+button {
+    border: none;
+    height: 51px;
+    width: 125px;
+    background-color: #2A3647;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
     
 
 /*
@@ -208,16 +219,6 @@ input {
     gap: 35px;
 }
 
-.loginbutton {
-    height: 51px;
-    width: 125px;
-    background-color: #2A3647;
-    color: white;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 25px;
-}
 
 .guestbutton {
     width: 110px;
