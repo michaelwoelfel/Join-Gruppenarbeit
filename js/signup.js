@@ -16,10 +16,16 @@ async function addUser() {
     });
     await setItem('users', JSON.stringify(users));
     resetForm();
-    openWindow();
+    hideSignup();
+  
  
     
 
+}
+
+function hideSignup() {
+    document.getElementById('showsignup').classList.remove('hidesignupsuccess');
+    document.getElementById('hidesignup').classList.add('hidesignupsuccess');
 }
 
 function openWindow() {

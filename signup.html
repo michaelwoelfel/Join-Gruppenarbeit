@@ -17,11 +17,13 @@
 
 
 <div class="maincontainer">
-    <form onsubmit="addUser(); return false;" class="login">
+    <div id="showsignup" class="hidesignupsuccess" class="signupsuccess"><span>Registration successfull. <br> </span><div class="bottombuttons"><a class="loginbutton"><button onclick="openWindow()">Login</button></a></div></div>
+    <form id="hidesignup" onsubmit="addUser(); return false;" class="login">
         <div class="heading">
            <a href="index.html" class="arrowleft"><img src="assets/img/arrow_left.png"></a><div class="forgotpwcenter">Sign up
             <div class="blueline"></div></div>
         </div>
+      
         <div class="email"><input id="username" minlength="5" required type="text" required placeholder="Name"><img class="imgmail"
             src="assets/img/user.png"> </div>
         <div class="email"><input id="usermail" minlength="5" required type="email" required placeholder="Email"><img class="imgmail"
