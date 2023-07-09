@@ -4,38 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/summary.css">
+    <link rel="stylesheet" href="css/legal_notice.css">
     <title>Summary</title>
 </head>
+<div w3-include-html="assets/templates/header_template.html"></div>
 
 <body onload="includeHTML(), getTime()">
+    <!-- SIDEBAR TEMPLATE -->
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
-
-
-
-
+    <!-- HOLE SUMMARY CONTAINER -->
     <div class="content-all-container">
-
-
-
-
+        <!-- HEADLINE CONTAINER -->
         <div class="task-content-top-container">
             <h2 class="summary-header">Summary</h2>
             <img class="separator-blue" src="./assets/img/separator_blue.png">
             <p class="summary-text">Everything in a nutshell!</p>
             <img class="separator-blue-90" src="./assets/img/seperator_blue_90.png">
         </div>
-
-
-
-
-
+        <!-- CONTENT LEFT -->
         <div class="task-content-justify">
             <div class="task-content-left">
                 <div class="content-task-container">
-
-
-
-
+                    <!-- TOP CONTAINER TASKS-->
                     <div class="task-container-top">
                         <div onclick="location.href='/board.html'" class="small-task-container task-box-style">
                             <div>
@@ -56,13 +47,7 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
+                    <!-- BIG MIDDLE CONTAINER URGENT-->
                     <div onclick="location.href='/board.html'" class="big-task-container task-box-style">
                         <div>
                             <img src="./assets/img/urgent_img.png" class="task-img urgent-margin">
@@ -77,10 +62,7 @@
                             <p class="deadline-text">Upcoming Deadline</p>
                         </div>
                     </div>
-
-
-
-
+                    <!-- BOTTOM CONTAINER LEFT TO-DO-->
                     <div class="task-container-bottom">
                         <div onclick="location.href='/board.html'" class="task-box-style middle-task-container"
                             id="toDo-container" onmouseover="changeImage('toDo-container')"
@@ -96,6 +78,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- BOTTOM CONTAINER RIGHT DONE-->
                         <div onclick="location.href='/board.html'" class="task-box-style middle-task-container"
                             id="done-container" onmouseover="changeImage('done-container')"
                             onmouseout="resetImage('done-container')">
@@ -113,330 +96,16 @@
                     </div>
                 </div>
             </div>
-
-
-
-
+            <!-- CONTENT RIGHT GREETING-->
             <div class="task-content-right">
                 <p id="greeting" class="greeting-text">Good morning</p>
                 <p class="greeting-person">Person</p>
             </div>
-
         </div>
     </div>
 </body>
 
-
-
-</html>
-
-
-
-
-
-
-
-<script>
-    function changeImage(i) {
-        const container = document.getElementById(i);
-        const whiteImage = container.querySelector('.white');
-        whiteImage.classList.remove('d-none');
-        const blackImage = container.querySelector('.black');
-        blackImage.classList.add('d-none');
-    }
-
-    function resetImage(i) {
-        const container = document.getElementById(i);
-        const whiteImage = container.querySelector('.white');
-        whiteImage.classList.add('d-none');
-        const blackImage = container.querySelector('.black');
-        blackImage.classList.remove('d-none');
-    }
-
-    function getTime() {
-        const date = new Date();
-        let t = date.getHours();
-        if (t > 4.59 && t < 12) {
-            document.getElementById('greeting').innerHTML = 'Good morning,';
-        }
-        if (t > 11.59 && t < 18) {
-            document.getElementById('greeting').innerHTML = 'Good afternoon,';
-        }
-        if (t > 17.59 || t === 0 || t > 0 && t < 5) {
-            document.getElementById('greeting').innerHTML = 'Good evening,';
-        }
-    }
-</script>
-
+<script src="js/script.js"></script>
 <script src="js/include_html.js"></script>
 
-
-
-<style>
-    body {
-        background-color: #F5F5F5;
-    }
-
-    .summary-header {
-        font-size: 61px;
-    }
-
-    .summary-text {
-        font-size: 27px;
-    }
-
-    .greeting-text {
-        font-size: 47px;
-        margin: 0px;
-        font-weight: 500;
-    }
-
-    .date-text {
-        font-size: 21px;
-        font-weight: 700;
-    }
-
-    .deadline-text {
-        font-size: 16px;
-    }
-
-    .greeting-person {
-        font-size: 64px;
-        margin: 0px;
-        color: #29ABE2;
-    }
-
-    .content-all-container {
-        margin-left: 230px;
-        margin-top: 80px;
-        padding-left: 80px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .task-content-justify {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 35px;
-    }
-
-    .task-content-top-container {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        height: 73px;
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-
-    .task-container-top {
-        display: flex;
-        gap: 35px;
-    }
-
-    .small-task-container {
-        display: flex;
-        width: 170px;
-        height: 170px;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .big-task-container {
-        width: 580px;
-        height: 150px;
-        display: flex;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        align-items: center;
-        text-align: center;
-    }
-
-    .deadline-container {
-        text-align: start;
-    }
-
-    .middle-task-container {
-        width: 272.5px;
-        height: 150px;
-        text-align: center;
-    }
-
-    .task-container-bottom {
-        display: flex;
-        gap: 35px;
-    }
-
-    .middle-task-container {
-        width: 272.5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .task-box-style {
-        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 30px;
-        cursor: pointer;
-        text-decoration: none;
-        background-color: white;
-    }
-
-    .justify-task-container-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 50px;
-    }
-
-    .task-box-style:hover {
-        background-color: #2A3647;
-        color: white;
-    }
-
-    .task-img {
-        height: 60px;
-        width: 60px;
-    }
-
-    .separator-white {
-        width: 0px;
-        height: 100px;
-        border: 2px solid #D1D1D1;
-        border-radius: 10px;
-        margin-left: 60px;
-        margin-right: 66px;
-    }
-
-    .separator-blue-90 {
-        display: none;
-    }
-
-    .number-style {
-        font-size: 64px;
-        margin-top: 20px;
-    }
-
-    .text-style {
-        font-size: 21px;
-        font-weight: 400;
-        margin-top: 0px;
-    }
-
-    .urgent-margin {
-        margin-left: 50px;
-        margin-right: 50px;
-    }
-
-    .d-none {
-        display: none;
-    }
-
-    @media (max-width: 1250px) {
-        .greeting-text {
-            display: none;
-        }
-
-        .greeting-person {
-            display: none;
-        }
-    }
-
-    @media (max-width: 950px) {
-        .task-content-top-container {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 5px;
-        }
-
-        .summary-header {
-            font-size: 61px;
-            margin: 0;
-        }
-
-        .summary-text {
-            font-size: 27px;
-            margin: 0;
-        }
-
-        .separator-blue {
-            display: none;
-        }
-
-        .task-container-top {
-            gap: 13px;
-        }
-
-        .small-task-container {
-            width: 110px;
-            height: 110px;
-        }
-
-        .big-task-container {
-            width: 360px;
-            height: 110px;
-        }
-
-        .task-container-bottom {
-            gap: 10px
-        }
-
-        .middle-task-container {
-            width: 170.5px;
-            height: 110px;
-        }
-
-        .task-img {
-            height: 40px;
-            width: 40px;
-        }
-
-        .number-style {
-            font-size: 47px;
-            margin-top: 4px;
-        }
-
-        .text-style {
-            font-size: 14px;
-        }
-
-        .date-text {
-            font-size: 16px;
-        }
-
-        .deadline-text {
-            font-size: 14px;
-        }
-
-        .urgent-margin {
-            margin-left: 30px;
-            margin-right: 30px;
-            gap: 18px;
-        }
-
-        .separator-white {
-            height: 68px;
-            margin-left: 30px;
-            margin-right: 30px;
-        }
-
-        .separator-blue-90 {
-            display: block;
-        }
-
-        .justify-task-container-content {
-            gap: 30px;
-        }
-    }
-
-    @media (max-width: 800px) {
-        .content-all-container {
-            margin-left: 0;
-            padding-left: 2vw;
-        }
-
-
-    }
-</style>
+</html>
