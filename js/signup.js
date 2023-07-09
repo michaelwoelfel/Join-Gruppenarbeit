@@ -16,7 +16,14 @@ async function addUser() {
     });
     await setItem('users', JSON.stringify(users));
     resetForm();
+    openWindow();
+ 
+    
 
+}
+
+function openWindow() {
+    window.open('index.html','_self');
 }
 
 async function init() {

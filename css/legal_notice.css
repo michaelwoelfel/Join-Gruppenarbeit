@@ -28,14 +28,7 @@ body {
    
   }
 
-  .projectheader {
-    display: flex;
-    height: 80px;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0px 4px 4px 0px #0000001A;
-    width: 100%;
-  }
+ 
 
   .headspan {
     margin-left: 40px;

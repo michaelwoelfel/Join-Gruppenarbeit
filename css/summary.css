@@ -1,5 +1,6 @@
 body {
     background-color: #F5F5F5;
+    margin: 0;
 }
 
 .header {
@@ -37,8 +38,6 @@ body {
 
 .content-all-container {
     margin-left: 230px;
-    margin-top: 80px;
-    padding-left: 80px;
     display: flex;
     flex-direction: column;
 }
@@ -55,8 +54,9 @@ body {
     align-items: center;
     gap: 30px;
     height: 73px;
-    padding-top: 50px;
+    padding-top: 20px;
     padding-bottom: 50px;
+    padding-left: 100px;
 }
 
 .task-container-top {
@@ -125,6 +125,10 @@ body {
     color: white;
 }
 
+.task-content-justify{
+    padding-left: 100px;
+}
+
 .task-img {
     height: 60px;
     width: 60px;
@@ -176,9 +180,13 @@ body {
 @media (max-width: 950px) {
     .task-content-top-container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 5px;
         height: 110px;
+    }
+
+    .task-content-justify{
+        justify-content: center;
     }
 
     .summary-header {
@@ -211,6 +219,15 @@ body {
 
     .task-container-bottom {
         gap: 10px
+    }
+
+    .task-content-top-container{
+        padding-left: 0;
+        margin: 0;
+    }
+
+    .task-content-justify{
+        padding-left: 40px;
     }
 
     .middle-task-container {
@@ -266,11 +283,11 @@ body {
 @media (max-width: 800px) {
     .content-all-container {
         margin-left: 0;
-        padding-left: 2vw;
     }
 
     .task-content-top-container{
         padding-top: 0px;
+        margin: 0;
         
     }
 }
