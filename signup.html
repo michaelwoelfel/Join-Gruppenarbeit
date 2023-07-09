@@ -5,35 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/signup.css">
+    <script src="js/signup.js"></script>
     <title>Join</title>
 
   
 </head>
-
+<body onload="init()">
 <img class="joinlogo" src="assets/img/logo_dark.png">
 
 
 
 
 <div class="maincontainer">
-    <form class="login">
+    <form onsubmit="addUser(); return false;" class="login">
         <div class="heading">
            <a href="index.html" class="arrowleft"><img src="assets/img/arrow_left.png"></a><div class="forgotpwcenter">Sign up
             <div class="blueline"></div></div>
         </div>
-        <div class="email"><input id="inputmail" type="text" required placeholder="Name"><img class="imgmail"
+        <div class="email"><input id="username" minlength="5" required type="text" required placeholder="Name"><img class="imgmail"
             src="assets/img/user.png"> </div>
-        <div class="email"><input id="inputmail" type="text" required placeholder="Email"><img class="imgmail"
+        <div class="email"><input id="usermail" minlength="5" required type="email" required placeholder="Email"><img class="imgmail"
             src="assets/img/mail_img.png"> </div>
-            <div class="email"><input id="inputpassword" type="text" required placeholder="Password"><img class="imglock"
+            <div class="email"><input id="userpassword"minlength="5" required type="password" required placeholder="Password"><img class="imglock"
                 src="assets/img/lock.png"> </div>
               
        
-                <div class="bottombuttons"><a class="loginbutton" target="_blank" href="summary.html">Sign up</a></div>
+                <div class="bottombuttons"><a class="loginbutton"><button id="registerBtn" onclick="addUser()" target="_blank"> Sign up</button></a></div>
     </form>
 </div>
 
-<body>
+
+
 
 </body>
 

@@ -29,6 +29,12 @@ body {
     animation-fill-mode: forwards;
 }
 
+input {
+    outline: none;
+    border: none;
+    padding-left: 20px;
+}
+    
 
 /*
   header
