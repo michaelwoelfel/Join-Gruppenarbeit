@@ -18,12 +18,7 @@ body {
   
   }
 
-  .author {
-    display: flex;
-    gap: 25px;
-    padding-right: 40px;
-    align-items: center;
-  }
+  
 
   .legalnotice {
     display: flex;
@@ -59,4 +54,15 @@ body {
   a {
     text-decoration: none;
     color: black;
+  }
+
+  @media only screen and (max-width: 800px) {
+  
+    .maincontainer {
+       margin: 0;
+       overflow-x: hidden;
+    }
+    .author {
+        padding-right: 5px;
+    }
   }
