@@ -43,7 +43,7 @@ body {
 .contacts-header-right {
     display: flex;
     flex-direction: row;
-    margin-left: 35px;
+    margin-left: 55px;
     margin-top: 40px;
 }
 
@@ -63,8 +63,13 @@ h3 {
     border-bottom-right-radius: 5px;
     padding: 7px;
     position: fixed; /*das brauche ich um buton nach unten zutun*/
-    bottom: 20px;
-    right: 20px
+    bottom: 60px;
+    right: 40px
+}
+
+.btn-contact:hover {
+    cursor: pointer;
+    background-color: #29ABE2;
 }
 
 .btn-contact-icon {

@@ -26,3 +26,7 @@ async function includeHTML(callback) {
     // All fetches are done, call the callback
     callback();
 }
+
+function newContact() {
+    
+}
