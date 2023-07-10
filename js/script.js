@@ -4,8 +4,9 @@ function initPageSummary() {
         // After all includes are loaded, get the time and summary data
         
         getTime();
+        console.log('Funktioniert');
         getSummaryData();
-        debugger;
+        
        
     });
    

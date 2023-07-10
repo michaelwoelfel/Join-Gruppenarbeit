@@ -134,6 +134,10 @@ body {
     width: 60px;
 }
 
+.sidebar-color-black {
+    background-color: black!important;
+}
+
 .separator-white {
     width: 0px;
     height: 100px;
@@ -235,9 +239,7 @@ body {
         height: 110px;
     }
 
-    .sidebar-color-black {
-        background-color: black;
-    }
+  
 
     .task-img {
         height: 40px;
