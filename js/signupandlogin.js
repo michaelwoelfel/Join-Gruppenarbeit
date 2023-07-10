@@ -1,5 +1,6 @@
 let users = [];
 
+
 const STORAGE_TOKEN = '9DSY3OMJBPC4FF2QNS6I226NK6HRNQV27XWIWUO8';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
@@ -17,11 +18,9 @@ async function addUser() {
     await setItem('users', JSON.stringify(users));
     resetForm();
     hideSignup();
-  
- 
-    
-
 }
+
+
 
 function hideSignup() {
     document.getElementById('showsignup').classList.remove('hidesignupsuccess');
@@ -29,7 +28,7 @@ function hideSignup() {
 }
 
 function openWindow() {
-    window.open('index.html','_self');
+    window.open('summary.html','_self');
 }
 
 async function init() {
@@ -51,6 +50,22 @@ function resetForm() {
     document.getElementById('userpassword').value = '';
 }
 
+function login(event){
+    event.preventDefault();
+    let mail = document.getElementById('inputmail').value;
+    let password = document.getElementById('inputpassword').value;
+    let user = users.find(u => u.mail == mail && u.password == password);
+    let userIndex = users.findIndex(u => u.mail == mail && u.password == password);
+    if(user) {
+        currentUser = users[userIndex].username;
+        localStorage.setItem('currentUser', currentUser);
+        openWindow();
+        
+    } else {
+        document.getElementById('wrongpassword').innerHTML = `Wrong E-mail or Password !`;
+    }
+}
+
 
 
 async function setItem(key, value) {
@@ -67,3 +82,8 @@ async function getItem(key) {
         } throw `Could not find data with key "${key}".`;
     });
 }
+
+
+
+
+

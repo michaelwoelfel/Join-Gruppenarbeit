@@ -10,6 +10,7 @@
 
   
 </head>
+<body onload="init()">
 <div class="startcontainer"><img class="logowhite" src="assets/img/logo_white.png"></div>
 <img class="joinlogo" src="assets/img/logo_dark.png">
 <div class="signuptop"><span id="signuptop">Not a Join user ?</span><a class="signupbutton" target="_blank" href="signup.html">Sign up</a>
@@ -18,22 +19,24 @@
 
 
 <div class="maincontainer">
-    <form class="login">
+    <form onsubmit="login(event); return"class="login">
         <div class="heading">
             Log in
             <div class="blueline"></div>
         </div>
-        <div class="email"><input id="inputmail" type="text" required placeholder="Email"><img class="imgmail"
+        <div class="email"><input id="inputmail" type="email" required placeholder="Email"><img class="imgmail"
                 src="assets/img/mail_img.png"> </div>
-                <div class="email"><input id="inputpassword" type="text" required placeholder="Password"><img class="imglock"
+                <div class="email"><input id="inputpassword" type="password" required placeholder="Password"><img class="imglock"
                     src="assets/img/lock.png"> </div>
+
+                    <div id="wrongpassword"></div>
         <div class="rememberme"><input type="checkbox" id="checkbox" value="checked"><span id="rememberme">Remember
                 me</span><span id="forgotpw"><a href="forgotpassword.html" target="_self">Forgot my password</a></span></div>
-                <div class="bottombuttons"><a class="loginbutton" target="_blank" href="summary.html">Log in</a><a class="guestbutton" target="_blank" href="summary.html">Guest Log in</a></div>
+                <div class="bottombuttons"><button type="submit" class="loginbutton" >Log in</button><a target="_self" href="summary.html" class="guestbutton" target="_blank" >Guest Log in</a></div>
     </form>
 </div>
 
-<body>
+
 
 </body>
 

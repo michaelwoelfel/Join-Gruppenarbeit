@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/summary.css">
     <link rel="stylesheet" href="css/legal_notice.css">
+ 
+    
     <title>Summary</title>
 </head>
 
 
-<body onload="includeHTML(), getTime()">
+<body onload="initPageSummary()">
     <!-- SIDEBAR TEMPLATE -->
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
    
@@ -101,13 +103,16 @@
             <!-- CONTENT RIGHT GREETING-->
             <div class="task-content-right">
                 <p id="greeting" class="greeting-text">Good morning</p>
-                <p class="greeting-person">Person</p>
+                <p id="currentuser" class="greeting-person">Person</p>
             </div>
         </div>
     </div>
 </body>
 
-<script src="js/script.js"></script>
+
 <script src="js/include_html.js"></script>
+<script src="js/signupandlogin.js"></script>
+<script src="js/script.js"></script>
+
 
 </html>

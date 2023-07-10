@@ -235,6 +235,10 @@ body {
         height: 110px;
     }
 
+    .sidebar-color-black {
+        background-color: black;
+    }
+
     .task-img {
         height: 40px;
         width: 40px;

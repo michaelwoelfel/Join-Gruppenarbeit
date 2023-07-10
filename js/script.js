@@ -1,3 +1,23 @@
+function initPageSummary() {
+    // Load included HTML first
+    includeHTML(() => {
+        // After all includes are loaded, get the time and summary data
+        
+        getTime();
+        getSummaryData();
+        debugger;
+       
+    });
+   
+    
+}
+
+function getSummaryData(){
+    let currentUser = localStorage.getItem('currentUser'); 
+    document.getElementById('currentuser').innerHTML = `${currentUser}`;
+    document.getElementById('summary').classList.add('sidebar-color-black');
+}
+
 // SUMMARY START
 
 function changeImage(i) {
@@ -31,3 +51,4 @@ function getTime() {
 }
 
 // SUMMARY END
+
