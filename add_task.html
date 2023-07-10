@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/include_html.js"></script>
     <link rel="stylesheet" href="css/legal_notice.css">
+    <link rel="stylesheet" href="css/add_task.css">
     <title>Add task</title>
 
 </head>
@@ -14,12 +15,90 @@
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
 
 
-<div class="maincontainer">
-    <script src="js/include_html.js"></script>
-    <div w3-include-html="assets/templates/header_template.html"></div>
+    <div class="maincontainer">
+        <script src="js/include_html.js"></script>
+        <div w3-include-html="assets/templates/header_template.html"></div>
+
+        <h1 class="add_task_h1">Add Task</h1>
+
+        <div class="add_task_container">
+
+            <form class="add_task_left">
+                <div class="title fd_column">
+                    <span>Title</span>
+                    <input class="task_input_field_styling" type="text" placeholder="Enter a title" id="add_task_title"
+                        required>
+                </div>
+
+                <div class="description fd_column">
+                    <span>Description</span>
+                    <textarea class="task_input_field_styling" name="description" id="add_task_description" cols="30"
+                        rows="5" placeholder="Enter a description" required></textarea>
+                </div>
+
+                <div class="category fd_column">
+                    <span>Category</span>
+                    <select class="task_input_field_styling" name="category_select" id="add_task_category_select"
+                        required>
+                        <option value="Select task category">Select task category</option>
+                        <option value="New category">New category</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Backoffice">Backoffice</option>
+                    </select>
+                </div>
+
+                <div class="assign fd_column">
+                    <span>Assign to</span>
+                    <select class="task_input_field_styling" name="Assigned to" id="add_task_assign_select">
+                        <option value="Select contacts to assign">Select contacts to assign</option>
+                        <option value="">You</option>
+                        <option value="">Maximilian Vogel</option>
+                        <option value="">invite new contact</option>
+                    </select>
+                </div>
+            </form>
+            <div class="seperator fd_column"></div>
+
+            <form class="add_task_right">
+                <div class="date fd_column">
+                    <span>Due date</span>
+                    <input class="task_input_field_styling" type="date" name="" id="add_task_input_date" required
+                        min="2023-07-20">
+                </div>
+
+                <div class="prio fd_column">
+                    <span>Prio</span>
+                    <div class="prio-btns-container">
+                        <div id="prio_urgent" class="prio-btn">Urgent <img src="./assets/img/urgent_prio.png"
+                                alt="urgent">
+                        </div>
+                        <div id="prio_medium" class="prio-btn">Medium <img src="./assets/img/medium_prio.png"
+                                alt="medium">
+                        </div>
+                        <div id="prio_low" class="prio-btn">Low <img src="./assets/img/low_prio.png" alt="low"></div>
+                    </div>
+                </div>
+
+                <div class="subtasks fd_column">
+                    <span>Subtasks</span>
+                    <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask"
+                        placeholder="Add new subtask">
+                </div>
+
+                <div class="show_subtask">
+                </div>
+            </form>
         </div>
 
-    
+        <div class="buttons-clear-create">
+            <div class="clear-btn btn">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
+            <div class="create-btn btn">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
+        </div>
+
+    </div>
+
+
+
 </body>
 
 </html>
