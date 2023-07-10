@@ -1,3 +1,22 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
 .sidebar-color-black {
     background-color: black!important;
+}
+
+#contact-list {
+
+}
+
+#contact-info {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  top: 80px;
+  right: 0;
+  overflow-x: hidden;
+  margin-top: 80px;
 }
