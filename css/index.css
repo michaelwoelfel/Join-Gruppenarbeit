@@ -220,6 +220,7 @@ input {
     font-size: 16px;
     font-weight: bold;
     align-items: center;
+    padding-top: 29px;
 }
 
 #checkbox{
@@ -258,6 +259,12 @@ input {
     color: black;
 
 }
+
+#wrongpassword {
+    color: red;
+}
+
+
 
 ::placeholder {
     color: #D1D1D1;

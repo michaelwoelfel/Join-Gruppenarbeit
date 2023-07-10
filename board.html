@@ -6,20 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/include_html.js"></script>
     <link rel="stylesheet" href="css/legal_notice.css">
+    <link rel="stylesheet" href="css/board.css">
     <title>Board</title>
 
 </head>
 
-<body onload="includeHTML()">
+<body onload="initPageBoard()">
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
-
-
-<div class="maincontainer">
-    <script src="js/include_html.js"></script>
-    <div w3-include-html="assets/templates/header_template.html"></div>
+    <div class="maincontainer">
+        <script src="js/include_html.js"></script>
+        <div w3-include-html="assets/templates/header_template.html"></div>
+        <div class="boardtop">
+            <h1 class="headingboard">Board</h1>
+            <div class="search">
+            <div class="searchbar"><input class="searchinput" placeholder="Find Task" type="search"> <img src="assets/img/search.png"></div>
+            <div class="addtask"><span>Add task</span><img src="assets/img/plus.png"></div>
         </div>
+        </div>
+        <div class="taskcontainer">
+        <div class="task">
+            <div class="taskheading"><h3>To do</h3><img class="plusbutton" src="assets/img/plus_button.png"></div>
+            <div id="todo"><div class="content"></div></div>
+        </div>
+        <div class="task">
+            <div class="taskheading"><h3>In progress</h3><img class="plusbutton" src="assets/img/plus_button.png"></div>
+            <div id="inprogress"> <div class="content"></div></div>
+        </div>
+        <div class="task">
+            <div class="taskheading"><h3>Awaiting Feedback</h3><img class="plusbutton" src="assets/img/plus_button.png"></div>
+            <div id="awaitingfb"><div class="content"></div></div>
+        </div>
+        <div class="task">
+            <div class="taskheading"><h3>Done</h3><img class="plusbutton" src="assets/img/plus_button.png"></div>
+            <div id="done"><div class="content"></div></div>
+        </div>
+    </div>
 
-    
+
+
+    </div>
+
+
 </body>
+<script src="js/include_html.js"></script>
+<script src="js/signupandlogin.js"></script>
+<script src="js/script.js"></script>
+
 
 </html>

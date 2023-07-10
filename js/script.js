@@ -1,3 +1,82 @@
+ // Funktionen um Javascript der einzelnen Seiten zu laden. Man kann beliebige Funktionen mit einfügen ohne das eine Funktion die andere blockiert.
+
+function initPageSummary() {
+    // Load included HTML first
+    includeHTML(() => {
+        // After all includes are loaded, get the time and summary data
+        getTime();
+        getSummaryData();
+    });
+   
+    
+}
+
+function initPageBoard() {
+    // Load included HTML first
+    includeHTML(() => {
+        // After all includes are loaded, get the time and summary data
+        getBoardData();
+    });
+   
+    
+}
+
+function initPageAddTask() {
+    // Load included HTML first
+    includeHTML(() => {
+        // After all includes are loaded, get the time and summary data
+        getAddTaskData()
+    });
+   
+    
+}
+
+function initPageContacts() {
+    // Load included HTML first
+    includeHTML(() => {
+        // After all includes are loaded, get the time and summary data
+        getContactsData()
+    });
+   
+    
+}
+function initPageLegal_Notice() {
+    // Load included HTML first
+    includeHTML(() => {
+        // After all includes are loaded, get the time and summary data
+        getLegalNoticeData();
+     
+    });
+   
+    
+}
+
+function getBoardData() {
+    document.getElementById('board').classList.add('sidebar-color-black');
+
+}
+
+function getAddTaskData() {
+    document.getElementById('tasks').classList.add('sidebar-color-black');
+
+}
+
+function getContactsData() {
+    document.getElementById('contacts').classList.add('sidebar-color-black');
+
+}
+
+function getLegalNoticeData() {
+    document.getElementById('legalnotice').classList.add('sidebar-color-black');
+
+}
+
+function getSummaryData(){
+    let currentUser = localStorage.getItem('currentUser'); 
+    document.getElementById('currentuser').innerHTML = `${currentUser}`;
+    document.getElementById('summary').classList.add('sidebar-color-black');
+}
+
 // SUMMARY START
 
 function changeImage(i) {
@@ -31,3 +110,4 @@ function getTime() {
 }
 
 // SUMMARY END
+
