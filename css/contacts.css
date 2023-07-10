@@ -7,8 +7,17 @@ body {
     background-color: black!important;
 }
 
-#contact-list {
+.maincontainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 230px;
+    height: 100vh;
+  
+  }
 
+#contact-list {
+    border-right: 4px solid #0000001A;
+    
 }
 
 #contact-info {
@@ -18,5 +27,57 @@ body {
   top: 80px;
   right: 0;
   overflow-x: hidden;
-  margin-top: 80px;
+  margin-top: 4px;
+  background-color: #F5F5F5;
+  border-left: 4px solid #0000001A;
 }
+
+.blueline {
+    margin-top: 15px;
+    margin-left: 25px;
+    height: 45px;
+    width: 3px;
+    background-color: #29ABE2;
+}
+
+.contacts-header-right {
+    display: flex;
+    flex-direction: row;
+    margin-left: 35px;
+    margin-top: 40px;
+}
+
+h3 {
+    font-weight: 100;
+    margin-left: 25px;
+    margin-top: 30px;
+}
+
+.btn-contact {
+    background-color: #2A3647;
+    color: white;
+    border: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 7px;
+    position: fixed; /*das brauche ich um buton nach unten zutun*/
+    bottom: 20px;
+    right: 20px
+}
+
+.btn-contact-icon {
+    
+}
+
+@media only screen and (max-width: 800px) {
+  
+    .maincontainer {
+       margin: 0;
+       overflow-x: hidden;
+    }
+    .author {
+        padding-right: 5px;
+    }
+  }
