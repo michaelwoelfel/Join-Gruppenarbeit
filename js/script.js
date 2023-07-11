@@ -1,6 +1,6 @@
  // Funktionen um Javascript der einzelnen Seiten zu laden. Man kann beliebige Funktionen mit einfügen ohne das eine Funktion die andere blockiert.
 
-function initPageSummary() {
+function initSummary() {
     // Load included HTML first
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
@@ -11,7 +11,7 @@ function initPageSummary() {
     
 }
 
-function initPageBoard() {
+function initBoard() {
     // Load included HTML first
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
@@ -21,7 +21,7 @@ function initPageBoard() {
     
 }
 
-function initPageAddTask() {
+function initAddTask() {
     // Load included HTML first
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
@@ -31,7 +31,7 @@ function initPageAddTask() {
     
 }
 
-function initPageContacts() {
+function initContacts() {
     // Load included HTML first
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
@@ -40,7 +40,7 @@ function initPageContacts() {
    
     
 }
-function initPageLegal_Notice() {
+function initLegal_Notice() {
     // Load included HTML first
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
