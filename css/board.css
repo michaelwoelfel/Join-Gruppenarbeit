@@ -91,12 +91,18 @@ h3 {
 }
 
 .task {
-    border: 1px solid black;
-    width: 22%;
-    margin-left: 20px;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
+   
+        border: 1px solid black;
+        width: 22%;
+        margin-left: 20px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid transparent; /* Fügt eine transparente obere Grenze hinzu */
+}
+
+.taskcontainer{
+    margin-top: 20px;
 }
 
 .taskheader {
@@ -109,7 +115,8 @@ h3 {
     gap: 10px;
     background-color: #FF7A00;
     color: white;
-    margin-left: 20px;
+    margin-top: 20px;
+    margin-left: 30px;
    
 
 }
@@ -141,8 +148,30 @@ h3 {
     height: 240px;
     background-color: #FFFFFF;
     border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
+.taskdescription {
+    padding-left: 30px;
+}
+
+.tasktext {
+    margin-left: 30px;
+}
+
+.progresscontainer {
+    padding-left: 30px;
+}
+
+.taskfooter {
+    display: flex;
+    padding-left: 30px;
+    justify-content: space-between;
+    padding-right: 30px;
+    
+}
 
 @media only screen and (max-width: 1400px) {
     .taskcontainer {
