@@ -1,83 +1,28 @@
- // Funktionen um Javascript der einzelnen Seiten zu laden. Man kann beliebige Funktionen mit einfügen ohne das eine Funktion die andere blockiert.
+
+// SUMMARY START
+
 
 function initSummary() {
     // Load included HTML first
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
         getTime();
-        getSummaryData();
+        getName();
+        colorSummary();
     });
    
     
 }
 
-function initBoard() {
-    // Load included HTML first
-    includeHTML(() => {
-        // After all includes are loaded, get the time and summary data
-        getBoardData();
-    });
-   
-    
-}
-
-function initAddTask() {
-    // Load included HTML first
-    includeHTML(() => {
-        // After all includes are loaded, get the time and summary data
-        getAddTaskData()
-    });
-   
-    
-}
-
-function initContacts() {
-    // Load included HTML first
-    includeHTML(() => {
-        // After all includes are loaded, get the time and summary data
-        getContactsData()
-    });
-   
-    
-}
-function initLegal_Notice() {
-    // Load included HTML first
-    includeHTML(() => {
-        // After all includes are loaded, get the time and summary data
-        getLegalNoticeData();
-     
-    });
-   
-    
-}
-
-function getBoardData() {
-    document.getElementById('board').classList.add('sidebar-color-black');
-
-}
-
-function getAddTaskData() {
-    document.getElementById('tasks').classList.add('sidebar-color-black');
-
-}
-
-function getContactsData() {
-    document.getElementById('contacts').classList.add('sidebar-color-black');
-
-}
-
-function getLegalNoticeData() {
-    document.getElementById('legalnotice').classList.add('sidebar-color-black');
-
-}
-
-function getSummaryData(){
-    let currentUser = localStorage.getItem('currentUser'); 
-    document.getElementById('currentuser').innerHTML = `${currentUser}`;
+function colorSummary(){
     document.getElementById('summary').classList.add('sidebar-color-black');
 }
 
-// SUMMARY START
+function getName(){
+    let currentUser = localStorage.getItem('currentUser'); 
+    document.getElementById('currentuser').innerHTML = `${currentUser}`;
+}
+
 
 function changeImage(i) {
     const container = document.getElementById(i);
@@ -111,3 +56,67 @@ function getTime() {
 
 // SUMMARY END
 
+// BOARD START
+function initBoard() {
+    // Load included HTML first
+    includeHTML(() => {
+        // After all includes are loaded, get the time and summary data
+        colorBoard();
+    });
+   
+}
+
+function colorBoard() {
+    document.getElementById('board').classList.add('sidebar-color-black');
+
+}
+// BOARD END
+// ADDTASK START
+
+function initAddTask() {
+    // Load included HTML first
+    includeHTML(() => {
+        // After all includes are loaded, get the time and summary data
+        colorAddTask();
+    });
+}
+
+function colorAddTask() {
+    document.getElementById('tasks').classList.add('sidebar-color-black');
+
+}
+// ADDTASK END
+// CONTACTS START
+
+function initContacts() {
+    // Load included HTML first
+    includeHTML(() => {
+        // After all includes are loaded, get the time and summary data
+        colorContacts()();
+    }); 
+}
+
+function colorContacts() {
+    document.getElementById('contacts').classList.add('sidebar-color-black');
+
+}
+// CONTACTS END
+
+
+// LEGAL NOTICE START
+
+function initLegal_Notice() {
+    // Load included HTML first
+    includeHTML(() => {
+        // After all includes are loaded, get the time and summary data
+        colorLegalNotice();
+     
+    });
+}
+
+function colorLegalNotice() {
+    document.getElementById('legalnotice').classList.add('sidebar-color-black');
+
+}
+
+// LEGAL NOTICE END
