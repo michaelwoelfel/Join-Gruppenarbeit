@@ -5,23 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/include_html.js"></script>
-    <link rel="stylesheet" href="css/legal_notice.css">
+    <link rel="stylesheet" href="css/contacts.css">
     <title>Contacts</title>
 
 </head>
 
-<body onload="initPageContacts()">
+<body onload="initContacts()">
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
 
 
 <div class="maincontainer">
     <script src="js/include_html.js"></script>
     <div w3-include-html="assets/templates/header_template.html"></div>
+  
+        <div id="contact-list"></div>
+
+        <div id="contact-info">
+            <div class="contacts-header-right">
+            <h1>Contacts</h1>
+            <div class="blueline"></div>
+            <h3>Better with a team</h3>
+            </div>
+
+
+            <button onclick="newContact()" class="btn-contact"><b>New contact</b> <img src="./assets/img/contact+.png" class="btn-contact-icon"> </button>
         </div>
 
-<div class="contact-list"></div>
-
-<div class="contact-info"></div>
+        <div class="dialog-add-contact"></div>
+    
+</div>
     
 </body>
 <script src="js/include_html.js"></script>
