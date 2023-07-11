@@ -62,6 +62,16 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
+.add_task_category_select {
+    padding: 32px;
+}
+
+
+.dot {
+    height: 36px;
+}
+
+
 
 /* MIDDLE SEPERATOR  */
 
