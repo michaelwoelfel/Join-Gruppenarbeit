@@ -99,14 +99,59 @@ h3 {
     flex-direction: column;
 }
 
+.taskheader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 25px;
+    border-radius: 8px;
+    gap: 10px;
+    background-color: #FF7A00;
+    color: white;
+    margin-left: 20px;
+   
+
+}
+
+.taskprogressbar {
+    width: 138px;
+    height: 8px;
+    border-radius: 2px;
+    background-color: #F4F4F4;
+    gap: 10px;
+
+}
+
+.progresscontainer {
+    display: flex;
+    align-items: center;
+}
+
 .taskcontainer {
     display: flex;
     justify-content: center;
-    
+}
+
+.taskfooter {
+    display: flex;
 }
 
 .content {
     height: 240px;
     background-color: #FFFFFF;
     border-radius: 30px;
+}
+
+
+@media only screen and (max-width: 1400px) {
+    .taskcontainer {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .task {
+        width: 48%;
+        margin-bottom: 20px; 
+    }
 }
