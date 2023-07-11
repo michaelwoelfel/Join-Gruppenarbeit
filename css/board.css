@@ -163,6 +163,7 @@ h3 {
 
 .progresscontainer {
     padding-left: 30px;
+    gap: 10px;
 }
 
 .taskfooter {
