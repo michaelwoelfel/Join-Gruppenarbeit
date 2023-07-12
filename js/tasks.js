@@ -73,12 +73,12 @@ async function renderTasks() {
     await loadTasks();
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
-        document.getElementById('todo').innerHTML += `<div class="content">
+        document.getElementById('todo').innerHTML += `<div onclick="openTask(${i})" class="content id="task${i}">
         <div class="taskheader">${task['name']}</div>
         <div class="taskdescription"><b>${task['subtask']}</b></div>
         <div class="tasktext">${task['tasktext']}</div>
         <div class="progresscontainer"><div class="taskprogressbar"></div> <div class="taskprogress">1/2 Done</div></div>
-        <div class="taskfooter">${task['user']} ${task['date']}</div><div class="priority"><img src="${task['priority']}"></div></div>
+        <div class="taskfooter">${task['user']}<div class="priority"><img src="${task['priority']}"></div></div></div>
     </div>`;
 
     }
