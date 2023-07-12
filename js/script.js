@@ -57,14 +57,17 @@ function getTime() {
 // SUMMARY END
 
 // BOARD START
-function initBoard() {
+ async function initBoard() {
+   
     // Load included HTML first
-    includeHTML(() => {
+    await includeHTML(() => {
         // After all includes are loaded, get the time and summary data
         colorBoard();
+      renderTasks();
     });
    
 }
+
 
 function colorBoard() {
     document.getElementById('board').classList.add('sidebar-color-black');
