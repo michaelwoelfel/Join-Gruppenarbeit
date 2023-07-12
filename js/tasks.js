@@ -14,7 +14,7 @@ async function addTask() {
     let taskAssign = document.getElementById('add_task_assign_select').value;
     let taskDate = document.getElementById('add_task_input_date').value;
     let taskPrio = getTaskPrio();
-    // NEU ...
+    // NEW 4D+D
     let taskStatus = 'todo';
 
 
@@ -26,6 +26,8 @@ async function addTask() {
         user: taskAssign,
         date: taskDate,
         priority: taskPrio,
+
+        // NEW 4D+D
         status: taskStatus,
 
 
@@ -70,6 +72,32 @@ async function loadTasks() {
     }
 }
 
+
+
+// NEW 4 D+D
+async function updateHTML() {
+    // await loadTasks();
+    let toDo = tasks.filter(t => t['status'] == 'todo');
+    document.getElementById('todo').innerHTML = '';
+
+
+    for (let index = 0; index < toDo.length; index++) {
+        const task = toDo[index];
+        document.getElementById('todo').innerHTML += /*html*/ `
+        <div onclick="openTask(${index})" class="content" id="task${index}">
+            <div class="taskheader">${task['category']}</div>
+            <div class="taskdescription"><b>${task['subtask']}</b></div>
+            <div class="tasktext">${task['tasktext']}</div>
+            <div class="progresscontainer">
+                <div class="taskprogressbar"></div>
+                <div class="taskprogress">1/2 Done</div>
+            </div>
+            <div class="taskfooter">${task['user']}
+                <div class="priority"><img src="${task['priority']}"></div>
+            </div>
+        </div>`;
+    }
+}
 
 
 
