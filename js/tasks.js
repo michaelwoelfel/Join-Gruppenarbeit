@@ -5,16 +5,18 @@ let tasks = [];
 
 
 
-async function addTask(){
-       await loadTasks();
+async function addTask() {
+    await loadTasks();
     taskName = document.getElementById('add_task_title').value;
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
     let taskCategory = document.getElementById('add_task_category_select').value;
     let taskAssign = document.getElementById('add_task_assign_select').value;
     let taskDate = document.getElementById('add_task_input_date').value;
-    let taskPrio =  getTaskPrio();
-   
+    let taskPrio = getTaskPrio();
+    // NEU ...
+    let taskStatus = 'todo';
+
 
     tasks.push({
         name: taskName,
@@ -24,19 +26,20 @@ async function addTask(){
         user: taskAssign,
         date: taskDate,
         priority: taskPrio,
-        
+        status: taskStatus,
+
 
     });
     await setItem('tasks', JSON.stringify(tasks));
 };
 
-function clearTask(){
- document.getElementById('add_task_title').innerHTML = '';
- document.getElementById('add_task_input_subtask').value;
-  document.getElementById('add_task_description').value;
- document.getElementById('add_task_category_select').value;
- document.getElementById('add_task_assign_select').value;
-document.getElementById('add_task_input_date').value;
+function clearTask() {
+    document.getElementById('add_task_title').innerHTML = '';
+    document.getElementById('add_task_input_subtask').value;
+    document.getElementById('add_task_description').value;
+    document.getElementById('add_task_category_select').value;
+    document.getElementById('add_task_assign_select').value;
+    document.getElementById('add_task_input_date').value;
 
 
 }
@@ -45,13 +48,13 @@ function getTaskPrio(prio) {
     if (prio === 'urgent') {
         taskPrio = `assets/img/priohigh.png`;
     }
-    if (prio ===  'medium') {
+    if (prio === 'medium') {
         taskPrio = `assets/img/priomedium.png`;
     }
-    if (prio ===  'low') {
+    if (prio === 'low') {
         taskPrio = `assets/img/priolow.png`;
     }
-   return taskPrio;
+    return taskPrio;
 }
 
 
@@ -63,7 +66,7 @@ async function loadTasks() {
         tasks = JSON.parse(await getItem('tasks'));
     } catch (e) {
         console.error('Loading error:', e);
-        
+
     }
 }
 
@@ -88,11 +91,11 @@ async function renderTasks() {
 
 
 async function openTask(i) {
-  
+
     document.getElementById('showtask').classList.remove('d-none');
-    
-        const task = tasks[i];
-        document.getElementById('showtask').innerHTML = `<div class="bigtask" id="task${i}">
+
+    const task = tasks[i];
+    document.getElementById('showtask').innerHTML = `<div class="bigtask" id="task${i}">
         <div class="taskheader">${task['category']}</div>
         <div class="taskdescription"><b>${task['subtask']}</b></div>
         <div class="tasktext">${task['tasktext']}</div>
@@ -100,11 +103,17 @@ async function openTask(i) {
         <div class="taskfooter">${task['user']}<div class="priority"><img src="${task['priority']}"><div onclick = closeTask()>XXXX</div></div></div></div>
     </div>` ;
 
-    }
+}
 
-    function closeTask(){
-        document.getElementById('taskcontainer').classList.remove('d-none');
-        document.getElementById('showtask').classList.add('d-none');
-    }
+function closeTask() {
+    document.getElementById('taskcontainer').classList.remove('d-none');
+    document.getElementById('showtask').classList.add('d-none');
+}
 
 // Tasks rendern
+
+
+// DRAG AND DROP
+
+
+
