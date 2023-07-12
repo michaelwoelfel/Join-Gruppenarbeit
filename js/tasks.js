@@ -70,6 +70,7 @@ async function loadTasks() {
 
 
 async function renderTasks() {
+    document.getElementById('todo').innerHTML = '';
     await loadTasks();
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
@@ -83,5 +84,26 @@ async function renderTasks() {
 
     }
 }
+
+
+async function openTask(i) {
+  
+    document.getElementById('showtask').classList.remove('d-none');
+    
+        const task = tasks[i];
+        document.getElementById('showtask').innerHTML = `<div class="bigtask" id="task${i}">
+        <div class="taskheader">${task['name']}</div>
+        <div class="taskdescription"><b>${task['subtask']}</b></div>
+        <div class="tasktext">${task['tasktext']}</div>
+        <div class="progresscontainer"><div class="taskprogressbar"></div> <div class="taskprogress">1/2 Done</div></div>
+        <div class="taskfooter">${task['user']}<div class="priority"><img src="${task['priority']}"><div onclick = closeTask()>XXXX</div></div></div></div>
+    </div>` ;
+
+    }
+
+    function closeTask(){
+        document.getElementById('taskcontainer').classList.remove('d-none');
+        document.getElementById('showtask').classList.add('d-none');
+    }
 
 // Tasks rendern
