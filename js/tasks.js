@@ -1,10 +1,11 @@
+// Tasks rendern
+
 let tasks = [
   
 ];
 
 
 async function addTask() {
-   
     tasks.push({
         taskname: "Design",
         taskheader: "Website redesign",
@@ -41,3 +42,5 @@ async function renderTasks(){
         
     }
 }
+
+// Tasks rendern
