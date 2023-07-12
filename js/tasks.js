@@ -5,7 +5,8 @@ let tasks = [];
 
 
 
-async function addTask() {
+async function addTask(){
+       await loadTasks();
     taskName = document.getElementById('add_task_title').value;
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
@@ -75,7 +76,7 @@ async function renderTasks() {
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
         document.getElementById('todo').innerHTML += `<div onclick="openTask(${i})" class="content id="task${i}">
-        <div class="taskheader">${task['name']}</div>
+        <div class="taskheader">${task['category']}</div>
         <div class="taskdescription"><b>${task['subtask']}</b></div>
         <div class="tasktext">${task['tasktext']}</div>
         <div class="progresscontainer"><div class="taskprogressbar"></div> <div class="taskprogress">1/2 Done</div></div>
@@ -92,7 +93,7 @@ async function openTask(i) {
     
         const task = tasks[i];
         document.getElementById('showtask').innerHTML = `<div class="bigtask" id="task${i}">
-        <div class="taskheader">${task['name']}</div>
+        <div class="taskheader">${task['category']}</div>
         <div class="taskdescription"><b>${task['subtask']}</b></div>
         <div class="tasktext">${task['tasktext']}</div>
         <div class="progresscontainer"><div class="taskprogressbar"></div> <div class="taskprogress">1/2 Done</div></div>
