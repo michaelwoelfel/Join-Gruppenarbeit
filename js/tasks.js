@@ -1,8 +1,8 @@
 // Tasks rendern
 
 let tasks = [];
-
-
+let taskIdCounter = 0;
+let currentDraggedElement;
 
 
 async function addTask() {
@@ -14,11 +14,12 @@ async function addTask() {
     let taskAssign = document.getElementById('add_task_assign_select').value;
     let taskDate = document.getElementById('add_task_input_date').value;
     let taskPrio = getTaskPrio();
-    // NEW 4D+D
     let taskStatus = 'todo';
+    let taskId = taskIdCounter++;
 
 
     tasks.push({
+        id: taskId,
         name: taskName,
         subtask: taskSubtask,
         tasktext: taskDescription,
@@ -26,11 +27,7 @@ async function addTask() {
         user: taskAssign,
         date: taskDate,
         priority: taskPrio,
-
-        // NEW 4D+D
         status: taskStatus,
-
-
     });
     await setItem('tasks', JSON.stringify(tasks));
 };
@@ -60,9 +57,6 @@ function getTaskPrio(prio) {
 }
 
 
-
-
-
 async function loadTasks() {
     try {
         tasks = JSON.parse(await getItem('tasks'));
@@ -72,56 +66,66 @@ async function loadTasks() {
     }
 }
 
+async function renderTasks() {
+    await loadTasks();
+    updateHTML();
+}
 
 
-// NEW 4 D+D
-let currentDraggedElement;
 
-function updateHTML() {
+async function updateHTML() {
+
     let toDo = tasks.filter(t => t['status'] == 'todo');
     document.getElementById('todo').innerHTML = '';
 
-
     for (let index = 0; index < toDo.length; index++) {
         const task = toDo[index];
-        document.getElementById('todo').innerHTML += /*html*/ `
-        <div draggable="true" ondragstart="startDragging(${index})"  onclick="openTask(${index})" class="content" id="task${index}">
-            <div class="taskheader">${task['category']}</div>
-            <div class="taskdescription"><b>${task['subtask']}</b></div>
-            <div class="tasktext">${task['tasktext']}</div>
-            <div class="progresscontainer">
-                <div class="taskprogressbar"></div>
-                <div class="taskprogress">1/2 Done</div>
-            </div>
-            <div class="taskfooter">${task['user']}
-                <div class="priority"><img src="${task['priority']}"></div>
-            </div>
-        </div>`;
+        document.getElementById('todo').innerHTML += taskTemplate(task, index);
     }
-
 
     let inprogress = tasks.filter(t => t['status'] == 'inprogress');
     document.getElementById('inprogress').innerHTML = '';
 
-
     for (let index = 0; index < inprogress.length; index++) {
         const task = inprogress[index];
-        document.getElementById('inprogress').innerHTML += /*html*/ `
-        <div draggable="true" ondragstart="startDragging(${index})" onclick="openTask(${index})" class="content" id="task${index}">
-            <div class="taskheader">${task['category']}</div>
-            <div class="taskdescription"><b>${task['subtask']}</b></div>
-            <div class="tasktext">${task['tasktext']}</div>
-            <div class="progresscontainer">
-                <div class="taskprogressbar"></div>
-                <div class="taskprogress">1/2 Done</div>
-            </div>
-            <div class="taskfooter">${task['user']}
-                <div class="priority"><img src="${task['priority']}"></div>
-            </div>
-        </div>`;
+        document.getElementById('inprogress').innerHTML += taskTemplate(task, index);
+    }
+
+    let awaitingfb = tasks.filter(t => t['status'] == 'awaitingfb');
+    document.getElementById('awaitingfb').innerHTML = '';
+
+    for (let index = 0; index < awaitingfb.length; index++) {
+        const task = awaitingfb[index];
+        document.getElementById('awaitingfb').innerHTML += taskTemplate(task, index);
+    }
+
+    let done = tasks.filter(t => t['status'] == 'done');
+    document.getElementById('done').innerHTML = '';
+
+
+    for (let index = 0; index < done.length; index++) {
+        const task = done[index];
+        document.getElementById('done').innerHTML += taskTemplate(task, index);
     }
 
 }
+
+let taskTemplate = (task, index) => /*html*/ `
+    <div draggable="true" ondragstart="startDragging(${index})" onclick="openTask(${index})" class="content" id="task${index}">
+        <div class="taskheader">${task['category']}</div>
+        <div class="taskdescription"><b>${task['subtask']}</b></div>
+        <div class="tasktext">${task['tasktext']}</div>
+        <div class="progresscontainer">
+            <div class="taskprogressbar"></div>
+            <div class="taskprogress">1/2 Done</div>
+        </div>
+        <div class="taskfooter">${task['user']}
+            <div class="priority"><img src="${task['priority']}"></div>
+        </div>
+    </div>
+`;
+
+
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -132,40 +136,14 @@ function moveTo(category) {
     updateHTML();
 }
 
-function startDragging(id) {
-    currentDraggedElement = id;
+function startDragging(index) {
+    console.log(index);
+    currentDraggedElement = index;
 }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-async function renderTasks() {
-    document.getElementById('todo').innerHTML = '';
-    await loadTasks();
-    for (let i = 0; i < tasks.length; i++) {
-        const task = tasks[i];
-        document.getElementById('todo').innerHTML += `<div onclick="openTask(${i})" class="content id="task${i}">
-        <div class="taskheader">${task['category']}</div>
-        <div class="taskdescription"><b>${task['subtask']}</b></div>
-        <div class="tasktext">${task['tasktext']}</div>
-        <div class="progresscontainer"><div class="taskprogressbar"></div> <div class="taskprogress">1/2 Done</div></div>
-        <div class="taskfooter">${task['user']}<div class="priority"><img src="${task['priority']}"></div></div></div>
-    </div>`;
-    updateHTML();
-    }
-}
 
 
 async function openTask(i) {
