@@ -4,9 +4,17 @@ let tasks = [];
 let taskIdCounter = 0;
 let currentDraggedElement;
 
+// CHECK THE TASK FOR THE RIGHT ID
+async function checkLastTaskId() {
+    await loadTasks();
+    if (tasks.length > 0) {
+        const maxId = Math.max(...tasks.map(task => task.id));
+        taskIdCounter = maxId + 1;
+    }
+}
 
 async function addTask() {
-    await loadTasks();
+    await checkLastTaskId();
     taskName = document.getElementById('add_task_title').value;
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
@@ -14,9 +22,10 @@ async function addTask() {
     let taskAssign = document.getElementById('add_task_assign_select').value;
     let taskDate = document.getElementById('add_task_input_date').value;
     let taskPrio = getTaskPrio();
+    // TODO = START STATUS
     let taskStatus = 'todo';
+    // EVERY TASK HAS OWN ID
     let taskId = taskIdCounter++;
-
 
     tasks.push({
         id: taskId,
@@ -33,14 +42,13 @@ async function addTask() {
 };
 
 
-// HARD RESET TASKS
+// HARD RESET TASKS => LÖSCHT ALLE TASKS ... IN CONSOLE AUSFÜHREN
 // async function deleteAllTasks() {
 //     await loadTasks();
 
 //     if (tasks.length > 0) {
 //         // Lösche alle Aufgaben im Array
 //         tasks = [];
-
 //         // Speichere das aktualisierte Array in der Datenquelle (z. B. localStorage)
 //         await setItem('tasks', JSON.stringify(tasks));
 
@@ -50,7 +58,6 @@ async function addTask() {
 //     }
 // }
 
-
 function clearTask() {
     document.getElementById('add_task_title').innerHTML = '';
     document.getElementById('add_task_input_subtask').value;
@@ -58,8 +65,6 @@ function clearTask() {
     document.getElementById('add_task_category_select').value;
     document.getElementById('add_task_assign_select').value;
     document.getElementById('add_task_input_date').value;
-
-
 }
 
 function getTaskPrio(prio) {
@@ -75,7 +80,6 @@ function getTaskPrio(prio) {
     return taskPrio;
 }
 
-
 async function loadTasks() {
     try {
         tasks = JSON.parse(await getItem('tasks'));
@@ -85,50 +89,58 @@ async function loadTasks() {
     }
 }
 
+// Öhm GLAUB MAN KÖNNTE DIREKT UPDATE ALS RENDER TASKS AUSFÜHREN, HAB ABER KEINE LUST / ZEIT MEHR ...
 async function renderTasks() {
     await loadTasks();
     updateHTML();
 }
 
+// 4 x SELBE FUNKTION ... VERBESSERUNGSWÜRDIG ...
+function updateHTML() {
+    renderToDo();
+    renderInProgress();
+    renderAwaitFb();
+    renderDone();
+}
 
-
-async function updateHTML() {
-
+function renderToDo() {
     let toDo = tasks.filter(t => t['status'] == 'todo');
     document.getElementById('todo').innerHTML = '';
-
     for (let index = 0; index < toDo.length; index++) {
         const task = toDo[index];
         document.getElementById('todo').innerHTML += taskTemplate(task);
     }
+}
 
+function renderInProgress() {
     let inprogress = tasks.filter(t => t['status'] == 'inprogress');
     document.getElementById('inprogress').innerHTML = '';
-
     for (let index = 0; index < inprogress.length; index++) {
         const task = inprogress[index];
         document.getElementById('inprogress').innerHTML += taskTemplate(task);
     }
+}
 
+function renderAwaitFb() {
     let awaitingfb = tasks.filter(t => t['status'] == 'awaitingfb');
     document.getElementById('awaitingfb').innerHTML = '';
-
     for (let index = 0; index < awaitingfb.length; index++) {
         const task = awaitingfb[index];
         document.getElementById('awaitingfb').innerHTML += taskTemplate(task);
     }
+}
 
+function renderDone() {
     let done = tasks.filter(t => t['status'] == 'done');
     document.getElementById('done').innerHTML = '';
-
-
     for (let index = 0; index < done.length; index++) {
         const task = done[index];
         document.getElementById('done').innerHTML += taskTemplate(task);
-    }
 
+    }
 }
 
+// TEMPLATE FÜR RENDER ... WIRD FÜR JEDEN STATUS AUSGEFÜHRT 
 let taskTemplate = (task) => /*html*/ `
     <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="openTask(${task['id']})" class="content">
         <div class="taskheader">${task['category']}</div>
@@ -144,8 +156,7 @@ let taskTemplate = (task) => /*html*/ `
     </div>
 `;
 
-
-
+// ALLGEMEINE FUNKTIONEN ....
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -159,6 +170,8 @@ function startDragging(index) {
     console.log(index);
     currentDraggedElement = index;
 }
+
+// ENDE 
 
 
 
