@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/board.css">
     <script src="js/include_html.js"></script>
     <script src="js/script.js"></script>
-<script src="js/tasks.js"></script>
-<script src="js/signupandlogin.js"></script>
+    <script src="js/tasks.js"></script>
+    <script src="js/signupandlogin.js"></script>
 
 
     <title>Board</title>
@@ -18,8 +18,8 @@
 
 <body onload="initBoard()">
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
-  
-   
+
+
     <div class="maincontainer">
         <script src="js/include_html.js"></script>
         <div w3-include-html="assets/templates/header_template.html"></div>
@@ -32,46 +32,51 @@
             </div>
         </div>
 
-       
+
         <div id="showtask" class="showtask d-none">
-            <div class="bigtask" id="task${i}" >
+            <div class="bigtask" id="task${i}">
                 <div class="taskheader">${task['name']}</div>
                 <div class="taskdescription"><b>${task['subtask']}</b></div>
                 <div class="tasktext">${task['tasktext']}</div>
-                <div class="progresscontainer"><div class="taskprogressbar"></div> <div class="taskprogress">1/2 Done</div></div>
-                <div class="taskfooter">${task['user']}<div class="priority"><img src="${task['priority']}"></div></div></div>
+                <div class="progresscontainer">
+                    <div class="taskprogressbar"></div>
+                    <div class="taskprogress">1/2 Done</div>
+                </div>
+                <div class="taskfooter">${task['user']}<div class="priority"><img src="${task['priority']}"></div>
+                </div>
             </div>
+        </div>
         <div id="taskcontainer" class="taskcontainer">
             <div class="task">
                 <div class="taskheading">
                     <h3>To do</h3><img class="plusbutton" src="assets/img/plus_button.png">
                 </div>
-                <div id="todo">
-                   
+                <div id="todo" ondragover="allowDrop(event)" ondrop="moveTo('todo')">
+
                 </div>
             </div>
             <div class="task">
                 <div class="taskheading">
                     <h3>In progress</h3><img class="plusbutton" src="assets/img/plus_button.png">
                 </div>
-                <div id="inprogress">
-                   
+                <div id="inprogress" ondragover="allowDrop(event)" ondrop="moveTo('inprogress')">
+
                 </div>
             </div>
             <div class="task">
                 <div class="taskheading">
                     <h3>Awaiting Feedback</h3><img class="plusbutton" src="assets/img/plus_button.png">
                 </div>
-                <div id="awaitingfb">
-                    
+                <div id="awaitingfb" ondragover="allowDrop(event)" ondrop="moveTo('awaitingfb')">
+
                 </div>
             </div>
             <div class="task">
                 <div class="taskheading">
                     <h3>Done</h3><img class="plusbutton" src="assets/img/plus_button.png">
                 </div>
-                <div id="done">
-                   
+                <div id="done" ondragover="allowDrop(event)" ondrop="moveTo('done')">
+
                 </div>
             </div>
         </div>
