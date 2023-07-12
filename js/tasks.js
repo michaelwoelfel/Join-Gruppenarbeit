@@ -75,8 +75,9 @@ async function loadTasks() {
 
 
 // NEW 4 D+D
-async function updateHTML() {
-    // await loadTasks();
+let currentDraggedElement;
+
+function updateHTML() {
     let toDo = tasks.filter(t => t['status'] == 'todo');
     document.getElementById('todo').innerHTML = '';
 
@@ -84,7 +85,7 @@ async function updateHTML() {
     for (let index = 0; index < toDo.length; index++) {
         const task = toDo[index];
         document.getElementById('todo').innerHTML += /*html*/ `
-        <div onclick="openTask(${index})" class="content" id="task${index}">
+        <div draggable="true" ondragstart="startDragging(${index})"  onclick="openTask(${index})" class="content" id="task${index}">
             <div class="taskheader">${task['category']}</div>
             <div class="taskdescription"><b>${task['subtask']}</b></div>
             <div class="tasktext">${task['tasktext']}</div>
@@ -97,7 +98,56 @@ async function updateHTML() {
             </div>
         </div>`;
     }
+
+
+    let inprogress = tasks.filter(t => t['status'] == 'inprogress');
+    document.getElementById('inprogress').innerHTML = '';
+
+
+    for (let index = 0; index < inprogress.length; index++) {
+        const task = inprogress[index];
+        document.getElementById('inprogress').innerHTML += /*html*/ `
+        <div draggable="true" ondragstart="startDragging(${index})" onclick="openTask(${index})" class="content" id="task${index}">
+            <div class="taskheader">${task['category']}</div>
+            <div class="taskdescription"><b>${task['subtask']}</b></div>
+            <div class="tasktext">${task['tasktext']}</div>
+            <div class="progresscontainer">
+                <div class="taskprogressbar"></div>
+                <div class="taskprogress">1/2 Done</div>
+            </div>
+            <div class="taskfooter">${task['user']}
+                <div class="priority"><img src="${task['priority']}"></div>
+            </div>
+        </div>`;
+    }
+
 }
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function moveTo(category) {
+    tasks[currentDraggedElement]['status'] = category;
+    updateHTML();
+}
+
+function startDragging(id) {
+    currentDraggedElement = id;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -113,7 +163,7 @@ async function renderTasks() {
         <div class="progresscontainer"><div class="taskprogressbar"></div> <div class="taskprogress">1/2 Done</div></div>
         <div class="taskfooter">${task['user']}<div class="priority"><img src="${task['priority']}"></div></div></div>
     </div>`;
-
+    updateHTML();
     }
 }
 

@@ -46,36 +46,51 @@
                 </div>
             </div>
         </div>
+
+
         <div id="taskcontainer" class="taskcontainer">
             <div class="task">
                 <div class="taskheading">
                     <h3>To do</h3><img class="plusbutton" src="assets/img/plus_button.png">
                 </div>
-                <div id="todo" ondragover="allowDrop(event)" ondrop="moveTo('todo')">
+                <div class="task-status-container" id="todo" ondragover="allowDrop(event)" ondrop="moveTo('todo')">
 
                 </div>
             </div>
+
+
+
+
             <div class="task">
                 <div class="taskheading">
                     <h3>In progress</h3><img class="plusbutton" src="assets/img/plus_button.png">
                 </div>
-                <div id="inprogress" ondragover="allowDrop(event)" ondrop="moveTo('inprogress')">
+                <div class="task-status-container" id="inprogress" ondragover="allowDrop(event)"
+                    ondrop="moveTo('inprogress')">
 
                 </div>
             </div>
+
+
+
             <div class="task">
                 <div class="taskheading">
                     <h3>Awaiting Feedback</h3><img class="plusbutton" src="assets/img/plus_button.png">
                 </div>
-                <div id="awaitingfb" ondragover="allowDrop(event)" ondrop="moveTo('awaitingfb')">
+                <div class="task-status-container" id="awaitingfb" ondragover="allowDrop(event)"
+                    ondrop="moveTo('awaitingfb')">
 
                 </div>
             </div>
+
+
+
+
             <div class="task">
                 <div class="taskheading">
                     <h3>Done</h3><img class="plusbutton" src="assets/img/plus_button.png">
                 </div>
-                <div id="done" ondragover="allowDrop(event)" ondrop="moveTo('done')">
+                <div class="task-status-container" id="done" ondragover="allowDrop(event)" ondrop="moveTo('done')">
 
                 </div>
             </div>

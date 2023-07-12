@@ -104,6 +104,10 @@ h3 {
     margin-top: 20px;
 }
 
+.task-status-container{
+    min-height: 580px;
+}
+
 
 .showtask {
     background-color: rgba(0, 0, 0, 0.5);
