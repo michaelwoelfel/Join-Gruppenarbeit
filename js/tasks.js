@@ -32,6 +32,25 @@ async function addTask() {
     await setItem('tasks', JSON.stringify(tasks));
 };
 
+
+// HARD RESET TASKS
+// async function deleteAllTasks() {
+//     await loadTasks();
+
+//     if (tasks.length > 0) {
+//         // Lösche alle Aufgaben im Array
+//         tasks = [];
+
+//         // Speichere das aktualisierte Array in der Datenquelle (z. B. localStorage)
+//         await setItem('tasks', JSON.stringify(tasks));
+
+//         console.log('Alle Aufgaben wurden gelöscht.');
+//     } else {
+//         console.log('Keine Aufgaben zum Löschen vorhanden.');
+//     }
+// }
+
+
 function clearTask() {
     document.getElementById('add_task_title').innerHTML = '';
     document.getElementById('add_task_input_subtask').value;
@@ -80,7 +99,7 @@ async function updateHTML() {
 
     for (let index = 0; index < toDo.length; index++) {
         const task = toDo[index];
-        document.getElementById('todo').innerHTML += taskTemplate(task, index);
+        document.getElementById('todo').innerHTML += taskTemplate(task);
     }
 
     let inprogress = tasks.filter(t => t['status'] == 'inprogress');
@@ -88,7 +107,7 @@ async function updateHTML() {
 
     for (let index = 0; index < inprogress.length; index++) {
         const task = inprogress[index];
-        document.getElementById('inprogress').innerHTML += taskTemplate(task, index);
+        document.getElementById('inprogress').innerHTML += taskTemplate(task);
     }
 
     let awaitingfb = tasks.filter(t => t['status'] == 'awaitingfb');
@@ -96,7 +115,7 @@ async function updateHTML() {
 
     for (let index = 0; index < awaitingfb.length; index++) {
         const task = awaitingfb[index];
-        document.getElementById('awaitingfb').innerHTML += taskTemplate(task, index);
+        document.getElementById('awaitingfb').innerHTML += taskTemplate(task);
     }
 
     let done = tasks.filter(t => t['status'] == 'done');
@@ -105,13 +124,13 @@ async function updateHTML() {
 
     for (let index = 0; index < done.length; index++) {
         const task = done[index];
-        document.getElementById('done').innerHTML += taskTemplate(task, index);
+        document.getElementById('done').innerHTML += taskTemplate(task);
     }
 
 }
 
-let taskTemplate = (task, index) => /*html*/ `
-    <div draggable="true" ondragstart="startDragging(${index})" onclick="openTask(${index})" class="content" id="task${index}">
+let taskTemplate = (task) => /*html*/ `
+    <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="openTask(${task['id']})" class="content">
         <div class="taskheader">${task['category']}</div>
         <div class="taskdescription"><b>${task['subtask']}</b></div>
         <div class="tasktext">${task['tasktext']}</div>
