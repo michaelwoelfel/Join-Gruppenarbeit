@@ -205,6 +205,8 @@ function startDragging(index) {
     currentDraggedElement = index;
 }
 
+
+
 // ENDE 
 
 
@@ -226,7 +228,7 @@ async function openTask(i) {
     <div class="bigtaskusers">
         <span><b>Assigned To:</b></span>
     <div class="users">${task['user']}</div></div>
-    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask()" src="/assets/img/delete.png"><img id="editimg" onclick="editTask()" src="/assets/img/edit.png"></div>
+    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${i})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${i})" src="/assets/img/edit.png"></div>
 </div>` ;
 
 colorUrgency(i);
@@ -255,11 +257,18 @@ function colorUrgency(i){
         document.getElementById('colorpriobigtask').classList.add('low');
         document.getElementById('priobigtask').innerHTML = `Low`;
     }
-  
- 
-
 }
 
+
+async function deleteTask(i){
+    tasks.splice(i,1);
+    await setItem('tasks', JSON.stringify(tasks));
+  await renderTasks();
+  closeTask();
+
+
+
+}
 // Tasks rendern
 
 
