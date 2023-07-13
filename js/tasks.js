@@ -70,12 +70,15 @@ function clearTask() {
 function getTaskPrio(prio) {
     if (prio === 'urgent') {
         taskPrio = `assets/img/priohigh.png`;
+        prioColorRed();
     }
     if (prio === 'medium') {
         taskPrio = `assets/img/priomedium.png`;
+        prioColorOrange();
     }
     if (prio === 'low') {
         taskPrio = `assets/img/priolow.png`;
+        prioColorGreen();
     }
     return taskPrio;
 }
