@@ -112,7 +112,6 @@ function renderToDo() {
     }
 }
 
-<<<<<<< HEAD
 // Tasks rendern
 
 
@@ -147,7 +146,6 @@ function prioColorGreen() {
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.toggle('prio-btn-low-clicked');
 }
-=======
 function renderInProgress() {
     let inprogress = tasks.filter(t => t['status'] == 'inprogress');
     document.getElementById('inprogress').innerHTML = '';
@@ -243,4 +241,4 @@ function closeTask() {
 
 
 
->>>>>>> 6c90d31d4e2c580d93fe52b4911304fa8b5bb12a
+
