@@ -44,3 +44,36 @@ async function renderTasks(){
 }
 
 // Tasks rendern
+
+
+
+// PRIO COLORS CHANGING ONCLICK 
+
+function prioColorRed() {
+    let urgent = document.getElementById('prio_urgent');
+    let medium = document.getElementById('prio_medium');
+    let low = document.getElementById('prio_low');
+    urgent.classList.toggle('prio-btn-urgent-clicked');
+    medium.classList.remove('prio-btn-medium-clicked');
+    low.classList.remove('prio-btn-low-clicked');   
+}
+
+
+function prioColorOrange() {
+    let urgent = document.getElementById('prio_urgent');
+    let medium = document.getElementById('prio_medium');
+    let low = document.getElementById('prio_low');
+    urgent.classList.remove('prio-btn-urgent-clicked');
+    medium.classList.toggle('prio-btn-medium-clicked');
+    low.classList.remove('prio-btn-low-clicked');
+}
+
+
+function prioColorGreen() {
+    let urgent = document.getElementById('prio_urgent');
+    let medium = document.getElementById('prio_medium');
+    let low = document.getElementById('prio_low');
+    urgent.classList.remove('prio-btn-urgent-clicked');
+    medium.classList.remove('prio-btn-medium-clicked');
+    low.classList.toggle('prio-btn-low-clicked');
+}

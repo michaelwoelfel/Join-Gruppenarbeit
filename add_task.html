@@ -69,20 +69,21 @@
                 <div class="prio fd_column">
                     <span>Prio</span>
                     <div class="prio-btns-container">
-                        <div id="prio_urgent" class="prio-btn">Urgent <img src="./assets/img/urgent_prio.png"
+                        <div id="prio_urgent" class="prio-btn" onclick="prioColorRed()">Urgent <img src="./assets/img/urgent_prio.png"
                                 alt="urgent">
                         </div>
-                        <div id="prio_medium" class="prio-btn">Medium <img src="./assets/img/medium_prio.png"
+                        <div id="prio_medium" class="prio-btn" onclick="prioColorOrange()">Medium <img src="./assets/img/medium_prio.png"
                                 alt="medium">
                         </div>
-                        <div id="prio_low" class="prio-btn">Low <img src="./assets/img/low_prio.png" alt="low"></div>
+                        <div id="prio_low" class="prio-btn" onclick="prioColorGreen()">Low <img src="./assets/img/low_prio.png" alt="low"></div>
                     </div>
                 </div>
 
+            
                 <div class="subtasks fd_column">
                     <span>Subtasks</span>
                     <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask"
-                        placeholder="Add new subtask">
+                        placeholder="Add new subtask"><img src="" alt="">
                 </div>
 
                 <div class="show_subtask">
@@ -91,8 +92,8 @@
         </div>
 
         <div class="buttons-clear-create">
-            <div class="clear-btn btn">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
-            <div class="create-btn btn">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
+            <div class="clear-btn btn" onclick="clearTask()">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
+            <div class="create-btn btn" onclick="addTask()">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
         </div>
 
     </div>
