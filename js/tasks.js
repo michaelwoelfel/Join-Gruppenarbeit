@@ -222,9 +222,15 @@ async function openTask(i) {
     <div class="taskdescriptionbig"><b>${task['subtask']}</b></div>
     <div class="tasktext">${task['tasktext']}</div>
     <div class="datecontainer"><span><b>Due date:</b></span> <div class="date">${task['date']}</div></div>
-    <div class="prioritycontainer"><span><b>Priority:</b></span><div class="priority"><span id="priobigtask"><img src="/assets/img/prio.png"></div></div>
-    <div class="taskfooter">${task['user']}</div>
+    <div class="prioritycontainer"><span ><b>Priority:</b></span><div id="colorpriobigtask" class="prioritybigtask"><span id="priobigtask"></span><img src="/assets/img/prio.png"></div></div>
+    <div class="bigtaskusers">
+        <span><b>Assigned To:</b></span>
+    <div class="users">${task['user']}</div></div>
+    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask()" src="/assets/img/delete.png"><img id="editimg" onclick="editTask()" src="/assets/img/edit.png"></div>
 </div>` ;
+
+colorUrgency(i);
+
 
 
 }
@@ -232,6 +238,26 @@ async function openTask(i) {
 function closeTask() {
     document.getElementById('taskcontainer').classList.remove('d-none');
     document.getElementById('showtask').classList.add('d-none');
+}
+// Färbung der Dringlichkeit in der großen Ansicht
+function colorUrgency(i){
+    task = tasks[i]
+  prio = task['priority'];
+    if (prio === 'assets/img/priohigh.png') {
+        document.getElementById('colorpriobigtask').classList.add('urgent');
+        document.getElementById('priobigtask').innerHTML = `Urgent`;
+    }
+    if (prio === 'assets/img/priomedium.png') {
+        document.getElementById('colorpriobigtask').classList.add('medium');
+        document.getElementById('priobigtask').innerHTML = `Medium`;
+    }
+    if (prio === 'assets/img/priolow.png') {
+        document.getElementById('colorpriobigtask').classList.add('low');
+        document.getElementById('priobigtask').innerHTML = `Low`;
+    }
+  
+ 
+
 }
 
 // Tasks rendern

@@ -221,8 +221,44 @@ h3 {
     flex-direction: row;
     padding-left: 30px;
     padding-top: 30px;
+    gap: 30px;
 }
 
+.prioritybigtask {
+    background-color: red;
+    color: white;
+    width: 130px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.buttoncontainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+
+}
+
+.bigtaskusers{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+#editimg {
+    padding-right: 10px;
+}
+
+.users{
+    padding-top: 10px;
+}
 
 
 
@@ -252,6 +288,18 @@ h3 {
     padding-left: 30px;
     padding-top: 30px;
    gap: 30px;
+}
+
+.urgent {
+    background-color: #FF3D00;
+}
+
+.low{
+    background-color: #7AE229;
+}
+
+.medium {
+    background-color: #FFA800;
 }
 
 @media only screen and (max-width: 1400px) {
