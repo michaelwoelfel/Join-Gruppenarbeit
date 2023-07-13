@@ -155,26 +155,62 @@ h3 {
     }
 
     .img-add-contact {
+        margin-top: 120px;
         margin-left: 50px;
         margin-right: 50px;
-        height: 100px;
-        width: 100px;
+        height: 120px;
+        width: 120px;
     }
 
     .img-info {
         display: flex;
-        margin-top: 120px;
+        
     }
 
     .input-fields {
         display: flex;
         flex-direction: column;
+        margin-top: 60px;
     }
 
     .input-field {
         width: 400px;
         height: 40px;
         margin-top: 30px;
+        padding-left: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-color: rgb(223, 225, 233);
+        border-width: 1px;
+    }
+
+    .input-field-mail {
+        width: 400px;
+        height: 40px;
+        margin-top: 30px;
+        padding-left: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-color: rgb(223, 225, 233);
+        border-width: 1px;
+    }
+
+    .input-field-phone {
+        background-image: url(/assets/img/phoneholder.png);
+        width: 400px;
+        height: 40px;
+        margin-top: 30px;
+        padding-left: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-color: rgb(223, 225, 233);
+        border-width: 1px;
     }
 
 @media only screen and (max-width: 800px) {
