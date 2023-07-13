@@ -1,6 +1,23 @@
+.popup-background {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 20;
+}
 
-.maincontainer {
-    background-color: #F6F7F8;
+
+.popup-content {
+    background-color: white;
+    border-radius: 16px;
+    position: absolute;
+    top: 32px;
+    left: 128px;
+    right: 128px;
+    bottom: 32px;
+    z-index: 20;
 }
 
 
@@ -16,6 +33,42 @@
     margin-top: 16px;
 }
 
+
+.d-none {
+    display: none;
+}
+
+
+
+/* HEADLINE STYLING */
+
+.add_task_h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 100px;    
+}
+
+
+.headline_h1_cancel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.headline_h1_cancel img {
+    height: 32px;
+    margin: 32px;   
+}
+
+
+
+/* INPUT STYLING */
+
+
+input {
+    background-color: white;
+}
 
 .task_input_field_styling {
     border-radius: 6px;
@@ -34,6 +87,7 @@
 
 
 .task_input_field_styling::placeholder {
+    background-color: white;
     color: #D1D1D1;
     padding: 8px;
 }   
@@ -41,13 +95,6 @@
 
 input[type=date]:invalid::-webkit-datetime-edit {
     color: #D1D1D1;
-}
-
-
-.add_task_h1 {
-    font-size: 40px;
-    font-weight: bold;
-    margin-left: 100px;    
 }
 
 
@@ -76,6 +123,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 /* MIDDLE SEPERATOR  */
 
 .seperator {
+    position: relative;
     background-color: #DBDBDB;
     width: 4px;
     margin: 0 100px;
@@ -93,8 +141,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
-/* PRIO BUTTONS */
-
 .prio {
     margin-top: 16px;
 }
@@ -110,12 +156,45 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 .prio-btn {
     text-align: center;
-    border: none;
+    border: 1px solid lightgray;
     border-radius: 8px;
     background-color: white;
     padding: 10px;
     width: 96px;
 }
+
+
+.prio-btn-urgent-clicked {
+    background-color: #FF3D00;
+    color: white; 
+}
+
+
+.prio-btn-urgent-clicked img {
+   filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(245deg) brightness(160%) contrast(110%)
+}
+
+
+.prio-btn-medium-clicked {
+    background-color: #FFA800;
+    color: white;    
+}
+
+
+.prio-btn-medium-clicked img {
+    filter: invert(0%) sepia(100%) saturate(100%) hue-rotate(245deg) brightness(160%) contrast(110%)
+ }
+
+
+.prio-btn-low-clicked {
+    background-color: #6BC624;
+    color: white;
+}
+
+
+.prio-btn-low-clicked img {
+    filter: invert(0%) sepia(100%) saturate(100%) hue-rotate(245deg) brightness(160%) contrast(110%)
+ }
 
 
 .prio-btn:hover {
@@ -134,39 +213,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 #prio_medium img {
     height: 8px;
 }
-
-
-.prio-btn-urgent-clicked {
-    background-color: #FF3D00;
-    color: white; 
-}
-
-
-.prio-btn-urgent-clicked img {
-    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(245deg) brightness(160%) contrast(110%)
- }
- 
- 
- .prio-btn-medium-clicked {
-     background-color: #FFA800;
-     color: white;    
- }
- 
- 
-.prio-btn-medium-clicked img {
-     filter: invert(0%) sepia(100%) saturate(100%) hue-rotate(245deg) brightness(160%) contrast(110%)
-  }
- 
- 
-.prio-btn-low-clicked {
-     background-color: #6BC624;
-     color: white;
- }
- 
- 
-.prio-btn-low-clicked img {
-     filter: invert(0%) sepia(100%) saturate(100%) hue-rotate(245deg) brightness(160%) contrast(110%)
-  }
 
 
 .subtasks {
@@ -227,94 +273,4 @@ input[type=date]:invalid::-webkit-datetime-edit {
     border-color: #29ABE2;
     filter: invert(55%) sepia(82%) saturate(722%) hue-rotate(165deg) brightness(92%) contrast(92%);
     box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-
-/* RESPONSIVE DESIGN */
-
-@media(max-width: 1500px) {
-    .prio-btn {
-        font-size: 12px;
-        width: 80px;
-        margin-right: 8px;
-    }
-
-    .seperator {
-        margin: 0 70px;
-    }
-
-    .add_task_right {
-        margin-right: 150px;
-    }
-}
-
-
-@media(max-width: 1180px) {
-    .add_task_right {
-        width: 30%;
-        margin-right: 100px;
-    }
-
-    .buttons-clear-create {
-        right: 100px;
-    }
-
-    .prio-btn {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .prio-btn img {
-        margin-top: 8px;
-        width: 16px;
-    }
-}
-
-
-@media(max-width: 1050px) {
-    .add_task_right {
-        width: 30%;
-        margin-right: 100px;
-    }
-
-    .buttons-clear-create {
-        right: 70px;
-    }
-
-    .prio-btn {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .prio-btn img {
-        margin-top: 8px;
-        width: 16px;
-    }
-
-    .seperator {
-        margin: 0 50px;
-    }
-}
-
-
-@media(max-width: 990px) {
-    .add_task_left {
-        margin-left: 50px;
-    }
-
-    .add_task_h1 {
-        margin-left: 80px;
-    }
-
-    .add_task_right {
-        margin-right: 50px;
-    }
-
-    .buttons-clear-create {
-        bottom: 10px;
-        right: 200px;
-        flex-direction: column;  
-    }
 }

@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/legal_notice.css">
     <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/add_task_popup.css">
     <script src="js/include_html.js"></script>
     <script src="js/script.js"></script>
     <script src="js/tasks.js"></script>
     <script src="js/signupandlogin.js"></script>
+<<<<<<< HEAD
+    <script src="js/board.js"></script>
+=======
+>>>>>>> 6c90d31d4e2c580d93fe52b4911304fa8b5bb12a
 
 
     <title>Board</title>
@@ -30,7 +35,7 @@
             <div class="search">
                 <div class="searchbar"><input class="searchinput" placeholder="Find Task" type="search"> <img
                         src="assets/img/search.png"></div>
-                <div class="addtask"><span>Add task</span><img src="assets/img/plus.png"></div>
+                <div class="addtask" onclick="addTaskPopUp()"><span>Add task</span><img src="assets/img/plus.png"></div>
             </div>
         </div>
 
@@ -53,9 +58,13 @@
         <div id="taskcontainer" class="taskcontainer">
             <div class="task">
                 <div class="taskheading">
-                    <h3>To do</h3><img class="plusbutton" src="assets/img/plus_button.png">
+                    <h3>To do</h3><img class="plusbutton" src="assets/img/plus_button.png" onclick="addTaskPopUp()">
                 </div>
+<<<<<<< HEAD
+                <div id="todo">
+=======
                 <div class="task-status-container" id="todo" ondragover="allowDrop(event)" ondrop="moveTo('todo')">
+>>>>>>> 6c90d31d4e2c580d93fe52b4911304fa8b5bb12a
 
                 </div>
             </div>
@@ -68,7 +77,8 @@
 
             <div class="task">
                 <div class="taskheading">
-                    <h3>In progress</h3><img class="plusbutton" src="assets/img/plus_button.png">
+                    <h3>In progress</h3><img class="plusbutton" src="assets/img/plus_button.png"
+                        onclick="addTaskPopUp()">
                 </div>
                 <div class="task-status-container" id="inprogress" ondragover="allowDrop(event)"
                     ondrop="moveTo('inprogress')">
@@ -80,7 +90,8 @@
 
             <div class="task">
                 <div class="taskheading">
-                    <h3>Awaiting Feedback</h3><img class="plusbutton" src="assets/img/plus_button.png">
+                    <h3>Awaiting Feedback</h3><img class="plusbutton" src="assets/img/plus_button.png"
+                        onclick="addTaskPopUp()">
                 </div>
                 <div class="task-status-container" id="awaitingfb" ondragover="allowDrop(event)"
                     ondrop="moveTo('awaitingfb')">
@@ -93,7 +104,7 @@
 
             <div class="task">
                 <div class="taskheading">
-                    <h3>Done</h3><img class="plusbutton" src="assets/img/plus_button.png">
+                    <h3>Done</h3><img class="plusbutton" src="assets/img/plus_button.png" onclick="addTaskPopUp()">
                 </div>
                 <div class="task-status-container" id="done" ondragover="allowDrop(event)" ondrop="moveTo('done')">
 
@@ -101,11 +112,9 @@
             </div>
         </div>
 
-
-
+        <div class="popup_add_task" id="popup_add_task">
+        </div>
     </div>
-
-
 </body>
 
 
