@@ -274,3 +274,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     filter: invert(55%) sepia(82%) saturate(722%) hue-rotate(165deg) brightness(92%) contrast(92%);
     box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
 }
+
+
+/* RESPONSIVE DESIGN */
+

@@ -302,10 +302,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
 @media(max-width: 990px) {
     .add_task_left {
         margin-left: 50px;
+        width: 30%;
     }
 
     .add_task_h1 {
-        margin-left: 80px;
+        margin-left: 50px;
     }
 
     .add_task_right {
@@ -313,8 +314,66 @@ input[type=date]:invalid::-webkit-datetime-edit {
     }
 
     .buttons-clear-create {
-        bottom: 10px;
-        right: 200px;
-        flex-direction: column;  
+        bottom: 15px;
+        right: 30px;
+    }
+}
+
+
+@media(max-width: 800px) {
+    .clear-btn {
+        display: none;
+    }
+
+    .buttons-clear-create {
+        position: absolute;
+        top: 10px;
+        right: 100px;
+        bottom: 89%;
+        display: flex;
+        justify-content: flex-end;    
+    }
+
+    .add_task_left {
+        margin-left: 100px;
+        width: 30%;
+    }
+
+    .add_task_h1 {
+        margin-left: 100px;
+    }
+
+    .add_task_right {
+        margin-right: 100px;
+    }
+
+    .maincontainer {
+        margin-bottom: 88px;
+    }
+}
+
+
+@media(max-width: 760px) {
+    .add_task_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 88px;
+    }
+
+    .add_task_left {
+        width: 75%;
+        margin: 0 100px;
+    }
+
+    .add_task_h1 {
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .add_task_right {
+        width: 75%;
+        margin: 0 100px;
     }
 }
