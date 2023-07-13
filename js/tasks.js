@@ -143,7 +143,7 @@ function renderDone() {
 // TEMPLATE FÜR RENDER ... WIRD FÜR JEDEN STATUS AUSGEFÜHRT 
 let taskTemplate = (task) => /*html*/ `
     <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="openTask(${task['id']})" class="content">
-        <div class="taskheader">${task['category']}</div>
+        <div class="category">${task['category']}</div>
         <div class="taskdescription"><b>${task['subtask']}</b></div>
         <div class="tasktext">${task['tasktext']}</div>
         <div class="progresscontainer">
@@ -183,13 +183,15 @@ async function openTask(i) {
     document.getElementById('showtask').classList.remove('d-none');
 
     const task = tasks[i];
-    document.getElementById('showtask').innerHTML = `<div class="bigtask" id="task${i}">
-        <div class="taskheader">${task['category']}</div>
-        <div class="taskdescription"><b>${task['subtask']}</b></div>
-        <div class="tasktext">${task['tasktext']}</div>
-        <div class="progresscontainer"><div class="taskprogressbar"></div> <div class="taskprogress">1/2 Done</div></div>
-        <div class="taskfooter">${task['user']}<div class="priority"><img src="${task['priority']}"><div onclick = closeTask()>XXXX</div></div></div></div>
-    </div>` ;
+    document.getElementById('showtask').innerHTML =  /*html*/   `<div class="bigtask" id="task${i}">
+    <div class="taskheader"><div class="category">${task['category']}</div><div onclick = closeTask()><img id="closeimg" src="/assets/img/close.png"></div></div>
+    <div class="taskdescriptionbig"><b>${task['subtask']}</b></div>
+    <div class="tasktext">${task['tasktext']}</div>
+    <div class="datecontainer"><span><b>Due date:</b></span> <div class="date">${task['date']}</div></div>
+    <div class="prioritycontainer"><span><b>Priority:</b></span><div class="priority"><span id="priobigtask"><img src="/assets/img/prio.png"></div></div>
+    <div class="taskfooter">${task['user']}</div>
+</div>` ;
+
 
 }
 
