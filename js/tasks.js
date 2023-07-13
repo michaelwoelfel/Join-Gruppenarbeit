@@ -217,21 +217,25 @@ function startDragging(index) {
 async function openTask(i) {
 
     document.getElementById('showtask').classList.remove('d-none');
-
-    const task = tasks[i];
-    document.getElementById('showtask').innerHTML =  /*html*/   `<div class="bigtask" id="task${i}">
+    let index = tasks.findIndex(task => task.id === i); 
+    let task = tasks[index];
+  
+    let imgpath;
+    document.getElementById('showtask').innerHTML =  /*html*/   `<div class="bigtask" id="task${index}">
     <div class="taskheader"><div class="category">${task['category']}</div><div onclick = closeTask()><img id="closeimg" src="/assets/img/close.png"></div></div>
     <div class="taskdescriptionbig"><b>${task['subtask']}</b></div>
     <div class="tasktext">${task['tasktext']}</div>
     <div class="datecontainer"><span><b>Due date:</b></span> <div class="date">${task['date']}</div></div>
-    <div class="prioritycontainer"><span ><b>Priority:</b></span><div id="colorpriobigtask" class="prioritybigtask"><span id="priobigtask"></span><img src="/assets/img/prio.png"></div></div>
+    <div class="prioritycontainer"><span ><b>Priority:</b></span><div id="colorpriobigtask" class="prioritybigtask"><span id="priobigtask"></span><div id="urgencyimg"></div></div></div>
     <div class="bigtaskusers">
         <span><b>Assigned To:</b></span>
     <div class="users">${task['user']}</div></div>
-    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${i})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${i})" src="/assets/img/edit.png"></div>
+    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${index})" src="/assets/img/edit.png"></div>
 </div>` ;
 
-colorUrgency(i);
+colorUrgency(index);
+
+
 
 
 
@@ -242,21 +246,33 @@ function closeTask() {
     document.getElementById('showtask').classList.add('d-none');
 }
 // Färbung der Dringlichkeit in der großen Ansicht
-function colorUrgency(i){
-    task = tasks[i]
+function colorUrgency(index){
+    task = tasks[index]
   prio = task['priority'];
     if (prio === 'assets/img/priohigh.png') {
         document.getElementById('colorpriobigtask').classList.add('urgent');
         document.getElementById('priobigtask').innerHTML = `Urgent`;
+        document.getElementById('urgencyimg').innerHTML = `<img src="assets/img/prio.png">`;
+      
+   
     }
     if (prio === 'assets/img/priomedium.png') {
         document.getElementById('colorpriobigtask').classList.add('medium');
         document.getElementById('priobigtask').innerHTML = `Medium`;
+        document.getElementById('urgencyimg').innerHTML = `=`;
+     
+       
+        
     }
     if (prio === 'assets/img/priolow.png') {
         document.getElementById('colorpriobigtask').classList.add('low');
         document.getElementById('priobigtask').innerHTML = `Low`;
+        document.getElementById('urgencyimg').innerHTML = `<img src="assets/img/priolowwhite.png">`;
+      
+       
     }
+   
+    
 }
 
 

@@ -253,12 +253,31 @@ h3 {
 }
 
 #editimg {
-    padding-right: 10px;
+    margin-right: 10px;
+    
     
 }
 
+#editimg:hover {
+    box-shadow: 2px 3px 5px black;
+    border-radius: 10px;
+
+}
+
 #deleteimg{
-  
+    
+}
+
+#urgencyimg {
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+
+#deleteimg:hover {
+    box-shadow: 2px 3px 5px black;
+    border-radius: 10px;
+
 }
 
 .users{
