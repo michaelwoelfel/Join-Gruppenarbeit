@@ -92,10 +92,9 @@ h3 {
 
 .task {
    
-        border: 1px solid black;
+      
         width: 22%;
         margin-left: 20px;
-        height: 400px;
         display: flex;
         flex-direction: column;
         border-top: 1px solid transparent; /* Fügt eine transparente obere Grenze hinzu */
@@ -103,6 +102,35 @@ h3 {
 
 .taskcontainer{
     margin-top: 20px;
+}
+
+.task-status-container{
+    min-height: 580px;
+}
+
+
+.showtask {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+}
+
+.bigtask{
+    background-color: rgba(255, 255, 255, 1); 
+    border-radius: 30px;
+    height: 60%;
+    margin-right: 230px;
+    width: 40%;
+    margin-top: 100px;
+}
+
+.d-none{
+    display: none!important;
 }
 
 .taskheader {
@@ -151,6 +179,12 @@ h3 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-bottom: 20px;
+}
+
+.content:hover {
+    cursor: pointer;
+    border: 1px solid #29ABE2;
 }
 
 .taskdescription {

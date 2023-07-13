@@ -1,4 +1,4 @@
-let users = [];
+let users;
 
 
 const STORAGE_TOKEN = '9DSY3OMJBPC4FF2QNS6I226NK6HRNQV27XWIWUO8';

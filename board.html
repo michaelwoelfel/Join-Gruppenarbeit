@@ -11,7 +11,10 @@
     <script src="js/script.js"></script>
     <script src="js/tasks.js"></script>
     <script src="js/signupandlogin.js"></script>
+<<<<<<< HEAD
     <script src="js/board.js"></script>
+=======
+>>>>>>> 6c90d31d4e2c580d93fe52b4911304fa8b5bb12a
 
 
     <title>Board</title>
@@ -20,6 +23,8 @@
 
 <body onload="initBoard()">
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
+
+
     <div class="maincontainer">
         <script src="js/include_html.js"></script>
         <div w3-include-html="assets/templates/header_template.html"></div>
@@ -31,39 +36,73 @@
                 <div class="addtask" onclick="addTaskPopUp()"><span>Add task</span><img src="assets/img/plus.png"></div>
             </div>
         </div>
-        <div class="taskcontainer">
+
+
+        <div id="showtask" class="showtask d-none">
+            <div class="bigtask" id="task${i}">
+                <div class="taskheader">${task['name']}</div>
+                <div class="taskdescription"><b>${task['subtask']}</b></div>
+                <div class="tasktext">${task['tasktext']}</div>
+                <div class="progresscontainer">
+                    <div class="taskprogressbar"></div>
+                    <div class="taskprogress">1/2 Done</div>
+                </div>
+                <div class="taskfooter">${task['user']}<div class="priority"><img src="${task['priority']}"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="taskcontainer" class="taskcontainer">
             <div class="task">
                 <div class="taskheading">
                     <h3>To do</h3><img class="plusbutton" src="assets/img/plus_button.png" onclick="addTaskPopUp()">
                 </div>
+<<<<<<< HEAD
                 <div id="todo">
+=======
+                <div class="task-status-container" id="todo" ondragover="allowDrop(event)" ondrop="moveTo('todo')">
+>>>>>>> 6c90d31d4e2c580d93fe52b4911304fa8b5bb12a
 
                 </div>
             </div>
+
+
+
+
             <div class="task">
                 <div class="taskheading">
                     <h3>In progress</h3><img class="plusbutton" src="assets/img/plus_button.png"
                         onclick="addTaskPopUp()">
                 </div>
-                <div id="inprogress">
-                    <div class="content"></div>
+                <div class="task-status-container" id="inprogress" ondragover="allowDrop(event)"
+                    ondrop="moveTo('inprogress')">
+
                 </div>
             </div>
+
+
+
             <div class="task">
                 <div class="taskheading">
                     <h3>Awaiting Feedback</h3><img class="plusbutton" src="assets/img/plus_button.png"
                         onclick="addTaskPopUp()">
                 </div>
-                <div id="awaitingfb">
-                    <div class="content"></div>
+                <div class="task-status-container" id="awaitingfb" ondragover="allowDrop(event)"
+                    ondrop="moveTo('awaitingfb')">
+
                 </div>
             </div>
+
+
+
+
             <div class="task">
                 <div class="taskheading">
                     <h3>Done</h3><img class="plusbutton" src="assets/img/plus_button.png" onclick="addTaskPopUp()">
                 </div>
-                <div id="done">
-                    <div class="content"></div>
+                <div class="task-status-container" id="done" ondragover="allowDrop(event)" ondrop="moveTo('done')">
+
                 </div>
             </div>
         </div>

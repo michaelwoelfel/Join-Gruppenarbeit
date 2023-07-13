@@ -10,16 +10,16 @@ function initSummary() {
         getName();
         colorSummary();
     });
-   
-    
+
+
 }
 
-function colorSummary(){
+function colorSummary() {
     document.getElementById('summary').classList.add('sidebar-color-black');
 }
 
-function getName(){
-    let currentUser = localStorage.getItem('currentUser'); 
+function getName() {
+    let currentUser = localStorage.getItem('currentUser');
     document.getElementById('currentuser').innerHTML = `${currentUser}`;
 }
 
@@ -57,15 +57,15 @@ function getTime() {
 // SUMMARY END
 
 // BOARD START
- async function initBoard() {
-   
+async function initBoard() {
+
     // Load included HTML first
     await includeHTML(() => {
         // After all includes are loaded, get the time and summary data
         colorBoard();
-      renderTasks();
+        renderTasks();
     });
-   
+
 }
 
 
@@ -96,7 +96,7 @@ function initContacts() {
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
         colorContacts()();
-    }); 
+    });
 }
 
 function colorContacts() {
@@ -113,7 +113,7 @@ function initLegal_Notice() {
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
         colorLegalNotice();
-     
+
     });
 }
 
@@ -123,3 +123,5 @@ function colorLegalNotice() {
 }
 
 // LEGAL NOTICE END
+
+

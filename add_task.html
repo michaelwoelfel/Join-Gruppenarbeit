@@ -26,7 +26,7 @@
             <form class="add_task_left">
                 <div class="title fd_column">
                     <span>Title</span>
-                    <input class="task_input_field_styling" type="text" placeholder="Enter a title" id="add_task_title"
+                    <input  class="task_input_field_styling" type="text" placeholder="Enter a title" id="add_task_title"
                         required>
                 </div>
 
@@ -51,10 +51,12 @@
                     <span>Assign to</span>
                     <select class="task_input_field_styling" name="Assigned to" id="add_task_assign_select">
                         <option value="Select contacts to assign">Select contacts to assign</option>
-                        <option value="">You</option>
-                        <option value="">Maximilian Vogel</option>
-                        <option value="">invite new contact</option>
+                        <option value="You">You</option>
+                        <option value="Maximilian Vogel">Maximilian Vogel</option>
+                        <option value="invite new contact">invite new contact</option>
                     </select>
+
+                    
                 </div>
             </form>
             <div class="seperator fd_column"></div>
@@ -69,6 +71,7 @@
                 <div class="prio fd_column">
                     <span>Prio</span>
                     <div class="prio-btns-container">
+<<<<<<< HEAD
                         <div id="prio_urgent" class="prio-btn" onclick="prioColorRed()">Urgent <img src="./assets/img/urgent_prio.png"
                                 alt="urgent">
                         </div>
@@ -76,6 +79,15 @@
                                 alt="medium">
                         </div>
                         <div id="prio_low" class="prio-btn" onclick="prioColorGreen()">Low <img src="./assets/img/low_prio.png" alt="low"></div>
+=======
+                        <div onclick="getTaskPrio('urgent')" id="prio_urgent" class="prio-btn">Urgent <img onclick="getTaskPrio('urgent')" src="./assets/img/urgent_prio.png"
+                                alt="urgent">
+                        </div>
+                        <div onclick="getTaskPrio('medium')" id="prio_medium" class="prio-btn">Medium <img onclick="getTaskPrio('medium')" src="./assets/img/medium_prio.png"
+                                alt="medium">
+                        </div>
+                        <div onclick="getTaskPrio('low')" id="prio_low" class="prio-btn">Low <img onclick="getTaskPrio('low')" src="./assets/img/low_prio.png" alt="low"></div>
+>>>>>>> 6c90d31d4e2c580d93fe52b4911304fa8b5bb12a
                     </div>
                 </div>
 
@@ -92,8 +104,13 @@
         </div>
 
         <div class="buttons-clear-create">
+<<<<<<< HEAD
             <div class="clear-btn btn" onclick="clearTask()">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
             <div class="create-btn btn" onclick="addTask()">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
+=======
+            <div onclick="clear()" class="clear-btn btn">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
+            <div onclick="addTask()" class="create-btn btn">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
+>>>>>>> 6c90d31d4e2c580d93fe52b4911304fa8b5bb12a
         </div>
 
     </div>
