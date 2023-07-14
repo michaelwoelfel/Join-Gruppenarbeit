@@ -118,6 +118,10 @@ function renderToDo() {
 
 function updateSummary() {
     updateTasksInBoard();
+    updateTasksToDo();
+    updateTasksDone();
+    updateTasksInProgress();
+    updateTasksAwaitingFB();
 }
 
 async function updateTasksInBoard() {
@@ -126,6 +130,47 @@ async function updateTasksInBoard() {
     const taskCountElement = document.getElementById('tasksInBoardNumber');
     taskCountElement.textContent = taskCount.toString();
 }
+
+async function updateTasksToDo() {
+    await loadTasks();
+    const tasksToDo = tasks.filter((task) => task.status === 'todo');
+    const tasksToDoCount = tasksToDo.length;
+    const tasksToDoNumberElement = document.getElementById('toDoNumber');
+    if (tasksToDoNumberElement) {
+        tasksToDoNumberElement.textContent = tasksToDoCount.toString();
+    }
+}
+
+async function updateTasksDone() {
+    await loadTasks();
+    const tasksDone = tasks.filter((task) => task.status === 'done');
+    const tasksDoneCount = tasksDone.length;
+    const tasksDoneNumberElement = document.getElementById('doneNumber');
+    if (tasksDoneNumberElement) {
+        tasksDoneNumberElement.textContent = tasksDoneCount.toString();
+    }
+}
+
+async function updateTasksInProgress() {
+    await loadTasks();
+    const tasksInProgress = tasks.filter((task) => task.status === 'inprogress');
+    const tasksInProgressCount = tasksInProgress.length;
+    const tasksInProgressNumberElement = document.getElementById('tasksInProgressNumber');
+    if (tasksInProgressNumberElement) {
+        tasksInProgressNumberElement.textContent = tasksInProgressCount.toString();
+    }
+}
+
+async function updateTasksAwaitingFB() {
+    await loadTasks();
+    const tasksAwaitingFB = tasks.filter((task) => task.status === 'awaitingfb');
+    const tasksAwaitingFBCount = tasksAwaitingFB.length;
+    const tasksAwaitingFBNumberElement = document.getElementById('awaitFbNumber');
+    if (tasksAwaitingFBNumberElement) {
+        tasksAwaitingFBNumberElement.textContent = tasksAwaitingFBCount.toString();
+    }
+}
+
 
 // Tasks rendern
 
