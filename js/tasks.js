@@ -254,10 +254,10 @@ function allowDrop(ev) {
 function moveTo(category) {
     tasks[currentDraggedElement]['status'] = category;
     updateHTML();
-    updateTaskStatusInLocalStorage(currentDraggedElement, category);
+    updateTaskStatus(currentDraggedElement, category);
 }
 
-function updateTaskStatusInLocalStorage(taskIndex, newStatus) {
+function updateTaskStatus(taskIndex, newStatus) {
     tasks[taskIndex]['status'] = newStatus;
     setItem('tasks', JSON.stringify(tasks));
 }
