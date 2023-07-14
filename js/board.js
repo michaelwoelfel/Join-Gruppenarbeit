@@ -27,7 +27,7 @@ function renderPopUp(popup) {
                         rows="5" placeholder="Enter a description" required></textarea>
                     </div>
 
-                    <div class="category fd_column">
+                    <div class="fd_column">
                         <span>Category</span>
                         <select class="task_input_field_styling" name="category_select" id="add_task_category_select"
                         required>
@@ -51,7 +51,7 @@ function renderPopUp(popup) {
                 
                 <div class="seperator fd_column"></div>
 
-                <form class="add_task_right">
+                <form type="submit" class="add_task_right">
                     <div class="date fd_column">
                         <span>Due date</span>
                         <input class="task_input_field_styling" type="date" name="" id="add_task_input_date" required
@@ -79,9 +79,11 @@ function renderPopUp(popup) {
                 </form>
             </div>
             <div class="buttons-clear-create">
-                <div class="clear-btn btn">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
-                <div onclick="addTask()" class="create-btn btn">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
+                <div class="clear-btn btn" onclick="">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
+                <div class="create-btn btn" onclick="addTask()">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
             </div>
+             <span class="addedTaskToBoard_content">Task added to board <img class="board" src="./assets/img/board_img.png" alt="board"></span>  
+
         </div>
     </div>
     `;
@@ -109,7 +111,7 @@ function prioColorRed() {
     let low = document.getElementById('prio_low');
     urgent.classList.toggle('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
-    low.classList.remove('prio-btn-low-clicked');   
+    low.classList.remove('prio-btn-low-clicked');
 }
 
 

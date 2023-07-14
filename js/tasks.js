@@ -4,7 +4,6 @@ let tasks = [];
 let taskIdCounter = 0;
 let currentDraggedElement;
 
-
 // CHECK THE TASK FOR THE RIGHT ID
 async function checkLastTaskId() {
     await loadTasks();
@@ -15,7 +14,6 @@ async function checkLastTaskId() {
 }
 
 async function addTask() {
-
     await checkLastTaskId();
     taskName = document.getElementById('add_task_title').value;
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
@@ -42,15 +40,16 @@ async function addTask() {
         status: taskStatus,
     });
     await setItem('tasks', JSON.stringify(tasks));
+
+    taskAddedToBoard();
+    // zeigt die Animation in add Task
 };
 
 
 async function editTask(i) {
     let index = tasks.findIndex(task => task.id === i);
     let task = tasks[index];
-    debugger;
     taskId = task.id;
-   
     closeTask();
     addTaskPopUp();
     document.getElementById('add_task_title').value = task.name;
@@ -142,87 +141,9 @@ function renderToDo() {
     }
 }
 
-function renderInProgress() {
-    let inprogress = tasks.filter(t => t['status'] == 'inprogress');
-    document.getElementById('inprogress').innerHTML = '';
-    for (let index = 0; index < inprogress.length; index++) {
-        const task = inprogress[index];
-        document.getElementById('inprogress').innerHTML += taskTemplate(task);
-    }
-}
+// Tasks rendern
 
-function renderAwaitFb() {
-    let awaitingfb = tasks.filter(t => t['status'] == 'awaitingfb');
-    document.getElementById('awaitingfb').innerHTML = '';
-    for (let index = 0; index < awaitingfb.length; index++) {
-        const task = awaitingfb[index];
-        document.getElementById('awaitingfb').innerHTML += taskTemplate(task);
-    }
-}
 
-function renderDone() {
-    let done = tasks.filter(t => t['status'] == 'done');
-    document.getElementById('done').innerHTML = '';
-    for (let index = 0; index < done.length; index++) {
-        const task = done[index];
-        document.getElementById('done').innerHTML += taskTemplate(task);
-    }
-}
-
-function updateSummary() {
-    updateTasksInBoard();
-    updateTasksToDo();
-    updateTasksDone();
-    updateTasksInProgress();
-    updateTasksAwaitingFB();
-}
-
-async function updateTasksInBoard() {
-    await loadTasks();
-    const taskCount = tasks.length;
-    const taskCountElement = document.getElementById('tasksInBoardNumber');
-    taskCountElement.textContent = taskCount.toString();
-}
-
-async function updateTasksToDo() {
-    await loadTasks();
-    const tasksToDo = tasks.filter((task) => task.status === 'todo');
-    const tasksToDoCount = tasksToDo.length;
-    const tasksToDoNumberElement = document.getElementById('toDoNumber');
-    if (tasksToDoNumberElement) {
-        tasksToDoNumberElement.textContent = tasksToDoCount.toString();
-    }
-}
-
-async function updateTasksDone() {
-    await loadTasks();
-    const tasksDone = tasks.filter((task) => task.status === 'done');
-    const tasksDoneCount = tasksDone.length;
-    const tasksDoneNumberElement = document.getElementById('doneNumber');
-    if (tasksDoneNumberElement) {
-        tasksDoneNumberElement.textContent = tasksDoneCount.toString();
-    }
-}
-
-async function updateTasksInProgress() {
-    await loadTasks();
-    const tasksInProgress = tasks.filter((task) => task.status === 'inprogress');
-    const tasksInProgressCount = tasksInProgress.length;
-    const tasksInProgressNumberElement = document.getElementById('tasksInProgressNumber');
-    if (tasksInProgressNumberElement) {
-        tasksInProgressNumberElement.textContent = tasksInProgressCount.toString();
-    }
-}
-
-async function updateTasksAwaitingFB() {
-    await loadTasks();
-    const tasksAwaitingFB = tasks.filter((task) => task.status === 'awaitingfb');
-    const tasksAwaitingFBCount = tasksAwaitingFB.length;
-    const tasksAwaitingFBNumberElement = document.getElementById('awaitFbNumber');
-    if (tasksAwaitingFBNumberElement) {
-        tasksAwaitingFBNumberElement.textContent = tasksAwaitingFBCount.toString();
-    }
-}
 
 // PRIO COLORS CHANGING ONCLICK 
 
@@ -259,6 +180,67 @@ function prioColorGreen() {
 }
 
 
+function renderInProgress() {
+    let inprogress = tasks.filter(t => t['status'] == 'inprogress');
+    document.getElementById('inprogress').innerHTML = '';
+    for (let index = 0; index < inprogress.length; index++) {
+        const task = inprogress[index];
+        document.getElementById('inprogress').innerHTML += taskTemplate(task);
+    }
+}
+
+function renderAwaitFb() {
+    let awaitingfb = tasks.filter(t => t['status'] == 'awaitingfb');
+    document.getElementById('awaitingfb').innerHTML = '';
+    for (let index = 0; index < awaitingfb.length; index++) {
+        const task = awaitingfb[index];
+        document.getElementById('awaitingfb').innerHTML += taskTemplate(task);
+    }
+}
+
+function renderDone() {
+    let done = tasks.filter(t => t['status'] == 'done');
+    document.getElementById('done').innerHTML = '';
+    for (let index = 0; index < done.length; index++) {
+        const task = done[index];
+        document.getElementById('done').innerHTML += taskTemplate(task);
+
+    }
+}
+
+// PRIO COLORS CHANGING ONCLICK 
+
+function prioColorRed() {
+    let urgent = document.getElementById('prio_urgent');
+    let medium = document.getElementById('prio_medium');
+    let low = document.getElementById('prio_low');
+    urgent.classList.toggle('prio-btn-urgent-clicked');
+    medium.classList.remove('prio-btn-medium-clicked');
+    low.classList.remove('prio-btn-low-clicked');
+}
+
+
+function prioColorOrange() {
+    let urgent = document.getElementById('prio_urgent');
+    let medium = document.getElementById('prio_medium');
+    let low = document.getElementById('prio_low');
+    urgent.classList.remove('prio-btn-urgent-clicked');
+    medium.classList.toggle('prio-btn-medium-clicked');
+    low.classList.remove('prio-btn-low-clicked');
+    getTaskPrio('medium');
+}
+
+
+function prioColorGreen() {
+    let urgent = document.getElementById('prio_urgent');
+    let medium = document.getElementById('prio_medium');
+    let low = document.getElementById('prio_low');
+    urgent.classList.remove('prio-btn-urgent-clicked');
+    medium.classList.remove('prio-btn-medium-clicked');
+    low.classList.toggle('prio-btn-low-clicked');
+}
+
+
 // TEMPLATE FÜR RENDER ... WIRD FÜR JEDEN STATUS AUSGEFÜHRT 
 let taskTemplate = (task) => /*html*/ `
     <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="openTask(${task['id']})" class="content">
@@ -283,12 +265,6 @@ function allowDrop(ev) {
 function moveTo(category) {
     tasks[currentDraggedElement]['status'] = category;
     updateHTML();
-    updateTaskStatus(currentDraggedElement, category);
-}
-
-function updateTaskStatus(taskIndex, newStatus) {
-    tasks[taskIndex]['status'] = newStatus;
-    setItem('tasks', JSON.stringify(tasks));
 }
 
 function startDragging(index) {
@@ -296,7 +272,13 @@ function startDragging(index) {
     currentDraggedElement = index;
 }
 
+
+
 // ENDE 
+
+
+
+
 
 
 async function openTask(i) {
@@ -319,6 +301,9 @@ async function openTask(i) {
 </div>` ;
 
     colorUrgency(index);
+
+
+
 
 
 }
@@ -363,9 +348,6 @@ async function deleteTask(i) {
     await setItem('tasks', JSON.stringify(tasks));
     await renderTasks();
     closeTask();
-
-
-
 }
 // Tasks rendern
 
@@ -373,5 +355,16 @@ async function deleteTask(i) {
 // DRAG AND DROP
 
 
+
+// TASK ADDED TO BOARD ANIMATION 'Matthias'
+
+function taskAddedToBoard() { 
+    const container = document.querySelector('.addedTaskToBoard_content');
+    container.classList.add('show');
+
+    setTimeout(() => {
+        container.classList.remove('show');
+    }, 3000);
+}
 
 
