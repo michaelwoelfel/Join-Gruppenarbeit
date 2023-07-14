@@ -15,6 +15,7 @@ async function checkLastTaskId() {
 }
 
 async function addTask() {
+
     await checkLastTaskId();
     taskName = document.getElementById('add_task_title').value;
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
@@ -41,6 +42,39 @@ async function addTask() {
     });
     await setItem('tasks', JSON.stringify(tasks));
 };
+
+
+async function editTask(i) {
+    let task = tasks[i];
+    deleteTask(i);
+    closeTask();
+    addTaskPopUp();
+    document.getElementById('add_task_title').value = task.name;
+    document.getElementById('add_task_input_subtask').value = task.subtask;
+    document.getElementById('add_task_description').value = task.tasktext;
+    document.getElementById('add_task_category_select').value = task.category;
+    document.getElementById('add_task_assign_select').value = task.user;
+    document.getElementById('add_task_input_date').value = task.date;
+    let taskPrio = task.priority;
+    // TODO = START STATUS
+
+    // EVERY TASK HAS OWN ID
+    let taskId = task.id;
+
+    tasks.push({
+        id: taskId,
+        name: taskName,
+        subtask: taskSubtask,
+        tasktext: taskDescription,
+        category: taskCategory,
+        user: taskAssign,
+        date: taskDate,
+        priority: taskPrio,
+        status: taskStatus,
+    });
+    await setItem('tasks', JSON.stringify(tasks));
+};
+
 
 
 // HARD RESET TASKS => LÖSCHT ALLE TASKS ... IN CONSOLE AUSFÜHREN
