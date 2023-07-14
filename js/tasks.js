@@ -116,6 +116,33 @@ function renderToDo() {
     }
 }
 
+function renderInProgress() {
+    let inprogress = tasks.filter(t => t['status'] == 'inprogress');
+    document.getElementById('inprogress').innerHTML = '';
+    for (let index = 0; index < inprogress.length; index++) {
+        const task = inprogress[index];
+        document.getElementById('inprogress').innerHTML += taskTemplate(task);
+    }
+}
+
+function renderAwaitFb() {
+    let awaitingfb = tasks.filter(t => t['status'] == 'awaitingfb');
+    document.getElementById('awaitingfb').innerHTML = '';
+    for (let index = 0; index < awaitingfb.length; index++) {
+        const task = awaitingfb[index];
+        document.getElementById('awaitingfb').innerHTML += taskTemplate(task);
+    }
+}
+
+function renderDone() {
+    let done = tasks.filter(t => t['status'] == 'done');
+    document.getElementById('done').innerHTML = '';
+    for (let index = 0; index < done.length; index++) {
+        const task = done[index];
+        document.getElementById('done').innerHTML += taskTemplate(task);
+    }
+}
+
 function updateSummary() {
     updateTasksInBoard();
     updateTasksToDo();
@@ -171,11 +198,6 @@ async function updateTasksAwaitingFB() {
     }
 }
 
-
-// Tasks rendern
-
-
-
 // PRIO COLORS CHANGING ONCLICK 
 
 function prioColorRed() {
@@ -206,33 +228,7 @@ function prioColorGreen() {
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.toggle('prio-btn-low-clicked');
 }
-function renderInProgress() {
-    let inprogress = tasks.filter(t => t['status'] == 'inprogress');
-    document.getElementById('inprogress').innerHTML = '';
-    for (let index = 0; index < inprogress.length; index++) {
-        const task = inprogress[index];
-        document.getElementById('inprogress').innerHTML += taskTemplate(task);
-    }
-}
 
-function renderAwaitFb() {
-    let awaitingfb = tasks.filter(t => t['status'] == 'awaitingfb');
-    document.getElementById('awaitingfb').innerHTML = '';
-    for (let index = 0; index < awaitingfb.length; index++) {
-        const task = awaitingfb[index];
-        document.getElementById('awaitingfb').innerHTML += taskTemplate(task);
-    }
-}
-
-function renderDone() {
-    let done = tasks.filter(t => t['status'] == 'done');
-    document.getElementById('done').innerHTML = '';
-    for (let index = 0; index < done.length; index++) {
-        const task = done[index];
-        document.getElementById('done').innerHTML += taskTemplate(task);
-
-    }
-}
 
 // TEMPLATE FÜR RENDER ... WIRD FÜR JEDEN STATUS AUSGEFÜHRT 
 let taskTemplate = (task) => /*html*/ `
@@ -258,6 +254,12 @@ function allowDrop(ev) {
 function moveTo(category) {
     tasks[currentDraggedElement]['status'] = category;
     updateHTML();
+    updateTaskStatusInLocalStorage(currentDraggedElement, category);
+}
+
+function updateTaskStatusInLocalStorage(taskIndex, newStatus) {
+    tasks[taskIndex]['status'] = newStatus;
+    setItem('tasks', JSON.stringify(tasks));
 }
 
 function startDragging(index) {
@@ -265,13 +267,7 @@ function startDragging(index) {
     currentDraggedElement = index;
 }
 
-
-
 // ENDE 
-
-
-
-
 
 
 async function openTask(i) {
@@ -294,9 +290,6 @@ async function openTask(i) {
 </div>` ;
 
     colorUrgency(index);
-
-
-
 
 
 }
