@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/summary.css">
     <link rel="stylesheet" href="css/legal_notice.css">
- 
-    
+
+
     <title>Summary</title>
 </head>
 
@@ -15,7 +15,7 @@
 <body onload="initSummary()">
     <!-- SIDEBAR TEMPLATE -->
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
-   
+
     <!-- HOLE SUMMARY CONTAINER -->
     <div class="content-all-container">
         <div w3-include-html="assets/templates/header_template.html"></div>
@@ -34,19 +34,19 @@
                     <div class="task-container-top">
                         <div onclick="location.href='/board.html'" class="small-task-container task-box-style">
                             <div>
-                                <div class="number-style">1</div>
+                                <div id="tasksInBoardNumber" class="number-style">1</div>
                                 <p class="text-style">Tasks <br> in board</p>
                             </div>
                         </div>
                         <div onclick="location.href='/board.html'" class="small-task-container task-box-style">
                             <div>
-                                <div class="number-style">2</div>
+                                <div id="tasksInProgressNumber" class="number-style">2</div>
                                 <p class="text-style">Tasks <br> in Progress</p>
                             </div>
                         </div>
                         <div onclick="location.href='/board.html'" class="small-task-container task-box-style">
                             <div>
-                                <div class="number-style">3</div>
+                                <div id="awaitFbNumber" class="number-style">3</div>
                                 <p class="text-style">Awaiting <br> Feedback</p>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                             <img src="./assets/img/urgent_img.png" class="task-img urgent-margin">
                         </div>
                         <div>
-                            <div class="number-style">4</div>
+                            <div id="urgentNumber" class="number-style">4</div>
                             <p class="text-style">Urgent</p>
                         </div>
                         <img src="./assets/img/separator_white.png" class="separator-white">
@@ -77,7 +77,7 @@
                                     <img src="./assets/img/todo_black.png" class="task-img black">
                                 </div>
                                 <div>
-                                    <div class="number-style">5</div>
+                                    <div id="toDoNumber" class="number-style">5</div>
                                     <p class="text-style">To-do</p>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                                     <img src="./assets/img/done_black.png" class="task-img black">
                                 </div>
                                 <div>
-                                    <div class="number-style">6</div>
+                                    <div id="doneNumber" class="number-style">6</div>
                                     <p class="text-style">Done</p>
                                 </div>
                             </div>
