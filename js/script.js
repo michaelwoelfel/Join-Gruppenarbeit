@@ -54,6 +54,13 @@ function getTime() {
     }
 }
 
+function updateTaskCount() {
+    loadTasks();
+    const taskCount = tasks.length;
+    const taskCountElement = document.getElementById('tasksInBoardNumber');
+    taskCountElement.textContent = taskCount.toString();
+}
+
 // SUMMARY END
 
 // BOARD START

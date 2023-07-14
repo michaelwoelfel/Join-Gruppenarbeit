@@ -12,7 +12,7 @@
 </head>
 
 
-<body onload="initSummary()">
+<body onload="initSummary(), updateSummary()">
     <!-- SIDEBAR TEMPLATE -->
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
 
@@ -34,7 +34,7 @@
                     <div class="task-container-top">
                         <div onclick="location.href='/board.html'" class="small-task-container task-box-style">
                             <div>
-                                <div id="tasksInBoardNumber" class="number-style">1</div>
+                                <div id="tasksInBoardNumber" class="number-style"></div>
                                 <p class="text-style">Tasks <br> in board</p>
                             </div>
                         </div>
@@ -113,6 +113,7 @@
 <script src="js/include_html.js"></script>
 <script src="js/signupandlogin.js"></script>
 <script src="js/script.js"></script>
+<script src="js/tasks.js"></script>
 
 
 </html>

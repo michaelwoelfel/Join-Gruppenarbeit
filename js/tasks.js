@@ -4,6 +4,7 @@ let tasks = [];
 let taskIdCounter = 0;
 let currentDraggedElement;
 
+
 // CHECK THE TASK FOR THE RIGHT ID
 async function checkLastTaskId() {
     await loadTasks();
@@ -115,6 +116,17 @@ function renderToDo() {
     }
 }
 
+function updateSummary() {
+    updateTasksInBoard();
+}
+
+async function updateTasksInBoard() {
+    await loadTasks();
+    const taskCount = tasks.length;
+    const taskCountElement = document.getElementById('tasksInBoardNumber');
+    taskCountElement.textContent = taskCount.toString();
+}
+
 // Tasks rendern
 
 
@@ -127,7 +139,7 @@ function prioColorRed() {
     let low = document.getElementById('prio_low');
     urgent.classList.toggle('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
-    low.classList.remove('prio-btn-low-clicked');   
+    low.classList.remove('prio-btn-low-clicked');
 }
 
 
@@ -220,9 +232,9 @@ function startDragging(index) {
 async function openTask(i) {
 
     document.getElementById('showtask').classList.remove('d-none');
-    let index = tasks.findIndex(task => task.id === i); 
+    let index = tasks.findIndex(task => task.id === i);
     let task = tasks[index];
-  
+
     let imgpath;
     document.getElementById('showtask').innerHTML =  /*html*/   `<div class="bigtask" id="task${index}">
     <div class="taskheader"><div class="category">${task['category']}</div><div onclick = closeTask()><img id="closeimg" src="/assets/img/close.png"></div></div>
@@ -236,7 +248,7 @@ async function openTask(i) {
     <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${index})" src="/assets/img/edit.png"></div>
 </div>` ;
 
-colorUrgency(index);
+    colorUrgency(index);
 
 
 
@@ -249,41 +261,41 @@ function closeTask() {
     document.getElementById('showtask').classList.add('d-none');
 }
 // Färbung der Dringlichkeit in der großen Ansicht
-function colorUrgency(index){
+function colorUrgency(index) {
     task = tasks[index]
-  prio = task['priority'];
+    prio = task['priority'];
     if (prio === 'assets/img/priohigh.png') {
         document.getElementById('colorpriobigtask').classList.add('urgent');
         document.getElementById('priobigtask').innerHTML = `Urgent`;
         document.getElementById('urgencyimg').innerHTML = `<img src="assets/img/prio.png">`;
-      
-   
+
+
     }
     if (prio === 'assets/img/priomedium.png') {
         document.getElementById('colorpriobigtask').classList.add('medium');
         document.getElementById('priobigtask').innerHTML = `Medium`;
         document.getElementById('urgencyimg').innerHTML = `=`;
-     
-       
-        
+
+
+
     }
     if (prio === 'assets/img/priolow.png') {
         document.getElementById('colorpriobigtask').classList.add('low');
         document.getElementById('priobigtask').innerHTML = `Low`;
         document.getElementById('urgencyimg').innerHTML = `<img src="assets/img/priolowwhite.png">`;
-      
-       
+
+
     }
-   
-    
+
+
 }
 
 
-async function deleteTask(i){
-    tasks.splice(i,1);
+async function deleteTask(i) {
+    tasks.splice(i, 1);
     await setItem('tasks', JSON.stringify(tasks));
-  await renderTasks();
-  closeTask();
+    await renderTasks();
+    closeTask();
 
 
 
