@@ -80,7 +80,8 @@ function renderPopUp(popup) {
             </div>
             <div class="buttons-clear-create">
                 <div class="clear-btn btn" onclick="">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
-                <div class="create-btn btn" onclick="addTask()">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
+                <div id="buttonedit" class="create-btn btn" onclick="addTask()">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
+                <div id="buttonafteredit"  class="create-btn btn d-none" onclick="addTask()">Change Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
             </div>
              <span class="addedTaskToBoard_content">Task added to board <img class="board" src="./assets/img/board_img.png" alt="board"></span>  
 

@@ -45,11 +45,42 @@ async function addTask() {
     // zeigt die Animation in add Task
 };
 
+async function addTaskAfterEdit(status,id) {
+    taskName = document.getElementById('add_task_title').value;
+    let taskSubtask = document.getElementById('add_task_input_subtask').value;
+    let taskDescription = document.getElementById('add_task_description').value;
+    let taskCategory = document.getElementById('add_task_category_select').value;
+    let taskAssign = document.getElementById('add_task_assign_select').value;
+    let taskDate = document.getElementById('add_task_input_date').value;
+    let taskPrio = getTaskPrio();
+    // TODO = START STATUS
+    let taskStatus = status;
+    // EVERY TASK HAS OWN ID
+    let taskId = id;
+    
+
+    tasks.push({
+        id: taskId,
+        name: taskName,
+        subtask: taskSubtask,
+        tasktext: taskDescription,
+        category: taskCategory,
+        user: taskAssign,
+        date: taskDate,
+        priority: taskPrio,
+        status: taskStatus,
+    });
+    await setItem('tasks', JSON.stringify(tasks));
+
+    taskAddedToBoard();
+    // zeigt die Animation in add Task
+};
+
 
 async function editTask(i) {
     let index = tasks.findIndex(task => task.id === i);
     let task = tasks[index];
-    taskId = task.id;
+   
     closeTask();
     addTaskPopUp();
     document.getElementById('add_task_title').value = task.name;
@@ -58,8 +89,13 @@ async function editTask(i) {
     document.getElementById('add_task_category_select').value = task.category;
     document.getElementById('add_task_assign_select').value = task.user;
     document.getElementById('add_task_input_date').value = task.date;
-  
-    deleteTask(i);
+   taskStatus = task.status;
+   taskId = task.id;
+   document.getElementById('buttonedit').classList.add('d-none');
+   document.getElementById('buttonafteredit').classList.remove('d-none');
+
+    deleteTask(index);
+   
    
 
 
