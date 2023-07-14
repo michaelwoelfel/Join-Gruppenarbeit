@@ -3,6 +3,7 @@
 let tasks = [];
 let taskIdCounter = 0;
 let currentDraggedElement;
+let changeTaskNumber;
 
 // CHECK THE TASK FOR THE RIGHT ID
 async function checkLastTaskId() {
@@ -26,6 +27,7 @@ async function addTask() {
     let taskStatus = 'todo';
     // EVERY TASK HAS OWN ID
     let taskId = taskIdCounter++;
+    debugger;
     
 
     tasks.push({
@@ -45,31 +47,30 @@ async function addTask() {
     // zeigt die Animation in add Task
 };
 
-async function addTaskAfterEdit(status,id) {
-    taskName = document.getElementById('add_task_title').value;
+async function changeTask(i) {
+   let task = tasks[i];
+   let taskId = task.id;
+    let taskName = document.getElementById('add_task_title').value;
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
     let taskCategory = document.getElementById('add_task_category_select').value;
     let taskAssign = document.getElementById('add_task_assign_select').value;
     let taskDate = document.getElementById('add_task_input_date').value;
     let taskPrio = getTaskPrio();
-    // TODO = START STATUS
-    let taskStatus = status;
-    // EVERY TASK HAS OWN ID
-    let taskId = id;
+    let taskStatus = task.status;
+    task.id = taskId;
+    task.name = taskName;
+    task.subtask = taskSubtask;
+    task.tasktext = taskDescription;
+    task.category =  taskCategory;
+    task.user = taskAssign;
+    task.date = taskDate;
+    task.priority = taskPrio;
+    task.status = taskStatus;
+    debugger;
     
 
-    tasks.push({
-        id: taskId,
-        name: taskName,
-        subtask: taskSubtask,
-        tasktext: taskDescription,
-        category: taskCategory,
-        user: taskAssign,
-        date: taskDate,
-        priority: taskPrio,
-        status: taskStatus,
-    });
+   
     await setItem('tasks', JSON.stringify(tasks));
 
     taskAddedToBoard();
@@ -78,9 +79,8 @@ async function addTaskAfterEdit(status,id) {
 
 
 async function editTask(i) {
-    let index = tasks.findIndex(task => task.id === i);
-    let task = tasks[index];
-   
+    let task = tasks[i];
+    changeTaskNumber = i;
     closeTask();
     addTaskPopUp();
     document.getElementById('add_task_title').value = task.name;
@@ -92,14 +92,10 @@ async function editTask(i) {
    taskStatus = task.status;
    taskId = task.id;
    document.getElementById('buttonedit').classList.add('d-none');
-   document.getElementById('buttonafteredit').classList.remove('d-none');
-
-    deleteTask(index);
+   document.getElementById('buttonafteredit').innerHTML = `<div id="buttonaftereditd-none"  class="create-btn btn d-none" onclick="changeTask(${i})">Change Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>`;
+   document.getElementById('buttonaftereditd-none').classList.remove('d-none');
    
    
-
-
-
 };
 
 
@@ -333,7 +329,7 @@ async function openTask(i) {
     <div class="bigtaskusers">
         <span><b>Assigned To:</b></span>
     <div class="users">${task['user']}</div></div>
-    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${i})" src="/assets/img/edit.png"></div>
+    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${index})" src="/assets/img/edit.png"></div>
 </div>` ;
 
     colorUrgency(index);
