@@ -287,7 +287,7 @@ async function openTask(i) {
     let index = tasks.findIndex(task => task.id === i);
     let task = tasks[index];
 
-    let imgpath;
+  
     document.getElementById('showtask').innerHTML =  /*html*/   `<div class="bigtask" id="task${index}">
     <div class="taskheader"><div class="category">${task['category']}</div><div onclick = closeTask()><img id="closeimg" src="/assets/img/close.png"></div></div>
     <div class="taskdescriptionbig"><b>${task['subtask']}</b></div>
@@ -297,7 +297,7 @@ async function openTask(i) {
     <div class="bigtaskusers">
         <span><b>Assigned To:</b></span>
     <div class="users">${task['user']}</div></div>
-    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${index})" src="/assets/img/edit.png"></div>
+    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${i})" src="/assets/img/edit.png"></div>
 </div>` ;
 
     colorUrgency(index);
