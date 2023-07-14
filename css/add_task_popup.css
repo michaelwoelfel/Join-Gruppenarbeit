@@ -276,5 +276,43 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
+
+/* ANIMATION ADDED TO BOARD */
+
+.addedTaskToBoard_content {
+    position: absolute;
+    bottom: 0;
+    left: 47%;
+    background-color: #2A3647;
+    color: white;
+    padding: 16px;
+    border-radius: 16px;
+    font-weight: 600;
+    opacity: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+
+.show {
+    animation: 3s addToBoard;
+}
+  
+@keyframes addToBoard {
+    0% {
+        transform:translate(0%, 0%);
+        bottom: 0;
+        opacity: 0;
+    }
+    100% {
+        transfor: translate(0, 0);
+        bottom: 150px;
+        opacity: 1;
+    }
+}
+
+
 /* RESPONSIVE DESIGN */
 
