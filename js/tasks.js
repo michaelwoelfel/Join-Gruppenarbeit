@@ -28,6 +28,7 @@ async function addTask() {
     let taskStatus = 'todo';
     // EVERY TASK HAS OWN ID
     let taskId = taskIdCounter++;
+    
 
     tasks.push({
         id: taskId,
@@ -45,8 +46,11 @@ async function addTask() {
 
 
 async function editTask(i) {
-    let task = tasks[i];
-    deleteTask(i);
+    let index = tasks.findIndex(task => task.id === i);
+    let task = tasks[index];
+    debugger;
+    taskId = task.id;
+   
     closeTask();
     addTaskPopUp();
     document.getElementById('add_task_title').value = task.name;
@@ -55,24 +59,12 @@ async function editTask(i) {
     document.getElementById('add_task_category_select').value = task.category;
     document.getElementById('add_task_assign_select').value = task.user;
     document.getElementById('add_task_input_date').value = task.date;
-    let taskPrio = task.priority;
-    // TODO = START STATUS
+  
+    deleteTask(i);
+   
 
-    // EVERY TASK HAS OWN ID
-    let taskId = task.id;
 
-    tasks.push({
-        id: taskId,
-        name: taskName,
-        subtask: taskSubtask,
-        tasktext: taskDescription,
-        category: taskCategory,
-        user: taskAssign,
-        date: taskDate,
-        priority: taskPrio,
-        status: taskStatus,
-    });
-    await setItem('tasks', JSON.stringify(tasks));
+
 };
 
 
@@ -241,6 +233,7 @@ function prioColorRed() {
     urgent.classList.toggle('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
+    getTaskPrio('urgent');
 }
 
 
@@ -251,6 +244,7 @@ function prioColorOrange() {
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.toggle('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
+    getTaskPrio('medium');
 }
 
 
@@ -261,6 +255,7 @@ function prioColorGreen() {
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.toggle('prio-btn-low-clicked');
+    getTaskPrio('low');
 }
 
 

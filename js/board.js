@@ -60,14 +60,14 @@ function renderPopUp(popup) {
                     <div class="prio fd_column">
                         <span>Prio</span>
                         <div class="prio-btns-container">
-                            <div id="prio_urgent" class="prio-btn" onclick="prioColorRed()">Urgent <img src="./assets/img/urgent_prio.png"
+                        <div onclick="getTaskPrio('urgent')" id="prio_urgent" class="prio-btn">Urgent <img onclick="getTaskPrio('urgent')" src="./assets/img/urgent_prio.png"
                                 alt="urgent">
-                            </div>
-                            <div id="prio_medium" class="prio-btn" onclick="prioColorOrange()">Medium <img src="./assets/img/medium_prio.png"
-                                alt="medium">
-                            </div>
-                            <div id="prio_low" class="prio-btn" onclick="prioColorGreen()">Low <img src="./assets/img/low_prio.png" alt="low"></div>
                         </div>
+                        <div onclick="getTaskPrio('medium')" id="prio_medium" class="prio-btn">Medium <img onclick="getTaskPrio('medium')" src="./assets/img/medium_prio.png"
+                                alt="medium">
+                        </div>
+                        <div onclick="getTaskPrio('low')" id="prio_low" class="prio-btn">Low <img onclick="getTaskPrio('low')" src="./assets/img/low_prio.png" alt="low"></div>
+                    </div>
                     </div>
                     <div class="subtasks fd_column">
                         <span>Subtasks</span>
@@ -80,7 +80,7 @@ function renderPopUp(popup) {
             </div>
             <div class="buttons-clear-create">
                 <div class="clear-btn btn">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
-                <div class="create-btn btn">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
+                <div onclick="addTask()" class="create-btn btn">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
             </div>
         </div>
     </div>
@@ -91,6 +91,7 @@ function renderPopUp(popup) {
 function closePopup() {
     let popup = document.getElementById('popup_add_task');
     popup.classList.add('d-none');
+    renderTasks();
 }
 
 
