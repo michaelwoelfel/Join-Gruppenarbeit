@@ -188,6 +188,7 @@ h3 {
         border-bottom-right-radius: 10px;
         border-color: rgb(223, 225, 233);
         border-width: 1px;
+        object-fit: contain;
     }
 
     .input-field-mail {
@@ -205,6 +206,7 @@ h3 {
         border-bottom-right-radius: 10px;
         border-color: rgb(223, 225, 233);
         border-width: 1px;
+        object-fit: contain;
     }
 
     .input-field-phone {
@@ -222,192 +224,62 @@ h3 {
         border-bottom-right-radius: 10px;
         border-color: rgb(223, 225, 233);
         border-width: 1px;
+        object-fit: cover;
     }
 
 
 .cancel-btn {
     border: 1px solid #2A3647;
-border-radius: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 30px;
+    margin-right: 20px;
+    color: #2A3647;
+    background-color: white;
+}
+
+.cancel-btn:hover {
+    cursor: pointer;
+    color: #29ABE2;
+    border: 1px solid #29ABE2;
 }
 
 .create-btn {
-
+    border: 1px solid #2A3647;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #2A3647;
+    font-weight: bold;
 }
 
-    /* Frame 35 */
+.create-btn:hover {
+    cursor: pointer;
+    background-color: #29ABE2;
+    border: 1px solid #29ABE2;
+}
 
-/* Auto layout */
-display: flex;
-flex-direction: column;
-justify-content: flex-end;
-align-items: center;
-padding: 0px;
-gap: 4px;
+.task-cancel:before {
+   margin-right: 5px;
+   display: flex;
+   flex-direction: row;
+}
 
-position: absolute;
-width: 379px;
-height: 55px;
-left: 737px;
-top: 435px;
-
-
-
-/* Frame 27 */
-
-/* Auto layout */
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 0px;
-gap: 25px;
-
-width: 379px;
-height: 55px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
-
-/* Secondary V1 */
-
-box-sizing: border-box;
-
-/* Auto layout */
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 18px 10px;
-gap: 10px;
-
-width: 136px;
-height: 55px;
-
-/* Version 2/main color */
-border: 1px solid #2A3647;
-border-radius: 10px;
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
-
-/* Cancel */
-
-width: 66px;
-height: 24px;
-
-/* Version 2/t6 */
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 120%;
-/* identical to box height, or 24px */
-
-/* Version 2/main color */
-color: #2A3647;
-
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
-
-/* iconoir:cancel */
-
-width: 24px;
-height: 24px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-flex-grow: 0;
-
-
-/* Vector */
-
-position: absolute;
-left: 28.16%;
-right: 28.15%;
-top: 28.15%;
-bottom: 28.15%;
-
-/* Version 2/main color */
-border: 2px solid #2A3647;
-
-
-/* Primary check button V1 */
-
-/* Auto layout */
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 18px 15px;
-gap: 10px;
-
-width: 218px;
-height: 55px;
-
-background: #2A3647;
-border-radius: 10px;
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-flex-grow: 0;
-
-
-/* Create Task */
-
-width: 154px;
-height: 25px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 21px;
-line-height: 120%;
-/* or 25px */
-
-color: #FFFFFF;
-
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
-
-/* akar-icons:check */
-
-width: 24px;
-height: 24px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-flex-grow: 0;
-
-
-/* Vector */
-
-position: absolute;
-left: 16.67%;
-right: 16.67%;
-top: 25%;
-bottom: 25%;
-
-border: 2px solid #FFFFFF;
+.task-check:before {
+    margin-right: 5px;
+}
 
 
 @media only screen and (max-width: 800px) {
