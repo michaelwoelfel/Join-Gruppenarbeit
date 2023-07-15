@@ -27,6 +27,3 @@ async function includeHTML(callback) {
     callback();
 }
 
-function newContact() {
-    
-}
