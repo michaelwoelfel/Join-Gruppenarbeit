@@ -8,6 +8,7 @@ function initSummary() {
         // After all includes are loaded, get the time and summary data
         getTime();
         getName();
+        updateTaskCount();
         colorSummary();
     });
 
@@ -102,7 +103,7 @@ function initContacts() {
     // Load included HTML first
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
-        colorContacts()();
+        colorContacts();
     });
 }
 
