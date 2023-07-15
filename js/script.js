@@ -4,7 +4,7 @@
 
 function initSummary() {
     // Load included HTML first
-   
+    loadUsers();
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
         getTime();
@@ -20,8 +20,9 @@ function colorSummary() {
     document.getElementById('summary').classList.add('sidebar-color-black');
 }
 
-function getName() {
-    let currentUser = localStorage.getItem('currentUser');
+async function getName() {
+
+    let currentUser= JSON.parse(await getItem('currentUser'));
     document.getElementById('currentuser').innerHTML = `${currentUser}`;
 }
 
