@@ -3,7 +3,7 @@
 let tasks = [];
 let taskIdCounter = 0;
 let currentDraggedElement;
-let changeTaskNumber;
+
 
 // CHECK THE TASK FOR THE RIGHT ID
 async function checkLastTaskId() {
@@ -80,9 +80,11 @@ async function changeTask(i) {
 
 async function editTask(i) {
     let task = tasks[i];
-    changeTaskNumber = i;
     closeTask();
     addTaskPopUp();
+    let taskprio = task['priority'];
+    console.log(taskprio);
+   
     document.getElementById('add_task_title').value = task.name;
     document.getElementById('add_task_input_subtask').value = task.subtask;
     document.getElementById('add_task_description').value = task.tasktext;
@@ -186,7 +188,7 @@ function prioColorRed() {
     urgent.classList.toggle('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
-    getTaskPrio('urgent');
+
 }
 
 
@@ -197,7 +199,7 @@ function prioColorOrange() {
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.toggle('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
-    getTaskPrio('medium');
+  
 }
 
 
@@ -208,7 +210,7 @@ function prioColorGreen() {
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.toggle('prio-btn-low-clicked');
-    getTaskPrio('low');
+   
 }
 
 
@@ -240,37 +242,9 @@ function renderDone() {
     }
 }
 
-// PRIO COLORS CHANGING ONCLICK 
-
-function prioColorRed() {
-    let urgent = document.getElementById('prio_urgent');
-    let medium = document.getElementById('prio_medium');
-    let low = document.getElementById('prio_low');
-    urgent.classList.toggle('prio-btn-urgent-clicked');
-    medium.classList.remove('prio-btn-medium-clicked');
-    low.classList.remove('prio-btn-low-clicked');
-}
 
 
-function prioColorOrange() {
-    let urgent = document.getElementById('prio_urgent');
-    let medium = document.getElementById('prio_medium');
-    let low = document.getElementById('prio_low');
-    urgent.classList.remove('prio-btn-urgent-clicked');
-    medium.classList.toggle('prio-btn-medium-clicked');
-    low.classList.remove('prio-btn-low-clicked');
-    getTaskPrio('medium');
-}
 
-
-function prioColorGreen() {
-    let urgent = document.getElementById('prio_urgent');
-    let medium = document.getElementById('prio_medium');
-    let low = document.getElementById('prio_low');
-    urgent.classList.remove('prio-btn-urgent-clicked');
-    medium.classList.remove('prio-btn-medium-clicked');
-    low.classList.toggle('prio-btn-low-clicked');
-}
 
 
 // TEMPLATE FÜR RENDER ... WIRD FÜR JEDEN STATUS AUSGEFÜHRT 
@@ -329,7 +303,7 @@ async function openTask(i) {
     <div class="bigtaskusers">
         <span><b>Assigned To:</b></span>
     <div class="users">${task['user']}</div></div>
-    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${index})" src="/assets/img/edit.png"></div>
+    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${i})" src="/assets/img/edit.png"></div>
 </div>` ;
 
     colorUrgency(index);
