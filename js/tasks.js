@@ -83,7 +83,7 @@ async function editTask(i) {
     closeTask();
     addTaskPopUp();
     let taskprio = task['priority'];
-    console.log(taskprio);
+    getTaskPrio(taskprio);
    
     document.getElementById('add_task_title').value = task.name;
     document.getElementById('add_task_input_subtask').value = task.subtask;
@@ -128,15 +128,16 @@ function clearTask() {
 }
 
 function getTaskPrio(prio) {
-    if (prio === 'urgent') {
+    if (prio === 'urgent' || prio === `assets/img/priohigh.png`) {
         taskPrio = `assets/img/priohigh.png`;
         prioColorRed();
+        debugger;
     }
-    if (prio === 'medium') {
+    if (prio === 'medium' ||  prio === `assets/img/priomedium.png`) {
         taskPrio = `assets/img/priomedium.png`;
         prioColorOrange();
     }
-    if (prio === 'low') {
+    if (prio === 'low' ||  prio === `assets/img/priolow.png`) {
         taskPrio = `assets/img/priolow.png`;
         prioColorGreen();
     }
