@@ -3,7 +3,8 @@
 let tasks = [];
 let taskIdCounter = 0;
 let currentDraggedElement;
-let changeTaskNumber;
+
+
 
 // CHECK THE TASK FOR THE RIGHT ID
 async function checkLastTaskId() {
@@ -80,9 +81,11 @@ async function changeTask(i) {
 
 async function editTask(i) {
     let task = tasks[i];
-    changeTaskNumber = i;
     closeTask();
     addTaskPopUp();
+    let taskprio = task['priority'];
+    getTaskPrio(taskprio);
+   
     document.getElementById('add_task_title').value = task.name;
     document.getElementById('add_task_input_subtask').value = task.subtask;
     document.getElementById('add_task_description').value = task.tasktext;
@@ -126,15 +129,16 @@ function clearTask() {
 }
 
 function getTaskPrio(prio) {
-    if (prio === 'urgent') {
+    if (prio === 'urgent' || prio === `assets/img/priohigh.png`) {
         taskPrio = `assets/img/priohigh.png`;
         prioColorRed();
+        debugger;
     }
-    if (prio === 'medium') {
+    if (prio === 'medium' ||  prio === `assets/img/priomedium.png`) {
         taskPrio = `assets/img/priomedium.png`;
         prioColorOrange();
     }
-    if (prio === 'low') {
+    if (prio === 'low' ||  prio === `assets/img/priolow.png`) {
         taskPrio = `assets/img/priolow.png`;
         prioColorGreen();
     }
@@ -186,7 +190,7 @@ function prioColorRed() {
     urgent.classList.toggle('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
-    getTaskPrio('urgent');
+
 }
 
 
@@ -197,7 +201,7 @@ function prioColorOrange() {
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.toggle('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
-    getTaskPrio('medium');
+  
 }
 
 
@@ -208,7 +212,7 @@ function prioColorGreen() {
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.toggle('prio-btn-low-clicked');
-    getTaskPrio('low');
+   
 }
 
 
@@ -240,37 +244,9 @@ function renderDone() {
     }
 }
 
-// PRIO COLORS CHANGING ONCLICK 
-
-function prioColorRed() {
-    let urgent = document.getElementById('prio_urgent');
-    let medium = document.getElementById('prio_medium');
-    let low = document.getElementById('prio_low');
-    urgent.classList.toggle('prio-btn-urgent-clicked');
-    medium.classList.remove('prio-btn-medium-clicked');
-    low.classList.remove('prio-btn-low-clicked');
-}
 
 
-function prioColorOrange() {
-    let urgent = document.getElementById('prio_urgent');
-    let medium = document.getElementById('prio_medium');
-    let low = document.getElementById('prio_low');
-    urgent.classList.remove('prio-btn-urgent-clicked');
-    medium.classList.toggle('prio-btn-medium-clicked');
-    low.classList.remove('prio-btn-low-clicked');
-    getTaskPrio('medium');
-}
 
-
-function prioColorGreen() {
-    let urgent = document.getElementById('prio_urgent');
-    let medium = document.getElementById('prio_medium');
-    let low = document.getElementById('prio_low');
-    urgent.classList.remove('prio-btn-urgent-clicked');
-    medium.classList.remove('prio-btn-medium-clicked');
-    low.classList.toggle('prio-btn-low-clicked');
-}
 
 
 // TEMPLATE FÜR RENDER ... WIRD FÜR JEDEN STATUS AUSGEFÜHRT 
@@ -329,7 +305,7 @@ async function openTask(i) {
     <div class="bigtaskusers">
         <span><b>Assigned To:</b></span>
     <div class="users">${task['user']}</div></div>
-    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${index})" src="/assets/img/edit.png"></div>
+    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${i})" src="/assets/img/edit.png"></div>
 </div>` ;
 
     colorUrgency(index);
@@ -398,5 +374,62 @@ function taskAddedToBoard() {
         container.classList.remove('show');
     }, 3000);
 }
+
+
+
+async function updateSummary() {
+    await loadTasks();
+    updateTaskCount();
+    updateTasksToDo();
+    updateTasksDone();
+    updateTasksInProgress();
+    updateTasksAwaitingFB();
+}
+
+    
+
+    async function updateTasksToDo() {
+        await loadTasks();
+        const tasksToDo = tasks.filter((task) => task.status === 'todo');
+        const tasksToDoCount = tasksToDo.length;
+        const tasksToDoNumberElement = document.getElementById('toDoNumber');
+        if (tasksToDoNumberElement) {
+            tasksToDoNumberElement.textContent = tasksToDoCount.toString();
+        }
+    }
+    
+    async function updateTasksDone() {
+        await loadTasks();
+        const tasksDone = tasks.filter((task) => task.status === 'done');
+        const tasksDoneCount = tasksDone.length;
+        const tasksDoneNumberElement = document.getElementById('doneNumber');
+        if (tasksDoneNumberElement) {
+            tasksDoneNumberElement.textContent = tasksDoneCount.toString();
+        }
+    }
+    
+    async function updateTasksInProgress() {
+        await loadTasks();
+        const tasksInProgress = tasks.filter((task) => task.status === 'inprogress');
+        const tasksInProgressCount = tasksInProgress.length;
+        const tasksInProgressNumberElement = document.getElementById('tasksInProgressNumber');
+        if (tasksInProgressNumberElement) {
+            tasksInProgressNumberElement.textContent = tasksInProgressCount.toString();
+        }
+    }
+    
+    async function updateTasksAwaitingFB() {
+        await loadTasks();
+        const tasksAwaitingFB = tasks.filter((task) => task.status === 'awaitingfb');
+        const tasksAwaitingFBCount = tasksAwaitingFB.length;
+        const tasksAwaitingFBNumberElement = document.getElementById('awaitFbNumber');
+        if (tasksAwaitingFBNumberElement) {
+            tasksAwaitingFBNumberElement.textContent = tasksAwaitingFBCount.toString();
+        }
+    }
+    
+    
+
+
 
 

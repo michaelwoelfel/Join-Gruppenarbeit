@@ -39,14 +39,14 @@ function renderPopUp(popup) {
                     </div>
 
                     <div class="assign fd_column">
-                        <span>Assign to</span>
-                        <select class="task_input_field_styling" name="Assigned to" id="add_task_assign_select">
-                            <option value="Select contacts to assign">Select contacts to assign</option>
-                            <option value="">You</option>
-                            <option value="">Maximilian Vogel</option>
-                            <option value="">invite new contact</option>
-                        </select>
-                    </div>
+                    <span>Assign to</span>
+                    <select class="task_input_field_styling" name="Assigned to" id="add_task_assign_select">
+                        <option value="Select contacts to assign">Select contacts to assign</option>
+                        <option value="You">You</option>
+                        <option value="Maximilian Vogel">Maximilian Vogel</option>
+                        <option value="invite new contact">invite new contact</option>
+                    </select>
+                </div>
                 </form>
                 
                 <div class="seperator fd_column"></div>
@@ -60,13 +60,13 @@ function renderPopUp(popup) {
                     <div class="prio fd_column">
                         <span>Prio</span>
                         <div class="prio-btns-container">
-                        <div onclick="getTaskPrio('urgent')" id="prio_urgent" class="prio-btn">Urgent <img onclick="getTaskPrio('urgent')" src="./assets/img/urgent_prio.png"
+                        <div onclick="getTaskPrio('urgent')" id="prio_urgent" class="prio-btn">Urgent <img  src="./assets/img/urgent_prio.png"
                                 alt="urgent">
                         </div>
-                        <div onclick="getTaskPrio('medium')" id="prio_medium" class="prio-btn">Medium <img onclick="getTaskPrio('medium')" src="./assets/img/medium_prio.png"
+                        <div onclick="getTaskPrio('medium')" id="prio_medium" class="prio-btn">Medium <img  src="./assets/img/medium_prio.png"
                                 alt="medium">
                         </div>
-                        <div onclick="getTaskPrio('low')" id="prio_low" class="prio-btn">Low <img onclick="getTaskPrio('low')" src="./assets/img/low_prio.png" alt="low"></div>
+                        <div onclick="getTaskPrio('low')" id="prio_low" class="prio-btn">Low <img  src="./assets/img/low_prio.png" alt="low"></div>
                     </div>
                     </div>
                     <div class="subtasks fd_column">

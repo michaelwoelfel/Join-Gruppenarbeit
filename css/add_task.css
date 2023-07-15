@@ -420,3 +420,103 @@ input[type=date]:invalid::-webkit-datetime-edit {
         margin: 0 100px;
     }
 }
+
+@media(max-width: 700px) {
+    .add_task_left, 
+    .add_task_right {
+        margin-left: 20px;
+        margin-right: 20px;
+        width: 90%;
+    }
+
+    .add_task_h1 {
+        margin-left: 20px;
+        font-size: 32px;
+    }
+
+    .buttons-clear-create {
+        right: 20px;
+    }
+
+    .prio-btn {
+        font-size: 10px;
+        width: 70px;
+    }
+
+    .seperator {
+        margin: 0 40px;
+    }
+
+    .add_task_right {
+        margin-right: 50px;
+    }
+}
+
+@media(max-width: 550px) {
+    .add_task_left,
+    .add_task_right {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 100%;
+    }
+
+    .add_task_h1 {
+        margin-left: 10px;
+        font-size: 24px;
+    }
+
+    .prio-btn {
+        font-size: 8px;
+        width: 60px;
+    }
+
+    .seperator {
+        display: none;
+    }
+
+    .buttons-clear-create {
+        right: 10px;
+    }
+
+    .add_task_right {
+        margin-right: 20px;
+    }
+}
+
+@media(max-width: 400px) {
+    .add_task_h1 {
+        font-size: 20px;
+    }
+
+    .task_input_field_styling {
+        font-size: 12px;
+    }
+
+    .prio-btn {
+        font-size: 6px;
+        width: 50px;
+    }
+
+    .buttons-clear-create {
+        right: 5px;
+    }
+}
+
+@media(max-width: 350px) {
+    .add_task_h1 {
+        font-size: 16px;
+    }
+
+    .task_input_field_styling {
+        font-size: 10px;
+    }
+
+    .prio-btn {
+        font-size: 4px;
+        width: 40px;
+    }
+
+    .buttons-clear-create {
+        right: 2px;
+    }
+}

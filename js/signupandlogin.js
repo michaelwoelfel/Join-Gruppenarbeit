@@ -1,4 +1,5 @@
 let users;
+let currentUser;
 
 
 const STORAGE_TOKEN = '9DSY3OMJBPC4FF2QNS6I226NK6HRNQV27XWIWUO8';
@@ -15,6 +16,7 @@ async function addUser() {
         mail: userMail,
         password: userPassword,
     });
+    debugger;
     await setItem('users', JSON.stringify(users));
     resetForm();
     hideSignup();
@@ -31,13 +33,25 @@ function openWindow() {
     window.open('summary.html','_self');
 }
 
+function openWindowIndex() {
+    window.open('index.html','_self');
+}
+
+function loginGuest() {
+ currentUser = 'Guest';
+ setItem('currentUser', JSON.stringify(currentUser));
+    window.open('summary.html','_self');
+    debugger;
+}
+
+
 async function init() {
     loadUsers();
 }
 
 async function loadUsers() {
     try {
-        users = JSON.parse(await getItem('users'));
+        users = JSON.parse(await getItem('users')) || [];
     } catch (e) {
         console.error('Loading error:', e);
     }
@@ -50,7 +64,7 @@ function resetForm() {
     document.getElementById('userpassword').value = '';
 }
 
-function login(event){
+async function login(event){
     event.preventDefault();
     let mail = document.getElementById('inputmail').value;
     let password = document.getElementById('inputpassword').value;
@@ -58,8 +72,9 @@ function login(event){
     let userIndex = users.findIndex(u => u.mail == mail && u.password == password);
     if(user) {
         currentUser = users[userIndex].username;
-        localStorage.setItem('currentUser', currentUser);
+        await setItem('currentUser', JSON.stringify(currentUser));
         openWindow();
+        debugger;
         
     } else {
         document.getElementById('wrongpassword').innerHTML = `Wrong E-mail or Password !`;
