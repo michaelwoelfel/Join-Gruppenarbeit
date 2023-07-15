@@ -33,6 +33,18 @@ function openWindow() {
     window.open('summary.html','_self');
 }
 
+function openWindowIndex() {
+    window.open('index.html','_self');
+}
+
+function loginGuest() {
+ currentUser = 'Guest';
+ setItem('currentUser', JSON.stringify(currentUser));
+    window.open('summary.html','_self');
+    debugger;
+}
+
+
 async function init() {
     loadUsers();
 }

@@ -21,9 +21,14 @@ function colorSummary() {
 }
 
 async function getName() {
-
-    let currentUser= JSON.parse(await getItem('currentUser'));
+if (currentUser == 'Guest') {
+    document.getElementById('currentuser').innerHTML = `Guest`;
+    
+}else {
+currentUser= JSON.parse(await getItem('currentUser'));
     document.getElementById('currentuser').innerHTML = `${currentUser}`;
+}
+debugger;
 }
 
 

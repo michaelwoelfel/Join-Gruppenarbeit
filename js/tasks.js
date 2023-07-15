@@ -5,6 +5,7 @@ let taskIdCounter = 0;
 let currentDraggedElement;
 
 
+
 // CHECK THE TASK FOR THE RIGHT ID
 async function checkLastTaskId() {
     await loadTasks();
