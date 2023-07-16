@@ -1,4 +1,4 @@
-let contacts = [];
+let contacts;
 
 async function addContact() {
     let ContactName = document.getElementById('contactname').value;
@@ -25,12 +25,14 @@ async function renderContacts() {
     contacts.sort((a, b) => a.name.localeCompare(b.name));
 
     document.getElementById('contact-list').innerHTML = '';
+   
+
 
     let currentLetter = '';
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
         const firstLetter = contact['name'].charAt(0).toUpperCase();
-        let randomColor = getRandomColor();
+        
         
         // Prüfe, ob wir zu einem neuen Buchstaben gewechselt haben
         if (firstLetter !== currentLetter) {
@@ -48,8 +50,9 @@ async function renderContacts() {
         let nameParts = contact['name'].split(' ');
         if (nameParts.length > 1 && nameParts[1].length > 0) {
             secondLetter = nameParts[1].charAt(0).toUpperCase();
+            
         }
-
+        let randomColor = getRandomColor();
         document.getElementById('contact-list').innerHTML += `
             <div class="contact-container">
                 <div class="contact">
@@ -64,6 +67,7 @@ async function renderContacts() {
                 </div>
             </div>`;
     }
+    document.getElementsByClassName('imgcontainer')[0].style.backgroundColor = 'white';
 }
 
 
