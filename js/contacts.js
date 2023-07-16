@@ -13,6 +13,7 @@ async function addContact() {
     });
     await setItem('contacts', JSON.stringify(contacts));
     taskAddedToBoard();
+    renderContacts();
 
 };
 
