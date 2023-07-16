@@ -234,6 +234,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 /* ANIMATION ADDED TO BOARD */
 
 .addedTaskToBoard_content {
+    gap: 10px;
     position: absolute;
     bottom: 0;
     left: 47%;

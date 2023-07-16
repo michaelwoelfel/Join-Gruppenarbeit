@@ -1,6 +1,7 @@
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
+    overflow-y: hidden;
 }
 
 .sidebar-color-black {
@@ -17,15 +18,21 @@ body {
 }
 
 .maincontainer {
+    overflow-y: hidden;
     display: flex;
     flex-direction: column;
     margin-left: 230px;
-    height: 100vh;
+   
   
   }
 
 #contact-list {
     border-right: 4px solid #0000001A;
+    overflow: auto !important;
+    width: 100%;  /* hier auf 100% geändert */
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* hinzugefügt */
     
 }
 
@@ -35,10 +42,11 @@ body {
   position: fixed;
   top: 80px;
   right: 0;
-  overflow-x: hidden;
+  
   margin-top: 4px;
   background-color: #F5F5F5;
   border-left: 4px solid #0000001A;
+ 
 }
 
 .blueline {
@@ -97,7 +105,71 @@ h3 {
       z-index: 10;
     }
     
+    .contactheader {
+        width: 80%;  /* hier auf 80% geändert */
+   display: flex;
+   align-items: center;
+   border-bottom: 1px solid #D1D1D1;
+   margin: auto; 
+    }
+
+    .contact-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 30px;
+      
+        
+    }
+
+    .middlecontainer {
+        overflow-y: hidden;
+        display: flex;
+       margin-right: 230px;
+       
+      
+    }
+
+    .contact {
+        padding-top: 40px;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin: auto;
+        
+    }
+    .contactinfo{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imgcontainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+        margin-left: 12px;
+        background-color: orange;
+        border-radius: 45px;
+        width: 40px;
+        height: 40px;
+    }
+
+    #contact-list{
+       
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+       
+
+    }
     
+    #letter{
+        padding-left: 20px;
+    }
 
 
     .modal-dialog {
@@ -235,7 +307,7 @@ h3 {
 
     .create-btn {
         background-color: #2A3647;
-        border: 1px solid #2A3647;
+     
         color: white;
         display: flex;
         justify-content: center;
@@ -256,7 +328,7 @@ h3 {
     
     
     .cancel-btn {
-        border: 1px solid #2A3647;
+       
         color:#2A3647;
         display: flex;
         justify-content: center;
@@ -266,12 +338,13 @@ h3 {
         border-radius: 12px;
         padding: 12px 16px;
         color: #2A3647;
+        border: none;
     }
     
     
     .cancel-btn:hover {
         cursor: pointer;
-        border-color: #29ABE2;
+        border: 1px solid #29ABE2;
         box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
         
     }
@@ -293,8 +366,45 @@ h3 {
    flex-direction: row;
 }
 
+.addedTaskToBoard_content {
+    position: absolute;
+    bottom: 0;
+    left: 47%;
+    background-color: #2A3647;
+    color: white;
+    padding: 16px;
+    border-radius: 16px;
+    font-weight: 600;
+    opacity: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
 .task-check:before {
     margin-right: 5px;
+}
+
+.board {
+    padding-left: 5px;
+}
+
+.show {
+    animation: 3s addToBoard;
+  }
+  
+@keyframes addToBoard {
+    0% {
+        transform:translate(0%, 0%);
+        bottom: 0;
+        opacity: 0;
+    }
+    100% {
+        transfor: translate(0, 0);
+        bottom: 150px;
+        opacity: 1;
+    }
 }
 
 
