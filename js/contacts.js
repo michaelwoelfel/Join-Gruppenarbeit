@@ -29,27 +29,42 @@ async function renderContacts() {
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
         const firstLetter = contact['name'].charAt(0).toUpperCase();
-
+        let randomColor = getRandomColor();
+        
         // Prüfe, ob wir zu einem neuen Buchstaben gewechselt haben
         if (firstLetter !== currentLetter) {
             currentLetter = firstLetter;
             document.getElementById('contact-list').innerHTML += `
                 <div class="contact-container">
                     <div class="contactheader">
-                        <h1 id="letter">${currentLetter}</h1>
+                    <h1 id="letter">${currentLetter}</h1>
                     </div>
                 </div>`;
+        } 
+
+        // Splitte den Namen und extrahiere den ersten Buchstaben des zweiten Worts, wenn es existiert
+        let secondLetter = '';
+        let nameParts = contact['name'].split(' ');
+        if (nameParts.length > 1 && nameParts[1].length > 0) {
+            secondLetter = nameParts[1].charAt(0).toUpperCase();
         }
 
         document.getElementById('contact-list').innerHTML += `
             <div class="contact-container">
                 <div class="contact">
-                    <div class="imgcontainer"><span id="firstletter">${contact['name'].charAt(0).toUpperCase()}</span><span id="secondletter">${contact['name'].charAt(1).toUpperCase()}</span></div>
-                    <div class="contactinfo"><span id="name">${contact['name']}</span><a href="mailto:${contact['mail']}" id="email">${contact['mail']}</a></div>
+                <div class="imgcontainer" style="background-color: ${randomColor};">
+                    <span id="firstletter">${firstLetter}</span>
+                    <span id="secondletter">${secondLetter}</span>
+                </div>
+                <div class="contactinfo">
+                    <span id="name">${contact['name']}</span>
+                    <a href="mailto:${contact['mail']}" id="email">${contact['mail']}</a>
+                </div>
                 </div>
             </div>`;
     }
 }
+
 
 function taskAddedToBoard() { 
     const container = document.querySelector('.addedTaskToBoard_content');
@@ -79,4 +94,18 @@ async function loadContacts() {
         console.error('Loading error:', e);
 
     }
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Diese Funktion generiert eine zufällige RGB-Farbe
+function getRandomColor() {
+    let r = getRandomInt(0, 255);
+    let g = getRandomInt(0, 255);
+    let b = getRandomInt(0, 255);
+    return `rgb(${r},${g},${b})`;
 }
