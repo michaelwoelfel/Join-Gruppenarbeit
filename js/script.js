@@ -111,6 +111,7 @@ function initContacts() {
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
         colorContacts();
+        renderContacts();
     });
 }
 
