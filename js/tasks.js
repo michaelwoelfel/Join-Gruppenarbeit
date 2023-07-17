@@ -429,9 +429,9 @@ async function updateTasksAwaitingFB() {
 
 function findClosestDate() {
     if (tasks.length > 0) {
-        let closestDate = tasks[0].date;
-        for (let i = 1; i < tasks.length; i++) {
-            if (tasks[i].date < closestDate) {
+        let closestDate = null;
+        for (let i = 0; i < tasks.length; i++) {
+            if (tasks[i].priority === 'assets/img/priohigh.png' && tasks[i].date && (closestDate === null || tasks[i].date < closestDate)) {
                 closestDate = tasks[i].date;
             }
         }
@@ -451,25 +451,6 @@ function updateUrgentDate() {
     }
 }
 
-
-// function updateUrgentNumber() {
-//     const urgentNumberElement = document.getElementById('urgentDate');
-//     const taskPrio = 'urgent';
-//     const filteredTasks = tasks.filter(task => task.priority === taskPrio && task.date !== undefined);
-//     let lowestDate = null;
-
-//     filteredTasks.forEach(task => {
-//         if (lowestDate === null || task.date < lowestDate) {
-//             lowestDate = task.date;
-//         }
-//     });
-
-//     if (lowestDate) {
-//         urgentNumberElement.textContent = lowestDate;
-//     } else {
-//         urgentNumberElement.textContent = 'No urgent tasks found';
-//     }
-// }
 
 
 
