@@ -49,8 +49,7 @@ body {
   margin-top: 4px;
   background-color: #F5F5F5;
   border-left: 4px solid #0000001A;
-  o
- 
+  
 }
 
 .blueline {
@@ -75,6 +74,11 @@ h3 {
 }
 
 .btn-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 21px;
     background-color: #2A3647;
     color: white;
     border: none;
@@ -134,18 +138,30 @@ h3 {
     }
 
     .contact {
-        padding-top: 40px;
+   margin-top: 20px;
+   padding-top:5px;
         width: 80%;
         display: flex;
         align-items: center;
         gap: 30px;
-        margin: auto;
-        padding-bottom: 10px;
-        
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
     }
+
+        .contact:hover {
+            border: 1px solid #29ABE2;
+            border-radius: 10px;
+            cursor:pointer;
+            box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
+
+        }
+        
+    
     .contactinfo{
         display: flex;
         flex-direction: column;
+        gap: 30px;
     }
 
     .imgcontainer{
@@ -157,6 +173,17 @@ h3 {
         border-radius: 45px;
         width: 40px;
         height: 40px;
+    }
+
+    .bigcontactimg {
+        background-color: yellow;
+        height: 120px;
+        width: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 70px;
+        border: 3px solid white;
     }
 
     #letter{
@@ -385,7 +412,88 @@ h3 {
 .show {
     animation: 3s addToBoard;
   }
+
+  #showcontact {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .contactinfobig{
+    margin-left: 55px;
+    margin-top: 30px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  .contactinfoedit{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .headinfo{
+    display: flex;
+    font-size: 47px;
+    align-items: center;
+    margin-left: 55px;
+
+  }
+
   
+  .name-and-editbutton {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    justify-content: flex-start;
+  }
+  
+  #blueaddtask{
+    width: 120px;
+    height: 20px;
+    margin-top: 5px;
+    padding-left: 5px;
+    border: 1px solid transparent;
+    
+  }
+
+  #blueaddtask:hover{
+    cursor: pointer;
+    border: 1px solid #29ABE2;
+    border-radius: 5px;
+  }
+
+  #editcontactsimg{
+    border: 1px solid transparent;
+    width: 62px;
+    height: 24px;
+  }
+
+  #editcontactsimg:hover{
+    border: 1px solid #29ABE2;
+    border-radius: 5px;
+    width: 62px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .contactmailbig{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contactphonebig{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  }
+
+
 @keyframes addToBoard {
     0% {
         transform:translate(0%, 0%);

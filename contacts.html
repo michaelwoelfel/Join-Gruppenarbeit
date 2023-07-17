@@ -18,49 +18,55 @@
         <script src="js/include_html.js"></script>
         <div w3-include-html="assets/templates/header_template.html"></div>
         <div class="middlecontainer">
-        <div id="contact-list"> </div>
-        <div id="contact-info">
-            <div class="contacts-header-right">
-                <h1>Contacts</h1>
-                <div class="blueline"></div>
-                <h3>Better with a team</h3>
-            </div>
-
-
-            <button onclick="openAddContact()" class="btn-contact"><b>New contact</b> <img
-                    src="./assets/img/contact+.png" class="btn-contact-icon"> </button>
-        </div>
-
-        <div class="dialog-add-contact"></div>
-
-        <div class="modal d-none" id="modal-one">
-            <div id="newcontact" class="modal-dialog ">
-                <div class="left-side-modal"><img src="./assets/img/join_logo.png" class="contacts-join-logo">
-                    <h1 class="modal-headline">Add contact</h1>
-                    <p class="modal-text">Tasks are better with a team!</p>
-                    <div class="blueline-vertical"></div>
+            <div id="contact-list"> </div>
+            <div id="contact-info">
+                <div class="contacts-header-right">
+                    <h1>Contacts</h1>
+                    <div class="blueline"></div>
+                    <h3>Better with a team</h3>
+                    </div>
+                    <div id="showcontact" class="showcontact">
+                        
+                    </div>
+                    
                 </div>
 
-                <div class="right-side-modal">
-                    <div class="img-info">
-                        <img class="img-add-contact" src="./assets/img/pfp.png">
-                        <div class="input-fields">
-                            <input id="contactname" class="input-field" placeholder="Name">
-                            <input  id="contactmail" class="input-field-mail" placeholder="Email">
-                            <input id="contactphone" class="input-field-phone" placeholder="Phone">
-                            <div class="bottom-buttons">
-                                <button onclick="closeAddContact()" class="cancel-btn">Cancel</button>
-                                <button onclick="addContact()" class="create-btn">Create contact</button>
-                                <span class="addedTaskToBoard_content">Contact Added <img class="board" src="./assets/img/board_img.png" alt="board"></span>  
 
+                <button onclick="openAddContact()" class="btn-contact"><b>New contact</b> <img
+                        src="./assets/img/contact+.png" class="btn-contact-icon"> </button>
+            </div>
+
+            <div class="dialog-add-contact"></div>
+
+            <div class="modal d-none" id="modal-one">
+                <div id="newcontact" class="modal-dialog ">
+                    <div class="left-side-modal"><img src="./assets/img/join_logo.png" class="contacts-join-logo">
+                        <h1 class="modal-headline">Add contact</h1>
+                        <p class="modal-text">Tasks are better with a team!</p>
+                        <div class="blueline-vertical"></div>
+                    </div>
+
+                    <div class="right-side-modal">
+                        <div class="img-info">
+                            <img class="img-add-contact" src="./assets/img/pfp.png">
+                            <div class="input-fields">
+                                <input id="contactname" class="input-field" placeholder="Name">
+                                <input id="contactmail" class="input-field-mail" placeholder="Email">
+                                <input id="contactphone" class="input-field-phone" placeholder="Phone">
+                                <div class="bottom-buttons">
+                                    <button onclick="closeAddContact()" class="cancel-btn">Cancel</button>
+                                    <button onclick="addContact()" class="create-btn">Create contact</button>
+                                    <span class="addedTaskToBoard_content">Contact Added <img class="board"
+                                            src="./assets/img/board_img.png" alt="board"></span>
+
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 </body>

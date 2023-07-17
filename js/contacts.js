@@ -55,7 +55,7 @@ async function renderContacts() {
         let randomColor = getRandomColor();
         document.getElementById('contact-list').innerHTML += `
             <div class="contact-container">
-                <div class="contact">
+                <div onclick="showContact(${i},'${randomColor}','${secondLetter}')" class="contact">
                 <div class="imgcontainer" style="background-color: ${randomColor};">
                     <span id="firstletter">${firstLetter}</span>
                     <span id="secondletter">${secondLetter}</span>
@@ -78,6 +78,23 @@ function taskAddedToBoard() {
     setTimeout(() => {
         container.classList.remove('show');
     }, 3000);
+}
+
+function showContact(i,randomColor,secondLetter){
+    const contact = contacts[i];
+    const firstLetter = contact['name'].charAt(0).toUpperCase();
+    document.getElementById('showcontact').innerHTML = `<div class="headinfo">
+    <div id="bigcontactimg" class="bigcontactimg" style="background-color: ${randomColor};" >
+        <span id="firstletter">${firstLetter}</span>
+        <span id="secondletter">${secondLetter}</span>
+    </div>
+   <div class="name-and-editbutton"> <span id="bigname">${contact['name']}</span> <img onclick="editContact(${i})" id="blueaddtask" src="assets/img/addtaskblue.png"></div>
+</div>
+<div class="contactinfobig">
+    <div class="contactinfoedit"><span>Contact Information:</span><img id="editcontactsimg" src="assets/img/editcontacts.png"></div>
+    <div class="contactmailbig"><span><b>Email</b></span><a href="mailto:${contact['mail']}">${contact['mail']}</a></div>
+    <div class="contactphonebig"><span><b>Phone</b></span><a>${contact['phone']}</a></div>
+</div>`;
 }
 
 
