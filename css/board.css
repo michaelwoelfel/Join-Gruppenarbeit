@@ -326,14 +326,33 @@ h3 {
     background-color: #FFA800;
 }
 
-@media only screen and (max-width: 1400px) {
+
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width: 1400px) {
     .taskcontainer {
         width: 100%;
         flex-wrap: wrap;
     }
 
     .task {
-        width: 48%;
-        margin-bottom: 20px; 
+        width: 300px;
+        margin-bottom: 80px;
+    }
+}
+
+
+@media(max-width: 980px) {
+    .boardtop {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 36px;
+    }
+
+    .headingboard {
+        padding: 0;
     }
 }
