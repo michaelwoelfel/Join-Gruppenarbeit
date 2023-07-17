@@ -29,7 +29,7 @@ async function addTask() {
     // EVERY TASK HAS OWN ID
     let taskId = taskIdCounter++;
     debugger;
-    
+
 
     tasks.push({
         id: taskId,
@@ -49,8 +49,8 @@ async function addTask() {
 };
 
 async function changeTask(i) {
-   let task = tasks[i];
-   let taskId = task.id;
+    let task = tasks[i];
+    let taskId = task.id;
     let taskName = document.getElementById('add_task_title').value;
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
@@ -63,17 +63,16 @@ async function changeTask(i) {
     task.name = taskName;
     task.subtask = taskSubtask;
     task.tasktext = taskDescription;
-    task.category =  taskCategory;
+    task.category = taskCategory;
     task.user = taskAssign;
     task.date = taskDate;
     task.priority = taskPrio;
     task.status = taskStatus;
-    debugger;
-    
+    // debugger;
 
-   
+
+
     await setItem('tasks', JSON.stringify(tasks));
-
     taskAddedToBoard();
     // zeigt die Animation in add Task
 };
@@ -85,20 +84,20 @@ async function editTask(i) {
     addTaskPopUp();
     let taskprio = task['priority'];
     getTaskPrio(taskprio);
-   
+
     document.getElementById('add_task_title').value = task.name;
     document.getElementById('add_task_input_subtask').value = task.subtask;
     document.getElementById('add_task_description').value = task.tasktext;
     document.getElementById('add_task_category_select').value = task.category;
     document.getElementById('add_task_assign_select').value = task.user;
     document.getElementById('add_task_input_date').value = task.date;
-   taskStatus = task.status;
-   taskId = task.id;
-   document.getElementById('buttonedit').classList.add('d-none');
-   document.getElementById('buttonafteredit').innerHTML = `<div id="buttonaftereditd-none"  class="create-btn btn d-none" onclick="changeTask(${i})">Change Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>`;
-   document.getElementById('buttonaftereditd-none').classList.remove('d-none');
-   
-   
+    taskStatus = task.status;
+    taskId = task.id;
+    document.getElementById('buttonedit').classList.add('d-none');
+    document.getElementById('buttonafteredit').innerHTML = `<div id="buttonaftereditd-none"  class="create-btn btn d-none" onclick="changeTask(${i})">Change Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>`;
+    document.getElementById('buttonaftereditd-none').classList.remove('d-none');
+
+
 };
 
 
@@ -134,11 +133,11 @@ function getTaskPrio(prio) {
         prioColorRed();
         debugger;
     }
-    if (prio === 'medium' ||  prio === `assets/img/priomedium.png`) {
+    if (prio === 'medium' || prio === `assets/img/priomedium.png`) {
         taskPrio = `assets/img/priomedium.png`;
         prioColorOrange();
     }
-    if (prio === 'low' ||  prio === `assets/img/priolow.png`) {
+    if (prio === 'low' || prio === `assets/img/priolow.png`) {
         taskPrio = `assets/img/priolow.png`;
         prioColorGreen();
     }
@@ -201,7 +200,7 @@ function prioColorOrange() {
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.toggle('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
-  
+
 }
 
 
@@ -212,7 +211,7 @@ function prioColorGreen() {
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.toggle('prio-btn-low-clicked');
-   
+
 }
 
 
@@ -273,6 +272,12 @@ function allowDrop(ev) {
 function moveTo(category) {
     tasks[currentDraggedElement]['status'] = category;
     updateHTML();
+    updateTaskStatus(currentDraggedElement, category);
+}
+
+function updateTaskStatus(taskIndex, newStatus) {
+    tasks[taskIndex]['status'] = newStatus;
+    setItem('tasks', JSON.stringify(tasks));
 }
 
 function startDragging(index) {
@@ -282,20 +287,13 @@ function startDragging(index) {
 
 
 
-// ENDE 
-
-
-
-
-
-
 async function openTask(i) {
 
     document.getElementById('showtask').classList.remove('d-none');
     let index = tasks.findIndex(task => task.id === i);
     let task = tasks[index];
 
-  
+
     document.getElementById('showtask').innerHTML =  /*html*/   `<div class="bigtask" id="task${index}">
     <div class="taskheader"><div class="category">${task['category']}</div><div onclick = closeTask()><img id="closeimg" src="/assets/img/close.png"></div></div>
     <div class="taskdescriptionbig"><b>${task['subtask']}</b></div>
@@ -366,7 +364,7 @@ async function deleteTask(i) {
 
 // TASK ADDED TO BOARD ANIMATION 'Matthias'
 
-function taskAddedToBoard() { 
+function taskAddedToBoard() {
     const container = document.querySelector('.addedTaskToBoard_content');
     container.classList.add('show');
 
@@ -386,49 +384,49 @@ async function updateSummary() {
     updateTasksAwaitingFB();
 }
 
-    
 
-    async function updateTasksToDo() {
-        await loadTasks();
-        const tasksToDo = tasks.filter((task) => task.status === 'todo');
-        const tasksToDoCount = tasksToDo.length;
-        const tasksToDoNumberElement = document.getElementById('toDoNumber');
-        if (tasksToDoNumberElement) {
-            tasksToDoNumberElement.textContent = tasksToDoCount.toString();
-        }
+
+async function updateTasksToDo() {
+    await loadTasks();
+    const tasksToDo = tasks.filter((task) => task.status === 'todo');
+    const tasksToDoCount = tasksToDo.length;
+    const tasksToDoNumberElement = document.getElementById('toDoNumber');
+    if (tasksToDoNumberElement) {
+        tasksToDoNumberElement.textContent = tasksToDoCount.toString();
     }
-    
-    async function updateTasksDone() {
-        await loadTasks();
-        const tasksDone = tasks.filter((task) => task.status === 'done');
-        const tasksDoneCount = tasksDone.length;
-        const tasksDoneNumberElement = document.getElementById('doneNumber');
-        if (tasksDoneNumberElement) {
-            tasksDoneNumberElement.textContent = tasksDoneCount.toString();
-        }
+}
+
+async function updateTasksDone() {
+    await loadTasks();
+    const tasksDone = tasks.filter((task) => task.status === 'done');
+    const tasksDoneCount = tasksDone.length;
+    const tasksDoneNumberElement = document.getElementById('doneNumber');
+    if (tasksDoneNumberElement) {
+        tasksDoneNumberElement.textContent = tasksDoneCount.toString();
     }
-    
-    async function updateTasksInProgress() {
-        await loadTasks();
-        const tasksInProgress = tasks.filter((task) => task.status === 'inprogress');
-        const tasksInProgressCount = tasksInProgress.length;
-        const tasksInProgressNumberElement = document.getElementById('tasksInProgressNumber');
-        if (tasksInProgressNumberElement) {
-            tasksInProgressNumberElement.textContent = tasksInProgressCount.toString();
-        }
+}
+
+async function updateTasksInProgress() {
+    await loadTasks();
+    const tasksInProgress = tasks.filter((task) => task.status === 'inprogress');
+    const tasksInProgressCount = tasksInProgress.length;
+    const tasksInProgressNumberElement = document.getElementById('tasksInProgressNumber');
+    if (tasksInProgressNumberElement) {
+        tasksInProgressNumberElement.textContent = tasksInProgressCount.toString();
     }
-    
-    async function updateTasksAwaitingFB() {
-        await loadTasks();
-        const tasksAwaitingFB = tasks.filter((task) => task.status === 'awaitingfb');
-        const tasksAwaitingFBCount = tasksAwaitingFB.length;
-        const tasksAwaitingFBNumberElement = document.getElementById('awaitFbNumber');
-        if (tasksAwaitingFBNumberElement) {
-            tasksAwaitingFBNumberElement.textContent = tasksAwaitingFBCount.toString();
-        }
+}
+
+async function updateTasksAwaitingFB() {
+    await loadTasks();
+    const tasksAwaitingFB = tasks.filter((task) => task.status === 'awaitingfb');
+    const tasksAwaitingFBCount = tasksAwaitingFB.length;
+    const tasksAwaitingFBNumberElement = document.getElementById('awaitFbNumber');
+    if (tasksAwaitingFBNumberElement) {
+        tasksAwaitingFBNumberElement.textContent = tasksAwaitingFBCount.toString();
     }
-    
-    
+}
+
+
 
 
 
