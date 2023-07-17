@@ -42,7 +42,7 @@
                 <div id="newcontact" class="modal-dialog ">
                     <div class="left-side-modal"><img src="./assets/img/join_logo.png" class="contacts-join-logo">
                         <h1 class="modal-headline">Add contact</h1>
-                        <p class="modal-text">Tasks are better with a team!</p>
+                        <p id="text-better-with-a-team" class="modal-text">Tasks are better with a team!</p>
                         <div class="blueline-vertical"></div>
                     </div>
 
@@ -56,6 +56,38 @@
                                 <div class="bottom-buttons">
                                     <button onclick="closeAddContact()" class="cancel-btn">Cancel</button>
                                     <button onclick="addContact()" class="create-btn">Create contact</button>
+                                    <span class="addedTaskToBoard_content">Contact Added <img class="board"
+                                            src="./assets/img/board_img.png" alt="board"></span>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal d-none" id="modal-one-edit">
+                <div id="newcontact" class="modal-dialog ">
+                    <div class="left-side-modal"><img src="./assets/img/join_logo.png" class="contacts-join-logo">
+                        <h1 class="modal-headline">Edit contact</h1>
+                    
+                        <div class="blueline-vertical"></div>
+                    </div>
+
+                    <div class="right-side-modal">
+                        <div class="img-info">
+                            
+                            <div id="img-add-contactedit" class="img-add-contactedit" style="background-color: red;">
+                                <span id="firstletter">A</span>
+                                <span id="secondletter">B</span>
+                            </div>
+                            <div class="input-fields">
+                                <input id="contactnameedit" class="input-field" placeholder="Name">
+                                <input id="contactmailedit" class="input-field-mail" placeholder="Email">
+                                <input id="contactphoneedit" class="input-field-phone" placeholder="Phone">
+                                <div id="editbuttons" class="bottom-buttons">
+                                    <button onclick="closeEditContact()" class="cancel-btn">Delete</button>
+                                    <button onclick="saveContact()" class="create-btn">Save</button>
                                     <span class="addedTaskToBoard_content">Contact Added <img class="board"
                                             src="./assets/img/board_img.png" alt="board"></span>
 

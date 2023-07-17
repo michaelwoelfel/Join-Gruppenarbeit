@@ -24,14 +24,16 @@ async function renderContacts() {
     // Sortiere Kontakte alphabetisch nach dem Namen
     contacts.sort((a, b) => a.name.localeCompare(b.name));
 
-    document.getElementById('contact-list').innerHTML = '';
+    
    
 
 
     let currentLetter = '';
-    for (let i = 0; i < contacts.length; i++) {
+    document.getElementById('contact-list').innerHTML = '';
+    for (let i = 2; i < contacts.length; i++) {
         const contact = contacts[i];
         const firstLetter = contact['name'].charAt(0).toUpperCase();
+        
         
         
         // Prüfe, ob wir zu einem neuen Buchstaben gewechselt haben
@@ -67,7 +69,7 @@ async function renderContacts() {
                 </div>
             </div>`;
     }
-    document.getElementsByClassName('imgcontainer')[0].style.backgroundColor = 'white';
+   
 }
 
 
@@ -88,19 +90,65 @@ function showContact(i,randomColor,secondLetter){
         <span id="firstletter">${firstLetter}</span>
         <span id="secondletter">${secondLetter}</span>
     </div>
-   <div class="name-and-editbutton"> <span id="bigname">${contact['name']}</span> <img onclick="editContact(${i})" id="blueaddtask" src="assets/img/addtaskblue.png"></div>
+   <div class="name-and-editbutton"> <span id="bigname">${contact['name']}</span> <img  id="blueaddtask" src="assets/img/addtaskblue.png"></div>
 </div>
 <div class="contactinfobig">
-    <div class="contactinfoedit"><span>Contact Information:</span><img id="editcontactsimg" src="assets/img/editcontacts.png"></div>
+    <div class="contactinfoedit"><span>Contact Information:</span><img onclick="editContact(${i},'${firstLetter}','${secondLetter}','${randomColor}')"  id="editcontactsimg" src="assets/img/editcontacts.png"></div>
     <div class="contactmailbig"><span><b>Email</b></span><a href="mailto:${contact['mail']}">${contact['mail']}</a></div>
     <div class="contactphonebig"><span><b>Phone</b></span><a>${contact['phone']}</a></div>
 </div>`;
+}
+
+function editContact(i,firstLetter,secondLetter,randomColor){
+    const contact = contacts[i];
+    openEditContact();
+    document.getElementById('contactnameedit').value = contact.name;
+    document.getElementById('contactmailedit').value = contact.mail;
+     document.getElementById('contactphoneedit').value = contact.phone;
+     document.getElementById('img-add-contactedit').innerHTML = ` <span id="firstletter">${firstLetter}</span>
+     <span id="secondletter">${secondLetter}</span>`;
+     document.getElementById('img-add-contactedit').style.backgroundColor = `${randomColor}`;
+     document.getElementById('editbuttons').innerHTML = `  <button onclick="deleteContact(${i})" class="cancel-btn">Delete</button>
+     <button onclick="saveContact(${i})" class="create-btn">Save</button>
+     <span class="addedTaskToBoard_content">Contact Added <img class="board"
+             src="./assets/img/board_img.png" alt="board"></span>`
+}
+
+async function saveContact(i) {
+    let contact = contacts[i];
+    let ContactName = document.getElementById('contactnameedit').value;
+    let ContactMail = document.getElementById('contactmailedit').value;
+    let ContactPhone = document.getElementById('contactphoneedit').value;
+        contact.name = ContactName;
+        contact.mail = ContactMail;
+        contact.phone = ContactPhone;
+    await setItem('contacts', JSON.stringify(contacts));
+    renderContacts();
+    closeEditContact();
+
+};
+
+async function deleteContact(i) {
+    contacts.splice(i, 1);
+    await setItem('contacts', JSON.stringify(contacts));
+    await renderContacts();
+    closeEditContact();
 }
 
 
 
 function openAddContact() {
     document.getElementById('modal-one').classList.remove('d-none');
+
+}
+
+function openEditContact() {
+    document.getElementById('modal-one-edit').classList.remove('d-none');
+
+}
+
+function closeEditContact() {
+    document.getElementById('modal-one-edit').classList.add('d-none');
 
 }
 

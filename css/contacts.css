@@ -2,10 +2,6 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     overflow: hidden;
-
-   
-  
-    
 }
 
 .sidebar-color-black {
@@ -51,6 +47,8 @@ body {
   border-left: 4px solid #0000001A;
   
 }
+
+
 
 .blueline {
     margin-top: 15px;
@@ -253,6 +251,22 @@ h3 {
         width: 120px;
     }
 
+    .img-add-contactedit {
+        font-size: 47px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    margin-top: 120px;
+        margin-left: 50px;
+        margin-right: 50px;
+        height: 120px;
+        width: 120px;
+        height: 120px;
+    width: 120px;
+    border-radius: 70px;
+    border: 3px solid white;
+    }
     .img-info {
         display: flex;
         
@@ -491,7 +505,13 @@ h3 {
     gap: 20px;
   }
 
+  #imginfoedit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
+  
 
 
 @keyframes addToBoard {
