@@ -327,6 +327,40 @@ input[type=date]:invalid::-webkit-datetime-edit {
     .seperator {
         margin: 0 50px;
     }
+
+    .prio-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .prio-btn img {
+        margin-top: 8px;
+        width: 16px;
+    }
+
+    .add_task_right {
+        width: 40%;
+        margin-right: 100px;
+    }
+
+    .add_task_left {
+        width: 30%;
+    }
+
+    .buttons-clear-create {
+        right: 70px;
+    }
+}
+
+
+@media(max-width: 1250px) {
+    .popup-content {
+        top: 16px;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+    }
 }
 
 
@@ -352,12 +386,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 
 @media only screen and (max-width: 1080px) {
-    .popup-content {
-        top: 16px;
-        left: 16px;
-        right: 16px;
-        bottom: 16px;
-    }
+    
 
     .add_task_container {
         flex-direction: column;

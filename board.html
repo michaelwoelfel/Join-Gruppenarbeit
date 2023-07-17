@@ -27,8 +27,15 @@
     <div class="maincontainer">
         <script src="js/include_html.js"></script>
         <div w3-include-html="assets/templates/header_template.html"></div>
+        <div class="hidden-Kanban">Kanban Project Management Tool</div>
+
         <div class="boardtop">
-            <h1 class="headingboard">Board</h1>
+            <div class="headingboard">
+                <h1>Board</h1>
+                <div class="plus-sign-mobile">
+                    <img onclick="addTaskPopUp()" class="plus-sign" src="./assets/img/plus.png" alt="">
+                </div>
+            </div>
             <div class="search">
                 <div class="searchbar"><input class="searchinput" placeholder="Find Task" type="search"> <img
                         src="assets/img/search.png"></div>
