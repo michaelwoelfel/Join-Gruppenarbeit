@@ -18,6 +18,7 @@
     right: 128px;
     bottom: 32px;
     z-index: 20;
+    overflow: auto; 
 }
 
 
@@ -320,3 +321,52 @@ input[type=date]:invalid::-webkit-datetime-edit {
     
 }
 
+@media only screen and (max-width: 1080px) {
+    .popup-content {
+        top: 16px;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .add_task_container {
+        flex-direction: column;
+    }
+
+    .add_task_left, .add_task_right {
+        width: 100%;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    .seperator {
+        display: none;
+    }
+
+    .buttons-clear-create {
+        right: 16px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .popup-content {
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+
+    .add_task_h1 {
+        font-size: 32px;
+        margin-left: 8px;
+    }
+
+    .add_task_left, .add_task_right {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .buttons-clear-create {
+        right: 8px;
+    }
+}

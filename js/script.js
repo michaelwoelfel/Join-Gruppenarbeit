@@ -4,11 +4,13 @@
 
 function initSummary() {
     // Load included HTML first
+    loadUsers();
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
         getTime();
         getName();
         colorSummary();
+        updateSummary();
     });
 
 
@@ -18,9 +20,15 @@ function colorSummary() {
     document.getElementById('summary').classList.add('sidebar-color-black');
 }
 
-function getName() {
-    let currentUser = localStorage.getItem('currentUser');
+async function getName() {
+if (currentUser == 'Guest') {
+    document.getElementById('currentuser').innerHTML = `Guest`;
+    
+}else {
+currentUser= JSON.parse(await getItem('currentUser'));
     document.getElementById('currentuser').innerHTML = `${currentUser}`;
+}
+debugger;
 }
 
 
@@ -102,7 +110,8 @@ function initContacts() {
     // Load included HTML first
     includeHTML(() => {
         // After all includes are loaded, get the time and summary data
-        colorContacts()();
+        colorContacts();
+        renderContacts();
     });
 }
 

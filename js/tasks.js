@@ -4,6 +4,8 @@ let tasks = [];
 let taskIdCounter = 0;
 let currentDraggedElement;
 
+
+
 // CHECK THE TASK FOR THE RIGHT ID
 async function checkLastTaskId() {
     await loadTasks();
@@ -26,7 +28,8 @@ async function addTask() {
     let taskStatus = 'todo';
     // EVERY TASK HAS OWN ID
     let taskId = taskIdCounter++;
-    
+    debugger;
+
 
     tasks.push({
         id: taskId,
@@ -45,23 +48,54 @@ async function addTask() {
     // zeigt die Animation in add Task
 };
 
+async function changeTask(i) {
+    let task = tasks[i];
+    let taskId = task.id;
+    let taskName = document.getElementById('add_task_title').value;
+    let taskSubtask = document.getElementById('add_task_input_subtask').value;
+    let taskDescription = document.getElementById('add_task_description').value;
+    let taskCategory = document.getElementById('add_task_category_select').value;
+    let taskAssign = document.getElementById('add_task_assign_select').value;
+    let taskDate = document.getElementById('add_task_input_date').value;
+    let taskPrio = getTaskPrio();
+    let taskStatus = task.status;
+    task.id = taskId;
+    task.name = taskName;
+    task.subtask = taskSubtask;
+    task.tasktext = taskDescription;
+    task.category = taskCategory;
+    task.user = taskAssign;
+    task.date = taskDate;
+    task.priority = taskPrio;
+    task.status = taskStatus;
+    debugger;
+
+
+
+    await setItem('tasks', JSON.stringify(tasks));
+    taskAddedToBoard();
+    // zeigt die Animation in add Task
+};
+
 
 async function editTask(i) {
-    let index = tasks.findIndex(task => task.id === i);
-    let task = tasks[index];
-    taskId = task.id;
+    let task = tasks[i];
     closeTask();
     addTaskPopUp();
+    let taskprio = task['priority'];
+    getTaskPrio(taskprio);
+
     document.getElementById('add_task_title').value = task.name;
     document.getElementById('add_task_input_subtask').value = task.subtask;
     document.getElementById('add_task_description').value = task.tasktext;
     document.getElementById('add_task_category_select').value = task.category;
     document.getElementById('add_task_assign_select').value = task.user;
     document.getElementById('add_task_input_date').value = task.date;
-  
-    deleteTask(i);
-   
-
+    taskStatus = task.status;
+    taskId = task.id;
+    document.getElementById('buttonedit').classList.add('d-none');
+    document.getElementById('buttonafteredit').innerHTML = `<div id="buttonaftereditd-none"  class="create-btn btn d-none" onclick="changeTask(${i})">Change Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>`;
+    document.getElementById('buttonaftereditd-none').classList.remove('d-none');
 
 
 };
@@ -94,15 +128,16 @@ function clearTask() {
 }
 
 function getTaskPrio(prio) {
-    if (prio === 'urgent') {
+    if (prio === 'urgent' || prio === `assets/img/priohigh.png`) {
         taskPrio = `assets/img/priohigh.png`;
         prioColorRed();
+        debugger;
     }
-    if (prio === 'medium') {
+    if (prio === 'medium' || prio === `assets/img/priomedium.png`) {
         taskPrio = `assets/img/priomedium.png`;
         prioColorOrange();
     }
-    if (prio === 'low') {
+    if (prio === 'low' || prio === `assets/img/priolow.png`) {
         taskPrio = `assets/img/priolow.png`;
         prioColorGreen();
     }
@@ -154,7 +189,7 @@ function prioColorRed() {
     urgent.classList.toggle('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
-    getTaskPrio('urgent');
+
 }
 
 
@@ -165,7 +200,7 @@ function prioColorOrange() {
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.toggle('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
-    getTaskPrio('medium');
+
 }
 
 
@@ -176,7 +211,7 @@ function prioColorGreen() {
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.toggle('prio-btn-low-clicked');
-    getTaskPrio('low');
+
 }
 
 
@@ -211,6 +246,8 @@ function renderDone() {
 
 
 
+
+
 // TEMPLATE FÜR RENDER ... WIRD FÜR JEDEN STATUS AUSGEFÜHRT 
 let taskTemplate = (task) => /*html*/ `
     <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="openTask(${task['id']})" class="content">
@@ -235,6 +272,12 @@ function allowDrop(ev) {
 function moveTo(category) {
     tasks[currentDraggedElement]['status'] = category;
     updateHTML();
+    updateTaskStatus(currentDraggedElement, category);
+}
+
+function updateTaskStatus(taskIndex, newStatus) {
+    tasks[taskIndex]['status'] = newStatus;
+    setItem('tasks', JSON.stringify(tasks));
 }
 
 function startDragging(index) {
@@ -244,20 +287,13 @@ function startDragging(index) {
 
 
 
-// ENDE 
-
-
-
-
-
-
 async function openTask(i) {
 
     document.getElementById('showtask').classList.remove('d-none');
     let index = tasks.findIndex(task => task.id === i);
     let task = tasks[index];
 
-    let imgpath;
+
     document.getElementById('showtask').innerHTML =  /*html*/   `<div class="bigtask" id="task${index}">
     <div class="taskheader"><div class="category">${task['category']}</div><div onclick = closeTask()><img id="closeimg" src="/assets/img/close.png"></div></div>
     <div class="taskdescriptionbig"><b>${task['subtask']}</b></div>
@@ -267,7 +303,7 @@ async function openTask(i) {
     <div class="bigtaskusers">
         <span><b>Assigned To:</b></span>
     <div class="users">${task['user']}</div></div>
-    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${index})" src="/assets/img/edit.png"></div>
+    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${i})" src="/assets/img/edit.png"></div>
 </div>` ;
 
     colorUrgency(index);
@@ -328,7 +364,7 @@ async function deleteTask(i) {
 
 // TASK ADDED TO BOARD ANIMATION 'Matthias'
 
-function taskAddedToBoard() { 
+function taskAddedToBoard() {
     const container = document.querySelector('.addedTaskToBoard_content');
     container.classList.add('show');
 
@@ -336,5 +372,105 @@ function taskAddedToBoard() {
         container.classList.remove('show');
     }, 3000);
 }
+
+
+
+async function updateSummary() {
+    await loadTasks();
+    updateTaskCount();
+    updateTasksToDo();
+    updateTasksDone();
+    updateTasksInProgress();
+    updateTasksAwaitingFB();
+    updateTasksUrgent();
+    updateUrgentDate();
+}
+
+
+
+async function updateTasksToDo() {
+    await loadTasks();
+    const tasksToDo = tasks.filter((task) => task.status === 'todo');
+    const tasksToDoCount = tasksToDo.length;
+    const tasksToDoNumberElement = document.getElementById('toDoNumber');
+    if (tasksToDoNumberElement) {
+        tasksToDoNumberElement.textContent = tasksToDoCount.toString();
+    }
+}
+
+async function updateTasksDone() {
+    await loadTasks();
+    const tasksDone = tasks.filter((task) => task.status === 'done');
+    const tasksDoneCount = tasksDone.length;
+    const tasksDoneNumberElement = document.getElementById('doneNumber');
+    if (tasksDoneNumberElement) {
+        tasksDoneNumberElement.textContent = tasksDoneCount.toString();
+    }
+}
+
+async function updateTasksInProgress() {
+    await loadTasks();
+    const tasksInProgress = tasks.filter((task) => task.status === 'inprogress');
+    const tasksInProgressCount = tasksInProgress.length;
+    const tasksInProgressNumberElement = document.getElementById('tasksInProgressNumber');
+    if (tasksInProgressNumberElement) {
+        tasksInProgressNumberElement.textContent = tasksInProgressCount.toString();
+    }
+}
+
+async function updateTasksAwaitingFB() {
+    await loadTasks();
+    const tasksAwaitingFB = tasks.filter((task) => task.status === 'awaitingfb');
+    const tasksAwaitingFBCount = tasksAwaitingFB.length;
+    const tasksAwaitingFBNumberElement = document.getElementById('awaitFbNumber');
+    if (tasksAwaitingFBNumberElement) {
+        tasksAwaitingFBNumberElement.textContent = tasksAwaitingFBCount.toString();
+    }
+}
+
+async function updateTasksUrgent() {
+    await loadTasks();
+    const tasksUrgent = tasks.filter((task) => task.priority === 'assets/img/priohigh.png');
+    const tasksUrgentCount = tasksUrgent.length;
+    const tasksUrgentNumberElement = document.getElementById('urgentNumber');
+    if (tasksUrgentNumberElement) {
+        tasksUrgentNumberElement.textContent = tasksUrgentCount.toString();
+    }
+}
+
+function updateUrgentDate() {
+    const urgentDateElement = document.getElementById('urgentDate');
+    const closestDate = findClosestDate();
+    if (closestDate) {
+        urgentDateElement.textContent = closestDate;
+    } else {
+        urgentDateElement.textContent = 'No urgent tasks';
+    }
+}
+
+function findClosestDate() {
+    if (tasks.length > 0) {
+        let closestDate = null;
+        for (let i = 0; i < tasks.length; i++) {
+            if (tasks[i].priority === 'assets/img/priohigh.png' && (closestDate === null || tasks[i].date < closestDate)) {
+                closestDate = tasks[i].date;
+            }
+        }
+        return closestDate ? formatDate(closestDate) : null;
+    }
+    return null;
+}
+
+function formatDate(date) {
+    const options = { month: 'long', day: 'numeric', year: 'numeric' };
+    return new Date(date).toLocaleDateString('en-US', options);
+}
+
+
+
+
+
+
+
 
 
