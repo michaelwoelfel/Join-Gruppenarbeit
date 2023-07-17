@@ -427,30 +427,28 @@ async function updateTasksAwaitingFB() {
     }
 }
 
-function findClosestDate() {
-    if (tasks.length > 0) {
-        let closestDate = null;
-        for (let i = 0; i < tasks.length; i++) {
-            if (tasks[i].priority === 'assets/img/priohigh.png' && tasks[i].date && (closestDate === null || tasks[i].date < closestDate)) {
-                closestDate = tasks[i].date;
-            }
-        }
-        return closestDate;
-    }
-    return null; // Return null if there are no tasks
-}
-
-// Update the content of the urgentDate element
 function updateUrgentDate() {
     const urgentDateElement = document.getElementById('urgentDate');
     const closestDate = findClosestDate();
     if (closestDate) {
         urgentDateElement.textContent = closestDate;
     } else {
-        urgentDateElement.textContent = 'No tasks found';
+        urgentDateElement.textContent = 'No urgent tasks';
     }
 }
 
+function findClosestDate() {
+    if (tasks.length > 0) {
+        let closestDate = null;
+        for (let i = 0; i < tasks.length; i++) {
+            if (tasks[i].priority === 'assets/img/priohigh.png' && (closestDate === null || tasks[i].date < closestDate)) {
+                closestDate = tasks[i].date;
+            }
+        }
+        return closestDate;
+    }
+    return null;
+}
 
 
 
