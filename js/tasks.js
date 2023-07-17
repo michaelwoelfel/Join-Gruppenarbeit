@@ -131,7 +131,6 @@ function getTaskPrio(prio) {
     if (prio === 'urgent' || prio === `assets/img/priohigh.png`) {
         taskPrio = `assets/img/priohigh.png`;
         prioColorRed();
-        debugger;
     }
     if (prio === 'medium' || prio === `assets/img/priomedium.png`) {
         taskPrio = `assets/img/priomedium.png`;

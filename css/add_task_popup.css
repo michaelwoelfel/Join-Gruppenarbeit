@@ -1,6 +1,6 @@
 .popup-background {
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
@@ -18,7 +18,7 @@
     right: 128px;
     bottom: 32px;
     z-index: 20;
-    overflow: auto; 
+    overflow: auto;
 }
 
 
@@ -46,7 +46,7 @@
 .add_task_h1 {
     font-size: 40px;
     font-weight: bold;
-    margin-left: 100px;    
+    margin-left: 100px;
 }
 
 
@@ -59,7 +59,7 @@
 
 .headline_h1_cancel img {
     height: 32px;
-    margin: 32px;   
+    margin: 32px;
 }
 
 
@@ -91,7 +91,7 @@ input {
     background-color: white;
     color: #D1D1D1;
     padding: 8px;
-}   
+}
 
 
 input[type=date]:invalid::-webkit-datetime-edit {
@@ -151,7 +151,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 8px 0;  
+    margin: 8px 0;
 }
 
 
@@ -167,24 +167,24 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 .prio-btn-urgent-clicked {
     background-color: #FF3D00;
-    color: white; 
+    color: white;
 }
 
 
 .prio-btn-urgent-clicked img {
-   filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(245deg) brightness(160%) contrast(110%)
+    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(245deg) brightness(160%) contrast(110%)
 }
 
 
 .prio-btn-medium-clicked {
     background-color: #FFA800;
-    color: white;    
+    color: white;
 }
 
 
 .prio-btn-medium-clicked img {
     filter: invert(0%) sepia(100%) saturate(100%) hue-rotate(245deg) brightness(160%) contrast(110%)
- }
+}
 
 
 .prio-btn-low-clicked {
@@ -195,7 +195,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 .prio-btn-low-clicked img {
     filter: invert(0%) sepia(100%) saturate(100%) hue-rotate(245deg) brightness(160%) contrast(110%)
- }
+}
 
 
 .prio-btn:hover {
@@ -229,7 +229,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     bottom: 50px;
     right: 200px;
     display: flex;
-    justify-content: flex-end;    
+    justify-content: flex-end;
 }
 
 
@@ -264,7 +264,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 .clear-btn {
     border: 1px solid #2A3647;
-    color:#2A3647;
+    color: #2A3647;
 }
 
 
@@ -280,10 +280,15 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 /* ANIMATION ADDED TO BOARD */
 
+.animation-addedToBoard {
+    display: flex;
+    justify-content: center;
+}
+
+
 .addedTaskToBoard_content {
     position: absolute;
     bottom: 0;
-    left: 47%;
     background-color: #2A3647;
     color: white;
     padding: 16px;
@@ -294,19 +299,20 @@ input[type=date]:invalid::-webkit-datetime-edit {
     justify-content: space-between;
     align-items: center;
     text-align: center;
-  }
+}
 
 
 .show {
     animation: 3s addToBoard;
 }
-  
+
 @keyframes addToBoard {
     0% {
-        transform:translate(0%, 0%);
+        transform: translate(0%, 0%);
         bottom: 0;
         opacity: 0;
     }
+
     100% {
         transfor: translate(0, 0);
         bottom: 150px;
@@ -317,9 +323,33 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 /* RESPONSIVE DESIGN */
 
-@media(max-width: 1400px) {
-    
+@media(max-width: 1500px) {
+    .seperator {
+        margin: 0 50px;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 1080px) {
     .popup-content {
@@ -333,7 +363,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
         flex-direction: column;
     }
 
-    .add_task_left, .add_task_right {
+    .add_task_left,
+    .add_task_right {
         width: 100%;
         margin-left: 16px;
         margin-right: 16px;
@@ -361,7 +392,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
         margin-left: 8px;
     }
 
-    .add_task_left, .add_task_right {
+    .add_task_left,
+    .add_task_right {
         margin-left: 8px;
         margin-right: 8px;
     }
