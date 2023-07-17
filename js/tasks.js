@@ -68,7 +68,7 @@ async function changeTask(i) {
     task.date = taskDate;
     task.priority = taskPrio;
     task.status = taskStatus;
-    // debugger;
+    debugger;
 
 
 
@@ -382,6 +382,7 @@ async function updateSummary() {
     updateTasksDone();
     updateTasksInProgress();
     updateTasksAwaitingFB();
+    updateUrgentDate();
 }
 
 
@@ -425,6 +426,51 @@ async function updateTasksAwaitingFB() {
         tasksAwaitingFBNumberElement.textContent = tasksAwaitingFBCount.toString();
     }
 }
+
+function findClosestDate() {
+    if (tasks.length > 0) {
+        let closestDate = tasks[0].date;
+        for (let i = 1; i < tasks.length; i++) {
+            if (tasks[i].date < closestDate) {
+                closestDate = tasks[i].date;
+            }
+        }
+        return closestDate;
+    }
+    return null; // Return null if there are no tasks
+}
+
+// Update the content of the urgentDate element
+function updateUrgentDate() {
+    const urgentDateElement = document.getElementById('urgentDate');
+    const closestDate = findClosestDate();
+    if (closestDate) {
+        urgentDateElement.textContent = closestDate;
+    } else {
+        urgentDateElement.textContent = 'No tasks found';
+    }
+}
+
+
+// function updateUrgentNumber() {
+//     const urgentNumberElement = document.getElementById('urgentDate');
+//     const taskPrio = 'urgent';
+//     const filteredTasks = tasks.filter(task => task.priority === taskPrio && task.date !== undefined);
+//     let lowestDate = null;
+
+//     filteredTasks.forEach(task => {
+//         if (lowestDate === null || task.date < lowestDate) {
+//             lowestDate = task.date;
+//         }
+//     });
+
+//     if (lowestDate) {
+//         urgentNumberElement.textContent = lowestDate;
+//     } else {
+//         urgentNumberElement.textContent = 'No urgent tasks found';
+//     }
+// }
+
 
 
 
