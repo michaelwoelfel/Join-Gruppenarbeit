@@ -382,6 +382,7 @@ async function updateSummary() {
     updateTasksDone();
     updateTasksInProgress();
     updateTasksAwaitingFB();
+    updateTasksUrgent();
     updateUrgentDate();
 }
 
@@ -427,6 +428,16 @@ async function updateTasksAwaitingFB() {
     }
 }
 
+async function updateTasksUrgent() {
+    await loadTasks();
+    const tasksUrgent = tasks.filter((task) => task.priority === 'assets/img/priohigh.png');
+    const tasksUrgentCount = tasksUrgent.length;
+    const tasksUrgentNumberElement = document.getElementById('urgentNumber');
+    if (tasksUrgentNumberElement) {
+        tasksUrgentNumberElement.textContent = tasksUrgentCount.toString();
+    }
+}
+
 function updateUrgentDate() {
     const urgentDateElement = document.getElementById('urgentDate');
     const closestDate = findClosestDate();
@@ -445,10 +456,17 @@ function findClosestDate() {
                 closestDate = tasks[i].date;
             }
         }
-        return closestDate;
+        return closestDate ? formatDate(closestDate) : null;
     }
     return null;
 }
+
+function formatDate(date) {
+    const options = { month: 'long', day: 'numeric', year: 'numeric' };
+    return new Date(date).toLocaleDateString('en-US', options);
+}
+
+
 
 
 
