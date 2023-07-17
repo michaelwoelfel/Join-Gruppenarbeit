@@ -28,7 +28,7 @@ if (currentUser == 'Guest') {
 currentUser= JSON.parse(await getItem('currentUser'));
     document.getElementById('currentuser').innerHTML = `${currentUser}`;
 }
-debugger;
+
 }
 
 

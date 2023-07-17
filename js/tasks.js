@@ -28,7 +28,7 @@ async function addTask() {
     let taskStatus = 'todo';
     // EVERY TASK HAS OWN ID
     let taskId = taskIdCounter++;
-    debugger;
+   
 
 
     tasks.push({
@@ -68,7 +68,7 @@ async function changeTask(i) {
     task.date = taskDate;
     task.priority = taskPrio;
     task.status = taskStatus;
-    debugger;
+   
 
 
 
@@ -131,6 +131,7 @@ function getTaskPrio(prio) {
     if (prio === 'urgent' || prio === `assets/img/priohigh.png`) {
         taskPrio = `assets/img/priohigh.png`;
         prioColorRed();
+        
     }
     if (prio === 'medium' || prio === `assets/img/priomedium.png`) {
         taskPrio = `assets/img/priomedium.png`;
@@ -145,10 +146,16 @@ function getTaskPrio(prio) {
 
 async function loadTasks() {
     try {
-        tasks = JSON.parse(await getItem('tasks'));
+        const loadedTasks = JSON.parse(await getItem('tasks'));
+        if (Array.isArray(loadedTasks)) {
+            tasks = loadedTasks;
+        } else if (typeof loadedTasks === 'object' && loadedTasks !== null) {
+            tasks = Object.values(loadedTasks);
+        } else {
+            console.error('Loaded tasks are not an array:', loadedTasks);
+        }
     } catch (e) {
         console.error('Loading error:', e);
-
     }
 }
 

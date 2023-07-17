@@ -41,7 +41,7 @@ function loginGuest() {
  currentUser = 'Guest';
  setItem('currentUser', JSON.stringify(currentUser));
     window.open('summary.html','_self');
-    debugger;
+    
 }
 
 
