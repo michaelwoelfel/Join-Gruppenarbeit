@@ -273,7 +273,71 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
+/* HEADER IMPLEMENTIERT */
+
+.header-mobile {
+    display: flex;
+  }
+
+  .join-logo-mobile-header {
+    height: 50px;
+  }
+
+  .author {
+    display: flex;
+    gap: 25px;
+    padding-right: 40px;
+    align-items: center;
+  }
+
+  .projectheader {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 4px 0px #0000001A;
+    width: 100%;
+  }
+
+  .headspan {
+    margin-left: 100px;
+  }
+
+  .questionimg {
+    height: 20px;
+  }
+
+
 /* RESPONSIVE DESIGN */
+
+  @media(min-width: 800px) {
+    .join-logo-mobile-header {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .headspan {
+      display: none;
+    }
+
+    .join-logo-mobile-header {
+      padding-left: 15px;
+    }
+
+    .author {
+      padding-right: 15px;
+    }
+  }
+
+
+/* RESPONSIVE DESIGN */
+
+@media (min-width: 800px) {
+    .hidden-Kanban {
+        display: none;
+    }
+}
 
 @media(max-width: 1500px) {
     .prio-btn {
@@ -364,6 +428,14 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 
 @media(max-width: 800px) {
+    .hidden-Kanban {
+        margin: 16px;
+    }
+
+    .author {
+        display: none;
+    }
+
     .clear-btn {
         display: none;
     }
@@ -371,7 +443,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     .buttons-clear-create {
         position: absolute;
         top: 10px;
-        right: 100px;
+        right: 15px;
         bottom: 89%;
         display: flex;
         justify-content: flex-end;    
@@ -384,6 +456,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .add_task_h1 {
         margin-left: 100px;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .add_task_right {

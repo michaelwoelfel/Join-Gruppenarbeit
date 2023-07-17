@@ -13,12 +13,18 @@
 
 <body onload="initAddTask()">
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
-
+    
 
     <div class="maincontainer">
+        <div class="projectheader">
+            <img class="join-logo-mobile-header" src="/assets/img/logo_dark.png" alt="logo_dark">
+            <span class="headspan">Kanban Project Management Tool</span>
+            <div class="author"><a href="/help.html" target="_self"><img class="questionimg" src="assets/img/question.png"></a>
+              <img id="michael" src="assets/img/michael.jpg">
+            </div>
+          </div>
         <script src="js/include_html.js"></script>
-        <div w3-include-html="assets/templates/header_template.html"></div>
-
+        <div class="hidden-Kanban">Kanban Project Management Tool</div>        
         <h1 class="add_task_h1">Add Task</h1>
 
         <div class="add_task_container">
