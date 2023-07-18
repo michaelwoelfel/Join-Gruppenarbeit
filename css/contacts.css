@@ -531,15 +531,42 @@ body {
 
 /* RESPONSIVE DESIGN */
 
-@media(max-width: 1260px) {
+@media(max-width: 1500px) {
     .left-side-modal {
         width: 27%;
     }
 }
 
 
-@media(max-width: 1040px) {
+@media(max-width: 1240px) {
+    .modal-dialog {
+        height: 80%;
+    }
 
+    .img-info {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .img-add-contact {
+        margin-top: 25px;
+        margin-left: 150px;
+        margin-right: 50px;
+    }
+
+    .input-fields {
+        margin-top: 0;
+        margin-left: 90px;
+    }
+
+    .modal-text, .modal-headline {
+        margin-right: 30px;
+    }
+
+    .bottom-buttons {
+        margin-top: 32px;
+    }
 }
 
 

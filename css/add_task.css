@@ -419,6 +419,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
         bottom: 15px;
         right: 30px;
     }
+
+    .headingboard {
+        width: 77%;
+    }
+        
 }
 
 
