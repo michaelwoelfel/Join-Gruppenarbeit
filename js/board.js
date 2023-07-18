@@ -6,6 +6,7 @@ function addTaskPopUp() {
     let popup = document.getElementById('popup_add_task');
     popup.classList.remove('d-none');
     renderPopUp(popup);
+    renderTaskContacts();
 }
 
 /**
@@ -45,14 +46,8 @@ function renderPopUp(popup) {
                         </select>
                     </div>
 
-                    <div class="assign fd_column">
-                    <span>Assign to</span>
-                    <select class="task_input_field_styling" name="Assigned to" id="add_task_assign_select">
-                        <option value="Select contacts to assign">Select contacts to assign</option>
-                        <option value="You">You</option>
-                        <option value="Maximilian Vogel">Maximilian Vogel</option>
-                        <option value="invite new contact">invite new contact</option>
-                    </select>
+                    <div id="userselection" class="assign fd_column">
+                   
                 </div>
                 </form>
                 
@@ -160,7 +155,6 @@ async function renderTaskContacts() {
     await loadContacts();
     let userselection =  ` <span>Assign to</span>
         <select class="task_input_field_styling" name="Assigned to" id="add_task_assign_select">`;
-        
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i]
         userselection += ` <option value="${contact['name']}">${contact['name']}</option>`;
