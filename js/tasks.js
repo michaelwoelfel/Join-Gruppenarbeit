@@ -40,7 +40,6 @@ async function addTask() {
         status: taskStatus,
     });
     await setItem('tasks', JSON.stringify(tasks));
-
     taskAddedToBoard();
     // Displays the animation in add Task
 };
@@ -85,7 +84,6 @@ async function editTask(i) {
     addTaskPopUp();
     let taskprio = task['priority'];
     getTaskPrio(taskprio);
-
     document.getElementById('add_task_title').value = task.name;
     document.getElementById('add_task_input_subtask').value = task.subtask;
     document.getElementById('add_task_description').value = task.tasktext;
@@ -103,12 +101,12 @@ async function editTask(i) {
  * Removes all inputs in the task form.
  */
 function clearTask() {
-    document.getElementById('add_task_title').innerHTML = '';
-    document.getElementById('add_task_input_subtask').value;
-    document.getElementById('add_task_description').value;
-    document.getElementById('add_task_category_select').value;
-    document.getElementById('add_task_assign_select').value;
-    document.getElementById('add_task_input_date').value;
+    document.getElementById('add_task_title').value = '';
+    document.getElementById('add_task_input_subtask').value = '';
+    document.getElementById('add_task_description').value = '';
+    document.getElementById('add_task_category_select').value = '';
+    document.getElementById('add_task_assign_select').value = '';
+    document.getElementById('add_task_input_date').value = '';
 }
 
 /**

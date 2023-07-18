@@ -86,7 +86,7 @@ function renderPopUp(popup) {
                 </form>
             </div>
             <div class="buttons-clear-create">
-                <div class="clear-btn btn" onclick="">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
+                <div class="clear-btn btn" onclick="clearTask()">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
                 <div id="buttonedit" class="create-btn btn" onclick="addTask()">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
             </div>
                <div id="buttonafteredit"> 
