@@ -61,9 +61,7 @@ async function renderContacts() {
         if (nameParts.length > 1 && nameParts[1].length > 0) {
             secondLetter = nameParts[1].charAt(0).toUpperCase();
         }
-
         let randomColor = getRandomColor();
-
         // Create a new contact container and add it to the page
         document.getElementById('contact-list').innerHTML += `
             <div class="contact-container">
@@ -234,8 +232,16 @@ function getRandomInt(min, max) {
  * @returns {string} - A random RGB color.
  */
 function getRandomColor() {
-    let r = getRandomInt(0, 255);
-    let g = getRandomInt(0, 255);
-    let b = getRandomInt(0, 255);
-    return `rgb(${r},${g},${b})`;
+    const colors = [
+        'rgb(1, 144, 224)', 
+        'rgb(255, 92, 0)', 
+        'rgb(238, 0, 214)', 
+        'rgb(2, 207, 47)', 
+        'rgb(147, 39, 255)', 
+        'rgb(78, 150, 61)', 
+        'rgb(50, 218, 255)', 
+        'rgb(0, 124, 238)'
+    ];
+    let randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
 }
