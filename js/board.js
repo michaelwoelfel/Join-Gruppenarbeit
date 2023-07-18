@@ -151,3 +151,21 @@ function prioColorGreen() {
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.toggle('prio-btn-low-clicked');
 }
+
+
+/**
+ * Renders the Contacts in the "Assign to" Selector on Add Task.
+ */
+async function renderTaskContacts() {
+    await loadContacts();
+    let userselection =  ` <span>Assign to</span>
+        <select class="task_input_field_styling" name="Assigned to" id="add_task_assign_select">`;
+        
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i]
+        userselection += ` <option value="${contact['name']}">${contact['name']}</option>`;
+    }
+    userselection += `</select>`;
+    document.getElementById('userselection').innerHTML += `${userselection}`;
+
+}

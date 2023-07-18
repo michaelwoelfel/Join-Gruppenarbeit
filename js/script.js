@@ -114,6 +114,7 @@ function colorBoard() {
 function initAddTask() {
     includeHTML(() => {
         colorAddTask();
+        renderTaskContacts();
     });
 }
 
