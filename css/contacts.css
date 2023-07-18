@@ -531,6 +531,13 @@ body {
 
 /* RESPONSIVE DESIGN */
 
+@media(min-width: 800px) {
+    .close-contact-creation {
+        display: none;
+    }
+}
+
+
 @media(max-width: 1500px) {
     .left-side-modal {
         width: 27%;
@@ -607,7 +614,7 @@ body {
         width: 100%;
     }
 
-    #contact-info {
+    #contact-info, .cancel-btn {
         display: none;
     }
 
@@ -625,6 +632,55 @@ body {
 
     .contactheader {
         width: 90%;
+    }
+
+    .modal-dialog {
+        height: 90%;
+        width: 90%;
+        top: 85px;
+        transform: translate(-50%, -10%);
+        flex-direction: column;
+        flex-wrap: nowrap;    
+    }
+
+    .left-side-modal {
+        width: 100%;
+        height: 40%;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0;
+    }
+
+    .contacts-join-logo {
+        display: none;
+    }
+
+    .right-side-modal {
+        width: 100%;
+        height: 60%;
+    }
+
+    .img-add-contact {
+        margin: 0;
+        margin-top: -50px;
+    }
+
+    .input-field, .input-field-mail, .input-field-phone {
+        width: 95%;
+        background-position: 97%, 100%;
+    }
+
+    .input-fields {
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        margin: 0;
+        margin-top: -25px;
+    }
+
+    .close-contact-creation {
+        position: fixed;
+        top: 16px;
+        right: 16px;    
     }
   }
 
