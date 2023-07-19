@@ -16,20 +16,17 @@ async function updateSummary() {
  * Counts the number of tasks and displays the count in the 'tasksInBoardNumber' element.
  */
 function updateTaskCount() {
-    loadTasks();
     const taskCount = tasks.length;
     const taskCountElement = document.getElementById('tasksInBoardNumber');
     taskCountElement.textContent = taskCount.toString();
 }
-
 
 /**
  * Updates the count of tasks based on their status.
  * @param {string} status - The status of the tasks to be updated (e.g., 'todo', 'done', etc.).
  * @param {string} documentId - The ID of the HTML element where the task count will be displayed.
  */
-async function updateTasksCountByStatus(status, documentId) {
-    await loadTasks();
+function updateTasksCountByStatus(status, documentId) {
     const tasksFiltered = tasks.filter((task) => task.status === status);
     const taskCountElement = document.getElementById(documentId);
     if (taskCountElement) {
@@ -40,8 +37,7 @@ async function updateTasksCountByStatus(status, documentId) {
 /**
  * Updates the count of urgent tasks.
  */
-async function updateTasksUrgent() {
-    await loadTasks();
+function updateTasksUrgent() {
     const tasksUrgent = tasks.filter((task) => task.priority === 'assets/img/priohigh.png');
     const tasksUrgentNumberElement = document.getElementById('urgentNumber');
     if (tasksUrgentNumberElement) {
@@ -52,7 +48,7 @@ async function updateTasksUrgent() {
 /**
  * Updates the closest date for urgent tasks.
  */
-async function updateUrgentDate() {
+function updateUrgentDate() {
     const urgentDateElement = document.getElementById('urgentDate');
     const closestDate = findClosestDate();
     if (closestDate) {
