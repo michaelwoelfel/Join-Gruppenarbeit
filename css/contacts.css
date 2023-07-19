@@ -2,6 +2,10 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     overflow: hidden;
+
+   
+  
+    
 }
 
 .sidebar-color-black {
@@ -45,10 +49,9 @@ body {
   margin-top: 4px;
   background-color: #F5F5F5;
   border-left: 4px solid #0000001A;
-  
+  o
+ 
 }
-
-
 
 .blueline {
     margin-top: 15px;
@@ -65,18 +68,13 @@ body {
     margin-top: 40px;
 }
 
-.text-better-with-a-team {
+h3 {
     font-weight: 100;
     margin-left: 25px;
     margin-top: 30px;
 }
 
 .btn-contact {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    font-size: 21px;
     background-color: #2A3647;
     color: white;
     border: none;
@@ -136,30 +134,18 @@ body {
     }
 
     .contact {
-   margin-top: 20px;
-   padding-top:5px;
+        padding-top: 40px;
         width: 80%;
         display: flex;
         align-items: center;
         gap: 30px;
-        padding-bottom: 5px;
-        margin-bottom: 20px;
-        border: 1px solid transparent;
-    }
-
-        .contact:hover {
-            border: 1px solid #29ABE2;
-            border-radius: 10px;
-            cursor:pointer;
-            box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
-
-        }
+        margin: auto;
+        padding-bottom: 10px;
         
-    
+    }
     .contactinfo{
         display: flex;
         flex-direction: column;
-        gap: 30px;
     }
 
     .imgcontainer{
@@ -171,17 +157,6 @@ body {
         border-radius: 45px;
         width: 40px;
         height: 40px;
-    }
-
-    .bigcontactimg {
-        background-color: yellow;
-        height: 120px;
-        width: 120px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 70px;
-        border: 3px solid white;
     }
 
     #letter{
@@ -251,22 +226,6 @@ body {
         width: 120px;
     }
 
-    .img-add-contactedit {
-        font-size: 47px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    margin-top: 120px;
-        margin-left: 50px;
-        margin-right: 50px;
-        height: 120px;
-        width: 120px;
-        height: 120px;
-    width: 120px;
-    border-radius: 70px;
-    border: 3px solid white;
-    }
     .img-info {
         display: flex;
         
@@ -426,94 +385,7 @@ body {
 .show {
     animation: 3s addToBoard;
   }
-
-  #showcontact {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-  }
-
-  .contactinfobig{
-    margin-left: 55px;
-    margin-top: 30px;
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-    
-  }
-
-  .contactinfoedit{
-    display: flex;
-    align-items: center;
-    gap: 60px;
-  }
-
-  .headinfo{
-    display: flex;
-    font-size: 47px;
-    align-items: center;
-    margin-left: 55px;
-
-  }
-
   
-  .name-and-editbutton {
-    display: flex;
-    flex-direction: column;
-    padding-left: 30px;
-    justify-content: flex-start;
-  }
-  
-  #blueaddtask{
-    width: 120px;
-    height: 20px;
-    margin-top: 5px;
-    padding-left: 5px;
-    border: 1px solid transparent;
-    
-  }
-
-  #blueaddtask:hover{
-    cursor: pointer;
-    border: 1px solid #29ABE2;
-    border-radius: 5px;
-  }
-
-  #editcontactsimg{
-    border: 1px solid transparent;
-    width: 62px;
-    height: 24px;
-  }
-
-  #editcontactsimg:hover{
-    border: 1px solid #29ABE2;
-    border-radius: 5px;
-    width: 62px;
-    height: 24px;
-    cursor: pointer;
-  }
-
-  .contactmailbig{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .contactphonebig{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  #imginfoedit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  
-
-
 @keyframes addToBoard {
     0% {
         transform:translate(0%, 0%);
@@ -524,74 +396,6 @@ body {
         transfor: translate(0, 0);
         bottom: 150px;
         opacity: 1;
-    }
-}
-
-
-
-/* RESPONSIVE DESIGN */
-
-@media(min-width: 800px) {
-    .close-contact-creation {
-        display: none;
-    }
-}
-
-
-@media(max-width: 1500px) {
-    .left-side-modal {
-        width: 27%;
-    }
-}
-
-
-@media(max-width: 1240px) {
-    .modal-dialog {
-        height: 80%;
-    }
-
-    .img-info {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .img-add-contact {
-        margin-top: 25px;
-        margin-left: 150px;
-        margin-right: 50px;
-    }
-
-    .input-fields {
-        margin-top: 0;
-        margin-left: 90px;
-    }
-
-    .modal-text, .modal-headline {
-        margin-right: 30px;
-    }
-
-    .bottom-buttons {
-        margin-top: 32px;
-    }
-}
-
-
-@media(max-width: 1000px) {
-    .bigcontactimg {
-        height: 75px;
-        width: 75px;
-    }
-
-    .text-better-with-a-team {
-        display: none;
-    }
-}
-
-
-@media(max-width: 930px) {
-    .contactinfoedit {
-        gap: 20px;
     }
 }
 
@@ -609,80 +413,4 @@ body {
     .contacts-header-right{
         flex-direction: column;
     }
-
-    #contact-list {
-        width: 100%;
-    }
-
-    #contact-info, .cancel-btn {
-        display: none;
-    }
-
-    .contact {
-        width: 90%;
-    }
-
-    .btn-contact {
-        position: fixed;
-        top: 88px;
-        right: 20px;
-        width: 179px;
-        height: 50px;
-    }
-
-    .contactheader {
-        width: 90%;
-    }
-
-    .modal-dialog {
-        height: 90%;
-        width: 90%;
-        top: 85px;
-        transform: translate(-50%, -10%);
-        flex-direction: column;
-        flex-wrap: nowrap;    
-    }
-
-    .left-side-modal {
-        width: 100%;
-        height: 40%;
-        border-top-right-radius: 15px;
-        border-bottom-left-radius: 0;
-    }
-
-    .contacts-join-logo {
-        display: none;
-    }
-
-    .right-side-modal {
-        width: 100%;
-        height: 60%;
-    }
-
-    .img-add-contact {
-        margin: 0;
-        margin-top: -50px;
-    }
-
-    .input-field, .input-field-mail, .input-field-phone {
-        width: 95%;
-        background-position: 97%, 100%;
-    }
-
-    .input-fields {
-        justify-content: center;
-        align-items: center;
-        width: 90%;
-        margin: 0;
-        margin-top: -25px;
-    }
-
-    .close-contact-creation {
-        position: fixed;
-        top: 16px;
-        right: 16px;    
-    }
   }
-
-
-
