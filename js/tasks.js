@@ -22,6 +22,7 @@ async function checkLastTaskId() {
  */
 async function addTask() {
     await checkLastTaskId();
+    await loadselectedUsers();
     taskName = document.getElementById('add_task_title').value;
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
@@ -45,6 +46,8 @@ async function addTask() {
     await setItem('tasks', JSON.stringify(tasks));
     taskAddedToBoard();
     // Displays the animation in add Task
+    selectedUsers = [];
+    saveSelectedUsers();
 };
 
 /**
@@ -59,7 +62,7 @@ async function changeTask(i) {
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
     let taskCategory = document.getElementById('add_task_category_select').value;
-    let taskAssign = document.getElementById('add_task_assign_select').value;
+    let taskAssign = selectedUsers;
     let taskDate = document.getElementById('add_task_input_date').value;
     let taskPrio = getTaskPrio();
     let taskStatus = task.status;
@@ -74,6 +77,8 @@ async function changeTask(i) {
     task.status = taskStatus;
     await setItem('tasks', JSON.stringify(tasks));
     taskAddedToBoard();
+    selectedUsers = [];
+    saveSelectedUsers();
     // Displays the animation in add Task
 };
 
@@ -91,7 +96,11 @@ async function editTask(i) {
     document.getElementById('add_task_input_subtask').value = task.subtask;
     document.getElementById('add_task_description').value = task.tasktext;
     document.getElementById('add_task_category_select').value = task.category;
-    document.getElementById('add_task_assign_select').value = task.user;
+  
+/**
+ *Hier müssen die user gerendert werden.
+ */
+
     document.getElementById('add_task_input_date').value = task.date;
     taskStatus = task.status;
     taskId = task.id;
