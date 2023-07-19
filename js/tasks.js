@@ -89,17 +89,17 @@ async function changeTask(i) {
 async function editTask(i) {
     let task = tasks[i];
     closeTask();
-   await addTaskPopUp();
+    await addTaskPopUp();
     let taskprio = task['priority'];
     getTaskPrio(taskprio);
     document.getElementById('add_task_title').value = task.name;
     document.getElementById('add_task_input_subtask').value = task.subtask;
     document.getElementById('add_task_description').value = task.tasktext;
     document.getElementById('add_task_category_select').value = task.category;
-  
-/**
- *Hier müssen die user gerendert werden.
- */
+
+    /**
+     *Hier müssen die user gerendert werden.
+     */
 
     document.getElementById('add_task_input_date').value = task.date;
     taskStatus = task.status;
@@ -269,25 +269,6 @@ function renderDone() {
     }
 }
 
-/**
- * Generates and returns the HTML template for a task.
- * @param {object} task - The task object to be rendered.
- * @returns {string} - The HTML template as a string.
- */
-let taskTemplate = (task) => /*html*/ `
-    <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="openTask(${task['id']})" class="content">
-        <div class="category">${task['category']}</div>
-        <div class="taskdescription"><b>${task['subtask']}</b></div>
-        <div class="tasktext">${task['tasktext']}</div>
-        <div class="progresscontainer">
-            <div class="taskprogressbar"></div>
-            <div class="taskprogress">1/2 Done</div>
-        </div>
-        <div class="taskfooter">${task['user']}
-            <div class="priority"><img src="${task['priority']}"></div>
-        </div>
-    </div>
-`;
 
 // GENERAL FUNCTIONS ....
 /**
@@ -326,38 +307,19 @@ function startDragging(index) {
     currentDraggedElement = index;
 }
 
-/**
- * Opens the detailed view of a specific task.
- * @param {number} i - The ID of the task to open.
- * @returns {Promise<void>}
- */
 async function openTask(i) {
     // Removes the 'd-none' class to make the task details visible
     document.getElementById('showtask').classList.remove('d-none');
-
     // Finds the index of the task with the given ID
     let index = tasks.findIndex(task => task.id === i);
-
-    // Retrieves the task with the found index
-    let task = tasks[index];
-
-    // Inserts the task details into the HTML
-    document.getElementById('showtask').innerHTML =  /*html*/   `
-    <div class="bigtask" id="task${index}">
-    <div class="taskheader"><div class="category">${task['category']}</div><div onclick = closeTask()><img id="closeimg" src="/assets/img/close.png"></div></div>
-    <div class="taskdescriptionbig"><b>${task['subtask']}</b></div>
-    <div class="tasktext">${task['tasktext']}</div>
-    <div class="datecontainer"><span><b>Due date:</b></span> <div class="date">${task['date']}</div></div>
-    <div class="prioritycontainer"><span ><b>Priority:</b></span><div id="colorpriobigtask" class="prioritybigtask"><span id="priobigtask"></span><div id="urgencyimg"></div></div></div>
-    <div class="bigtaskusers">
-        <span><b>Assigned To:</b></span>
-    <div class="users">${task['user']}</div></div>
-    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${index})" src="/assets/img/edit.png"></div>
-</div>` ;
-
+    // Generate the HTML for task details using the separate function
+    let taskDetailsHTML = await generateTaskDetailsHTML(index);
+    // Insert the task details HTML into the 'showtask' element
+    document.getElementById('showtask').innerHTML = taskDetailsHTML;
     // Calls a function to display the task's priority level
     colorUrgency(index);
 }
+
 
 /**
  * Closes the detailed view of a task.
@@ -426,17 +388,17 @@ function taskAddedToBoard() {
 function addNewSubtask() {
     const newSubtask = document.getElementById('add_task_input_subtask').value;
     let currentSubtasks = document.getElementById('show-subtasks');
-    if (newSubtask === '') 
-    alert('Bitte Feld ausfüllen!!') // Current solution, popup would be nicer...
-    else{
+    if (newSubtask === '')
+        alert('Bitte Feld ausfüllen!!') // Current solution, popup would be nicer...
+    else {
         currentSubtasks.innerHTML += /*html*/`
     <div>
         <img onclick="" src="/assets/img/subtask_square.png" alt="Subtasks">
         <span>${newSubtask}</span> 
     </div>    
     `;
-    subtasks.push(newSubtask);
-    document.getElementById('add_task_input_subtask').value = '';
+        subtasks.push(newSubtask);
+        document.getElementById('add_task_input_subtask').value = '';
     }
 }
 
