@@ -7,38 +7,41 @@
     <link rel="stylesheet" href="css/signup.css">
     <script src="js/signupandlogin.js"></script>
     <title>Join</title>
-
-  
 </head>
+
 <body onload="init()">
-<img class="joinlogo" src="assets/img/logo_dark.png">
-
-
-
-
-<div class="maincontainer">
-    <div id="showsignup" class="hidesignupsuccess" class="signupsuccess"><span>Registration successfull. <br> </span><div class="bottombuttons"><a class="loginbutton"><button onclick="openWindowIndex()">Login</button></a></div></div>
-    <form id="hidesignup" onsubmit="addUser(); return false;" class="login">
-        <div class="heading">
-           <a href="index.html" class="arrowleft"><img src="assets/img/arrow_left.png"></a><div class="forgotpwcenter">Sign up
-            <div class="blueline"></div></div>
+    <img class="joinlogo" src="assets/img/logo_dark.png">
+    <div class="maincontainer">
+        <div id="showsignup" class="hidesignupsuccess" class="signupsuccess">
+            <span><br>Registration successfull.<br></span>
+            <div class="bottombuttons">
+                <a class="loginbutton"><button onclick="openWindowIndex()">Login</button></a>
+            </div>
         </div>
-      
-        <div class="email"><input id="username" minlength="5" required type="text" required placeholder="Name"><img class="imgmail"
-            src="assets/img/user.png"> </div>
-        <div class="email"><input id="usermail" minlength="5" required type="email" required placeholder="Email"><img class="imgmail"
-            src="assets/img/mail_img.png"> </div>
-            <div class="email"><input id="userpassword"minlength="5" required type="password" required placeholder="Password"><img class="imglock"
-                src="assets/img/lock.png"> </div>
-              
-                <div class="bottombuttons"><a class="loginbutton"><button id="registerBtn" type="submit"> Sign up</button></a></div>
-    </form>
-</div>
-
-
-
-
+        <form id="hidesignup" onsubmit="addUser(); return false;" class="login">
+            <div class="heading">
+                <a href="index.html" class="arrowleft"><img src="assets/img/arrow_left.png"></a>
+                <div class="forgotpwcenter">Sign up
+                    <div class="blueline"></div>
+                </div>
+            </div>
+            <div class="email"><input id="username" minlength="5" required type="text" required placeholder="Name">
+                <img class="imgmail" src="assets/img/user.png">
+            </div>
+            <div class="email"><input id="usermail" minlength="5" required type="email" required placeholder="Email">
+                <img class="imgmail" src="assets/img/mail_img.png">
+            </div>
+            <div class="email"><input id="userpassword" minlength="5" required type="password" required
+                    placeholder="Password">
+                <img class="imglock" src="assets/img/lock.png">
+            </div>
+            <div class="bottombuttons">
+                <a class="loginbutton">
+                    <button id="registerBtn" type="submit">Sign up</button>
+                </a>
+            </div>
+        </form>
+    </div>
 </body>
-
 
 </html>

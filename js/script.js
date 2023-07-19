@@ -73,15 +73,6 @@ function getTime() {
     }
 }
 
-/**
- * Counts the number of tasks and displays the count in the 'tasksInBoardNumber' element.
- */
-function updateTaskCount() {
-    loadTasks();
-    const taskCount = tasks.length;
-    const taskCountElement = document.getElementById('tasksInBoardNumber');
-    taskCountElement.textContent = taskCount.toString();
-}
 
 // BOARD START
 
