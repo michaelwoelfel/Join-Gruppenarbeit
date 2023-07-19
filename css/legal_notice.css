@@ -63,4 +63,8 @@ body {
     .author {
         padding-right: 5px;
     }
+
+    .legalnotice {
+      margin-bottom: 100px;
+    }
   }

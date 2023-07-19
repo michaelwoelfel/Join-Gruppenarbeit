@@ -20,7 +20,7 @@ h1 {
 }
 
 .headingboard {
-    padding-left: 100px;
+    margin-left: 100px;
 }
 
 .search {
@@ -400,7 +400,6 @@ h3 {
         width: 90%;
         justify-content: space-between;
         align-items: center;
-        margin-right: 100px;
     }
 
     .search {
@@ -427,7 +426,7 @@ h3 {
     }
 
     .headingboard {
-        margin-left: -50px;
+        margin-left: 50px;
         margin-right: 0;
         width: 105%;
     }

@@ -593,6 +593,10 @@ body {
     .contactinfoedit {
         gap: 20px;
     }
+
+    .headinfo {
+        flex-direction: column;
+    }
 }
 
 
@@ -681,6 +685,10 @@ body {
         position: fixed;
         top: 16px;
         right: 16px;    
+    }
+
+    .create-btn {
+        margin: -15px;
     }
   }
 

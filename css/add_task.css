@@ -455,9 +455,9 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .buttons-clear-create {
         position: fixed;
+        height: 61px;
         top: 10px;
         right: 15px;
-        bottom: 89%;
         display: flex;
         justify-content: flex-end;
     }
@@ -493,6 +493,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
         flex-direction: column;
         align-items: center;
         margin-bottom: 88px;
+        padding: 16px;
     }
 
     .add_task_left {
