@@ -25,8 +25,9 @@
         <div class="projectheader">
             <img class="join-logo-mobile-header" src="/assets/img/logo_dark.png" alt="logo_dark">
             <span class="headspan">Kanban Project Management Tool</span>
-            <div class="author"><a href="/help.html" target="_self"><img class="questionimg" src="assets/img/question.png"></a>
-              <img id="michael" src="assets/img/michael.jpg">
+            <div class="author"><a href="/help.html" target="_self"><img class="questionimg"
+                        src="assets/img/question.png"></a>
+                <img id="michael" src="assets/img/michael.jpg">
             </div>
         </div>
         <div class="hidden-Kanban">Kanban Project Management Tool</div>
@@ -52,10 +53,9 @@
                     <select class="task_input_field_styling" name="category_select" id="add_task_category_select"
                         required>
                         <option value="Select task category">Select task category</option>
-                        <option value="New category">New category</option>
-                        <option value="Sales">Sales <img class="dot" src="./assets/img/dot_red.svg" alt="red"></option>
-                        <option value="Backoffice">Backoffice <img class="dot" src="./assets/img/dot_green.svg"
-                                alt="green"></option>
+                        <option value="New category" onclick="addNewCategory()">New category</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Backoffice">Backoffice</option>
                     </select>
                 </div>
                 <!-- USER SELECTION -->
@@ -87,8 +87,13 @@
                 <!-- SUBTASK -->
                 <div class="subtasks fd_column">
                     <span>Subtasks</span>
-                    <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask"
-                        placeholder="Add new subtask"><img src="" alt="">
+                    <div class="subtask_container">
+                        <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask"
+                            placeholder="Add new subtask" required><img class="subtask_plus" onclick="addNewSubtask()" src="/assets/img/subtask_plus.png"
+                            alt="add Subtask">
+                    </div>
+                    <div class="show-subtasks" id="show-subtasks">
+                    </div>
                 </div>
             </form>
         </div>

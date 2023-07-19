@@ -167,18 +167,56 @@ input[type=date]:invalid::-webkit-datetime-edit {
     filter: invert(0%) sepia(100%) saturate(100%) hue-rotate(245deg) brightness(160%) contrast(110%)
 }
 
+/* SUBTASKS */
 
 .subtasks {
-    margin-top: 48px;
+    margin-top: 20px;
 }
 
+
+.subtask_container {
+    display: flex;
+    align-items: center;
+}
+
+
+#add_task_input_subtask {
+    width: 95%;
+}
+
+
+.subtask_plus {
+    height: 20px;
+    width: 20px;
+    margin-left: -32px;
+    margin-bottom: 8px;
+}
+
+
+.show-subtasks {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.show-subtasks img {
+    height: 12px;
+    width: 12px;
+}
+
+
+.subtask_plus,.show-subtasks img:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
 
 
 /* BUTTONS CLEAR & CREATE */
 
 .buttons-clear-create {
     position: absolute;
-    bottom: 50px;
+    bottom: 4px;
     right: 200px;
     display: flex;
     justify-content: flex-end;
@@ -514,11 +552,15 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 @media(max-width: 700px) {
-    .add_task_left, 
-    .add_task_right {
+    .add_task_left {
         margin-left: 20px;
         margin-right: 20px;
         width: 90%;
+    }
+
+    .add_task_right {
+        width: 90%;
+        margin-right: 100px;
     }
 
     .add_task_h1 {
@@ -537,10 +579,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .seperator {
         margin: 0 40px;
-    }
-
-    .add_task_right {
-        margin-right: 50px;
     }
 }
 

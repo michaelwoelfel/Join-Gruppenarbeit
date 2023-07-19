@@ -1,6 +1,7 @@
 let tasks = [];
 let taskIdCounter = 0;
 let currentDraggedElement;
+let subtasks = [];
 
 /**
  * Checks and updates the task ID based on the existing tasks.
@@ -107,6 +108,7 @@ function clearTask() {
     document.getElementById('add_task_category_select').value = '';
     document.getElementById('add_task_assign_select').value = '';
     document.getElementById('add_task_input_date').value = '';
+    document.getElementById('show-subtasks').innerHTML = '';
 }
 
 /**
@@ -405,6 +407,25 @@ function taskAddedToBoard() {
     setTimeout(() => {
         container.classList.remove('show');
     }, 3000);
+}
+
+
+// Adds new Subtasks under subtask-field
+function addNewSubtask() {
+    const newSubtask = document.getElementById('add_task_input_subtask').value;
+    let currentSubtasks = document.getElementById('show-subtasks');
+    if (newSubtask === '') 
+    alert('Bitte Feld ausfüllen!!') // Current solution, popup would be nicer...
+    else{
+        currentSubtasks.innerHTML += /*html*/`
+    <div>
+        <img onclick="" src="/assets/img/subtask_square.png" alt="Subtasks">
+        <span>${newSubtask}</span> 
+    </div>    
+    `;
+    subtasks.push(newSubtask);
+    document.getElementById('add_task_input_subtask').value = '';
+    }
 }
 
 
