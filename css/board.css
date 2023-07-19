@@ -215,6 +215,17 @@ h3 {
     padding-left: 30px;
     padding-top: 30px;
 }
+.selectuser {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+     overflow: auto;
+     padding-top: 5px;
+     align-items: center;
+     justify-content: center;
+}
+
 
 
 .datecontainer {

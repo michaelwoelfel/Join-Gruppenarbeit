@@ -10,6 +10,7 @@ async function addTaskPopUp() {
     
 }
 
+
 /**
  * Renders the popup content for adding a task.
  * @param {Object} popup - The DOM object for the popup element.
@@ -158,13 +159,16 @@ function prioColorGreen() {
  */
 async function renderTaskContacts() {
     await loadContacts();
+   
     let userselection =  ` <span>Assign to</span>
-        <select class="task_input_field_styling" name="Assigned to" id="add_task_assign_select">`;
-    for (let i = 0; i < contacts.length; i++) {
+        <div id="selectinneruser">`;
+    for (let i = 2; i < contacts.length; i++) {
         let contact = contacts[i]
-        userselection += ` <option value="${contact['name']}">${contact['name']}</option>`;
+        userselection += ` <input type="checkbox" id="name${i}" name="${contact['name']}" value="${contact['name']}">
+        <label for="name${i}">${contact['name']}</label><br>`;
     }
-    userselection += `</select>`;
+    userselection += `</div>`;
+    document.getElementById('userselection').innerHTML = '';
     document.getElementById('userselection').innerHTML += `${userselection}`;
 
 }
