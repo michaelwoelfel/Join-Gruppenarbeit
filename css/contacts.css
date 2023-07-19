@@ -2,10 +2,6 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     overflow: hidden;
-
-   
-  
-    
 }
 
 .sidebar-color-black {
@@ -13,12 +9,11 @@ body {
 }
 
 #michael {
-    
-        width: 50px;
-        display: flex;
-        aspect-ratio: 1/1;
-        border-radius: 50%;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    width: 50px;
+    display: flex;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
 
 .maincontainer {
@@ -36,21 +31,19 @@ body {
     flex-direction: column;
     align-items: center;  /* hinzugefügt */
     width: 50%;
-   height: 89vh;
-   overflow-x: hidden;
+    height: 89vh;
+    overflow-x: hidden;
 }
 
 #contact-info {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  top: 80px;
-  right: 0;
-  margin-top: 4px;
-  background-color: #F5F5F5;
-  border-left: 4px solid #0000001A;
-  o
- 
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    top: 80px;
+    right: 0;
+    margin-top: 4px;
+    background-color: #F5F5F5;
+    border-left: 4px solid #0000001A;
 }
 
 .blueline {
@@ -93,56 +86,50 @@ h3 {
     background-color: #29ABE2;
 }
 
-.btn-contact-icon {
-    
-}
-
 .modal{
    /*Modal BG*/ 
-      display: block;
-      background: rgba(0,0,0,.6);
-      position: fixed;
-      top: 0; 
-      left: 0; 
-      right: 0; 
-      bottom: 0; 
-      z-index: 10;
-    }
+    display: block;
+    background: rgba(0,0,0,.6);
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    z-index: 10;
+}
     
-    .contactheader {
-        width: 80%;  /* hier auf 80% geändert */
-   display: flex;
-   align-items: center;
-   border-bottom: 1px solid #D1D1D1;
-   margin: auto; 
-    }
+.contactheader {
+    width: 80%;  /* hier auf 80% geändert */
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #D1D1D1;
+    margin: auto; 
+}
 
-    .contact-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-left: 30px;
-      
-        
-    }
+.contact-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 30px;
+}
 
-    .middlecontainer {
-        flex-direction: row;
-        display: flex;
-        overflow-y: hidden;
-    }
+.middlecontainer {
+    flex-direction: row;
+    display: flex;
+    overflow-y: hidden;
+}
 
-    .contact {
-        padding-top: 40px;
-        width: 80%;
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        margin: auto;
-        padding-bottom: 10px;
-        
-    }
+.contact {
+    padding-top: 40px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
     .contactinfo{
         display: flex;
         flex-direction: column;
@@ -162,7 +149,6 @@ h3 {
     #letter{
         padding-left: 20px;
     }
-
 
     .modal-dialog {
         display: flex;
@@ -319,31 +305,29 @@ h3 {
     }
     
     
-    .cancel-btn {
-       
-        color:#2A3647;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 8px;
-        text-align: center;
-        border-radius: 12px;
-        padding: 12px 16px;
-        color: #2A3647;
-        border: none;
-    }
+.cancel-btn {
+    color:#2A3647;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+    text-align: center;
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: #2A3647;
+    border: none;
+}
     
     
-    .cancel-btn:hover {
-        cursor: pointer;
-        border: 1px solid #29ABE2;
-        box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
-        
-    }
+.cancel-btn:hover {
+    cursor: pointer;
+    border: 1px solid #29ABE2;
+    box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
+}
 
-    .d-none {
-        display: none!important;
-    }
+.d-none {
+    display: none!important;
+}
     
 
 .create-btn:hover {
