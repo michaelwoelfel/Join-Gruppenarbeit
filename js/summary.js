@@ -66,7 +66,7 @@ async function updateTasksUrgent() {
 }
 
 // Updates the closest date for urgent tasks
-function updateUrgentDate() {
+async function updateUrgentDate() {
     const urgentDateElement = document.getElementById('urgentDate'); // Get the HTML element
     const closestDate = findClosestDate(); // Find the closest date
     if (closestDate) {
@@ -81,9 +81,8 @@ function findClosestDate() {
     if (tasks.length > 0) { // If there are tasks
         let closestDate = null;
         for (let i = 0; i < tasks.length; i++) {
-            if (tasks[i].priority === 'assets/img/priohigh.png' && (closestDate === null || tasks[i].date < closestDate)) { // If the task is urgent and the date is closer than the current closest date
-                closestDate = tasks[i].date; // Update closest date
-            }
+            if (tasks[i].priority === 'assets/img/priohigh.png' && tasks[i].date && (closestDate === null || tasks[i].date < closestDate))
+                closestDate = tasks[i].date;
         }
         return closestDate ? formatDate(closestDate) : null; // If there's a closest date, format and return it. If not, return null
     }
