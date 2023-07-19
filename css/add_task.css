@@ -268,6 +268,22 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 
 
+
+#selectinneruser {
+    border: 1px solid black;
+    overflow: auto;
+    height: 50px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    margin-top: 8px;
+    padding: 8px;
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #D1D1D1;
+    outline: none;
+    background-color: white;
+   
+}
+
 /* ANIMATION ADDED TO BOARD */
 
 .animation-addedToBoard {

@@ -1,3 +1,5 @@
+
+
 let tasks = [];
 let taskIdCounter = 0;
 let currentDraggedElement;
@@ -97,6 +99,7 @@ async function editTask(i) {
     document.getElementById('buttonafteredit').innerHTML = `<div id="buttonaftereditd-none"  class="create-btn btn d-none" onclick="changeTask(${i})">Change Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>`;
     document.getElementById('buttonaftereditd-none').classList.remove('d-none');
 };
+
 
 /**
  * Removes all inputs in the task form.
