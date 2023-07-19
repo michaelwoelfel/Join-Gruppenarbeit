@@ -13,23 +13,18 @@
     <script src="js/signupandlogin.js"></script>
     <script src="js/board.js"></script>
     <script src="js/contacts.js"></script>
-
-
     <title>Board</title>
-
 </head>
 
-
-
 <body onload="initBoard()">
+    <!-- SIDEBAR TEMPLATE -->
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
-
-
+    <!-- HOLE BOARD CONTAINER -->
     <div class="maincontainer">
-        <script src="js/include_html.js"></script>
+        <!-- HEADER-->
         <div w3-include-html="assets/templates/header_template.html"></div>
         <div class="hidden-Kanban">Kanban Project Management Tool</div>
-
+        <!-- BOARD TOP CONTAINER -->
         <div class="boardtop">
             <div class="headingboard">
                 <h1>Board</h1>
@@ -37,19 +32,16 @@
                     <img onclick="addTaskPopUp()" class="plus-sign" src="./assets/img/plus.png" alt="">
                 </div>
             </div>
+            <!-- BOARD SEARCH  -->
             <div class="search">
                 <div class="searchbar"><input class="searchinput" placeholder="Find Task" type="search"> <img
                         src="assets/img/search.png"></div>
                 <div class="addtask" onclick="addTaskPopUp()"><span>Add task</span><img src="assets/img/plus.png"></div>
             </div>
         </div>
-
-
-        <div id="showtask" class="showtask d-none">
-
-        </div>
-
-
+        <!-- OVERLAY SHOW TASK -->
+        <div id="showtask" class="showtask d-none"></div>
+        <!-- TASK TODO -->
         <div id="taskcontainer" class="taskcontainer">
             <div class="task">
                 <div class="taskheading">
@@ -57,16 +49,9 @@
                 </div>
                 <div class="task-status-container" id="todo" ondragover="allowDrop(event); highlight('todo')" ondrop="
                     moveTo('todo')">
-
                 </div>
             </div>
-
-
-
-
-
-
-
+            <!-- TASK IN PROGRESS -->
             <div class="task">
                 <div class="taskheading">
                     <h3>In progress</h3><img class="plusbutton" src="assets/img/plus_button.png"
@@ -74,12 +59,9 @@
                 </div>
                 <div class="task-status-container" id="inprogress" ondragover="allowDrop(event)"
                     ondrop="moveTo('inprogress')">
-
                 </div>
             </div>
-
-
-
+            <!-- TASK AWAITING FEEDBACK -->
             <div class="task">
                 <div class="taskheading">
                     <h3>Awaiting Feedback</h3><img class="plusbutton" src="assets/img/plus_button.png"
@@ -87,25 +69,19 @@
                 </div>
                 <div class="task-status-container" id="awaitingfb" ondragover="allowDrop(event)"
                     ondrop="moveTo('awaitingfb')">
-
                 </div>
             </div>
-
-
-
-
+            <!-- TASK DONE -->
             <div class="task">
                 <div class="taskheading">
                     <h3>Done</h3><img class="plusbutton" src="assets/img/plus_button.png" onclick="addTaskPopUp()">
                 </div>
                 <div class="task-status-container" id="done" ondragover="allowDrop(event)" ondrop="moveTo('done')">
-
                 </div>
             </div>
         </div>
-
-        <div class="popup_add_task" id="popup_add_task">
-        </div>
+        <!-- POPUP ADD TASK -->
+        <div class="popup_add_task" id="popup_add_task"></div>
     </div>
 </body>
 
