@@ -26,7 +26,7 @@ async function addTask() {
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
     let taskCategory = document.getElementById('add_task_category_select').value;
-    let taskAssign = document.getElementById('add_task_assign_select').value;
+    let taskAssign = selectedUsers;
     let taskDate = document.getElementById('add_task_input_date').value;
     let taskPrio = getTaskPrio();
     let taskStatus = 'todo';

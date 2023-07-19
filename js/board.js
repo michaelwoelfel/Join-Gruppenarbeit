@@ -1,4 +1,8 @@
+/**
+ * Users for a specific task
+ */
 
+let selectedUsers = [];
 /**
  * Displays the add task popup.
  */
@@ -164,7 +168,7 @@ async function renderTaskContacts() {
         <div id="selectinneruser">`;
     for (let i = 2; i < contacts.length; i++) {
         let contact = contacts[i]
-        userselection += ` <input type="checkbox" id="name${i}" name="${contact['name']}" value="${contact['name']}">
+        userselection += ` <input onclick="pushCurrentContact(event)" type="checkbox" id="name${i}" name="${contact['name']}" value="${contact['name']}">
         <label for="name${i}">${contact['name']}</label><br>`;
     }
     userselection += `</div>`;
@@ -172,3 +176,34 @@ async function renderTaskContacts() {
     document.getElementById('userselection').innerHTML += `${userselection}`;
 
 }
+
+function pushCurrentContact(event) {
+    let checked = event.target.checked;
+    let name = event.target.value;
+    if (checked) {
+        // Add the name to the array if the checkbox is checked
+        selectedUsers.push(name);
+    } else {
+        // Remove the name from the array if the checkbox is unchecked
+        selectedUsers = selectedUsers.filter(function(user) {
+            return user !== name;
+        });
+    }
+
+    saveSelectedUsers();
+}
+
+async function saveSelectedUsers() {
+    await setItem('selectedUsers', JSON.stringify(selectedUsers));
+}
+
+
+async function loadselectedUsers() {
+    try {
+        selectedUsers= JSON.parse(await getItem('selectedUsers'));
+    } catch (e) {
+        console.error('Loading error:', e);
+
+    }
+}
+
