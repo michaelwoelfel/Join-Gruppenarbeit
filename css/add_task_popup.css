@@ -277,6 +277,21 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
+.projectheader_popUp {
+    background-color: white;
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 4px 0px #0000001A;
+    width: 100%;
+}
+
+
 
 /* ANIMATION ADDED TO BOARD */
 
@@ -323,6 +338,12 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 /* RESPONSIVE DESIGN */
 
+@media(min-width: 800px) {
+    .projectheader_popUp {
+        display: none;
+    }
+}
+
 @media(max-width: 1500px) {
     .seperator {
         margin: 0 50px;
@@ -356,38 +377,35 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 @media(max-width: 1250px) {
     .popup-content {
-        top: 16px;
-        left: 16px;
-        right: 16px;
-        bottom: 16px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
     }
+
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media only screen and (max-width: 1080px) {
-    
+    .clear-btn {
+        display: none;
+    }
 
+    .create-btn {
+        position: fixed;
+        top: 100px;
+        right: 160px;
+    }
+
+    .add_task_h1 {
+        margin-left: 20px;
+    }
+
+    .popup-content {
+        padding: 64px;
+    }
+    
     .add_task_container {
         flex-direction: column;
     }
@@ -402,20 +420,36 @@ input[type=date]:invalid::-webkit-datetime-edit {
     .seperator {
         display: none;
     }
+}
 
-    .buttons-clear-create {
+
+@media(max-width: 800px) {
+    .create-btn {
+        position: fixed;
+        top: 14px;
         right: 16px;
+    }
+
+    .headline_h1_cancel img {
+        margin-right: 0;
     }
 }
 
-@media only screen and (max-width: 350px) {
-    .popup-content {
-        top: 8px;
-        left: 8px;
-        right: 8px;
-        bottom: 8px;
+
+@media(max-width: 600px) {
+    .prio-btns-container {
+        flex-direction: column;
+        gap: 16px;
     }
 
+    .prio-btn {
+        width: 95%;
+    }   
+}
+
+
+@media only screen and (max-width: 350px) {
+    
     .add_task_h1 {
         font-size: 32px;
         margin-left: 8px;
@@ -425,9 +459,5 @@ input[type=date]:invalid::-webkit-datetime-edit {
     .add_task_right {
         margin-left: 8px;
         margin-right: 8px;
-    }
-
-    .buttons-clear-create {
-        right: 8px;
     }
 }

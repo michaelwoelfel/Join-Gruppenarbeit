@@ -17,6 +17,9 @@ function renderPopUp(popup) {
     popup.innerHTML = /*html*/`
     <div class="popup-background" onclick="closePopup()">
         <div class="popup-content" onclick="doNotClose(event)">
+            <div class="projectheader_popUp">
+                <img class="join-logo-mobile-header" src="/assets/img/logo_dark.png" alt="logo_dark">
+            </div>
             <div class="headline_h1_cancel">
                 <h1 class="add_task_h1">Add Task</h1>
                 <img src="./assets/img/add_task_cancel.png" alt="cancel" onclick="closePopup()">

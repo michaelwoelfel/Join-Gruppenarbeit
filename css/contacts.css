@@ -400,6 +400,78 @@ h3 {
 }
 
 
+
+/* RESPONSIVE DESIGN */
+
+@media(min-width: 800px) {
+    .close-contact-creation {
+        display: none;
+    }
+}
+
+
+@media(max-width: 1500px) {
+    .left-side-modal {
+        width: 27%;
+    }
+}
+
+
+@media(max-width: 1240px) {
+    .modal-dialog {
+        height: 80%;
+    }
+
+    .img-info {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .img-add-contact {
+        margin-top: 25px;
+        margin-left: 150px;
+        margin-right: 50px;
+    }
+
+    .input-fields {
+        margin-top: 0;
+        margin-left: 90px;
+    }
+
+    .modal-text, .modal-headline {
+        margin-right: 30px;
+    }
+
+    .bottom-buttons {
+        margin-top: 32px;
+    }
+}
+
+
+@media(max-width: 1000px) {
+    .bigcontactimg {
+        height: 75px;
+        width: 75px;
+    }
+
+    .text-better-with-a-team {
+        display: none;
+    }
+}
+
+
+@media(max-width: 930px) {
+    .contactinfoedit {
+        gap: 20px;
+    }
+
+    .headinfo {
+        flex-direction: column;
+    }
+}
+
+
 @media only screen and (max-width: 800px) {
   
     .maincontainer {
@@ -412,5 +484,78 @@ h3 {
 
     .contacts-header-right{
         flex-direction: column;
+    }
+
+    #contact-list {
+        width: 100%;
+    }
+
+    #contact-info, .cancel-btn {
+        display: none;
+    }
+
+    .contact {
+        width: 90%;
+    }
+
+    .btn-contact {
+        position: fixed;
+        top: 88px;
+        right: 20px;
+        width: 179px;
+        height: 50px;
+    }
+
+    .contactheader {
+        width: 90%;
+    }
+
+    .modal-dialog {
+        height: 90%;
+        width: 90%;
+        top: 85px;
+        transform: translate(-50%, -10%);
+        flex-direction: column;
+        flex-wrap: nowrap;    
+    }
+
+    .left-side-modal {
+        width: 100%;
+        height: 40%;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0;
+    }
+
+    .contacts-join-logo {
+        display: none;
+    }
+
+    .right-side-modal {
+        width: 100%;
+        height: 60%;
+    }
+
+    .img-add-contact {
+        margin: 0;
+        margin-top: -50px;
+    }
+
+    .input-field, .input-field-mail, .input-field-phone {
+        width: 95%;
+        background-position: 97%, 100%;
+    }
+
+    .input-fields {
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        margin: 0;
+        margin-top: -25px;
+    }
+
+    .close-contact-creation {
+        position: fixed;
+        top: 16px;
+        right: 16px;    
     }
   }
