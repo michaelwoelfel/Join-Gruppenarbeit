@@ -7,40 +7,40 @@
     <script src="js/include_html.js"></script>
     <link rel="stylesheet" href="css/legal_notice.css">
     <link rel="stylesheet" href="css/add_task.css">
+    <script src="js/contacts.js"></script>
+    <script src="js/include_html.js"></script>
+    <script src="js/signupandlogin.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/tasks.js"></script>
+    <script src="js/board.js"></script>
     <title>Add task</title>
-
 </head>
 
 <body onload="initAddTask()">
+    <!-- SIDEBAR TEMPLATE -->
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
+    <!-- HOLE ADD TASK CONTAINER -->
     <div class="maincontainer">
-        <div class="projectheader">
-            <img class="join-logo-mobile-header" src="/assets/img/logo_dark.png" alt="logo_dark">
-            <span class="headspan">Kanban Project Management Tool</span>
-            <div class="author"><a href="/help.html" target="_self"><img class="questionimg"
-                        src="assets/img/question.png"></a>
-                <img id="michael" src="assets/img/michael.jpg">
-            </div>
-        </div>
-        <script src="js/include_html.js"></script>
+        <!-- HEADER-->
+        <div w3-include-html="assets/templates/header_template.html"></div>
         <div class="hidden-Kanban">Kanban Project Management Tool</div>
         <h1 class="add_task_h1">Add Task</h1>
-
+        <!-- ADD TASK CONTAINER -->
         <div class="add_task_container">
-
+            <!-- TASK TITLE -->
             <form class="add_task_left">
                 <div class="title fd_column">
                     <span>Title</span>
                     <input class="task_input_field_styling" type="text" placeholder="Enter a title" id="add_task_title"
                         required>
                 </div>
-
+                <!-- TASK DESCRIPTION -->
                 <div class="description fd_column">
                     <span>Description</span>
                     <textarea class="task_input_field_styling" name="description" id="add_task_description" cols="30"
                         rows="5" placeholder="Enter a description" required></textarea>
                 </div>
-
+                <!-- TASK CATEGORY -->
                 <div class="category fd_column">
                     <span>Category</span>
                     <select class="task_input_field_styling" name="category_select" id="add_task_category_select"
@@ -52,69 +52,54 @@
                                 alt="green"></option>
                     </select>
                 </div>
-
-                <div  id="userselection"class="assign fd_column">
-                  
-                </div>
+                <!-- USER SELECTION -->
+                <div id="userselection" class="assign fd_column"></div>
             </form>
+            <!-- SEPERATOR -->
             <div class="seperator fd_column"></div>
-
+            <!-- TASK DATE -->
             <form class="add_task_right">
                 <div class="date fd_column">
                     <span>Due date</span>
                     <input class="task_input_field_styling" type="date" name="" id="add_task_input_date" required
                         min="2023-07-20">
                 </div>
-
+                <!-- TASK PRIO -->
                 <div class="prio fd_column">
                     <span>Prio</span>
                     <div class="prio-btns-container">
-                        <div onclick="getTaskPrio('urgent')" id="prio_urgent" class="prio-btn">Urgent <img  src="./assets/img/urgent_prio.png"
-                            alt="urgent">
-                    </div>
-                    <div onclick="getTaskPrio('medium')" id="prio_medium" class="prio-btn">Medium <img src="./assets/img/medium_prio.png"
-                            alt="medium">
-                    </div>
-                    <div onclick="getTaskPrio('low')" id="prio_low" class="prio-btn">Low <img  src="./assets/img/low_prio.png" alt="low"></div>
+                        <div onclick="getTaskPrio('urgent')" id="prio_urgent" class="prio-btn">Urgent <img
+                                src="./assets/img/urgent_prio.png" alt="urgent">
+                        </div>
+                        <div onclick="getTaskPrio('medium')" id="prio_medium" class="prio-btn">Medium <img
+                                src="./assets/img/medium_prio.png" alt="medium">
+                        </div>
+                        <div onclick="getTaskPrio('low')" id="prio_low" class="prio-btn">Low <img
+                                src="./assets/img/low_prio.png" alt="low"></div>
                     </div>
                 </div>
-
-
+                <!-- SUBTASK -->
                 <div class="subtasks fd_column">
                     <span>Subtasks</span>
                     <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask"
                         placeholder="Add new subtask"><img src="" alt="">
                 </div>
-
-                <div class="show_subtask">
-                </div>
             </form>
         </div>
-
+        <!-- BUTTONS CLEAR AND ADD TASK -->
         <div class="buttons-clear-create">
-            <div onclick="clearTask()" class="clear-btn btn">Clear <img src="./assets/img/add_task_cancel.png" alt="check">
+            <div onclick="clearTask()" class="clear-btn btn">Clear <img src="./assets/img/add_task_cancel.png"
+                    alt="check">
             </div>
             <div onclick="addTask()" class="create-btn btn">Create Task <img src="./assets/img/add_task_check.png"
                     alt="cancel"></div>
         </div>
-
+        <!-- ADD TASK ANIMATION -->
         <div class="animation-addedToBoard">
             <span class="addedTaskToBoard_content">Task added to board <img class="board"
                     src="./assets/img/board_img.png" alt="board"></span>
         </div>
-
-
     </div>
-
-
-
 </body>
-<script src="js/contacts.js"></script>
-<script src="js/include_html.js"></script>
-<script src="js/signupandlogin.js"></script>
-<script src="js/script.js"></script>
-<script src="js/tasks.js"></script>
-<script src="js/board.js"></script>
-
 
 </html>
