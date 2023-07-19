@@ -13,6 +13,17 @@ async function updateSummary() {
 }
 
 /**
+ * Counts the number of tasks and displays the count in the 'tasksInBoardNumber' element.
+ */
+function updateTaskCount() {
+    loadTasks();
+    const taskCount = tasks.length;
+    const taskCountElement = document.getElementById('tasksInBoardNumber');
+    taskCountElement.textContent = taskCount.toString();
+}
+
+
+/**
  * Updates the count of tasks based on their status.
  * @param {string} status - The status of the tasks to be updated (e.g., 'todo', 'done', etc.).
  * @param {string} documentId - The ID of the HTML element where the task count will be displayed.
