@@ -1,96 +1,79 @@
-// Updates the summary page
+/**
+ * Updates the summary page.
+ */
 async function updateSummary() {
     await loadTasks();
     updateTaskCount();
-    updateTasksToDo();
-    updateTasksDone();
-    updateTasksInProgress();
-    updateTasksAwaitingFB();
+    updateTasksCountByStatus('todo', 'toDoNumber');
+    updateTasksCountByStatus('done', 'doneNumber');
+    updateTasksCountByStatus('inprogress', 'tasksInProgressNumber');
+    updateTasksCountByStatus('awaitingfb', 'awaitFbNumber');
     updateTasksUrgent();
     updateUrgentDate();
 }
 
-// Updates the count of tasks with status "todo"
-async function updateTasksToDo() {
-    await loadTasks(); // Fetch tasks
-    const tasksToDo = tasks.filter((task) => task.status === 'todo'); // Filter tasks with status "todo"
-    const tasksToDoCount = tasksToDo.length; // Get the count
-    const tasksToDoNumberElement = document.getElementById('toDoNumber'); // Get the HTML element
-    if (tasksToDoNumberElement) {
-        tasksToDoNumberElement.textContent = tasksToDoCount.toString(); // Update the count in HTML
+/**
+ * Updates the count of tasks based on their status.
+ * @param {string} status - The status of the tasks to be updated (e.g., 'todo', 'done', etc.).
+ * @param {string} documentId - The ID of the HTML element where the task count will be displayed.
+ */
+async function updateTasksCountByStatus(status, documentId) {
+    await loadTasks();
+    const tasksFiltered = tasks.filter((task) => task.status === status);
+    const taskCountElement = document.getElementById(documentId);
+    if (taskCountElement) {
+        taskCountElement.textContent = tasksFiltered.length.toString();
     }
 }
 
-// Updates the count of tasks with status "done"
-async function updateTasksDone() {
-    await loadTasks(); // Fetch tasks
-    const tasksDone = tasks.filter((task) => task.status === 'done'); // Filter tasks with status "done"
-    const tasksDoneCount = tasksDone.length; // Get the count
-    const tasksDoneNumberElement = document.getElementById('doneNumber'); // Get the HTML element
-    if (tasksDoneNumberElement) {
-        tasksDoneNumberElement.textContent = tasksDoneCount.toString(); // Update the count in HTML
-    }
-}
-
-// Updates the count of tasks with status "inprogress"
-async function updateTasksInProgress() {
-    await loadTasks(); // Fetch tasks
-    const tasksInProgress = tasks.filter((task) => task.status === 'inprogress'); // Filter tasks with status "inprogress"
-    const tasksInProgressCount = tasksInProgress.length; // Get the count
-    const tasksInProgressNumberElement = document.getElementById('tasksInProgressNumber'); // Get the HTML element
-    if (tasksInProgressNumberElement) {
-        tasksInProgressNumberElement.textContent = tasksInProgressCount.toString(); // Update the count in HTML
-    }
-}
-
-// Updates the count of tasks with status "awaitingfb"
-async function updateTasksAwaitingFB() {
-    await loadTasks(); // Fetch tasks
-    const tasksAwaitingFB = tasks.filter((task) => task.status === 'awaitingfb'); // Filter tasks with status "awaitingfb"
-    const tasksAwaitingFBCount = tasksAwaitingFB.length; // Get the count
-    const tasksAwaitingFBNumberElement = document.getElementById('awaitFbNumber'); // Get the HTML element
-    if (tasksAwaitingFBNumberElement) {
-        tasksAwaitingFBNumberElement.textContent = tasksAwaitingFBCount.toString(); // Update the count in HTML
-    }
-}
-
-// Updates the count of urgent tasks
+/**
+ * Updates the count of urgent tasks.
+ */
 async function updateTasksUrgent() {
-    await loadTasks(); // Fetch tasks
-    const tasksUrgent = tasks.filter((task) => task.priority === 'assets/img/priohigh.png'); // Filter urgent tasks
-    const tasksUrgentCount = tasksUrgent.length; // Get the count
-    const tasksUrgentNumberElement = document.getElementById('urgentNumber'); // Get the HTML element
+    await loadTasks();
+    const tasksUrgent = tasks.filter((task) => task.priority === 'assets/img/priohigh.png');
+    const tasksUrgentNumberElement = document.getElementById('urgentNumber');
     if (tasksUrgentNumberElement) {
-        tasksUrgentNumberElement.textContent = tasksUrgentCount.toString(); // Update the count in HTML
+        tasksUrgentNumberElement.textContent = tasksUrgent.length.toString();
     }
 }
 
-// Updates the closest date for urgent tasks
+/**
+ * Updates the closest date for urgent tasks.
+ */
 async function updateUrgentDate() {
-    const urgentDateElement = document.getElementById('urgentDate'); // Get the HTML element
-    const closestDate = findClosestDate(); // Find the closest date
+    const urgentDateElement = document.getElementById('urgentDate');
+    const closestDate = findClosestDate();
     if (closestDate) {
-        urgentDateElement.textContent = closestDate; // If there's a closest date, update the HTML
+        urgentDateElement.textContent = closestDate;
     } else {
-        urgentDateElement.textContent = 'No urgent tasks'; // If no closest date, display "No urgent tasks"
+        urgentDateElement.textContent = 'No urgent tasks';
     }
 }
 
-// Finds the closest date from the list of tasks
+/**
+ * Finds the closest date from the list of tasks.
+ * @returns {string | null} - The formatted closest date or null if there are no tasks.
+ */
 function findClosestDate() {
     if (tasks.length > 0) { // If there are tasks
         let closestDate = null;
         for (let i = 0; i < tasks.length; i++) {
-            if (tasks[i].priority === 'assets/img/priohigh.png' && tasks[i].date && (closestDate === null || tasks[i].date < closestDate))
+            if (tasks[i].priority === 'assets/img/priohigh.png' && tasks[i].date && (closestDate === null || tasks[i].date < closestDate)) {
                 closestDate = tasks[i].date;
+            }
         }
         return closestDate ? formatDate(closestDate) : null; // If there's a closest date, format and return it. If not, return null
     }
-    return null; // If no tasks, return null
+    return null;
 }
 
-// Formats a date into the format "Month Day, Year"
+/**
+ * Formats a date into the format "Month Day, Year".
+ * @param {Date} date - The date to be formatted.
+ * @returns {string} - The formatted date in the "Month Day, Year" format.
+ */
 function formatDate(date) {
-    const options = { month: 'long', day: 'numeric', year: 'numeric' }; // Options for formatting
-    return new Date(date).toLocaleDateString('en-US', options); // Format the date
+    const options = { month: 'long', day: 'numeric', year: 'numeric' };
+    return new Date(date).toLocaleDateString('en-US', options);
 }
