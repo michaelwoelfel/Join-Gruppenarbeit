@@ -2,18 +2,19 @@
 /**
  * Displays the add task popup.
  */
-function addTaskPopUp() {
+async function addTaskPopUp() {
     let popup = document.getElementById('popup_add_task');
     popup.classList.remove('d-none');
-    renderPopUp(popup);
-    renderTaskContacts();
+ renderPopUp(popup);
+ await renderTaskContacts();
+    
 }
 
 /**
  * Renders the popup content for adding a task.
  * @param {Object} popup - The DOM object for the popup element.
  */
-function renderPopUp(popup) {
+async function renderPopUp(popup) {
     popup.innerHTML = /*html*/`
     <div class="popup-background" onclick="closePopup()">
         <div class="popup-content" onclick="doNotClose(event)">
@@ -95,6 +96,7 @@ function renderPopUp(popup) {
             </div>
     </div>
     `;
+   
 }
 
 /**

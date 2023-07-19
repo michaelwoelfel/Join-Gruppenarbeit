@@ -82,7 +82,7 @@ async function changeTask(i) {
 async function editTask(i) {
     let task = tasks[i];
     closeTask();
-    addTaskPopUp();
+   await addTaskPopUp();
     let taskprio = task['priority'];
     getTaskPrio(taskprio);
     document.getElementById('add_task_title').value = task.name;
@@ -340,7 +340,7 @@ async function openTask(i) {
     <div class="bigtaskusers">
         <span><b>Assigned To:</b></span>
     <div class="users">${task['user']}</div></div>
-    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${i})" src="/assets/img/edit.png"></div>
+    <div class="buttoncontainer"><img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png"><img id="editimg" onclick="editTask(${index})" src="/assets/img/edit.png"></div>
 </div>` ;
 
     // Calls a function to display the task's priority level
