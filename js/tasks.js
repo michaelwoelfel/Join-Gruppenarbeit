@@ -191,20 +191,27 @@ async function renderToDo() {
     for (let index = 0; index < toDo.length; index++) {
         const task = toDo[index];
         document.getElementById('todo').innerHTML += await taskTemplate(task);
-         renderUsersInTask(task);
+        renderUsersInTask(task);
+
+          
     }
 }
 
-function renderUsersInTask(task){
+async function renderUsersInTask(task){
         userTasks = task['user'];
+        let idTask = task.id;
+        let userContainer =  document.getElementById(`usersintask${idTask}`);
 
     for (let i = 0; i< userTasks.length; i++) {
         const element = userTasks[i];
+       
+       console.log(`Task ID: ${idTask}`);
         let nameParts = element.split(' '); // split the name into parts
         let firstLetter = nameParts[0].charAt(0); // first letter of first name
         let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
         let randomColor = getRandomColor();
-        document.getElementById(`usersintask${task["id"]}`).innerHTML += `<div class="contact-container">
+        
+       userContainer.innerHTML += `<div class="contact-container">
         <div class="imgcontainer" style="background-color: ${randomColor};">
             <span id="firstletter">${firstLetter}</span>
             <span id="secondletter">${secondLetter}</span>
@@ -213,7 +220,7 @@ function renderUsersInTask(task){
            
         </div>
         </div>
-    </div>`
+    </div>`;
         
     };
    
@@ -262,36 +269,41 @@ function prioColorGreen() {
 /**
  * Updates the HTML representation of the 'in-progress' tasks.
  */
-function renderInProgress() {
+async function renderInProgress() {
     let inprogress = tasks.filter(t => t['status'] == 'inprogress');
     document.getElementById('inprogress').innerHTML = '';
     for (let index = 0; index < inprogress.length; index++) {
         const task = inprogress[index];
-        document.getElementById('inprogress').innerHTML += taskTemplate(task);
+        document.getElementById('inprogress').innerHTML += await taskTemplate(task);
+        renderUsersInTask(task);
     }
 }
 
 /**
  * Updates the HTML representation of the 'awaitingfb' tasks.
  */
-function renderAwaitFb() {
+async function renderAwaitFb() {
     let awaitingfb = tasks.filter(t => t['status'] == 'awaitingfb');
     document.getElementById('awaitingfb').innerHTML = '';
     for (let index = 0; index < awaitingfb.length; index++) {
         const task = awaitingfb[index];
-        document.getElementById('awaitingfb').innerHTML += taskTemplate(task);
+        document.getElementById('awaitingfb').innerHTML += await taskTemplate(task);
+        renderUsersInTask(task);
+        
     }
 }
 
 /**
  * Updates the HTML representation of the 'done' tasks.
  */
-function renderDone() {
+async function renderDone() {
     let done = tasks.filter(t => t['status'] == 'done');
     document.getElementById('done').innerHTML = '';
     for (let index = 0; index < done.length; index++) {
         const task = done[index];
-        document.getElementById('done').innerHTML += taskTemplate(task);
+        document.getElementById('done').innerHTML += await taskTemplate(task);
+        renderUsersInTask(task);
+        
     }
 }
 
