@@ -185,13 +185,39 @@ function updateHTML() {
 /**
  * Updates the HTML representation of the 'to-do' tasks.
  */
-function renderToDo() {
+async function renderToDo() {
     let toDo = tasks.filter(t => t['status'] == 'todo');
     document.getElementById('todo').innerHTML = '';
     for (let index = 0; index < toDo.length; index++) {
         const task = toDo[index];
-        document.getElementById('todo').innerHTML += taskTemplate(task);
+        document.getElementById('todo').innerHTML += await taskTemplate(task);
+         renderUsersInTask(task);
     }
+}
+
+function renderUsersInTask(task){
+        userTasks = task['user'];
+
+    for (let i = 0; i< userTasks.length; i++) {
+        const element = userTasks[i];
+        let nameParts = element.split(' '); // split the name into parts
+        let firstLetter = nameParts[0].charAt(0); // first letter of first name
+        let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
+        let randomColor = getRandomColor();
+        document.getElementById(`usersintask${task["id"]}`).innerHTML += `<div class="contact-container">
+        <div class="imgcontainer" style="background-color: ${randomColor};">
+            <span id="firstletter">${firstLetter}</span>
+            <span id="secondletter">${secondLetter}</span>
+        </div>
+       
+           
+        </div>
+        </div>
+    </div>`
+        
+    };
+   
+
 }
 
 /**

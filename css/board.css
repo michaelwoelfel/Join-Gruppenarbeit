@@ -190,6 +190,11 @@ h3 {
 
 .taskfooter {
     display: flex;
+    flex-direction: row;
+}
+
+.usersintaks {
+    display: flex;
 }
 
 .content {
@@ -224,6 +229,32 @@ h3 {
      padding-top: 5px;
      align-items: center;
      justify-content: center;
+}
+
+.contact-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    
+}
+
+.imgcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin-left: 12px;
+    border-radius: 45px;
+    width: 40px;
+    height: 40px;
+}
+
+.contact {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    
 }
 
 

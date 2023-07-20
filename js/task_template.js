@@ -1,4 +1,4 @@
-function taskTemplate(task) {
+async function taskTemplate(task) {
     return /*html*/ `
         <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="openTask(${task['id']})" class="content">
             <div class="category">${task['category']}</div>
@@ -8,14 +8,17 @@ function taskTemplate(task) {
                 <div class="taskprogressbar"></div>
                 <div class="taskprogress">1/2 Done</div>
             </div>
-            <div class="taskfooter">${task['user']}
+            <div class="taskfooter"><div class="usersintaks" id="usersintask${task['id']}"></div>
                 <div class="priority">
                     <img src="${task['priority']}">
                 </div>
             </div>
         </div>
     `;
+   
 }
+
+
 
 async function generateTaskDetailsHTML(index) {
     // Retrieves the task with the given index
