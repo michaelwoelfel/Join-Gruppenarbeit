@@ -55,10 +55,9 @@
                 <!-- TASK CATEGORY -->
                 <div class="category fd_column">
                     <span>Category</span>
-                    <select class="task_input_field_styling" name="category_select" id="add_task_category_select"
-                        required>
+                    <select class="task_input_field_styling" name="category_select" id="add_task_category_select" required onchange="handleCategoryChange(this)">
                         <option value="Select task category">Select task category</option>
-                        <option value="New category" onclick="addNewCategory()">New category</option>
+                        <option value="New category">New category</option>
                         <option value="Sales">Sales</option>
                         <option value="Backoffice">Backoffice</option>
                     </select>

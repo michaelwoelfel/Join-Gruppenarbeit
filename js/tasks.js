@@ -412,13 +412,50 @@ function renderSubtask(currentSubtasks, newSubtask) {
     return;
 }
 
-
+// ADDS 'done-sign'
 function addDoneSignToSquare(event) {
     if (event.target.src.includes("subtask_square.png")) {
         event.target.src = "/assets/img/done_white.png";
     } else {
         event.target.src = "/assets/img/subtask_square.png";
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+// TEST
+
+
+function handleCategoryChange(selectElement) {
+    if (selectElement.value === 'New category') {
+        addNewCategory();
+    }
+}
+
+function addNewCategory() {
+    const newCategoryDiv = document.createElement('div');
+    newCategoryDiv.className = 'new-category-popup';
+    newCategoryDiv.innerHTML = '<input type="text" id="new-category-input" placeholder="Enter new category"><button onclick="submitNewCategory()">Submit</button>';
+    document.body.appendChild(newCategoryDiv);
+}
+
+function submitNewCategory() {
+    const newCategory = document.getElementById('new-category-input').value;
+    const newOption = document.createElement('option');
+    newOption.value = newCategory;
+    newOption.text = newCategory;
+    const select = document.getElementById('add_task_category_select');
+    select.appendChild(newOption);
+    const popup = document.querySelector('.new-category-popup');
+    document.body.removeChild(popup);
 }
 
 
