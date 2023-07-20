@@ -389,21 +389,37 @@ function addNewSubtask() {
     const newSubtask = document.getElementById('add_task_input_subtask').value;
     let currentSubtasks = document.getElementById('show-subtasks');
     if (newSubtask === '')
-        alert('Bitte Feld ausfüllen!!') // Current solution, popup would be nicer...
+        alert('Bitte Feld ausfüllen!!')
     else {
-        currentSubtasks.innerHTML += /*html*/`
-    <div>
-        <img onclick="" src="/assets/img/subtask_square.png" alt="Subtasks">
-        <span>${newSubtask}</span> 
-    </div>    
-    `;
-        subtasks.push(newSubtask);
-        document.getElementById('add_task_input_subtask').value = '';
+        if (subtasks.length >= 3) {
+            alert('Maximal drei Subtasks erstellen');
+        } else {
+            renderSubtask(currentSubtasks, newSubtask);
+            subtasks.push(newSubtask);
+            document.getElementById('add_task_input_subtask').value = '';
+        }
     }
 }
 
 
+function renderSubtask(currentSubtasks, newSubtask) {
+    currentSubtasks.innerHTML += /*html*/`
+    <div>
+        <img onclick="addDoneSignToSquare(event)" src="/assets/img/subtask_square.png" alt="Subtasks">
+        <span>${newSubtask}</span> 
+    </div>    
+    `;
+    return;
+}
 
+
+function addDoneSignToSquare(event) {
+    if (event.target.src.includes("subtask_square.png")) {
+        event.target.src = "/assets/img/done_white.png";
+    } else {
+        event.target.src = "/assets/img/subtask_square.png";
+    }
+}
 
 
 
