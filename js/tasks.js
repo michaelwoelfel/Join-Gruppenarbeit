@@ -227,6 +227,38 @@ async function renderUsersInTask(task){
 
 }
 
+
+async function renderUsersInBigTask(task){
+    userTasks = task['user'];
+    let idTask = task.id;
+    let userContainer =  document.getElementById(`usersinbigtask${idTask}`);
+
+for (let i = 0; i< userTasks.length; i++) {
+    const element = userTasks[i];
+   
+   console.log(`Task ID: ${idTask}`);
+    let nameParts = element.split(' '); // split the name into parts
+    let firstLetter = nameParts[0].charAt(0); // first letter of first name
+    let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
+    let randomColor = getRandomColor();
+    
+   userContainer.innerHTML += `<div class="contact-container">
+    <div class="imgcontainer" style="background-color: ${randomColor};">
+        <span id="firstletter">${firstLetter}</span>
+        <span id="secondletter">${secondLetter}</span>
+    </div>
+    <span id="name">${element}</span>
+   
+       
+    </div>
+    </div>
+</div>`;
+    
+};
+
+
+}
+
 /**
  * Changes the color of the priority symbol to red.
  */
@@ -353,9 +385,10 @@ async function openTask(i) {
     // Generate the HTML for task details using the separate function
     let taskDetailsHTML = await generateTaskDetailsHTML(index);
     // Insert the task details HTML into the 'showtask' element
-    document.getElementById('showtask').innerHTML = taskDetailsHTML;
+    document.getElementById('showtask').innerHTML = await taskDetailsHTML;
     // Calls a function to display the task's priority level
     colorUrgency(index);
+    renderUsersInBigTask(task);
 }
 
 

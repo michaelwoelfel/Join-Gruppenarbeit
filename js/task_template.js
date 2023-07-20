@@ -45,7 +45,7 @@ async function generateTaskDetailsHTML(index) {
             </div>
             <div class="bigtaskusers">
                 <span><b>Assigned To:</b></span>
-                <div class="users">${task['user']}</div>
+                <div id="usersinbigtask${index}" class="users"></div>
             </div>
             <div class="buttoncontainer">
                 <img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png">
