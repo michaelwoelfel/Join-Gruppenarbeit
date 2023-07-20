@@ -1,65 +1,24 @@
-<style>
-  .header-mobile {
-    display: flex;
-  }
+<!DOCTYPE html>
+<html lang="en">
 
-  .join-logo-mobile-header {
-    height: 50px;
-  }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css">
+    <title>Document</title>
+</head>
 
-  .author {
-    display: flex;
-    gap: 25px;
-    padding-right: 40px;
-    align-items: center;
-  }
+<body>
+    <div class="projectheader">
+        <img class="join-logo-mobile-header" src="/assets/img/logo_dark.png" alt="logo_dark">
+        <span class="headspan">Kanban Project Management Tool</span>
+        <div class="author">
+            <a href="/help.html" target="_self">
+                <img class="questionimg" src="assets/img/question.png">
+            </a>
+            <img id="michael" src="assets/img/michael.jpg">
+        </div>
+    </div>
+</body>
 
-  .projectheader {
-    background-color: white;
-    display: flex;
-    height: 80px;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0px 4px 4px 0px #0000001A;
-    width: 100%;
-  }
-
-  .headspan {
-    margin-left: 100px;
-  }
-
-  .questionimg {
-    height: 20px;
-  }
-
-
-/* RESPONSIVE DESIGN */
-
-  @media(min-width: 800px) {
-    .join-logo-mobile-header {
-      display: none;
-    }
-  }
-
-  @media only screen and (max-width: 800px) {
-    .headspan {
-      display: none;
-    }
-
-    .join-logo-mobile-header {
-      padding-left: 15px;
-    }
-
-    .author {
-      padding-right: 15px;
-    }
-  }
-</style>
-
-<div class="projectheader">
-  <img class="join-logo-mobile-header" src="/assets/img/logo_dark.png" alt="logo_dark">
-  <span class="headspan">Kanban Project Management Tool</span>
-  <div class="author"><a href="/help.html" target="_self"><img class="questionimg" src="assets/img/question.png"></a>
-    <img id="michael" src="assets/img/michael.jpg">
-  </div>
-</div>
+</html>
