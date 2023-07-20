@@ -423,40 +423,46 @@ function addDoneSignToSquare(event) {
 
 
 
-
-
-
-
-
-
-
-
-// TEST
-
-
-function handleCategoryChange(selectElement) {
-    if (selectElement.value === 'New category') {
+// Checkes if the field "new category is selected"
+function handleCategoryChange(liElement) {
+    if (liElement.textContent === 'New category') {
         addNewCategory();
     }
 }
 
+
+//  opens a popup to give a name to a new category and fills in the new category
 function addNewCategory() {
     const newCategoryDiv = document.createElement('div');
     newCategoryDiv.className = 'new-category-popup';
-    newCategoryDiv.innerHTML = '<input type="text" id="new-category-input" placeholder="Enter new category"><button onclick="submitNewCategory()">Submit</button>';
+    newCategoryDiv.innerHTML = '<input type="text" id="new-category-input" placeholder="Enter new category"><button onclick="submitNewCategory()">Submit</button><img onclick="closeCategoryPopup()" src="/assets/img/close.png">';
     document.body.appendChild(newCategoryDiv);
 }
 
+
+// Creates a new category and closes popup by click on the submit btn
 function submitNewCategory() {
     const newCategory = document.getElementById('new-category-input').value;
-    const newOption = document.createElement('option');
-    newOption.value = newCategory;
-    newOption.text = newCategory;
-    const select = document.getElementById('add_task_category_select');
-    select.appendChild(newOption);
+    const newLi = document.createElement('li');
+    newLi.textContent = newCategory;
+    const ul = document.getElementById('add_task_category_select');
+    ul.appendChild(newLi);
     const popup = document.querySelector('.new-category-popup');
     document.body.removeChild(popup);
 }
 
 
+function openDropdownMenu() {
+    let dropdownMenu = document.getElementById('add_task_category_select');
+    dropdownMenu.classList.toggle('d-block');
+
+    let dropdown = document.getElementById('dropdown');
+    dropdown.classList.toggle('border-radius');
+}
+
+
+function closeCategoryPopup() {
+    const popup = document.querySelector('.new-category-popup');
+    document.body.removeChild(popup);
+}
 

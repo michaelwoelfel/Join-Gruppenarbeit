@@ -10,15 +10,15 @@
 </head>
 
 
-    
 
-    <script src="js/contacts.js"></script>
-    <script src="js/include_html.js"></script>
-    <script src="js/signupandlogin.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/tasks.js"></script>
-    <script src="js/board.js"></script>
-    <title>Add task</title>
+
+<script src="js/contacts.js"></script>
+<script src="js/include_html.js"></script>
+<script src="js/signupandlogin.js"></script>
+<script src="js/script.js"></script>
+<script src="js/tasks.js"></script>
+<script src="js/board.js"></script>
+<title>Add task</title>
 </head>
 
 <body onload="initAddTask()">
@@ -55,12 +55,16 @@
                 <!-- TASK CATEGORY -->
                 <div class="category fd_column">
                     <span>Category</span>
-                    <select class="task_input_field_styling" name="category_select" id="add_task_category_select" required onchange="handleCategoryChange(this)">
-                        <option value="Select task category">Select task category</option>
-                        <option value="New category">New category</option>
-                        <option value="Sales">Sales</option>
-                        <option value="Backoffice">Backoffice</option>
-                    </select>
+                    <div class="category-select-down">
+                        <div class="task_input_field_styling dropdown" id="dropdown">Select category</div>
+                        <img class="category-down" onclick="openDropdownMenu()" src="./assets/img/category-down.svg" alt="">
+                    </div>
+                    <ul class="task_input_field_styling dropdown-content" id="add_task_category_select">
+                        <li onclick="handleCategoryChange(this)">New category</li>
+                        <li>Sales</li>
+                        <li>Backoffice</li>
+                    </ul>
+
                 </div>
                 <!-- USER SELECTION -->
                 <div id="userselection" class="assign fd_column"></div>
@@ -93,8 +97,8 @@
                     <span>Subtasks</span>
                     <div class="subtask_container">
                         <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask"
-                            placeholder="Add new subtask" required><img class="subtask_plus" onclick="addNewSubtask()" src="/assets/img/subtask_plus.png"
-                            alt="add Subtask">
+                            placeholder="Add new subtask" required><img class="subtask_plus" onclick="addNewSubtask()"
+                            src="/assets/img/subtask_plus.png" alt="add Subtask">
                     </div>
                     <div class="show-subtasks" id="show-subtasks">
                     </div>
@@ -118,3 +122,21 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <select class="task_input_field_styling" name="category_select" id="add_task_category_select" required onchange="handleCategoryChange(this)">
+                        <option value="Select task category">Select task category</option>
+                        <option value="New category">New category</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Backoffice">Backoffice</option>
+                    </select> -->

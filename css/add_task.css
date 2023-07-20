@@ -50,17 +50,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
-.new-category-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    border: 1px solid #000;
-    background-color: #fff;
-    z-index: 1000;
-}
-
 
 /* LEFT Side of the Task-fields */
 
@@ -74,6 +63,87 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 .add_task_category_select {
     padding: 32px;
+}
+
+
+.category-down {
+    height: 16px;
+    position: absolute;
+    right: 8px;
+    bottom: 10px; 
+}
+
+
+.category-down:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+
+.category-select-down {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.new-category-popup {
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #D1D1D1;
+    outline: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    margin-bottom: 0;
+    border-bottom-style: none;
+}
+
+
+.border-radius {
+    border-radius: 6px 6px 0 0;
+}
+  
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: white;
+    z-index: 1;
+    margin-top: 0;
+    border-top-style: none;
+    border-radius: 0 0 6px 6px;
+}
+  
+  .d-block {
+    display: block;
+}
+
+.category ul li{
+    list-style: none;
+    padding: 4px;
+}
+
+
+.category ul li:hover {
+    background-color: #D1D1D1;
+    cursor: pointer;
+    border-radius: 8px;
 }
 
 
@@ -278,8 +348,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
-
-
 #selectinneruser {
     border: 1px solid black;
     overflow: auto;
@@ -291,8 +359,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     font-family: 'Inter', sans-serif;
     border: 2px solid #D1D1D1;
     outline: none;
-    background-color: white;
-   
+    background-color: white; 
 }
 
 /* ANIMATION ADDED TO BOARD */
