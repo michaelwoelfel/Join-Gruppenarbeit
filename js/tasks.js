@@ -228,6 +228,38 @@ function getContactFromName(name) {
     return contacts.find(contact => contact.name === name);
 }
 
+function renderUsersInOpenTask(index) {
+    let task = tasks[index];
+    const userTasks = task['user'];
+    const userContainer = document.getElementById(`usersInOpenTask${task.id}`);
+
+
+    for (let i = 0; i < userTasks.length; i++) {
+        const element = userTasks[i];
+        let nameParts = element.split(' '); // Name in Teile aufteilen
+        let firstLetter = nameParts[0].charAt(0); // Erster Buchstabe des Vornamens
+        let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
+
+        // Suche nach dem Namen im Kontakt und erhalte die Farbe (oder eine zufällige Farbe, wenn der Name nicht gefunden wird)
+        let contact = getContactFromName(nameParts.join(' '));
+        let randomColor = contact ? contact.color : getRandomColor();
+
+        // Erstelle den User-Container und füge ihn direkt in den Task-Details-Container ein
+        const userElement = document.createElement('div');
+        userElement.classList.add('contact-container');
+        userElement.innerHTML = `
+            <div class="imgcontainer" style="background-color: ${randomColor};">
+                <span id="firstletter">${firstLetter}</span>
+                <span id="secondletter">${secondLetter}</span>
+            </div>
+            <div class="name">${nameParts.join(' ')}</div>
+        `;
+
+        userContainer.appendChild(userElement);
+    };
+}
+
+
 
 
 
@@ -395,7 +427,7 @@ async function openTask(i) {
     document.getElementById('showtask').innerHTML = await taskDetailsHTML;
     // Calls a function to display the task's priority level
     colorUrgency(index);
-    renderUsersInTask(index);
+    renderUsersInOpenTask(index);
 }
 
 
