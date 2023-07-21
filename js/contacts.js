@@ -1,7 +1,7 @@
 /**
  * List of contacts.
  */
-let contacts;
+// let contacts;
 
 /**
  * Collects the input values, pushes a new contact to the list and saves the list in the local storage.
@@ -26,34 +26,29 @@ async function addContact() {
     renderContacts();
 };
 
-/**
- * Renders the contact list after sorting it in alphabetical order.
- * For each contact creates a new contact container and adds it to the page.
- * @returns {Promise<void>}
- */
-async function renderContacts() {
-    // Load the contact list from the local storage
+async function sortContactsAlphabetically() {
     await loadContacts();
-    // Sort the contact list alphabetically
     contacts.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+
+
+async function renderContacts() {
+    await sortContactsAlphabetically();
 
     // Variable to keep track of the first letter of the current contact's name
     let currentLetter = '';
     document.getElementById('contact-list').innerHTML = '';
+
     for (let i = 2; i < contacts.length; i++) {
         const contact = contacts[i];
         const firstLetter = contact['name'].charAt(0).toUpperCase();
-        
+
         // If the first letter of the name is new, create a new letter header
         if (firstLetter !== currentLetter) {
             currentLetter = firstLetter;
-            document.getElementById('contact-list').innerHTML += `
-                <div class="contact-container">
-                    <div class="contactheader">
-                    <h1 id="letter">${currentLetter}</h1>
-                    </div>
-                </div>`;
-        } 
+            document.getElementById('contact-list').innerHTML += createLetterHeader(currentLetter);
+        }
 
         // If the name is made of two words, get the first letter of the second word
         let secondLetter = '';
@@ -61,29 +56,17 @@ async function renderContacts() {
         if (nameParts.length > 1 && nameParts[1].length > 0) {
             secondLetter = nameParts[1].charAt(0).toUpperCase();
         }
+
         let randomColor = getRandomColor();
         // Create a new contact container and add it to the page
-        document.getElementById('contact-list').innerHTML += `
-            <div class="contact-container">
-                <div onclick="showContact(${i},'${randomColor}','${secondLetter}')" class="contact">
-                <div class="imgcontainer" style="background-color: ${randomColor};">
-                    <span id="firstletter">${firstLetter}</span>
-                    <span id="secondletter">${secondLetter}</span>
-                </div>
-                <div class="contactinfo">
-                    <span id="name">${contact['name']}</span>
-                    <a href="mailto:${contact['mail']}" id="email">${contact['mail']}</a>
-                </div>
-                </div>
-            </div>`;
+        document.getElementById('contact-list').innerHTML += createContact(i, contact, randomColor, secondLetter);
     }
-   
 }
 
 /**
  * Shows a notification about the added contact.
  */
-function taskAddedToBoard() { 
+function taskAddedToBoard() {
     const container = document.querySelector('.addedTaskToBoard_content');
     container.classList.add('show');
 
@@ -98,7 +81,7 @@ function taskAddedToBoard() {
  * @param {string} randomColor - The background color of the contact avatar.
  * @param {string} secondLetter - The second letter in the contact avatar.
  */
-function showContact(i,randomColor,secondLetter){
+function showContact(i, randomColor, secondLetter) {
     const contact = contacts[i];
     const firstLetter = contact['name'].charAt(0).toUpperCase();
     document.getElementById('showcontact').innerHTML = `<div class="headinfo">
@@ -122,7 +105,7 @@ function showContact(i,randomColor,secondLetter){
  * @param {string} secondLetter - The second letter in the contact avatar.
  * @param {string} randomColor - The background color of the contact avatar.
  */
-function editContact(i,firstLetter,secondLetter,randomColor){
+function editContact(i, firstLetter, secondLetter, randomColor) {
     const contact = contacts[i];
     openEditContact();
     document.getElementById('contactnameedit').value = contact.name;
@@ -197,7 +180,7 @@ function closeEditContact() {
 /**
  * Closes the add contact form.
  */
-function closeAddContact (){
+function closeAddContact() {
     document.getElementById('modal-one').classList.add('d-none');
 
 }
@@ -233,13 +216,13 @@ function getRandomInt(min, max) {
  */
 function getRandomColor() {
     const colors = [
-        'rgb(1, 144, 224)', 
-        'rgb(255, 92, 0)', 
-        'rgb(238, 0, 214)', 
-        'rgb(2, 207, 47)', 
-        'rgb(147, 39, 255)', 
-        'rgb(78, 150, 61)', 
-        'rgb(50, 218, 255)', 
+        'rgb(1, 144, 224)',
+        'rgb(255, 92, 0)',
+        'rgb(238, 0, 214)',
+        'rgb(2, 207, 47)',
+        'rgb(147, 39, 255)',
+        'rgb(78, 150, 61)',
+        'rgb(50, 218, 255)',
         'rgb(0, 124, 238)'
     ];
     let randomIndex = Math.floor(Math.random() * colors.length);
