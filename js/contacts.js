@@ -54,8 +54,8 @@ async function renderContacts() {
         if (nameParts.length > 1 && nameParts[1].length > 0) {
             secondLetter = nameParts[1].charAt(0).toUpperCase();
         }
-
-        let randomColor = getRandomColor();
+        let randomColor = contact.color || getRandomColor();
+        contact.color = randomColor;
         // Create a new contact container and add it to the page
         document.getElementById('contact-list').innerHTML += createContact(i, contact, randomColor, secondLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
     }
@@ -99,9 +99,10 @@ function editContact(i, firstLetter, secondLetter, randomColor) {
     document.getElementById('contactnameedit').value = contact.name;
     document.getElementById('contactmailedit').value = contact.mail;
     document.getElementById('contactphoneedit').value = contact.phone;
-    // document.getElementById('img-add-contactedit').innerHTML = ` <span id="firstletter">${firstLetter}</span>
-    //  <span id="secondletter">${secondLetter}</span>`;
-    // document.getElementById('img-add-contactedit').style.backgroundColor = `${randomColor}`;
+    document.getElementById('img-add-contactedit').innerHTML = ` 
+    <span id="firstletter">${firstLetter}</span>
+     <span id="secondletter">${secondLetter}</span>`;
+    document.getElementById('img-add-contactedit').style.backgroundColor = `${randomColor}`;
     document.getElementById('editbuttons').innerHTML = document.getElementById('editbuttons').innerHTML = createEditContactButtonsHTML(i);  // HTML AUSGELAGERT IN CONTACTS TEMPLATE
 }
 
@@ -203,7 +204,9 @@ function getRandomInt(min, max) {
  * Returns a random RGB color.
  * @returns {string} - A random RGB color.
  */
+
 function getRandomColor() {
+
     const colors = [
         'rgb(1, 144, 224)',
         'rgb(255, 92, 0)',
@@ -214,6 +217,12 @@ function getRandomColor() {
         'rgb(50, 218, 255)',
         'rgb(0, 124, 238)'
     ];
-    let randomIndex = Math.floor(Math.random() * colors.length);
-    return colors[randomIndex];
+
+    if (colorIndex >= colors.length) {
+        colorIndex = 0;
+    }
+
+    const color = colors[colorIndex];
+    colorIndex++;
+    return color;
 }

@@ -4,6 +4,7 @@ let tasks = [];
 let taskIdCounter = 0;
 let currentDraggedElement;
 let subtasks = [];
+let colorIndex = 0;
 
 /**
  * Checks and updates the task ID based on the existing tasks.
@@ -193,25 +194,25 @@ async function renderToDo() {
         document.getElementById('todo').innerHTML += await taskTemplate(task);
         renderUsersInTask(task);
 
-          
+
     }
 }
 
-async function renderUsersInTask(task){
-        userTasks = task['user'];
-        let idTask = task.id;
-        let userContainer =  document.getElementById(`usersintask${idTask}`);
+async function renderUsersInTask(task) {
+    userTasks = task['user'];
+    let idTask = task.id;
+    let userContainer = document.getElementById(`usersintask${idTask}`);
 
-    for (let i = 0; i< userTasks.length; i++) {
+    for (let i = 0; i < userTasks.length; i++) {
         const element = userTasks[i];
-       
-       console.log(`Task ID: ${idTask}`);
+
+        console.log(`Task ID: ${idTask}`);
         let nameParts = element.split(' '); // split the name into parts
         let firstLetter = nameParts[0].charAt(0); // first letter of first name
         let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
         let randomColor = getRandomColor();
-        
-       userContainer.innerHTML += `<div class="contact-container">
+
+        userContainer.innerHTML += `<div class="contact-container">
         <div class="imgcontainer" style="background-color: ${randomColor};">
             <span id="firstletter">${firstLetter}</span>
             <span id="secondletter">${secondLetter}</span>
@@ -221,28 +222,28 @@ async function renderUsersInTask(task){
         </div>
         </div>
     </div>`;
-        
+
     };
-   
+
 
 }
 
 
-async function renderUsersInBigTask(task){
+async function renderUsersInBigTask(task) {
     userTasks = task['user'];
     let idTask = task.id;
-    let userContainer =  document.getElementById(`usersinbigtask${idTask}`);
+    let userContainer = document.getElementById(`usersinbigtask${idTask}`);
 
-for (let i = 0; i< userTasks.length; i++) {
-    const element = userTasks[i];
-   
-   console.log(`Task ID: ${idTask}`);
-    let nameParts = element.split(' '); // split the name into parts
-    let firstLetter = nameParts[0].charAt(0); // first letter of first name
-    let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
-    let randomColor = getRandomColor();
-    
-   userContainer.innerHTML += `<div class="contact-container">
+    for (let i = 0; i < userTasks.length; i++) {
+        const element = userTasks[i];
+
+        console.log(`Task ID: ${idTask}`);
+        let nameParts = element.split(' '); // split the name into parts
+        let firstLetter = nameParts[0].charAt(0); // first letter of first name
+        let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
+        let randomColor = getRandomColor();
+
+        userContainer.innerHTML += `<div class="contact-container">
     <div class="imgcontainer" style="background-color: ${randomColor};">
         <span id="firstletter">${firstLetter}</span>
         <span id="secondletter">${secondLetter}</span>
@@ -253,8 +254,8 @@ for (let i = 0; i< userTasks.length; i++) {
     </div>
     </div>
 </div>`;
-    
-};
+
+    };
 
 
 }
@@ -321,7 +322,7 @@ async function renderAwaitFb() {
         const task = awaitingfb[index];
         document.getElementById('awaitingfb').innerHTML += await taskTemplate(task);
         renderUsersInTask(task);
-        
+
     }
 }
 
@@ -335,7 +336,7 @@ async function renderDone() {
         const task = done[index];
         document.getElementById('done').innerHTML += await taskTemplate(task);
         renderUsersInTask(task);
-        
+
     }
 }
 
