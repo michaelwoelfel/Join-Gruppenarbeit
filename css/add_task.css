@@ -137,6 +137,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
 .category ul li{
     list-style: none;
     padding: 4px;
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -147,8 +149,15 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
-.dot {
-    height: 36px;
+.color_dot {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: #29ABE2;
+}
+
+.red {
+    background-color: #FF3D00;
 }
 
 
@@ -384,6 +393,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    z-index: 1001;
 }
 
 
