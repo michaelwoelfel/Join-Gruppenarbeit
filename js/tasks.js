@@ -319,8 +319,6 @@ function prioColorRed() {
 
 }
 
-
-
 /**
  * Changes the color of the priority symbol to orange.
  */
@@ -571,6 +569,9 @@ function submitNewCategory() {
     const popup = document.querySelector('.new-category-popup');
     document.body.removeChild(popup);
     saveNewCategory(newCategory);
+    window.onload = function() {
+        loadNewCategory();
+    }
 }
 
 
@@ -592,14 +593,23 @@ function getRandomColorDot() {
 
 
 function saveNewCategory(newCategory) {
-    setItem('newCategory', JSON.stringify(newCategory));
-    loadNewCategory(newCategory);
+    localStorage.setItem('newCategory', newCategory);
+    localStorage.setItem('currentColorOfCategory', currentColorOfCategory);
 }
 
 
-function loadNewCategory(newCategory) {
+function loadNewCategory() {
+    let newCategory = localStorage.getItem('newCategory');
+    let colorOfCategory = localStorage.getItem('currentColorOfCategory');
 
+    if (newCategory && colorOfCategory) {
+        const dropdownMenu = document.getElementById('add_task_category_select');
+        dropdownMenu.innerHTML += /*html*/`
+            <li class="liElement" onclick="closeDropdown(this)">${newCategory}<div style="background-color: ${colorOfCategory}" class="color_dot"></div></li>
+        `;
+    }
 }
+
 
 
 function openDropdownMenu() {
