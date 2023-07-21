@@ -483,6 +483,7 @@ function renderSubtask(currentSubtasks, newSubtask) {
     return;
 }
 
+
 // ADDS 'done-sign'
 function addDoneSignToSquare(event) {
     if (event.target.src.includes("subtask_square.png")) {
@@ -508,6 +509,7 @@ function addNewCategory() {
     newCategoryDiv.className = 'new-category-popup';
     newCategoryDiv.innerHTML = '<input type="text" id="new-category-input" placeholder="Enter new category"><button onclick="submitNewCategory()">Submit</button><img onclick="closeCategoryPopup()" src="/assets/img/close.png">';
     document.body.appendChild(newCategoryDiv);
+    saveNewCategory(newCategory);
 }
 
 
@@ -516,12 +518,42 @@ function submitNewCategory() {
     const newCategory = document.getElementById('new-category-input').value;
     const newLi = document.createElement('li');
     newLi.textContent = newCategory;
+    setColorForNewCategory(newLi);
     const ul = document.getElementById('add_task_category_select');
     ul.appendChild(newLi);
     const popup = document.querySelector('.new-category-popup');
     document.body.removeChild(popup);
 }
 
+
+function setColorForNewCategory(newLi) {
+    const newColorDot = document.createElement('div');
+    newColorDot.className = 'color_dot';
+    newColorDot.style.backgroundColor = getRandomColorDot();
+    newLi.appendChild(newColorDot);
+}
+
+
+// Choses a random color for the new category
+function getRandomColorDot() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+
+function saveNewCategory(newCategory) {
+    localStorage.setItem('newCategory', JSON.stringify(newCategory));
+    loadNewCategory(newCategory);
+}
+
+
+function loadNewCategory(newCategory) {
+
+}
 
 function openDropdownMenu() {
     let dropdownMenu = document.getElementById('add_task_category_select');
@@ -532,8 +564,20 @@ function openDropdownMenu() {
 }
 
 
+function closeDropdown() {
+    let dropdownMenu = document.getElementById('add_task_category_select');
+    dropdownMenu.classList.remove('d-block');
+
+    let dropdown = document.getElementById('dropdown');
+    dropdown.classList.remove('border-radius');
+}
+
+
 function closeCategoryPopup() {
     const popup = document.querySelector('.new-category-popup');
     document.body.removeChild(popup);
 }
+
+
+
 
