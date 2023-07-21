@@ -30,6 +30,7 @@ async function addTask() {
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
     let taskCategory =  currentCategory;
+    let taskCategorybc = currentColorOfCategory;
     let taskAssign = selectedUsers;
     let taskDate = document.getElementById('add_task_input_date').value;
     let taskPrio = getTaskPrio();
@@ -41,6 +42,7 @@ async function addTask() {
         subtask: taskSubtask,
         tasktext: taskDescription,
         category: taskCategory,
+        categoryBackgroundColor: taskCategorybc,
         user: taskAssign,
         date: taskDate,
         priority: taskPrio,
@@ -65,6 +67,7 @@ async function changeTask(i) {
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
     let taskCategory = currentCategory;
+    let taskCategorybc = currentColorOfCategory;
     let taskAssign = selectedUsers;
     let taskDate = document.getElementById('add_task_input_date').value;
     let taskPrio = getTaskPrio();
@@ -74,6 +77,7 @@ async function changeTask(i) {
     task.subtask = taskSubtask;
     task.tasktext = taskDescription;
     task.category = taskCategory;
+    task.categoryBackgroundColor = taskCategorybc,
     task.user = taskAssign;
     task.date = taskDate;
     task.priority = taskPrio;
@@ -550,7 +554,7 @@ function handleCategoryChange(liElement) {
 function addNewCategory() {
     const newCategoryDiv = document.createElement('div');
     newCategoryDiv.className = 'new-category-popup';
-    newCategoryDiv.innerHTML = '<input type="text" id="new-category-input" placeholder="Enter new category"><button onclick="submitNewCategory()">Submit</button><img onclick="closeCategoryPopup()" src="/assets/img/close.png">';
+    newCategoryDiv.innerHTML = '<input type="text" max-length="15" id="new-category-input" placeholder="Enter new category"><button onclick="submitNewCategory()">Submit</button><img onclick="closeCategoryPopup()" src="/assets/img/close.png">';
     document.body.appendChild(newCategoryDiv);
 }
 
@@ -629,11 +633,14 @@ function readNameOfCategoryInBoard(liElement) {
 
 function renderSelectedCategoryInCategoryfield(liElement) {
     let selectedCategory = document.getElementById('dropdown');
+    let selectedColor = liElement.querySelector('.color_dot').style.backgroundColor; 
     selectedCategory.innerHTML = /*html*/`
-        <li class="liElement">${currentCategory} <div style="background-color: ${currentColorOfCategory}" class="color_dot"></div></li>
+        <li class="liElement">${currentCategory} 
+            <div style="background-color: ${selectedColor}" class="color_dot"></div>
+        </li> 
     `;
+    currentColorOfCategory = selectedColor;
 }
-
 
 function closeCategoryPopup() {
     const popup = document.querySelector('.new-category-popup');

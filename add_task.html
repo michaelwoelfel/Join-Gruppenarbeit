@@ -43,7 +43,7 @@
             <form class="add_task_left">
                 <div class="title fd_column">
                     <span>Title</span>
-                    <input class="task_input_field_styling" type="text" placeholder="Enter a title" id="add_task_title"
+                    <input class="task_input_field_styling" type="text" placeholder="Enter a title" maxlength="25" id="add_task_title"
                         required>
                 </div>
                 <!-- TASK DESCRIPTION -->
@@ -74,7 +74,7 @@
                 <div class="date fd_column">
                     <span>Due date</span>
                     <input class="task_input_field_styling" type="date" name="" id="add_task_input_date" required
-                        min="2023-07-20">
+                        min="2023-07-28">
                 </div>
                 <!-- TASK PRIO -->
                 <div class="prio fd_column">
@@ -94,7 +94,7 @@
                 <div class="subtasks fd_column">
                     <span>Subtasks</span>
                     <div class="subtask_container">
-                        <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask"
+                        <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask" maxlength="20"
                             placeholder="Add new subtask" required><img class="subtask_plus" onclick="addNewSubtask()"
                             src="/assets/img/subtask_plus.png" alt="add Subtask">
                     </div>

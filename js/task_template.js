@@ -1,7 +1,7 @@
 async function taskTemplate(task) {
     return /*html*/ `
         <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="openTask(${task['id']})" class="content">
-            <div class="category">${task['category']}</div>
+            <div style="background-color: ${task['categoryBackgroundColor']}" class="category">${task['category']}</div>
             <div class="taskdescription"><b>${task['subtask']}</b></div>
             <div class="tasktext">${task['tasktext']}</div>
             <div class="progresscontainer">
