@@ -2,6 +2,7 @@
  * List of contacts.
  */
 // let contacts;
+colorIndex = 0;
 
 /**
  * Collects the input values, pushes a new contact to the list and saves the list in the local storage.
@@ -22,8 +23,10 @@ async function addContact() {
     await setItem('contacts', JSON.stringify(contacts));
     // Show the "Added to board information"
     taskAddedToBoard();
+    getRandomColor();
     // Update the view
     renderContacts();
+
 };
 
 async function sortContactsAlphabetically() {
@@ -54,8 +57,8 @@ async function renderContacts() {
         if (nameParts.length > 1 && nameParts[1].length > 0) {
             secondLetter = nameParts[1].charAt(0).toUpperCase();
         }
-
-        let randomColor = getRandomColor();
+        let randomColor = contact.color || getRandomColor();
+        contact.color = randomColor;
         // Create a new contact container and add it to the page
         document.getElementById('contact-list').innerHTML += createContact(i, contact, randomColor, secondLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
     }
@@ -99,9 +102,10 @@ function editContact(i, firstLetter, secondLetter, randomColor) {
     document.getElementById('contactnameedit').value = contact.name;
     document.getElementById('contactmailedit').value = contact.mail;
     document.getElementById('contactphoneedit').value = contact.phone;
-    // document.getElementById('img-add-contactedit').innerHTML = ` <span id="firstletter">${firstLetter}</span>
-    //  <span id="secondletter">${secondLetter}</span>`;
-    // document.getElementById('img-add-contactedit').style.backgroundColor = `${randomColor}`;
+    document.getElementById('img-add-contactedit').innerHTML = ` 
+    <span id="firstletter">${firstLetter}</span>
+     <span id="secondletter">${secondLetter}</span>`;
+    document.getElementById('img-add-contactedit').style.backgroundColor = `${randomColor}`;
     document.getElementById('editbuttons').innerHTML = document.getElementById('editbuttons').innerHTML = createEditContactButtonsHTML(i);  // HTML AUSGELAGERT IN CONTACTS TEMPLATE
 }
 
@@ -203,7 +207,9 @@ function getRandomInt(min, max) {
  * Returns a random RGB color.
  * @returns {string} - A random RGB color.
  */
+
 function getRandomColor() {
+
     const colors = [
         'rgb(1, 144, 224)',
         'rgb(255, 92, 0)',
@@ -212,8 +218,26 @@ function getRandomColor() {
         'rgb(147, 39, 255)',
         'rgb(78, 150, 61)',
         'rgb(50, 218, 255)',
-        'rgb(0, 124, 238)'
+        'rgb(0, 124, 238)',
+        'rgb(217, 84, 45)',
+        'rgb(140, 35, 158)',
+        'rgb(0, 197, 204)',
+        'rgb(129, 195, 46)',
+        'rgb(30, 170, 220)',
+        'rgb(71, 134, 55)',
+        'rgb(250, 120, 170)',
+        'rgb(180, 0, 100)',
+        'rgb(27, 182, 47)',
+        'rgb(240, 170, 0)',
+        'rgb(1, 98, 177)',
+        'rgb(245, 235, 0)'
     ];
-    let randomIndex = Math.floor(Math.random() * colors.length);
-    return colors[randomIndex];
+
+    if (colorIndex >= colors.length) {
+        colorIndex = 0;
+    }
+
+    const color = colors[colorIndex];
+    colorIndex++;
+    return color;
 }
