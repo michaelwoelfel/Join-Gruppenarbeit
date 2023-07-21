@@ -31,8 +31,6 @@ async function sortContactsAlphabetically() {
     contacts.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-
-
 async function renderContacts() {
     await sortContactsAlphabetically();
 
@@ -47,7 +45,7 @@ async function renderContacts() {
         // If the first letter of the name is new, create a new letter header
         if (firstLetter !== currentLetter) {
             currentLetter = firstLetter;
-            document.getElementById('contact-list').innerHTML += createLetterHeader(currentLetter);
+            document.getElementById('contact-list').innerHTML += createLetterHeader(currentLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
         }
 
         // If the name is made of two words, get the first letter of the second word
@@ -59,7 +57,7 @@ async function renderContacts() {
 
         let randomColor = getRandomColor();
         // Create a new contact container and add it to the page
-        document.getElementById('contact-list').innerHTML += createContact(i, contact, randomColor, secondLetter);
+        document.getElementById('contact-list').innerHTML += createContact(i, contact, randomColor, secondLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
     }
 }
 
@@ -84,18 +82,8 @@ function taskAddedToBoard() {
 function showContact(i, randomColor, secondLetter) {
     const contact = contacts[i];
     const firstLetter = contact['name'].charAt(0).toUpperCase();
-    document.getElementById('showcontact').innerHTML = `<div class="headinfo">
-    <div id="bigcontactimg" class="bigcontactimg" style="background-color: ${randomColor};" >
-        <span id="firstletter">${firstLetter}</span>
-        <span id="secondletter">${secondLetter}</span>
-    </div>
-   <div class="name-and-editbutton"> <span id="bigname">${contact['name']}</span> <img  id="blueaddtask" src="assets/img/addtaskblue.png"></div>
-</div>
-<div class="contactinfobig">
-    <div class="contactinfoedit"><span>Contact Information:</span><img onclick="editContact(${i},'${firstLetter}','${secondLetter}','${randomColor}')"  id="editcontactsimg" src="assets/img/editcontacts.png"></div>
-    <div class="contactmailbig"><span><b>Email</b></span><a href="mailto:${contact['mail']}">${contact['mail']}</a></div>
-    <div class="contactphonebig"><span><b>Phone</b></span><a>${contact['phone']}</a></div>
-</div>`;
+    const contactInfoHTML = createContactInfoHTML(i, contact, randomColor, firstLetter, secondLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
+    document.getElementById('showcontact').innerHTML = contactInfoHTML;
 }
 
 /**
@@ -119,6 +107,7 @@ function editContact(i, firstLetter, secondLetter, randomColor) {
      <span class="addedTaskToBoard_content">Contact Added <img class="board"
              src="./assets/img/board_img.png" alt="board"></span>`
 }
+
 
 /**
  * Updates the contact values and saves the updated list in the local storage.
