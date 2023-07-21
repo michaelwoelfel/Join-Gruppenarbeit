@@ -5,6 +5,8 @@ let taskIdCounter = 0;
 let currentDraggedElement;
 let subtasks = [];
 let colorIndex = 0;
+let currentCategory;
+let currentColorOfCategory;
 
 /**
  * Checks and updates the task ID based on the existing tasks.
@@ -27,7 +29,7 @@ async function addTask() {
     taskName = document.getElementById('add_task_title').value;
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
-    let taskCategory = document.getElementById('add_task_category_select').value;
+    let taskCategory =  currentCategory;
     let taskAssign = selectedUsers;
     let taskDate = document.getElementById('add_task_input_date').value;
     let taskPrio = getTaskPrio();
@@ -62,7 +64,7 @@ async function changeTask(i) {
     let taskName = document.getElementById('add_task_title').value;
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
-    let taskCategory = document.getElementById('add_task_category_select').value;
+    let taskCategory = currentCategory;
     let taskAssign = selectedUsers;
     let taskDate = document.getElementById('add_task_input_date').value;
     let taskPrio = getTaskPrio();
@@ -516,28 +518,27 @@ function addNewCategory() {
     newCategoryDiv.className = 'new-category-popup';
     newCategoryDiv.innerHTML = '<input type="text" id="new-category-input" placeholder="Enter new category"><button onclick="submitNewCategory()">Submit</button><img onclick="closeCategoryPopup()" src="/assets/img/close.png">';
     document.body.appendChild(newCategoryDiv);
-    saveNewCategory(newCategory);
 }
 
 
 // Creates a new category and closes popup by click on the submit btn
 function submitNewCategory() {
     const newCategory = document.getElementById('new-category-input').value;
-    const newLi = document.createElement('li');
-    newLi.textContent = newCategory;
+    const newLi = document.getElementById('add_task_category_select');
     setColorForNewCategory(newLi);
-    const ul = document.getElementById('add_task_category_select');
-    ul.appendChild(newLi);
+
+    newLi.innerHTML += /*html*/`
+        <li class="liElement" onclick="closeDropdown(this)">${newCategory}<div style="background-color: ${currentColorOfCategory}" class="color_dot"></div></li>
+    `;
     const popup = document.querySelector('.new-category-popup');
     document.body.removeChild(popup);
+    saveNewCategory(newCategory);
 }
 
 
-function setColorForNewCategory(newLi) {
-    const newColorDot = document.createElement('div');
-    newColorDot.className = 'color_dot';
-    newColorDot.style.backgroundColor = getRandomColorDot();
-    newLi.appendChild(newColorDot);
+function setColorForNewCategory() {
+    let newColor = getRandomColorDot();
+    currentColorOfCategory = newColor;
 }
 
 
@@ -553,7 +554,7 @@ function getRandomColorDot() {
 
 
 function saveNewCategory(newCategory) {
-    localStorage.setItem('newCategory', JSON.stringify(newCategory));
+    setItem('newCategory', JSON.stringify(newCategory));
     loadNewCategory(newCategory);
 }
 
@@ -561,6 +562,7 @@ function saveNewCategory(newCategory) {
 function loadNewCategory(newCategory) {
 
 }
+
 
 function openDropdownMenu() {
     let dropdownMenu = document.getElementById('add_task_category_select');
@@ -571,12 +573,31 @@ function openDropdownMenu() {
 }
 
 
-function closeDropdown() {
+function closeDropdown(liElement) {
     let dropdownMenu = document.getElementById('add_task_category_select');
     dropdownMenu.classList.remove('d-block');
-
     let dropdown = document.getElementById('dropdown');
     dropdown.classList.remove('border-radius');
+    readNameOfCategoryInBoard(liElement);
+    renderSelectedCategoryInCategoryfield(liElement);
+}
+
+
+function readNameOfCategoryInBoard(liElement) {
+    if (liElement.textContent === 'New category') {
+        addNewCategory();
+    } else {
+        let selectedCategory = liElement.textContent;
+        currentCategory = selectedCategory;
+    }
+}
+
+
+function renderSelectedCategoryInCategoryfield(liElement) {
+    let selectedCategory = document.getElementById('dropdown');
+    selectedCategory.innerHTML = /*html*/`
+        <li class="liElement">${currentCategory} <div style="background-color: ${currentColorOfCategory}" class="color_dot"></div></li>
+    `;
 }
 
 

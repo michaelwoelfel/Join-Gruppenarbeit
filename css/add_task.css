@@ -134,7 +134,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     display: block;
 }
 
-.category ul li{
+.category ul li, .liElement{
     list-style: none;
     padding: 4px;
     display: flex;
@@ -154,11 +154,9 @@ input[type=date]:invalid::-webkit-datetime-edit {
     width: 16px;
     border-radius: 50%;
     background-color: #29ABE2;
+    margin-right: 24px;
 }
 
-.red {
-    background-color: #FF3D00;
-}
 
 
 
