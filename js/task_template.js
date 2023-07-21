@@ -27,7 +27,7 @@ async function generateTaskDetailsHTML(index) {
     return /*html*/ `
         <div class="bigtask" id="task${index}">
             <div class="taskheader">
-                <div class="category">${task['category']}</div>
+                <div style="background-color: ${task['categoryBackgroundColor']}" class="category">${task['category']}</div>
                 <div onclick="closeTask()"><img id="closeimg" src="/assets/img/close.png"></div>
             </div>
             <div class="taskdescriptionbig"><b>${task['subtask']}</b></div>
