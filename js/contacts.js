@@ -99,15 +99,11 @@ function editContact(i, firstLetter, secondLetter, randomColor) {
     document.getElementById('contactnameedit').value = contact.name;
     document.getElementById('contactmailedit').value = contact.mail;
     document.getElementById('contactphoneedit').value = contact.phone;
-    document.getElementById('img-add-contactedit').innerHTML = ` <span id="firstletter">${firstLetter}</span>
-     <span id="secondletter">${secondLetter}</span>`;
-    document.getElementById('img-add-contactedit').style.backgroundColor = `${randomColor}`;
-    document.getElementById('editbuttons').innerHTML = `  <button onclick="deleteContact(${i})" class="cancel-btn">Delete</button>
-     <button onclick="saveContact(${i})" class="create-btn">Save</button>
-     <span class="addedTaskToBoard_content">Contact Added <img class="board"
-             src="./assets/img/board_img.png" alt="board"></span>`
+    // document.getElementById('img-add-contactedit').innerHTML = ` <span id="firstletter">${firstLetter}</span>
+    //  <span id="secondletter">${secondLetter}</span>`;
+    // document.getElementById('img-add-contactedit').style.backgroundColor = `${randomColor}`;
+    document.getElementById('editbuttons').innerHTML = document.getElementById('editbuttons').innerHTML = createEditContactButtonsHTML(i);  // HTML AUSGELAGERT IN CONTACTS TEMPLATE
 }
-
 
 /**
  * Updates the contact values and saves the updated list in the local storage.
@@ -156,6 +152,10 @@ function openAddContact() {
 function openEditContact() {
     document.getElementById('modal-one-edit').classList.remove('d-none');
 
+}
+
+function closeEditContact() {
+    document.getElementById('modal-one-edit').classList.add('d-none');
 }
 
 /**

@@ -56,3 +56,13 @@ function createContactInfoHTML(i, contact, randomColor, firstLetter, secondLette
         </div>
     `;
 }
+
+function createEditContactButtonsHTML(i) {
+    return `
+        <button onclick="deleteContact(${i})" class="cancel-btn">Delete</button>
+        <button onclick="saveContact(${i})" class="create-btn">Save</button>
+        <button onclick="closeEditContact(${i})">x</button>
+        <span class="addedTaskToBoard_content">Contact Added <img class="board"
+            src="./assets/img/board_img.png" alt="board"></span>
+    `;
+}
