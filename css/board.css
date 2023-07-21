@@ -48,6 +48,14 @@ img{
 
 }
 
+.closeimgpopup{
+    display: flex;
+   margin-top: 100px;
+}
+.closeimgpopup:hover {
+    box-shadow: 2px 3px 5px black;
+    border-radius: 5px;
+}
 .searchimg {
     
     padding-left: 20px;
@@ -238,8 +246,7 @@ h3 {
     display: flex;
     align-items: center;
     position: relative; 
-    margin-right: -10px;
-    gap: 5px;
+    gap: 10px;
     
 }
 
@@ -252,6 +259,7 @@ h3 {
     width: 40px;
     height: 40px;
     margin-bottom: 5px;
+    margin-right: -7px;
 }
 
 .contact {
@@ -480,6 +488,9 @@ h3 {
 
     
 }
+
+
+
 
 
 

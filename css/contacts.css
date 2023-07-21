@@ -322,6 +322,7 @@ h3 {
 
     .img-info {
         display: flex;
+        align-items: center;
         
     }
 
@@ -329,6 +330,7 @@ h3 {
         display: flex;
         flex-direction: column;
         margin-top: 60px;
+        margin-right: 40px;
     }
 
     .input-field {
@@ -389,6 +391,7 @@ h3 {
     .bottom-buttons {
         display: flex;
         margin-top: 10px;
+        margin-bottom: 30px;
     }
 
     .create-btn {
@@ -435,6 +438,43 @@ h3 {
 
 .d-none {
     display: none!important;
+}
+
+.img-add-contactedit  {
+        
+    display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 70px;
+border: 3px solid white;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 2px;
+margin-left: 12px;
+border-radius: 45px;
+width: 80px;
+height: 80px;
+margin-top: 10px;
+border: 2px solid white;
+}
+.imgcontacteditcontainer {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
+.imginfocontainer {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.closeimgpopup:hover {
+    box-shadow: 2px 3px 5px black;
+    border-radius: 5px;
 }
     
 
@@ -504,7 +544,7 @@ h3 {
 
 @media(max-width: 1500px) {
     .left-side-modal {
-        width: 27%;
+        width: 40%;
     }
 }
 
@@ -528,7 +568,8 @@ h3 {
 
     .input-fields {
         margin-top: 0;
-        margin-left: 90px;
+        margin-right: 0;
+       
     }
 
     .modal-text, .modal-headline {
@@ -610,6 +651,8 @@ h3 {
         flex-direction: column;
         flex-wrap: nowrap;    
     }
+
+   
 
     .left-side-modal {
         width: 100%;

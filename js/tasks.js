@@ -95,6 +95,7 @@ async function editTask(i) {
     await addTaskPopUp();
     let taskprio = task['priority'];
     getTaskPrio(taskprio);
+    document.getElementById('add_task_h1').innerHTML = `Edit Task`;
     document.getElementById('add_task_title').value = task.name;
     document.getElementById('add_task_input_subtask').value = task.subtask;
     document.getElementById('add_task_description').value = task.tasktext;
@@ -110,6 +111,7 @@ async function editTask(i) {
     document.getElementById('buttonedit').classList.add('d-none');
     document.getElementById('buttonafteredit').innerHTML = `<div id="buttonaftereditd-none"  class="create-btn btn d-none" onclick="changeTask(${i})">Change Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>`;
     document.getElementById('buttonaftereditd-none').classList.remove('d-none');
+    
 };
 
 

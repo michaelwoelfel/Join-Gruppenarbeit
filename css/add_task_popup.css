@@ -28,7 +28,8 @@
     right: 128px;
     bottom: 32px;
     z-index: 20;
-    overflow: auto;
+  
+    height: 95%;
 }
 
 
@@ -392,6 +393,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
         right: 0;
         bottom: 0;
         border-radius: 0;
+       
     }
 
 }
@@ -404,7 +406,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .create-btn {
         position: fixed;
-        top: 100px;
+        top: 87px;
         right: 160px;
     }
 
