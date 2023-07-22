@@ -104,11 +104,7 @@ async function editTask(i) {
     document.getElementById('add_task_input_subtask').value = task.subtask;
     document.getElementById('add_task_description').value = task.tasktext;
     document.getElementById('add_task_category_select').value = task.category;
-
-    /**
-     *Hier müssen die user gerendert werden.
-     */
-
+    await checkboxUsers(task);
     document.getElementById('add_task_input_date').value = task.date;
     taskStatus = task.status;
     taskId = task.id;
@@ -117,7 +113,19 @@ async function editTask(i) {
     document.getElementById('buttonaftereditd-none').classList.remove('d-none');
     
 };
-
+/**
+ * Checks the Boxes for the users that already are assigned in task when edit task.
+ */
+function checkboxUsers(task) {
+    // Durchlaufen Sie jedes Element in task.user
+    for (let i = 0; i < task.user.length; i++) {
+        let checkboxes = document.querySelectorAll(`input[name="${task.user[i]}"]`);
+        for (let j = 0; j < checkboxes.length; j++) {
+            checkboxes[j].checked = true;
+            checkboxes[j].dispatchEvent(new Event('click'));
+        }
+    }
+}
 
 /**
  * Removes all inputs in the task form.
@@ -240,18 +248,14 @@ function renderUsersInOpenTask(index) {
     let task = tasks[index];
     const userTasks = task['user'];
     const userContainer = document.getElementById(`usersInOpenTask${task.id}`);
-
-
     for (let i = 0; i < userTasks.length; i++) {
         const element = userTasks[i];
         let nameParts = element.split(' '); // Name in Teile aufteilen
         let firstLetter = nameParts[0].charAt(0); // Erster Buchstabe des Vornamens
         let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
-
         // Suche nach dem Namen im Kontakt und erhalte die Farbe (oder eine zufällige Farbe, wenn der Name nicht gefunden wird)
         let contact = getContactFromName(nameParts.join(' '));
         let randomColor = contact ? contact.color : getRandomColor();
-
         // Erstelle den User-Container und füge ihn direkt in den Task-Details-Container ein
         const userElement = document.createElement('div');
         userElement.classList.add('contact-container');
@@ -262,7 +266,6 @@ function renderUsersInOpenTask(index) {
             </div>
             <div class="name">${nameParts.join(' ')}</div>
         `;
-
         userContainer.appendChild(userElement);
     };
 }

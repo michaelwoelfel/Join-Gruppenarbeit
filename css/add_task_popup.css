@@ -28,7 +28,7 @@
     right: 128px;
     bottom: 32px;
     z-index: 20;
-  
+    overflow: auto;
     height: 95%;
 }
 
@@ -38,11 +38,25 @@
     flex-direction: row;
 }
 
+.selectinneruser {
+    border: 1px solid black;
+    overflow: auto;
+    height: 50px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    margin-top: 8px;
+    padding: 8px;
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #D1D1D1;
+    outline: none;
+    background-color: white; 
+}
+
 
 .fd_column {
     display: flex;
     flex-direction: column;
-    margin-top: 16px;
+    
 }
 
 

@@ -54,9 +54,9 @@ async function renderPopUp(popup) {
                             <option value="Backoffice">Backoffice <img class="dot" src="./assets/img/dot_green.svg" alt="green"></option>
                         </select>
                     </div>
-
-                    <div id="userselection" class="assign fd_column">
-                   
+                    <div><span>Assign to</span>
+                    <div id="userselection" class="assign fd_column selectinneruser">
+                    </div>  
                 </div>
                 </form>
                 
@@ -164,7 +164,7 @@ function prioColorGreen() {
 async function renderTaskContacts() {
     await loadContacts();
    
-    let userselection =  ` <span>Assign to</span>
+    let userselection =  ` 
         <div id="selectinneruser">`;
     for (let i = 2; i < contacts.length; i++) {
         let contact = contacts[i]
