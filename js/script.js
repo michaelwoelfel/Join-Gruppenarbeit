@@ -102,11 +102,34 @@ function colorBoard() {
  * Initialize the Add Task functions.
  * Load HTML and add black color to the 'tasks' element.
  */
-function initAddTask() {
-    includeHTML(() => {
-        colorAddTask();
-        renderTaskContacts();
+async function initAddTask() {
+     await  includeHTML(async() => {
+         await colorAddTask();
+        await renderTaskContacts();
+         clickName();
+        
+       
+        
     });
+   
+   
+   
+}
+
+/**
+ * Clicks on the name on add_task when before clicked on addtask on a specific Contact.
+ */
+function clickName(){
+        let name = localStorage.getItem('contactName');
+        if (name !== null) {
+          
+            let checkbox = document.querySelector(`input[name="${name}"]`);
+            if (checkbox !== null) {
+                checkbox.checked = true;
+                checkbox.dispatchEvent(new Event('click'));
+            }
+            localStorage.removeItem('contactName'); 
+        }
 }
 
 /**

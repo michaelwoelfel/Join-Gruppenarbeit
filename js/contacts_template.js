@@ -37,7 +37,7 @@ function createContactInfoHTML(i, contact, randomColor, firstLetter, secondLette
             </div>
             <div class="name-and-editbutton"> 
                 <span id="bigname">${contact['name']}</span> 
-                <img id="blueaddtask" src="assets/img/addtaskblue.png">
+                <img onclick="createTaskForContact('${contact["name"]}')" id="blueaddtask" src="assets/img/addtaskblue.png">
             </div>
         </div>
         <div class="contactinfobig">

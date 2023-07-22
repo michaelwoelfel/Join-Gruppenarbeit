@@ -64,6 +64,14 @@ async function renderContacts() {
     }
 }
 
+
+/**
+ * Creates a Task for a Contact with specific name.
+ */
+async function createTaskForContact(name){
+    localStorage.setItem('contactName', name);
+    window.open('add_task.html','_self');
+}
 /**
  * Shows a notification about the added contact.
  */
@@ -190,6 +198,7 @@ async function loadContacts() {
 
     }
 }
+
 
 /**
  * Returns a random integer between the given minimum and maximum values.
