@@ -52,7 +52,7 @@ body {
 }
 
   @keyframes opacity {
-    0% , 30%{
+    0% , 60%{
       opacity:0;
     }
     100% {
