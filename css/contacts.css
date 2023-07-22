@@ -1,6 +1,8 @@
 body {
     margin: 0;
-    overflow: hidden;
+    overflow: auto;
+
+    height: 100vh;
 }
 
 .sidebar-color-black {
@@ -19,18 +21,18 @@ body {
     display: flex;
     flex-direction: column;
     margin-left: 230px;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
   }
 
 #contact-list {
-    border-right: 4px solid #0000001A;
+    
     overflow: auto;
     display: flex;
     flex-direction: column;
     align-items: center;  /* hinzugefügt */
     width: 50%;
-    height: 89vh;
+    height:87vh;
     overflow-x: hidden;
 }
 
@@ -64,6 +66,36 @@ h3 {
     font-weight: 100;
     margin-left: 25px;
     margin-top: 30px;
+}
+
+/* Dieser Stil gilt für alle Scrollbalken innerhalb der .listofcontacts */
+.listofcontacts::-webkit-scrollbar {
+    width: 12px; /* Breite des Scrollbalkens */
+    border-radius: 8px;
+}
+
+/* Stil des Hintergrunds des Scrollbalkens (Track) */
+.listofcontacts::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Farbe des Tracks */
+    border-radius: 8px;
+}
+
+/* Stil des beweglichen Teils des Scrollbalkens (Thumb) */
+.listofcontacts::-webkit-scrollbar-thumb {
+    background: #A8A8A8; /* Farbe des Thumbs */
+    border-radius: 8px;
+}
+
+/* Ändern Sie die Farbe des Thumb beim Überfahren mit der Maus */
+.listofcontacts::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Farbe des Thumbs beim Überfahren */
+}
+
+.listofcontacts {
+    height: 100vh;
+    overflow: auto;
+    padding-bottom: 200px;
+    margin-bottom: 200px;
 }
 
 .btn-contact {
@@ -117,7 +149,8 @@ h3 {
 .middlecontainer {
     flex-direction: row;
     display: flex;
-    overflow-y: hidden;
+    
+    height: 100vh;
 }
 
 .contact {
@@ -611,7 +644,13 @@ border: 2px solid white;
   
     .maincontainer {
        margin: 0;
-       overflow-x: hidden;
+       overflow:hidden;
+       
+       position: relative;
+    }
+
+    .middlecontainer {
+        overflow: hidden;
     }
     .author {
         padding-right: 5px;
@@ -623,6 +662,7 @@ border: 2px solid white;
 
     #contact-list {
         width: 100%;
+        height: 77vh;
     }
 
     #contact-info, .cancel-btn {
