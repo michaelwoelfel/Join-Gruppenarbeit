@@ -7,6 +7,7 @@
     <script src="js/include_html.js"></script>
     <link rel="stylesheet" href="css/legal_notice.css">
     <link rel="stylesheet" href="css/add_task.css">
+    <link rel="stylesheet" href="css/fonts.css">
 </head>
 
 
@@ -36,15 +37,15 @@
             </div>
         </div>
         <div class="hidden-Kanban">Kanban Project Management Tool</div>
-        <h1  class="add_task_h1">Add Task</h1>
+        <h1 class="add_task_h1">Add Task</h1>
         <!-- ADD TASK CONTAINER -->
         <div class="add_task_container">
             <!-- TASK TITLE -->
             <form class="add_task_left">
                 <div class="title fd_column">
                     <span>Title</span>
-                    <input class="task_input_field_styling" type="text" placeholder="Enter a title" maxlength="25" id="add_task_title"
-                        required>
+                    <input class="task_input_field_styling" type="text" placeholder="Enter a title" maxlength="25"
+                        id="add_task_title" required>
                 </div>
                 <!-- TASK DESCRIPTION -->
                 <div class="description fd_column">
@@ -57,7 +58,8 @@
                     <span>Category</span>
                     <div class="category-select-down">
                         <div class="task_input_field_styling dropdown" id="dropdown">Select category</div>
-                        <img class="category-down" onclick="openDropdownMenu()" src="./assets/img/category-down.svg" alt="">
+                        <img class="category-down" onclick="openDropdownMenu()" src="./assets/img/category-down.svg"
+                            alt="">
                     </div>
                     <ul class="task_input_field_styling dropdown-content" id="add_task_category_select">
                         <li onclick="handleCategoryChange(this)">New category</li>
@@ -94,9 +96,9 @@
                 <div class="subtasks fd_column">
                     <span>Subtasks</span>
                     <div class="subtask_container">
-                        <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask" maxlength="20"
-                            placeholder="Add new subtask" required><img class="subtask_plus" onclick="addNewSubtask()"
-                            src="/assets/img/subtask_plus.png" alt="add Subtask">
+                        <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask"
+                            maxlength="20" placeholder="Add new subtask" required><img class="subtask_plus"
+                            onclick="addNewSubtask()" src="/assets/img/subtask_plus.png" alt="add Subtask">
                     </div>
                     <div class="show-subtasks" id="show-subtasks">
                     </div>
