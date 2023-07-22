@@ -90,11 +90,18 @@ function taskAddedToBoard() {
  * @param {string} randomColor - The background color of the contact avatar.
  * @param {string} secondLetter - The second letter in the contact avatar.
  */
-function showContact(i, randomColor, secondLetter) {
+async function showContact(i, randomColor, secondLetter) {
     const contact = contacts[i];
     const firstLetter = contact['name'].charAt(0).toUpperCase();
-    const contactInfoHTML = createContactInfoHTML(i, contact, randomColor, firstLetter, secondLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
+    const contactInfoHTML = await createContactInfoHTML(i, contact, randomColor, firstLetter, secondLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
     document.getElementById('showcontact').innerHTML = contactInfoHTML;
+    if (window.matchMedia("(max-width: 800px)").matches) {
+      document.getElementById('contact-info').classList.add('d-flex');
+    }
+}
+
+function closeBigContact(){
+    document.getElementById('contact-info').classList.remove('d-flex');
 }
 
 /**
