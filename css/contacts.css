@@ -472,10 +472,7 @@ border: 2px solid white;
     align-items: center;
 }
 
-.closeimgpopup:hover {
-    box-shadow: 2px 3px 5px black;
-    border-radius: 5px;
-}
+
     
 
 .create-btn:hover {
