@@ -28,14 +28,16 @@ async function taskUserTemplate(randomColor,firstLetter,secondLetter) {
 }
 
 
-async function bigTaskUserTemplate(randomColor, firstLetter, secondLetter, name){
-    return /*html*/ ` <div class="imgcontainer" style="background-color: ${randomColor};">
+function createUserHTML(randomColor, firstLetter, secondLetter, nameParts) {
+    return `
+        <div class="imgcontainer" style="background-color: ${randomColor};">
             <span id="firstletter">${firstLetter}</span>
             <span id="secondletter">${secondLetter}</span>
         </div>
-        <div class="name">${name}</div>
+        <div class="name">${nameParts.join(' ')}</div>
     `;
 }
+
 
 
 async function generateTaskDetailsHTML(index) {

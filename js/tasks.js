@@ -272,16 +272,21 @@ function renderUsersInOpenTask(index) {
         // Erstelle den User-Container und füge ihn direkt in den Task-Details-Container ein
         const userElement = document.createElement('div');
         userElement.classList.add('contact-container');
-        userElement.innerHTML = `
-            <div class="imgcontainer" style="background-color: ${randomColor};">
-                <span id="firstletter">${firstLetter}</span>
-                <span id="secondletter">${secondLetter}</span>
-            </div>
-            <div class="name">${nameParts.join(' ')}</div>
-        `;
+        userElement.innerHTML = createUserHTML(randomColor, firstLetter, secondLetter, nameParts);
         userContainer.appendChild(userElement);
     };
 }
+
+function createUserHTML(randomColor, firstLetter, secondLetter, nameParts) {
+    return `
+        <div class="imgcontainer" style="background-color: ${randomColor};">
+            <span id="firstletter">${firstLetter}</span>
+            <span id="secondletter">${secondLetter}</span>
+        </div>
+        <div class="name">${nameParts.join(' ')}</div>
+    `;
+}
+
 
 /**
  * Changes the color of the priority symbol to red.
