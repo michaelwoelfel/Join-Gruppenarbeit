@@ -92,10 +92,10 @@ async function renderPopUp(popup) {
                 </form>
             </div>
             <div class="buttons-clear-create">
-                <div class="clear-btn btn" onclick="clearTask()">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
-                <div id="buttonedit" class="create-btn btn" onclick="addTask()">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
+                <div class="clear-btn btn" onclick="clearTask(event)">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
+                <div id="buttonedit" class="create-btn btn" onclick="addTask(event)">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
             </div>
-               <div id="buttonafteredit"> 
+               <div class="buttons-clear-create"id="buttonafteredit"> 
                </div>
             <div class="animation-addedToBoard">
                 <span class="addedTaskToBoard_content">Task added to board <img class="board"
