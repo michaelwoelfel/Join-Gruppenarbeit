@@ -23,38 +23,43 @@ async function checkLastTaskId() {
  * Adds a new task and stores it in the 'tasks' variable.
  * @returns {Promise<void>}
  */
-async function addTask(event) {
-    event.stopPropagation();
+async function getTaskData() {
     await checkLastTaskId();
     await loadselectedUsers();
-    taskName = document.getElementById('add_task_title').value;
-    let taskSubtask = document.getElementById('add_task_input_subtask').value;
-    let taskDescription = document.getElementById('add_task_description').value;
-    let taskCategory =  currentCategory;
-    let taskCategorybc = currentColorOfCategory;
-    let taskAssign = selectedUsers;
-    let taskDate = document.getElementById('add_task_input_date').value;
-    let taskPrio = getTaskPrio();
-    let taskStatus = 'todo';
-    let taskId = taskIdCounter++;
-    tasks.push({
-        id: taskId,
-        name: taskName,
-        subtask: taskSubtask,
-        tasktext: taskDescription,
-        category: taskCategory,
-        categoryBackgroundColor: taskCategorybc,
-        user: taskAssign,
-        date: taskDate,
-        priority: taskPrio,
-        status: taskStatus,
-    });
+    let task = {};
+    task.name = document.getElementById('add_task_title').value;
+    task.subtask = document.getElementById('add_task_input_subtask').value;
+    task.description = document.getElementById('add_task_description').value;
+    task.category = currentCategory;
+    task.categoryBackgroundColor = currentColorOfCategory;
+    task.assign = selectedUsers;
+    task.date = document.getElementById('add_task_input_date').value;
+    task.priority = getTaskPrio();
+    task.status = 'todo';
+    task.id = taskIdCounter++;
+    return task;
+}
+
+// Create and save the task.
+async function createAndSaveTask(task) {
+    tasks.push(task);
     await setItem('tasks', JSON.stringify(tasks));
     await taskAddedToBoard();
-    // Displays the animation in add Task
+}
+
+// Select and save the Users of the task.
+function selectAndSaveUsers() {
     selectedUsers = [];
     saveSelectedUsers();
-};
+}
+
+// Main function which combines all functions to add a task.
+async function addTask(event) {
+    event.stopPropagation();
+    let task = await getTaskData();
+    await createAndSaveTask(task);
+    selectAndSaveUsers();
+}
 
 
 
@@ -65,7 +70,7 @@ async function addTask(event) {
  * @param {number} i - The index of the task to be changed in the 'tasks' list.
  * @returns {Promise<void>}
  */
-async function changeTask(i) {
+async function changeTask(i,event) {
     event.stopPropagation();
     let task = tasks[i];
     let taskId = task.id;
@@ -89,7 +94,6 @@ async function changeTask(i) {
     task.priority = taskPrio;
     task.status = taskStatus;
     await setItem('tasks', JSON.stringify(tasks));
-   
     selectedUsers = [];
     await saveSelectedUsers();
     // Displays the animation in add Task
@@ -116,7 +120,7 @@ async function editTask(i) {
     taskStatus = task.status;
     taskId = task.id;
     document.getElementById('buttonedit').classList.add('d-none');
-    document.getElementById('buttonafteredit').innerHTML = `<div id="buttonaftereditd-none"  class="create-btn btn d-none" onclick="changeTask(${i})">Change Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>`;
+    document.getElementById('buttonafteredit').innerHTML = `<div id="buttonaftereditd-none"  class="create-btn btn d-none" onclick="changeTask(${i},event)">Change Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>`;
     document.getElementById('buttonaftereditd-none').classList.remove('d-none');
     
 };
@@ -137,13 +141,12 @@ function checkboxUsers(task) {
 /**
  * Removes all inputs in the task form.
  */
-function clearTask() {
+function clearTask(event) {
     event.stopPropagation();
     document.getElementById('add_task_title').value = '';
     document.getElementById('add_task_input_subtask').value = '';
     document.getElementById('add_task_description').value = '';
     document.getElementById('add_task_category_select').value = '';
-    document.getElementById('add_task_assign_select').value = '';
     document.getElementById('add_task_input_date').value = '';
     document.getElementById('show-subtasks').innerHTML = '';
 }
@@ -156,7 +159,6 @@ function getTaskPrio(prio) {
     if (prio === 'urgent' || prio === `assets/img/priohigh.png`) {
         taskPrio = `assets/img/priohigh.png`;
         prioColorRed();
-
     }
     if (prio === 'medium' || prio === `assets/img/priomedium.png`) {
         taskPrio = `assets/img/priomedium.png`;
@@ -227,18 +229,14 @@ async function renderUsersInTask(task) {
     userTasks = task['user'];
     let idTask = task.id;
     let userContainer = document.getElementById(`usersintask${idTask}`);
-
     for (let i = 0; i < userTasks.length; i++) {
         const element = userTasks[i];
-
         console.log(`Task ID: ${idTask}`);
         let nameParts = element.split(' '); // Name in Teile aufteilen
         let firstLetter = nameParts[0].charAt(0); // Erster Buchstabe des Vornamens
         let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
-
         let contact = getContactFromName(nameParts.join(' ')); // Suche nach Name
         let randomColor = contact ? contact.color : getRandomColor(); // Wenn Name da, dann contact.color, wenn nicht function ... 
-
         userContainer.innerHTML += `<div class="contact-container">
             <div class="imgcontainer" style="background-color: ${randomColor};">
                 <span id="firstletter">${firstLetter}</span>
@@ -277,45 +275,6 @@ function renderUsersInOpenTask(index) {
         userContainer.appendChild(userElement);
     };
 }
-
-
-
-
-
-
-
-/// ALT 
-
-// async function renderUsersInBigTask(task) {
-//     userTasks = task['user'];
-//     let idTask = task.id;
-//     let userContainer = document.getElementById(`usersinbigtask${idTask}`);
-
-//     for (let i = 0; i < userTasks.length; i++) {
-//         const element = userTasks[i];
-
-//         console.log(`Task ID: ${idTask}`);
-//         let nameParts = element.split(' '); // split the name into parts
-//         let firstLetter = nameParts[0].charAt(0); // first letter of first name
-//         let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
-//         let randomColor = getRandomColor();
-
-//         userContainer.innerHTML += `<div class="contact-container">
-//     <div class="imgcontainer" style="background-color: ${randomColor};">
-//         <span id="firstletter">${firstLetter}</span>
-//         <span id="secondletter">${secondLetter}</span>
-//     </div>
-//     <span id="name">${element}</span>
-
-
-//     </div>
-//     </div>
-// </div>`;
-
-//     };
-
-
-// }
 
 /**
  * Changes the color of the priority symbol to red.
@@ -489,11 +448,9 @@ function colorUrgency(index) {
 async function deleteTask(i) {
     // Removes the task from the array
     tasks.splice(i, 1);
-
     // Updates the stored tasks and the displayed tasks
     await setItem('tasks', JSON.stringify(tasks));
     await renderTasks();
-
     // Closes the task details
     closeTask();
 }
@@ -573,10 +530,8 @@ function submitNewCategory() {
     const newCategory = document.getElementById('new-category-input').value;
     const newLi = document.getElementById('add_task_category_select');
     setColorForNewCategory(newLi);
-
     newLi.innerHTML += /*html*/`
-        <li class="liElement" onclick="closeDropdown(this)">${newCategory}<div style="background-color: ${currentColorOfCategory}" class="color_dot"></div></li>
-    `;
+        <li class="liElement" onclick="closeDropdown(this)">${newCategory}<div style="background-color: ${currentColorOfCategory}" class="color_dot"></div></li>`;
     const popup = document.querySelector('.new-category-popup');
     document.body.removeChild(popup);
     saveNewCategory(newCategory);
