@@ -4,6 +4,7 @@
  */
 let users;
 let currentUser;
+let rememberedUser = [];
 
 /**
  * @const {string} STORAGE_TOKEN - Token for storage.
@@ -67,6 +68,7 @@ function loginGuest() {
  */
 async function init() {
     loadUsers();
+    loadRememberedUser();
 }
 
 /**
@@ -137,3 +139,25 @@ async function getItem(key) {
         } throw `Could not find data with key "${key}".`;
     });
 }
+
+
+function rememberUser() {
+rememberedUserMail = document.getElementById('inputmail').value;
+rememberedUserPassword = document.getElementById('inputpassword').value;
+    rememberedUser.push({
+        mail: rememberedUserMail,
+        password: rememberedUserPassword,
+    });
+
+    localStorage.setItem('rememberedUser', JSON.stringify(rememberedUser));
+}
+
+function loadRememberedUser() {
+    let storedUser = JSON.parse(localStorage.getItem('rememberedUser'));
+    if (rememberedUser) {
+        // if there is a stored user, get the last stored user
+        let lastStoredUser = storedUser[storedUser.length - 1];
+        document.getElementById('inputmail').value = lastStoredUser.mail;
+        document.getElementById('inputpassword').value = lastStoredUser.password;
+        document.getElementById('checkbox').checked = true;
+}}

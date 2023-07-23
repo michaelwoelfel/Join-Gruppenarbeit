@@ -49,6 +49,12 @@
     color: black;
   }
 
+  hr{
+    color:#29ABE2 !important;
+    background-color:#29ABE2 !important;
+    border: 1px solid  #29ABE2 ;
+  }
+
 
   #legalnoticeheader {
     font-size: 60px;
