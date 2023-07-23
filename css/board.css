@@ -1,5 +1,13 @@
+body {
+    background-color: #F6F7F8;
+}
+
 h1 {
     font-size: 61px;
+}
+
+.maincontainer {
+    background-color: #F6F7F8 ;
 }
 
 .sidebar-color-black {
@@ -110,6 +118,7 @@ h3 {
 
 .task-status-container{
     min-height: 580px;
+    background-color: #F6F7F8;
 }
 
 
@@ -183,6 +192,7 @@ h3 {
 }
 
 .progresscontainer {
+    justify-content: space-between;
     display: flex;
     align-items: center;
 }
@@ -193,8 +203,12 @@ h3 {
 }
 
 .taskfooter {
+    width: 100%;
     display: flex;
+    padding-right: 50px;
     flex-direction: row;
+   justify-content: space-between;
+   margin-bottom: 20px;
 }
 
 .usersintaks {
@@ -217,7 +231,20 @@ h3 {
 
 .taskdescription {
     padding-left: 30px;
+    padding-top: 20px;
+    font-size: 30px;
+}
+
+.subtaskdescription {
+    padding-left: 30px;
     padding-top: 30px;
+   
+}
+
+.subtaskdescriptionbig {
+    padding-left: 35px;
+    padding-top: 10px;
+   
 }
 .taskdescriptionbig {
     font-size: 60px;
@@ -240,7 +267,7 @@ h3 {
     display: flex;
     align-items: center;
     position: relative; 
-    gap: 10px;
+    gap: 15px;
     
 }
 
@@ -343,7 +370,7 @@ h3 {
 }
 
 .progresscontainer {
-    padding-left: 30px;
+    
     gap: 10px;
 }
 
@@ -461,6 +488,10 @@ h3 {
     .hidden-Kanban {
         margin-top: 32px;
         margin-left: 100px;
+    }
+
+    .bigtask{
+        margin-right: 0;
     }
 }
 

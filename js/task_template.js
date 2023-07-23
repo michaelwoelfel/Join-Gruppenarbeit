@@ -2,12 +2,11 @@ async function taskTemplate(task) {
     return /*html*/ `
         <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="openTask(${task['id']})" class="content">
             <div style="background-color: ${task['categoryBackgroundColor']}" class="category">${task['category']}</div>
-            <div class="taskdescription"><b>${task['subtask']}</b></div>
+            <div class="taskdescription"><b>${task['name']}</b></div>
+            <div class="subtaskdescription"><b>${task['subtask']}</b></div>
             <div class="tasktext">${task['tasktext']}</div>
             <div class="progresscontainer">
-                <div class="taskprogressbar"></div>
-                <div class="taskprogress">1/2 Done</div>
-            </div>
+            
             <div class="taskfooter"><div class="usersintaks" id="usersintask${task['id']}"></div>
                 <div class="priority">
                     <img src="${task['priority']}">
@@ -30,7 +29,8 @@ async function generateTaskDetailsHTML(index) {
                 <div style="background-color: ${task['categoryBackgroundColor']}" class="category">${task['category']}</div>
                 <div onclick="closeTask()"><img id="closeimg" src="/assets/img/close.png"></div>
             </div>
-            <div class="taskdescriptionbig"><b>${task['subtask']}</b></div>
+            <div class="taskdescriptionbig"><b>${task['name']}</b></div>
+            <div class="subtaskdescriptionbig"><b>${task['subtask']}</b></div>
             <div class="tasktext">${task['tasktext']}</div>
             <div class="datecontainer">
                 <span><b>Due date:</b></span>

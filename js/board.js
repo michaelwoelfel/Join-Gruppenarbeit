@@ -44,17 +44,19 @@ async function renderPopUp(popup) {
                         rows="5" placeholder="Enter a description" required></textarea>
                     </div>
 
-                    <div class="fd_column">
+                    <div class=" fd_column">
                         <span>Category</span>
-                        <select class="task_input_field_styling" name="category_select" id="add_task_category_select"
-                        required>
-                            <option value="Select task category">Select task category</option>
-                            <option value="New category">New category</option>
-                            <option value="Sales">Sales <img class="dot" src="./assets/img/dot_red.svg" alt="red"></option>
-                            <option value="Backoffice">Backoffice <img class="dot" src="./assets/img/dot_green.svg" alt="green"></option>
-                        </select>
+                        <div class="category-select-down">
+                            <div class="task_input_field_styling dropdown" id="dropdown">Select category</div>
+                            <img class="category-down" onclick="openDropdownMenu()" src="./assets/img/category-down.svg"
+                                alt="">
+                        </div>
+                        <ul class="task_input_field_styling dropdown-content" id="add_task_category_select">
+                            <li onclick="handleCategoryChange(this)">New category</li>
+                        </ul>
+    
                     </div>
-                    <div><span>Assign to</span>
+                        <span id="assignto">Assign to</span>
                     <div id="userselection" class="assign fd_column selectinneruser">
                     </div>  
                 </div>
@@ -103,6 +105,7 @@ async function renderPopUp(popup) {
     `;
    
 }
+
 
 /**
  * Closes the add task popup and re-renders the tasks.
