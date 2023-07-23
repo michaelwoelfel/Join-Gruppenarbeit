@@ -136,7 +136,11 @@ form {
     display: flex;
     left: 21%;
     top:  20%;
+}
 
+.arrowleft:hover{
+    box-shadow: 2px 3px 5px black;
+    border-radius: 5px;
 }
 
 .blueline {
@@ -154,6 +158,12 @@ form {
   
 
 }
+
+#registerBtn:hover {
+    box-shadow: 2px 3px 5px black;
+    border-radius: 10px;
+}
+
 
 input {
     width: 100%;
