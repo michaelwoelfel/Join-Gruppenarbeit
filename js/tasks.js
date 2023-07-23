@@ -23,43 +23,38 @@ async function checkLastTaskId() {
  * Adds a new task and stores it in the 'tasks' variable.
  * @returns {Promise<void>}
  */
-async function getTaskData() {
-    await checkLastTaskId();
-    await loadselectedUsers();
-    let task = {};
-    task.name = document.getElementById('add_task_title').value;
-    task.subtask = document.getElementById('add_task_input_subtask').value;
-    task.description = document.getElementById('add_task_description').value;
-    task.category = currentCategory;
-    task.categoryBackgroundColor = currentColorOfCategory;
-    task.assign = selectedUsers;
-    task.date = document.getElementById('add_task_input_date').value;
-    task.priority = getTaskPrio();
-    task.status = 'todo';
-    task.id = taskIdCounter++;
-    return task;
-}
-
-// Create and save the task.
-async function createAndSaveTask(task) {
-    tasks.push(task);
-    await setItem('tasks', JSON.stringify(tasks));
-    await taskAddedToBoard();
-}
-
-// Select and save the Users of the task.
-function selectAndSaveUsers() {
-    selectedUsers = [];
-    saveSelectedUsers();
-}
-
-// Main function which combines all functions to add a task.
 async function addTask(event) {
     event.stopPropagation();
-    let task = await getTaskData();
-    await createAndSaveTask(task);
-    selectAndSaveUsers();
-}
+    await checkLastTaskId();
+    await loadselectedUsers();
+    taskName = document.getElementById('add_task_title').value;
+    let taskSubtask = document.getElementById('add_task_input_subtask').value;
+    let taskDescription = document.getElementById('add_task_description').value;
+    let taskCategory =  currentCategory;
+    let taskCategorybc = currentColorOfCategory;
+    let taskAssign = selectedUsers;
+    let taskDate = document.getElementById('add_task_input_date').value;
+    let taskPrio = getTaskPrio();
+    let taskStatus = 'todo';
+    let taskId = taskIdCounter++;
+    tasks.push({
+        id: taskId,
+        name: taskName,
+        subtask: taskSubtask,
+        tasktext: taskDescription,
+        category: taskCategory,
+        categoryBackgroundColor: taskCategorybc,
+        user: taskAssign,
+        date: taskDate,
+        priority: taskPrio,
+        status: taskStatus,
+    });
+    await setItem('tasks', JSON.stringify(tasks));
+    await taskAddedToBoard();
+    // Displays the animation in add Task
+    selectedUsers = [];
+    saveSelectedUsers();
+};
 
 
 
