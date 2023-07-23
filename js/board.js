@@ -24,7 +24,7 @@ async function renderPopUp(popup) {
     <div class="popup-background" onclick="closePopup()">
         <div class="popup-content" onclick="doNotClose(event)">
             <div class="projectheader_popUp">
-                <img class="join-logo-mobile-header" src="/assets/img/logo_dark.png" alt="logo_dark">
+                <img class="join-logo-mobile-header" src="assets/img/logo_dark.png" alt="logo_dark">
             </div>
             <div class="headline_h1_cancel">
                 <h1 id="add_task_h1" class="add_task_h1">Add Task</h1>

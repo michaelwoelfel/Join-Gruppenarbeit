@@ -29,9 +29,9 @@
     <div class="maincontainer">
         <!-- HEADER-->
         <div class="projectheader">
-            <img class="join-logo-mobile-header" src="/assets/img/logo_dark.png" alt="logo_dark">
+            <img class="join-logo-mobile-header" src="assets/img/logo_dark.png" alt="logo_dark">
             <span class="headspan">Kanban Project Management Tool</span>
-            <div class="author"><a href="/help.html" target="_self"><img class="questionimg"
+            <div class="author"><a href="help.html" target="_self"><img class="questionimg"
                         src="assets/img/question.png"></a>
                 <img id="michael" src="assets/img/michael.jpg">
             </div>
@@ -98,7 +98,7 @@
                     <div class="subtask_container">
                         <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask"
                             maxlength="20" placeholder="Add new subtask" required><img class="subtask_plus"
-                            onclick="addNewSubtask()" src="/assets/img/subtask_plus.png" alt="add Subtask">
+                            onclick="addNewSubtask()" src="assets/img/subtask_plus.png" alt="add Subtask">
                     </div>
                     <div class="show-subtasks" id="show-subtasks">
                     </div>
@@ -107,10 +107,10 @@
         </div>
         <!-- BUTTONS CLEAR AND ADD TASK -->
         <div class="buttons-clear-create">
-            <div onclick="clearTask()" class="clear-btn btn">Clear <img src="./assets/img/add_task_cancel.png"
+            <div onclick="clearTask(event)" class="clear-btn btn">Clear <img src="./assets/img/add_task_cancel.png"
                     alt="check">
             </div>
-            <div onclick="addTask()" class="create-btn btn">Create Task <img src="./assets/img/add_task_check.png"
+            <div onclick="addTask(event)" class="create-btn btn">Create Task <img src="./assets/img/add_task_check.png"
                     alt="cancel"></div>
         </div>
         <!-- ADD TASK ANIMATION -->

@@ -131,7 +131,7 @@ async function editTask(i) {
     getTaskPrio(taskprio);
     await loadTaskDetails(task);
     document.getElementById('buttonedit').classList.add('d-none');
-    document.getElementById('buttonafteredit').innerHTML = `<div id="buttonaftereditd-none"  class="create-btn btn d-none" onclick="changeTask(${i},event)">Change Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>`;
+    document.getElementById('buttonafteredit').innerHTML = `<div id="buttonaftereditd-none"  class="create-btn btn d-none" onclick="changeTask(${i},event)">Change Task <img src="assets/img/add_task_check.png" alt="cancel"></div>`;
     document.getElementById('buttonaftereditd-none').classList.remove('d-none');
 }
 
@@ -277,15 +277,6 @@ function renderUsersInOpenTask(index) {
     };
 }
 
-function createUserHTML(randomColor, firstLetter, secondLetter, nameParts) {
-    return `
-        <div class="imgcontainer" style="background-color: ${randomColor};">
-            <span id="firstletter">${firstLetter}</span>
-            <span id="secondletter">${secondLetter}</span>
-        </div>
-        <div class="name">${nameParts.join(' ')}</div>
-    `;
-}
 
 
 /**
@@ -501,7 +492,7 @@ function addNewSubtask() {
 function renderSubtask(currentSubtasks, newSubtask) {
     currentSubtasks.innerHTML += /*html*/`
     <div>
-        <img onclick="addDoneSignToSquare(event)" src="/assets/img/subtask_square.png" alt="Subtasks">
+        <img onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
         <span>${newSubtask}</span> 
     </div>    
     `;
@@ -512,9 +503,9 @@ function renderSubtask(currentSubtasks, newSubtask) {
 // ADDS 'done-sign'
 function addDoneSignToSquare(event) {
     if (event.target.src.includes("subtask_square.png")) {
-        event.target.src = "/assets/img/done_white.png";
+        event.target.src = "assets/img/done_white.png";
     } else {
-        event.target.src = "/assets/img/subtask_square.png";
+        event.target.src = "assets/img/subtask_square.png";
     }
 }
 
@@ -532,7 +523,7 @@ function handleCategoryChange(liElement) {
 function addNewCategory() {
     const newCategoryDiv = document.createElement('div');
     newCategoryDiv.className = 'new-category-popup';
-    newCategoryDiv.innerHTML = '<input class="task_input_field_styling_popup" type="text" max-length="15" id="new-category-input" placeholder="Enter new category"><button class="btn create-btnpopup" onclick="submitNewCategory()">Submit</button><img class="closeimgpopup2" onclick="closeCategoryPopup()" src="/assets/img/close.png">';
+    newCategoryDiv.innerHTML = '<input class="task_input_field_styling_popup" type="text" max-length="15" id="new-category-input" placeholder="Enter new category"><button class="btn create-btnpopup" onclick="submitNewCategory()">Submit</button><img class="closeimgpopup2" onclick="closeCategoryPopup()" src="./assets/img/close.png">';
     document.body.appendChild(newCategoryDiv);
 }
 
