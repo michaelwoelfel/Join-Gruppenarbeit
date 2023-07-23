@@ -17,6 +17,25 @@ async function taskTemplate(task) {
 
 }
 
+async function taskUserTemplate(randomColor,firstLetter,secondLetter) {
+    return /*html*/ `<div class="contact-container">
+    <div class="imgcontainer" style="background-color: ${randomColor};">
+        <span id="firstletter">${firstLetter}</span>
+        <span id="secondletter">${secondLetter}</span>
+    </div>
+</div>`;
+
+}
+
+
+async function bigTaskUserTemplate(randomColor, firstLetter, secondLetter, name){
+    return /*html*/ ` <div class="imgcontainer" style="background-color: ${randomColor};">
+            <span id="firstletter">${firstLetter}</span>
+            <span id="secondletter">${secondLetter}</span>
+        </div>
+        <div class="name">${name}</div>
+    `;
+}
 
 
 async function generateTaskDetailsHTML(index) {

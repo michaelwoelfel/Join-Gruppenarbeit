@@ -23,21 +23,9 @@ async function checkLastTaskId() {
  * Adds a new task and stores it in the 'tasks' variable.
  * @returns {Promise<void>}
  */
-async function addTask(event) {
-    event.stopPropagation();
-    await checkLastTaskId();
-    await loadselectedUsers();
-    taskName = document.getElementById('add_task_title').value;
-    let taskSubtask = document.getElementById('add_task_input_subtask').value;
-    let taskDescription = document.getElementById('add_task_description').value;
-    let taskCategory =  currentCategory;
-    let taskCategorybc = currentColorOfCategory;
-    let taskAssign = selectedUsers;
-    let taskDate = document.getElementById('add_task_input_date').value;
-    let taskPrio = getTaskPrio();
-    let taskStatus = 'todo';
-    let taskId = taskIdCounter++;
-    tasks.push({
+// Funktion zur Erstellung eines Aufgabenelements
+function createTaskElement(taskName, taskSubtask, taskDescription, taskCategory, taskCategorybc, taskAssign, taskDate, taskPrio, taskId) {
+    return {
         id: taskId,
         name: taskName,
         subtask: taskSubtask,
@@ -47,15 +35,37 @@ async function addTask(event) {
         user: taskAssign,
         date: taskDate,
         priority: taskPrio,
-        status: taskStatus,
-    });
+        status: 'todo',
+    };
+}
+
+// Funktion zum Hinzufügen einer Aufgabe
+async function addTaskToList(task) {
+    tasks.push(task);
     await setItem('tasks', JSON.stringify(tasks));
     await taskAddedToBoard();
-    // Displays the animation in add Task
-    selectedUsers = [];
-    saveSelectedUsers();
-};
+}
 
+// Hauptfunktion
+async function addTask(event) {
+    event.stopPropagation();
+    await checkLastTaskId();
+    await loadselectedUsers();
+    taskName = document.getElementById('add_task_title').value;
+    let taskSubtask = document.getElementById('add_task_input_subtask').value;
+    let taskDescription = document.getElementById('add_task_description').value;
+    let taskCategory = currentCategory;
+    let taskCategorybc = currentColorOfCategory;
+    let taskAssign = selectedUsers;
+    let taskDate = document.getElementById('add_task_input_date').value;
+    let taskPrio = getTaskPrio();
+    let taskId = taskIdCounter++;
+    let task = createTaskElement(taskName, taskSubtask, taskDescription, taskCategory, taskCategorybc, taskAssign, taskDate, taskPrio, taskId);
+    await addTaskToList(task);
+    selectedUsers = [];
+    await saveSelectedUsers();
+   
+}
 
 
   
@@ -99,12 +109,8 @@ async function changeTask(i,event) {
  * Prepares the user interface to edit an existing task.
  * @param {number} i - The index of the task to be edited in the 'tasks' list.
  */
-async function editTask(i) {
-    let task = tasks[i];
-    closeTask();
-    await addTaskPopUp();
-    let taskprio = task['priority'];
-    getTaskPrio(taskprio);
+// Funktion um Aufgabendetails in Eingabefelder zu laden
+async function loadTaskDetails(task) {
     document.getElementById('add_task_h1').innerHTML = `Edit Task`;
     document.getElementById('add_task_title').value = task.name;
     document.getElementById('add_task_input_subtask').value = task.subtask;
@@ -114,11 +120,21 @@ async function editTask(i) {
     document.getElementById('add_task_input_date').value = task.date;
     taskStatus = task.status;
     taskId = task.id;
+}
+
+// Hauptfunktion um Aufgabenbearbeitung zu initialisieren
+async function editTask(i) {
+    let task = tasks[i];
+    closeTask();
+    await addTaskPopUp();
+    let taskprio = task['priority'];
+    getTaskPrio(taskprio);
+    await loadTaskDetails(task);
     document.getElementById('buttonedit').classList.add('d-none');
     document.getElementById('buttonafteredit').innerHTML = `<div id="buttonaftereditd-none"  class="create-btn btn d-none" onclick="changeTask(${i},event)">Change Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>`;
     document.getElementById('buttonaftereditd-none').classList.remove('d-none');
-    
-};
+}
+
 /**
  * Checks the Boxes for the users that already are assigned in task when edit task.
  */
@@ -232,12 +248,8 @@ async function renderUsersInTask(task) {
         let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
         let contact = getContactFromName(nameParts.join(' ')); // Suche nach Name
         let randomColor = contact ? contact.color : getRandomColor(); // Wenn Name da, dann contact.color, wenn nicht function ... 
-        userContainer.innerHTML += `<div class="contact-container">
-            <div class="imgcontainer" style="background-color: ${randomColor};">
-                <span id="firstletter">${firstLetter}</span>
-                <span id="secondletter">${secondLetter}</span>
-            </div>
-        </div>`;
+        userContainer.innerHTML += await taskUserTemplate(randomColor,firstLetter,secondLetter);
+
     };
 }
 
