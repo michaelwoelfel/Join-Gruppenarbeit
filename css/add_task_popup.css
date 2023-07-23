@@ -38,7 +38,7 @@
     
     z-index: 20;
     overflow: auto;
-    height: 95%;
+    height: 90%;
 }
 
 
@@ -188,8 +188,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 .new-category-popup {
-    height: 300px;
-    width: 300px;
+    height: 350px;
+    width: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -414,13 +414,22 @@ input[type=date]:invalid::-webkit-datetime-edit {
     margin-top: 48px;
 }
 
+.closeimgpopup{
+    margin-right: 15px;
+    
+}
+.closeimgpopup:hover{
+    box-shadow: 2px 3px 5px black;
+    border-radius: 5px;
+}
+
 
 
 /* BUTTONS CLEAR & CREATE */
 
 .buttons-clear-create {
     position: absolute;
-    bottom: 50px;
+    bottom: 80px;
     right: 200px;
     display: flex;
     justify-content: flex-end;
@@ -443,8 +452,27 @@ input[type=date]:invalid::-webkit-datetime-edit {
     height: 18px;
 }
 
+.task_input_field_styling_popup {
+    padding: 8px;
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #D1D1D1;
+    outline: none;
+    padding: 8px;
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #D1D1D1;
+    outline: none;
+    border-radius: 6px;
+
+}
+
 
 .create-btn {
+    background-color: #2A3647;
+    color: white;
+    z-index: 1500;
+}
+
+.create-btnpopup {
     background-color: #2A3647;
     color: white;
     z-index: 1500;
@@ -485,6 +513,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     justify-content: space-between;
     box-shadow: 0px 4px 4px 0px #0000001A;
     width: 100%;
+    z-index: 11;
 }
 
 

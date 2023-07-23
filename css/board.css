@@ -161,6 +161,15 @@ h3 {
     margin-top: 20px;
 }
 
+.closeimg{
+    margin-right: 15px;
+    margin-top: 20px;
+}
+.closeimg:hover{
+    box-shadow: 2px 3px 5px black;
+    border-radius: 5px;
+}
+
 #closeimg:hover{
     box-shadow: 2px 3px 5px black;
     border-radius: 5px;
@@ -492,6 +501,9 @@ h3 {
 
     .bigtask{
         margin-right: 0;
+        width: 80%;
+        height: 90%;
+
     }
 }
 
@@ -511,8 +523,23 @@ h3 {
         width: 105%;
     }
 
-    
+    .add_task_container {
+    align-items: center;
 }
+
+.popup-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.add_task_left {
+    margin-left: 16px;
+    margin-right: 20px;
+}
+}
+
+
+
 
 
 

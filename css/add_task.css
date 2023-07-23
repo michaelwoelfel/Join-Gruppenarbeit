@@ -23,7 +23,6 @@ body{
 
 .task_input_field_styling {
     border-radius: 6px;
-    margin-bottom: 16px;
     margin-top: 8px;
     padding: 8px;
     font-family: 'Inter', sans-serif;
@@ -93,8 +92,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 
 .new-category-popup {
-    height: 300px;
-    width: 300px;
+    height: 350px;
+    width: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -399,6 +398,15 @@ input[type=date]:invalid::-webkit-datetime-edit {
     z-index: 1001;
 }
 
+.closeimg{
+    margin-right: 15px;
+   
+}
+.closeimg:hover{
+    box-shadow: 2px 3px 5px black;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 .show {
     animation: 3s addToBoard;

@@ -520,7 +520,7 @@ function handleCategoryChange(liElement) {
 function addNewCategory() {
     const newCategoryDiv = document.createElement('div');
     newCategoryDiv.className = 'new-category-popup';
-    newCategoryDiv.innerHTML = '<input type="text" max-length="15" id="new-category-input" placeholder="Enter new category"><button onclick="submitNewCategory()">Submit</button><img onclick="closeCategoryPopup()" src="/assets/img/close.png">';
+    newCategoryDiv.innerHTML = '<input class="task_input_field_styling_popup" type="text" max-length="15" id="new-category-input" placeholder="Enter new category"><button class="btn create-btnpopup" onclick="submitNewCategory()">Submit</button><img class="closeimgpopup2" onclick="closeCategoryPopup()" src="/assets/img/close.png">';
     document.body.appendChild(newCategoryDiv);
 }
 
