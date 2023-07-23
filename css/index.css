@@ -12,7 +12,7 @@ body {
 
 .logowhite {
     width: 200px;
-    animation: 3s moveLogoStart;
+    animation: 250ms moveLogoStart;
     animation-fill-mode: forwards;
     position: absolute;
 }
@@ -27,7 +27,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation:  5s opacitystart;
+    animation:  2s opacitystart;
     animation-fill-mode: forwards;
 }
 
@@ -80,9 +80,9 @@ body {
     position: absolute;
     left: 77px;
     top: 80px;
-    animation: 3s moveLogo;
+    animation: 100ms moveLogo;
     animation-fill-mode: forwards;
-    animation: 5s opacity;
+    animation: 1s opacity;
 }
 
 .signuptop{
@@ -95,7 +95,7 @@ body {
     top: 67px;
     padding-right: 20px;
     white-space: nowrap;
-    animation: 5s opacity;
+    animation: 2s opacity;
 }
 
 .signupbutton {
@@ -144,7 +144,7 @@ form {
     align-items: center;
     top: 274px;
     width: 100%;
-    animation: 5s opacity;
+    animation: 200ms opacity;
 
 }
 .login {
