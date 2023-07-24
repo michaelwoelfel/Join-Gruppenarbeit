@@ -445,6 +445,10 @@ h3 {
         padding: 12px 16px;
         font-weight: bold;
     }
+
+    .static {
+        position: static;
+    }
     
     
     .create-btn:hover {
@@ -510,9 +514,6 @@ border: 2px solid white;
     align-items: center;
 }
 
-a {
-    color:#29ABE2;
-}
 
     
 
@@ -606,6 +607,22 @@ a {
     }
 }
 
+@media(min-width: 800px) {
+    .d-flex {
+       position: static;
+    }
+
+    #contact-info {
+        
+    }
+}
+
+@media(max-width: 799px) {
+    .d-flex {
+       
+    }
+}
+
 
 @media(max-width: 1500px) {
     .left-side-modal {
@@ -673,6 +690,10 @@ a {
 
 @media only screen and (max-width: 800px) {
   
+
+
+    
+
     .maincontainer {
        margin: 0;
        overflow:hidden;

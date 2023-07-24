@@ -452,17 +452,16 @@ input[type=date]:invalid::-webkit-datetime-edit {
     height: 18px;
 }
 
-.task_input_field_styling_popup {
+._field_styling_popup {
     padding: 8px;
     font-family: 'Inter', sans-serif;
     border: 2px solid #D1D1D1;
     outline: none;
     padding: 8px;
-    font-family: 'Inter', sans-serif;
+    ftask_inputont-family: 'Inter', sans-serif;
     border: 2px solid #D1D1D1;
     outline: none;
     border-radius: 6px;
-
 }
 
 
