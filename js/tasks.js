@@ -376,6 +376,20 @@ function moveTo(category) {
     updateTaskStatus(currentDraggedElement, category);
 }
 
+function highlight(id) {
+    document.getElementById(id).classList.add('task-status-container-highlight');
+}
+
+function removeHighlight(id) {
+    // Entferne das Highlight von allen anderen Containern
+    const containerIds = ['todo', 'inprogress', 'awaitingfb', 'done'];
+    containerIds.forEach(containerId => {
+        if (containerId !== id) {
+            document.getElementById(containerId).classList.remove('task-status-container-highlight');
+        }
+    });
+}
+
 /**
  * Updates the status of a task when it's moved between categories.
  * @param {number} taskIndex - The index of the task in the 'tasks' list.
