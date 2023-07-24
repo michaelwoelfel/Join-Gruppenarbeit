@@ -64,18 +64,18 @@ async function addTask(event) {
     await addTaskToList(task);
     selectedUsers = [];
     await saveSelectedUsers();
-   
+
 }
 
 
-  
+
 
 /**
  * Modifies an existing task.
  * @param {number} i - The index of the task to be changed in the 'tasks' list.
  * @returns {Promise<void>}
  */
-async function changeTask(i,event) {
+async function changeTask(i, event) {
     event.stopPropagation();
     let task = tasks[i];
     let taskId = task.id;
@@ -94,7 +94,7 @@ async function changeTask(i,event) {
     task.tasktext = taskDescription;
     task.category = taskCategory;
     task.categoryBackgroundColor = taskCategorybc,
-    task.user = taskAssign;
+        task.user = taskAssign;
     task.date = taskDate;
     task.priority = taskPrio;
     task.status = taskStatus;
@@ -248,7 +248,7 @@ async function renderUsersInTask(task) {
         let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
         let contact = getContactFromName(nameParts.join(' ')); // Suche nach Name
         let randomColor = contact ? contact.color : getRandomColor(); // Wenn Name da, dann contact.color, wenn nicht function ... 
-        userContainer.innerHTML += await taskUserTemplate(randomColor,firstLetter,secondLetter);
+        userContainer.innerHTML += await taskUserTemplate(randomColor, firstLetter, secondLetter);
 
     };
 }
@@ -538,7 +538,7 @@ function submitNewCategory() {
     const popup = document.querySelector('.new-category-popup');
     document.body.removeChild(popup);
     saveNewCategory(newCategory);
-    window.onload = function() {
+    window.onload = function () {
         loadNewCategory();
     }
 }
@@ -612,7 +612,7 @@ function readNameOfCategoryInBoard(liElement) {
 
 function renderSelectedCategoryInCategoryfield(liElement) {
     let selectedCategory = document.getElementById('dropdown');
-    let selectedColor = liElement.querySelector('.color_dot').style.backgroundColor; 
+    let selectedColor = liElement.querySelector('.color_dot').style.backgroundColor;
     selectedCategory.innerHTML = /*html*/`
         <li class="liElement">${currentCategory} 
             <div style="background-color: ${selectedColor}" class="color_dot"></div>
