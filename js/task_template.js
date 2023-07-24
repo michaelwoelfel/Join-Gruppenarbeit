@@ -48,7 +48,7 @@ async function generateTaskDetailsHTML(index) {
         <div class="bigtask" id="task${index}">
             <div class="taskheader">
                 <div style="background-color: ${task['categoryBackgroundColor']}" class="category">${task['category']}</div>
-                <div onclick="closeTask()"><img id="closeimg" src="/assets/img/close.png"></div>
+                <div onclick="closeTask()"><img id="closeimg" src="assets/img/close.png"></div>
             </div>
             <div class="taskdescriptionbig"><b>${task['name']}</b></div>
             <div class="subtaskdescriptionbig"><b>${task['subtask']}</b></div>
@@ -69,8 +69,8 @@ async function generateTaskDetailsHTML(index) {
                 <div id="usersInOpenTask${index}" class="users"></div>
             </div>
             <div class="buttoncontainer">
-                <img id="deleteimg" onclick="deleteTask(${index})" src="/assets/img/delete.png">
-                <img id="editimg" onclick="editTask(${index})" src="/assets/img/edit.png">
+                <img id="deleteimg" onclick="deleteTask(${index})" src="assets/img/delete.png">
+                <img id="editimg" onclick="editTask(${index})" src="assets/img/edit.png">
             </div>
         </div>
     `;

@@ -28,7 +28,7 @@ async function renderPopUp(popup) {
             </div>
             <div class="headline_h1_cancel">
                 <h1 id="add_task_h1" class="add_task_h1">Add Task</h1>
-                <img class="closeimgpopup" src="./assets/img/add_task_cancel.png" alt="cancel" onclick="closePopup()">
+                <img class="closeimgpopup" src="assets/img/add_task_cancel.png" alt="cancel" onclick="closePopup()">
             </div>
             <div class="add_task_container"> 
                  <form class="add_task_left">
@@ -48,7 +48,7 @@ async function renderPopUp(popup) {
                         <span>Category</span>
                         <div class="category-select-down">
                             <div class="task_input_field_styling dropdown" id="dropdown">Select category</div>
-                            <img class="category-down" onclick="openDropdownMenu()" src="./assets/img/category-down.svg"
+                            <img class="category-down" onclick="openDropdownMenu()" src="assets/img/category-down.svg"
                                 alt="">
                         </div>
                         <ul class="task_input_field_styling dropdown-content" id="add_task_category_select">
@@ -76,10 +76,10 @@ async function renderPopUp(popup) {
                         <div onclick="getTaskPrio('urgent')" id="prio_urgent" class="prio-btn">Urgent <img  src="./assets/img/urgent_prio.png"
                                 alt="urgent">
                         </div>
-                        <div onclick="getTaskPrio('medium')" id="prio_medium" class="prio-btn">Medium <img  src="./assets/img/medium_prio.png"
+                        <div onclick="getTaskPrio('medium')" id="prio_medium" class="prio-btn">Medium <img  src="assets/img/medium_prio.png"
                                 alt="medium">
                         </div>
-                        <div onclick="getTaskPrio('low')" id="prio_low" class="prio-btn">Low <img  src="./assets/img/low_prio.png" alt="low"></div>
+                        <div onclick="getTaskPrio('low')" id="prio_low" class="prio-btn">Low <img  src="assets/img/low_prio.png" alt="low"></div>
                     </div>
                     </div>
                     <div class="subtasks fd_column">
@@ -92,14 +92,14 @@ async function renderPopUp(popup) {
                 </form>
             </div>
             <div class="buttons-clear-create">
-                <div class="clear-btn btn" onclick="clearTask(event)">Clear <img src="./assets/img/add_task_cancel.png" alt="check"></div>
-                <div id="buttonedit" class="create-btn btn" onclick="addTask(event)">Create Task <img src="./assets/img/add_task_check.png" alt="cancel"></div>
+                <div class="clear-btn btn" onclick="clearTask(event)">Clear <img src="assets/img/add_task_cancel.png" alt="check"></div>
+                <div id="buttonedit" class="create-btn btn" onclick="addTask(event)">Create Task <img src="assets/img/add_task_check.png" alt="cancel"></div>
             </div>
                <div class="buttons-clear-create"id="buttonafteredit"> 
                </div>
             <div class="animation-addedToBoard">
                 <span class="addedTaskToBoard_content">Task added to board <img class="board"
-                    src="./assets/img/board_img.png" alt="board"></span>
+                    src="assets/img/board_img.png" alt="board"></span>
             </div>
     </div>
     `;

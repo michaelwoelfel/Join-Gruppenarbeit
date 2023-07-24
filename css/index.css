@@ -16,6 +16,9 @@ body {
     animation-fill-mode: forwards;
     position: absolute;
 }
+a {
+    color:#29ABE2;
+}
 
 .startcontainer {
     position: fixed;
