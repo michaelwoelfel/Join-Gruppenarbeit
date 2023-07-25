@@ -13,10 +13,45 @@ top: 20px;
 cursor: pointer;
 }
 
+.legalnoticemenu {
+    font-size: 16px!important;
+    display: flex;
+    align-self: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.legalnoticeimgmenu {
+    margin-right: 10px;
+    width: 30px;
+}
+
 .crosswhite {
     width:40px;
     height: 40px;
 }
+
+.loginbuttonmenu {
+    height: 51px;
+    width: 91px;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    margin-left: 20px;
+}
+.loginbuttonmenu:hover {
+cursor: pointer;
+background-color: #29ABE2;
+box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
+color:black;
+}
+
 
 .crosswhite:hover {
     border: 1px solid white;
@@ -91,29 +126,29 @@ position: absolute;
     padding-top: 16px;
     margin-bottom: 50px;
     padding-bottom: 16px;
-    padding-left: 32px;
+   
     gap: 0px;
     
    
 }
 
-#menu a:hover {
-   
-   
-    padding-top: 16px;
-    padding-left: 32px;
-    background-color: black;
-    color: #fff;
-}
+
 
 #menu a:last-child {
     
-  
+    display: flex;
+    align-items: center;
     padding-top: 16px;
     padding-bottom: 16px;
     padding-left: 32px;
     border-width: 1px;
+}
 
+#menu a:last-child:hover {
+    padding-top: 16px;
+    padding-left: 32px;
+    background-color: black;
+    color: #fff;
 }
 
 
