@@ -10,6 +10,10 @@ body {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
   }
 
+  #michael:hover {
+    cursor: pointer;
+  }
+
   .maincontainer {
     display: flex;
     flex-direction: column;
@@ -88,6 +92,30 @@ body {
 .maincontainer::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+.span1 {
+
+  padding-bottom: 20px;
+}
+.span2 {
+
+  padding-bottom: 20px;
+}
+
+.number1 {
+  font-size: 20px;
+  color:#29ABE2;
+}
+.number2 {
+  font-size: 20px;
+  color:#29ABE2;
+}
+.number3 {
+  font-size: 20px;
+  color:#29ABE2;
+}
+  
+  
   
 
   @media only screen and (max-width: 800px) {

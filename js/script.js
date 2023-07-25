@@ -183,3 +183,13 @@ function colorLegalNotice() {
 }
 
 // LEGAL NOTICE END
+
+function showMenu(){
+    document.getElementById('menu').classList.add('show-overlay-menu');
+    document.getElementById('hide-menu').classList.remove('hide');
+}
+
+function hideMenu(){
+    document.getElementById("menu").classList.remove("show-overlay-menu");
+    document.getElementById('hide-menu').classList.add("hide");
+}

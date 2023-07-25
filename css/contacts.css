@@ -17,6 +17,10 @@ body {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
 
+#michael:hover {
+    cursor: pointer;
+}
+
 .maincontainer {
     display: flex;
     flex-direction: column;
@@ -611,17 +615,8 @@ border: 2px solid white;
     .d-flex {
        position: static;
     }
-
-    #contact-info {
-        
-    }
 }
 
-@media(max-width: 799px) {
-    .d-flex {
-       
-    }
-}
 
 
 @media(max-width: 1500px) {

@@ -7,12 +7,21 @@
     <script src="js/include_html.js"></script>
     <link rel="stylesheet" href="css/legal_notice.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/menu.css">
     <link rel="icon" type="image/x-icon" href="assets/img/logo_dark.png">
     <title>Legal Notice</title>
 
 </head>
 
 <body onload="initLegal_Notice()">
+    <nav id="menu" class="nav hide-overlay-menu"  >
+        <div id="burger-menu">
+            <img class="crosswhite" onclick="hideMenu()" id="hide-menu" src="assets/img/cross_white.png" alt="menu-icon"/>
+        </div>
+        <a class="nav--a a__active" href="index.html">Logout</a>
+        <a class="nav--a" href="legal_notice.html">Legal Notice</a>
+        
+      </nav>
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
 
 

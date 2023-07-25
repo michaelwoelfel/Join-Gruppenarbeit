@@ -1,0 +1,161 @@
+body {
+    overflow-x: hidden;
+}
+
+
+#burger-menu {
+    
+    display: none;
+    position: absolute;
+right: 32px;
+width: 40px;
+top: 20px;
+cursor: pointer;
+}
+
+.crosswhite {
+    width:40px;
+    height: 40px;
+}
+
+.crosswhite:hover {
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+.closeimgpopup2:hover{
+    box-shadow: 2px 3px 5px black;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 3000px) {
+.show-menu {
+
+z-index: 0;
+position: absolute;
+
+}
+
+.show-menu:hover {
+    filter: drop-shadow(0 0 4px #2bb92bb5);
+    transition: 125ms;
+}
+
+#burger-menu {
+    display: block;
+}
+
+#hide-menu {
+  
+    z-index: 120;
+    position: absolute;
+          
+    }
+
+#hide-menu:hover {
+    filter: drop-shadow(0 0 8px #249d24b5);
+    transition: 125ms;
+}
+
+#menu {
+
+    background-color: #2A3647;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    z-index: 1000;
+    
+    
+    padding-top: 89px;
+    position: absolute;
+    right: 0;
+    top: 0px;
+     width: 34%;
+    
+    transition: all 250ms ease-in-out;
+    filter: drop-shadow(-3px 0px 16px #083a0833);
+    gap: 0;
+    
+    
+}
+
+#menu a {
+    width:100%;
+    border-style: none;
+    border-top: 0;
+    border-bottom: 0;
+    border-width: 1px;
+    color: white;
+    font-size: 24px;
+    padding-top: 16px;
+    margin-bottom: 50px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    gap: 0px;
+    
+   
+}
+
+#menu a:hover {
+   
+   
+    padding-top: 16px;
+    padding-left: 32px;
+    background-color: black;
+    color: #fff;
+}
+
+#menu a:last-child {
+    
+  
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    border-width: 1px;
+
+}
+
+
+
+.hide-overlay-menu {
+    transform: translateX(560px);
+}
+
+.show-overlay-menu {
+    transform: translateX(0px);
+}
+
+.hide {
+    display: none;
+}
+
+}
+
+@media (max-width: 768px){
+    #menu {
+    width: 50%;
+}
+}
+
+
+
+@media (max-width: 480px) {
+#burger-menu {
+    top:12px;
+}
+
+ #burger-menu img {
+    height: 40px;
+    width: auto;
+    
+}
+
+    #menu {
+    width: 100%;
+    
+}
+
+
+}
+
