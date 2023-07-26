@@ -236,7 +236,6 @@ async function renderUsersInTask(task) {
     let userContainer = document.getElementById(`usersintask${idTask}`);
     for (let i = 0; i < userTasks.length; i++) {
         const element = userTasks[i];
-        console.log(`Task ID: ${idTask}`);
         let nameParts = element.split(' '); // Name in Teile aufteilen
         let firstLetter = nameParts[0].charAt(0); // Erster Buchstabe des Vornamens
         let secondLetter = nameParts.length > 1 ? nameParts[1].charAt(0) : '';
@@ -399,7 +398,6 @@ function updateTaskStatus(taskIndex, newStatus) {
  * @param {number} index - The index of the element to be dragged.
  */
 function startDragging(index) {
-    console.log(index);
     currentDraggedElement = index;
 }
 
