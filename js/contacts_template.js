@@ -63,6 +63,6 @@ function createEditContactButtonsHTML(i) {
         <button onclick="saveContact(${i})" class="create-btn">Save</button>
         <button onclick="closeEditContact(${i})" class="cancel-btn" >Close</button>
         <span class="addedTaskToBoard_content">Contact Added <img class="board"
-            src="./assets/img/board_img.png" alt="board"></span>
+            src="assets/img/board_img.png" alt="board"></span>
     `;
 }

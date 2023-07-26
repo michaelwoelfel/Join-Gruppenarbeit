@@ -1,5 +1,6 @@
 body {
     background-color: #F6F7F8;
+    font-family: 'Inter', sans-serif;
 }
 
 h1 {
@@ -117,10 +118,18 @@ h3 {
 }
 
 .task-status-container{
-    min-height: 580px;
+    min-height: 500px;
+    height: 100%;
     background-color: #F6F7F8;
+    border-radius: 30px;
 }
 
+.task-status-container-highlight{
+    min-height: 500px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 30px;
+}
 
 .showtask {
     background-color: rgba(0, 0, 0, 0.5);

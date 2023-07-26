@@ -1,6 +1,5 @@
 body{
-    font-family: 'PT Sans', sans-serif
-    
+    font-family: 'Inter', sans-serif;
 }
 
 .maincontainer {
@@ -197,6 +196,59 @@ input[type=date]:invalid::-webkit-datetime-edit {
     justify-content: space-between;
     margin: 8px 0;
 }
+
+.new-category-popup {
+    height: 150px;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #D1D1D1;
+    outline: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+.task_input_field_styling_popup {
+    padding: 8px;
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #D1D1D1;
+    outline: none;
+    padding: 8px;
+    ftask_inputont-family: 'Inter', sans-serif;
+    border: 2px solid #D1D1D1;
+    outline: none;
+    border-radius: 6px;
+}
+
+.create-btnpopup {
+    background-color: #2A3647;
+    color: white;
+    z-index: 1500;
+}
+
+.closeimgpopup2{
+    margin-right: 15px;
+    
+}
+.closeimgpopup2:hover{
+    box-shadow: 2px 3px 5px black;
+    border-radius: 5px;
+}
+
+.create-btnpopup:hover {
+    cursor: pointer;
+    background-color: #29ABE2;
+    box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
+}
+
 
 
 .prio-btn {

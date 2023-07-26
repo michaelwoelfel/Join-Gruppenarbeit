@@ -7,11 +7,20 @@
     <script src="js/include_html.js"></script>
     <link rel="stylesheet" href="css/legal_notice.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/menu.css">
     <link rel="icon" type="image/x-icon" href="assets/img/logo_dark.png">
     <title>Help</title>
 </head>
 
 <body onload="includeHTML()">
+    <nav id="menu" class="nav hide-overlay-menu"  >
+        <div id="burger-menu">
+            <img class="crosswhite" onclick="hideMenu()" id="hide-menu" src="assets/img/cross_white.png" alt="menu-icon"/>
+        </div>
+        <a class="nav--a a__active logoutbutton" href="index.html"><span class="loginbuttonmenu">Logout</span></a>
+        <div class="legalnoticemenu"><a  class="nav--a" href="legal_notice.html"><img class="legalnoticeimgmenu" src="assets/img/legal_notice.png" class="side-bar-image">Legal Notice</a></div>
+        
+      </nav>
     <!-- SIDEBAR TEMPLATE -->
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
     <!-- HELP HOLE CONTAINER -->
@@ -27,15 +36,15 @@
                 </span>
                 <h2>How to use it</h2>
                 <div class="span1">
-                    <span class="number1"> 1 </span>
+                    <span class="number1"> 1. </span>
                     Add some people to your network on "Contacts".
                 </div>
                 <div class="span2">
-                    <span class="number2"> 2 </span>
+                    <span class="number2"> 2. </span>
                    Get to "Board", add a task and which users are responsible for it. Write down what to to, who does it and how urgent it is.
                 </div>
                 <div class="span3">
-                    <span class="number3"> 3 </span>
+                    <span class="number3"> 3. </span>
                   When the task is added it will appear at "todo". To move it to the next step simply drag it to "Awaiting Feedback" for example.
                   At Summary you will see at the start some infos about your current tasks available.
                 </div>

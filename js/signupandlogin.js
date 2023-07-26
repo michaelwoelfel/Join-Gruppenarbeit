@@ -51,7 +51,7 @@ function openWindow() {
  * Opens the index page.
  */
 function openWindowIndex() {
-    window.open('index.html','_self');
+    loginAfterSignup();
 }
 
 /**
@@ -111,6 +111,13 @@ async function login(event) {
     } else {
         document.getElementById('wrongpassword').innerHTML = `Wrong E-mail or Password !`;
     }
+}
+
+async function loginAfterSignup() {
+    let user = users[users.length - 1];
+    currentUser = user.username;
+    await setItem('currentUser', JSON.stringify(currentUser));
+    openWindow();
 }
 
 /**

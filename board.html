@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="css/board.css">
     <link rel="stylesheet" href="css/add_task_popup.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/menu.css">
     <link rel="icon" type="image/x-icon" href="assets/img/logo_dark.png">
-    
-   
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Add Select2 library -->
@@ -36,6 +37,14 @@
     <!-- HOLE BOARD CONTAINER -->
     <div class="maincontainer">
         <!-- HEADER-->
+        <nav id="menu" class="nav hide-overlay-menu"  >
+            <div id="burger-menu">
+                <img class="crosswhite" onclick="hideMenu()" id="hide-menu" src="assets/img/cross_white.png" alt="menu-icon"/>
+            </div>
+            <a class="nav--a a__active logoutbutton" href="index.html"><span class="loginbuttonmenu">Logout</span></a>
+            <div class="legalnoticemenu"><a  class="nav--a" href="legal_notice.html"><img class="legalnoticeimgmenu" src="assets/img/legal_notice.png" class="side-bar-image">Legal Notice</a></div>
+            
+          </nav>
         <div w3-include-html="assets/templates/header_template.html"></div>
         <div class="hidden-Kanban">Kanban Project Management Tool</div>
         <!-- BOARD TOP CONTAINER -->
@@ -43,7 +52,7 @@
             <div class="headingboard">
                 <h1>Board</h1>
                 <div class="plus-sign-mobile">
-                    <img onclick="addTaskPopUp()" class="plus-sign" src="./assets/img/plus.png" alt="">
+                    <img onclick="addTaskPopUp()" class="plus-sign" src="assets/img/plus.png" alt="">
                 </div>
             </div>
             <!-- BOARD SEARCH  -->
@@ -61,7 +70,8 @@
                 <div class="taskheading">
                     <h3>To do</h3><img class="plusbutton" src="assets/img/plus_button.png" onclick="addTaskPopUp()">
                 </div>
-                <div class="task-status-container" id="todo" ondragover="allowDrop(event)" ondrop="moveTo('todo')">
+                <div class="task-status-container" id="todo" ondragover="allowDrop(event); highlight('todo')"
+                    ondragleave="removeHighlight('todo')" ondrop="moveTo('todo'); removeHighlight()">
                 </div>
             </div>
             <!-- TASK IN PROGRESS -->
@@ -70,8 +80,9 @@
                     <h3>In progress</h3><img class="plusbutton" src="assets/img/plus_button.png"
                         onclick="addTaskPopUp()">
                 </div>
-                <div class="task-status-container" id="inprogress" ondragover="allowDrop(event)"
-                    ondrop="moveTo('inprogress')">
+                <div class="task-status-container" id="inprogress"
+                    ondragover="allowDrop(event); highlight('inprogress')" ondragleave="removeHighlight('inprogress')"
+                    ondrop="moveTo('inprogress'); removeHighlight()">
                 </div>
             </div>
             <!-- TASK AWAITING FEEDBACK -->
@@ -80,8 +91,9 @@
                     <h3>Awaiting Feedback</h3><img class="plusbutton" src="assets/img/plus_button.png"
                         onclick="addTaskPopUp()">
                 </div>
-                <div class="task-status-container" id="awaitingfb" ondragover="allowDrop(event)"
-                    ondrop="moveTo('awaitingfb')">
+                <div class="task-status-container" id="awaitingfb"
+                    ondragover="allowDrop(event); highlight('awaitingfb')" ondragleave="removeHighlight('awaitingfb')"
+                    ondrop=" moveTo('awaitingfb'); removeHighlight()">
                 </div>
             </div>
             <!-- TASK DONE -->
@@ -89,7 +101,8 @@
                 <div class="taskheading">
                     <h3>Done</h3><img class="plusbutton" src="assets/img/plus_button.png" onclick="addTaskPopUp()">
                 </div>
-                <div class="task-status-container" id="done" ondragover="allowDrop(event)" ondrop="moveTo('done')">
+                <div class="task-status-container" id="done" ondragover="allowDrop(event); highlight('done')"
+                    ondragleave="removeHighlight('done')" ondrop="moveTo('done'); removeHighlight()">
                 </div>
             </div>
         </div>

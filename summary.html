@@ -7,15 +7,26 @@
     <link rel="stylesheet" href="css/summary.css">
     <link rel="stylesheet" href="css/legal_notice.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="icon" type="image/x-icon" href="assets/img/logo_dark.png">
     <script src="js/include_html.js"></script>
     <script src="js/signupandlogin.js"></script>
     <script src="js/script.js"></script>
     <script src="js/tasks.js"></script>
     <script src="js/summary.js"></script>
+    
     <title>Summary</title>
 </head>
 
 <body onload="initSummary()">
+    <nav id="menu" class="nav hide-overlay-menu"  >
+        <div id="burger-menu">
+            <img class="crosswhite" onclick="hideMenu()" id="hide-menu" src="assets/img/cross_white.png" alt="menu-icon"/>
+        </div>
+        <a class="nav--a a__active logoutbutton" href="index.html"><span class="loginbuttonmenu">Logout</span></a>
+        <div class="legalnoticemenu"><a  class="nav--a" href="legal_notice.html"><img class="legalnoticeimgmenu" src="assets/img/legal_notice.png" class="side-bar-image">Legal Notice</a></div>
+        
+      </nav>
     <!-- SIDEBAR TEMPLATE -->
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
     <!-- HOLE SUMMARY CONTAINER -->
@@ -72,7 +83,7 @@
                     </div>
                     <!-- BOTTOM CONTAINER LEFT TO-DO-->
                     <div class="task-container-bottom">
-                        <div onclick="location.href='/board.html'" class="task-box-style middle-task-container"
+                        <div onclick="location.href='board.html'" class="task-box-style middle-task-container"
                             id="toDo-container" onmouseover="changeImage('toDo-container')"
                             onmouseout="resetImage('toDo-container')">
                             <div class="justify-task-container-content">
