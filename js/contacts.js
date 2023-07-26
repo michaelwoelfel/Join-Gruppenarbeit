@@ -207,6 +207,7 @@ async function loadContacts() {
 }
 
 
+
 /**
  * Returns a random integer between the given minimum and maximum values.
  * @param {number} min - The minimum value.

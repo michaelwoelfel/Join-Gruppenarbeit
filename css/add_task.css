@@ -92,7 +92,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 
 .new-category-popup {
-    height: 350px;
+    height: 80px;
     width: 350px;
     display: flex;
     justify-content: center;
@@ -281,7 +281,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     height: 20px;
     width: 20px;
     margin-left: -32px;
-    margin-bottom: 8px;
+    margin-bottom: -8px;
 }
 
 
