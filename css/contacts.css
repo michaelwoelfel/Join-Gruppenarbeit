@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    overflow: auto;
+    overflow-y: hidden;
     font-family: 'Inter', sans-serif;
     height: 100vh;
 }
@@ -180,8 +180,8 @@ h3 {
         gap: 2px;
         margin-left: 12px;
         border-radius: 45px;
-        width: 40px;
-        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
     }
 
     #letter{
@@ -667,6 +667,18 @@ border: 2px solid white;
 
     .text-better-with-a-team {
         display: none;
+    }
+
+    .contact-container { 
+        padding-left: 0px;
+    }
+
+    .contact {
+        width: 95%;
+    }
+
+    .imgcontainer {
+        margin-left: 0px;
     }
 }
 
