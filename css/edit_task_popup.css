@@ -1,0 +1,45 @@
+.edit-task-popup {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 30px;
+    margin-right: 230px;
+    width: 55%;
+    height: 50%;
+    margin-right: 0;
+}
+
+.edit-task-popup-header  {
+    font-size: 40px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.edit-task-popup-header-category{
+    font-size: 24px;
+    padding-top: 20px;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.edit-task-popup-buttons  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.edit-task-popup-button-style {
+    background-color: white;
+    border: none;
+    font-size: 16px;
+    padding: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .edit-task-popup-button-style:hover {
+    color: #4c87af; 
+  }

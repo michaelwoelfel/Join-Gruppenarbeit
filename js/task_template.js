@@ -1,6 +1,6 @@
 async function taskTemplate(task) {
     return /*html*/ `
-        <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="openTask(${task['id']})" class="content">
+        <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="handleTaskClick(${task['id']})"} class="content">
             <div style="background-color: ${task['categoryBackgroundColor']}" class="category">${task['category']}</div>
             <div class="taskdescription"><b>${task['name']}</b></div>
             <div class="subtaskdescription"><b>${task['subtask']}</b></div>
@@ -14,10 +14,9 @@ async function taskTemplate(task) {
             </div>
         </div>
     `;
-
 }
 
-async function taskUserTemplate(randomColor,firstLetter,secondLetter) {
+async function taskUserTemplate(randomColor, firstLetter, secondLetter) {
     return /*html*/ `<div class="contact-container">
     <div class="imgcontainer" style="background-color: ${randomColor};">
         <span id="firstletter">${firstLetter}</span>
@@ -38,8 +37,6 @@ function createUserHTML(randomColor, firstLetter, secondLetter, nameParts) {
     `;
 }
 
-
-
 async function generateTaskDetailsHTML(index) {
     // Retrieves the task with the given index
     let task = tasks[index];
@@ -50,7 +47,7 @@ async function generateTaskDetailsHTML(index) {
                 <div style="background-color: ${task['categoryBackgroundColor']}" class="category">${task['category']}</div>
                 <div onclick="closeTask()"><img id="closeimg" src="assets/img/close.png"></div>
             </div>
-            <div class="taskdescriptionbig"><b>${task['name']}</b></div>
+            <div id="taskNameHeader" class="taskdescriptionbig"><b>${task['name']}</b></div>
             <div class="subtaskdescriptionbig"><b>${task['subtask']}</b></div>
             <div class="tasktext">${task['tasktext']}</div>
             <div class="datecontainer">
@@ -74,4 +71,53 @@ async function generateTaskDetailsHTML(index) {
             </div>
         </div>
     `;
+}
+
+function editTaskResponsive(index) {
+    let task = tasks[index];
+    let modalContent = /*html*/ `
+    <div id="editTaskModal" class="edit-task-popup">
+        <div class="modal-content">
+            <span class="edit-task-popup-header" id="taskNameHeader">${task['name']}</span>
+            <div class="edit-task-popup-buttons">
+            <span class="edit-task-popup-header-category">Change Status</span>
+                <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'todo')">To Do</button>
+                <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'inprogress')">In Progress</button>
+                <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'awaitingfb')">Awaiting Feedback</button>
+                <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'done')">Done</button>
+                <span class="edit-task-popup-header-category">Task</span>
+                <button class="edit-task-popup-button-style" onclick="openTask(${index})">Show Task</button>
+                <button class="edit-task-popup-button-style" onclick="editTask(${index})">Edit Task</button>
+                <button class="edit-task-popup-button-style" onclick="closeEditTaskModal(${index})">Back</button>
+            </div>
+        </div>
+    </div>
+`;
+    document.getElementById('showtask').innerHTML = modalContent;
+    document.getElementById('showtask').classList.remove('d-none');
+}
+
+function closeEditTaskModal() {
+    document.getElementById('showtask').classList.add('d-none');
+}
+
+
+function editTaskStatus(index, newStatus) {
+    let task = tasks[index];
+    task.status = newStatus;
+    updateHTML();
+}
+
+// Function to check the screen width
+function isMobileWidth() {
+    return window.innerWidth <= 800;
+}
+
+// Function to handle the task click event
+function handleTaskClick(taskId) {
+    if (isMobileWidth()) {
+        editTaskResponsive(taskId); // For mobile devices, call openTask function
+    } else {
+        openTask(taskId); // For desktop devices, call editTaskResponsive function
+    }
 }
