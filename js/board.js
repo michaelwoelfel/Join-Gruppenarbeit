@@ -210,3 +210,39 @@ async function loadselectedUsers() {
     }
 }
 
+
+
+async function findTask() {
+    let search = document.getElementById('searchtaskinput').value;
+    search = search.toLowerCase();
+    await clearAllTasks();
+    for (let i = 0; i < tasks.length; i++) {
+        const task = tasks[i];
+        let searchtask = task['name'];
+        let taskstatus = task['status']
+        if (searchtask.toLowerCase().includes(search) && taskstatus == 'todo') {
+            document.getElementById('todo').innerHTML += await taskTemplate(task);
+        }  
+        if (searchtask.toLowerCase().includes(search) && taskstatus == 'inprogress') {
+            document.getElementById('inprogress').innerHTML += await taskTemplate(task);
+        }  
+        if (searchtask.toLowerCase().includes(search) && taskstatus == 'awaitingfb') {
+            document.getElementById('awaitingfb').innerHTML += await taskTemplate(task);
+        }  
+        if (searchtask.toLowerCase().includes(search) && taskstatus == 'done') {
+            document.getElementById('done').innerHTML += await taskTemplate(task);
+        }  
+        await renderUsersInTask(task);
+    }
+    if (search == '') {
+       await clearAllTasks();
+        renderTasks();
+    }
+}
+
+function clearAllTasks() {
+    document.getElementById('inprogress').innerHTML = '';
+    document.getElementById('todo').innerHTML = '';
+    document.getElementById('awaitingfb').innerHTML = '';
+    document.getElementById('done').innerHTML = '';
+}

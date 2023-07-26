@@ -392,6 +392,33 @@ h3 {
     overflow: auto;
 }
 
+.tasktext::-webkit-scrollbar {
+ width: 12px;
+ border-radius: 8px;
+
+}
+
+/* Handle */
+body:-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 8px;
+  }
+
+
+  .tasktext::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 8px;
+   
+   }
+   
+   /* Handle */
+   body::-webkit-scrollbar-thumb {
+       background: #888;
+       border-radius: 8px;
+     }
+  
+
+
 .progresscontainer {
     
     gap: 10px;
