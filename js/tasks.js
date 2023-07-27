@@ -48,6 +48,7 @@ async function addTaskToList(task) {
 
 // Hauptfunktion
 async function addTask(event) {
+  
     event.stopPropagation();
     await checkLastTaskId();
     await loadselectedUsers();
@@ -58,12 +59,17 @@ async function addTask(event) {
     let taskCategorybc = currentColorOfCategory;
     let taskAssign = selectedUsers;
     let taskDate = document.getElementById('add_task_input_date').value;
-    let taskPrio = getTaskPrio();
-    let taskId = taskIdCounter++;
+    if (typeof taskPrio === 'undefined') {
+        alert('Lege zuerst die Priorität des Tasks fest !');
+    }else { getTaskPrio();
+        let taskPrio;
+        let taskId = taskIdCounter++;
     let task = createTaskElement(taskName, taskSubtask, taskDescription, taskCategory, taskCategorybc, taskAssign, taskDate, taskPrio, taskId);
     await addTaskToList(task);
     selectedUsers = [];
     await saveSelectedUsers();
+    }
+    
 }
 
 /**

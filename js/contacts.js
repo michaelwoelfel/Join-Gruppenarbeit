@@ -22,10 +22,12 @@ async function addContact() {
     // Save the updated list to the local storage
     await setItem('contacts', JSON.stringify(contacts));
     // Show the "Added to board information"
-    taskAddedToBoard();
     getRandomColor();
     // Update the view
     renderContacts();
+    document.getElementById('addedtoboard').style.zIndex = "1500";
+    await taskAddedToBoard();
+    setTimeout(closeAddContact, 1000); 
 
 };
 
@@ -33,25 +35,19 @@ async function sortContactsAlphabetically() {
     await loadContacts();
     contacts.sort((a, b) => a.name.localeCompare(b.name));
 }
-
 async function renderContacts() {
     await sortContactsAlphabetically();
 
-    // Variable to keep track of the first letter of the current contact's name
     let currentLetter = '';
     document.getElementById('contact-list').innerHTML = '';
 
     for (let i = 2; i < contacts.length; i++) {
         const contact = contacts[i];
         const firstLetter = contact['name'].charAt(0).toUpperCase();
-
-        // If the first letter of the name is new, create a new letter header
         if (firstLetter !== currentLetter) {
             currentLetter = firstLetter;
             document.getElementById('contact-list').innerHTML += createLetterHeader(currentLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
         }
-
-        // If the name is made of two words, get the first letter of the second word
         let secondLetter = '';
         let nameParts = contact['name'].split(' ');
         if (nameParts.length > 1 && nameParts[1].length > 0) {
@@ -59,7 +55,6 @@ async function renderContacts() {
         }
         let randomColor = contact.color || getRandomColor();
         contact.color = randomColor;
-        // Create a new contact container and add it to the page
         document.getElementById('contact-list').innerHTML += createContact(i, contact, randomColor, secondLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
     }
 }
@@ -81,7 +76,7 @@ function taskAddedToBoard() {
 
     setTimeout(() => {
         container.classList.remove('show');
-    }, 3000);
+    }, 1000);
 }
 
 /**
@@ -140,7 +135,9 @@ async function saveContact(i) {
     contact.phone = ContactPhone;
     await setItem('contacts', JSON.stringify(contacts));
     renderContacts();
-    closeEditContact();
+    setTimeout(closeEditContact, 500); 
+   
+   
 
 };
 

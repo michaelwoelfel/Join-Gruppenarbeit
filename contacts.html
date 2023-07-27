@@ -60,6 +60,7 @@
                 </div>
 
                 <div class="right-side-modal">
+                    <img class="closeimgpopup3" onclick="closeAddContact()" src="assets/img/close.png">
                     <div class="img-info">
                         <img class="img-add-contact" src="assets/img/pfp.png">
                         <form id="contactForm" class="input-fields" onsubmit="event.preventDefault(); addContact();">
@@ -68,9 +69,9 @@
                             <input id="contactphone" type="number" required minlength="10" class="input-field-phone" placeholder="Phone">
                             <div class="bottom-buttons">
                                 <button type="button" onclick="closeAddContact()" class="cancel-btn">Cancel</button>
-                                <button type="submit" id="createContactButton" disabled  class="create-btn">Create contact</button>
+                                <button type="submit" id="createContactButton"  class="create-btn">Create contact</button>
                             </div>
-                            <span class="addedTaskToBoard_content">Contact Added <img class="board" src="assets/img/board_img.png" alt="board"></span>
+                            <span id="addedtoboard" class="addedTaskToBoard_content">Contact Added <img class="board" src="assets/img/board_img.png" alt="board"></span>
                         </form>
                         
                         </div>
