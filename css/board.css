@@ -335,7 +335,11 @@ h3 {
 .buttoncontainer {
     width: 100%;
     display: flex;
+    position: fixed;
     justify-content: flex-end;
+    z-index: 3000;
+    bottom: 20%;
+    right: 17%;
 
 
 }
@@ -496,9 +500,8 @@ h3 {
 
         .buttoncontainer{
             position: fixed;
-            bottom: 100px;
-            right: 150px;
-
+            right: 15%;
+        
         }
 
     .task-status-container {
