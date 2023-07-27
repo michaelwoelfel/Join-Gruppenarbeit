@@ -18,6 +18,15 @@
      justify-content: center;
 }
 
+.color_dot {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: #29ABE2;
+    margin-right: 24px;
+}
+
+
 
 .border-radius {
     border-radius: 6px 6px 0 0;
@@ -32,10 +41,10 @@
     background-color: white;
     border-radius: 16px;
     position: absolute;
-    top: 2%;
+    margin-top: 2.5%;
     left: 128px;
     right: 128px;
-    
+    bottom: 5%;
     z-index: 20;
     overflow: auto;
     height: 90%;
@@ -423,6 +432,17 @@ input[type=date]:invalid::-webkit-datetime-edit {
     border-radius: 5px;
 }
 
+.category ul li, .liElement{
+    list-style: none;
+    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+
+
 
 
 /* BUTTONS CLEAR & CREATE */
@@ -436,6 +456,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
     z-index: 500;
 }
 
+
+li
 
 .btn {
     display: flex;
@@ -493,6 +515,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 .clear-btn {
     border: 1px solid #2A3647;
     color: #2A3647;
+    
 }
 
 
@@ -611,6 +634,9 @@ input[type=date]:invalid::-webkit-datetime-edit {
 @media only screen and (max-width: 1080px) {
     .clear-btn {
         display: none;
+        position: fixed;
+        top: 87px;
+        right: 350px;
     }
 
     .create-btn {
@@ -651,6 +677,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
         top: 14px;
         right: 16px;
         z-index: 600;
+        }
+
+        .clear-btn {
+            top: 14px;
+            right: 160px;
         }
 
     .headline_h1_cancel img {
