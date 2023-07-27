@@ -45,7 +45,7 @@
     left: 128px;
     right: 128px;
     bottom: 5%;
-    z-index: 20;
+    z-index: 12;
     overflow: auto;
     height: 90%;
 }
@@ -127,7 +127,7 @@
 
 .addedTaskToBoard_content img {
     margin-left: 8px;
-    z-index: 1000;
+    z-index: 70;
 }
 
 
@@ -147,6 +147,7 @@ input {
     font-family: 'Inter', sans-serif;
     border: 2px solid #D1D1D1;
     outline: none;
+    z-index: 10;
 }
 .task_input_field_styling {
     border-radius: 6px;
@@ -567,7 +568,7 @@ li
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    z-index: 1000;
+    z-index: 9;
 }
 
 
@@ -619,7 +620,7 @@ li
         top: 0;
         left: 0;
         right: 0;
-        
+        z-index: 80;
         border-radius: 20px;
        
     }
