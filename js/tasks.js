@@ -69,7 +69,7 @@ async function addTask(event) {
     selectedUsers = [];
     await saveSelectedUsers();
     }
-    
+    closePopup();
 }
 
 /**
