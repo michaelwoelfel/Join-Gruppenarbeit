@@ -64,9 +64,9 @@ async function saveNewCategory(newCategory, currentColorOfCategory) {
     };
 
     allCategories.push(categoriesAndColors);
-    await setItemCategory('createdCategories', newCategory);
-    await setItemCategory('createdColors', currentColorOfCategory);
+   await  saveCategories();
 }
+    
 
 async function loadNewCategory(newCategory, currentColorOfCategory) {
 
@@ -78,14 +78,16 @@ async function loadNewCategory(newCategory, currentColorOfCategory) {
     }
 }
 
-function showCategories() {
+async function showCategories() {
+    await loadCategories();
     let categoryselection = document.getElementById('add_task_category_select');
     categoryselection.innerHTML = `<li onclick="handleCategoryChange(this)">New category</li>`;
     
     for (let i = 0; i < allCategories.length; i++) {
-        const category = allCategories[i];
-        const colorDot = allColors[i];
-        categoryselection.innerHTML += /*html*/`
+        const category = allCategories[i]['createdCategories'];
+        const colorDot = allCategories[i]['createdColors'];
+        debugger;
+        categoryselection.innerHTML +=  await /*html*/`
             <li class="liElement">${category} 
                 <div style="background-color: ${colorDot}" class="color_dot"></div>
             </li>  
@@ -108,12 +110,14 @@ async function getItemCategory(key) {
 
 
 
-function openDropdownMenu() {
+async function openDropdownMenu() {
+    await loadCategories();
     let dropdownMenu = document.getElementById('add_task_category_select');
     dropdownMenu.classList.toggle('d-block');
-
     let dropdown = document.getElementById('dropdown');
     dropdown.classList.toggle('border-radius');
+    await showCategories();
+    
 }
 
 
@@ -152,3 +156,18 @@ function closeCategoryPopup() {
     const popup = document.querySelector('.new-category-popup');
     document.body.removeChild(popup);
 }
+
+
+async function saveCategories() {
+    await setItem('allCategories', JSON.stringify(allCategories));
+}
+
+async function loadCategories() {
+    try {
+        allCategories= JSON.parse(await getItem('allCategories'));
+    } catch (e) {
+        console.error('Loading error:', e);
+
+    }
+}
+
