@@ -86,13 +86,22 @@ async function showCategories() {
     for (let i = 0; i < allCategories.length; i++) {
         const category = allCategories[i]['createdCategories'];
         const colorDot = allCategories[i]['createdColors'];
-        debugger;
         categoryselection.innerHTML +=  await /*html*/`
-            <li class="liElement">${category} 
+            <li onclick="closeDropdown(this)" class="liElement">${category} 
                 <div style="background-color: ${colorDot}" class="color_dot"></div>
             </li>  
         `;
     }
+}
+
+async function setCurrentCategory(category,colorDot) {
+    currentCategory = category;
+    currentColorOfCategory = colorDot;
+    await setItem('currentCategory', JSON.stringify(currentCategory));
+    await setItem('currentColorOfCategory', JSON.stringify(currentColorOfCategory));
+    await closeDropdown();
+
+
 }
 
 
