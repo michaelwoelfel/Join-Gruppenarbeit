@@ -70,12 +70,13 @@
                 <div class="category fd_column">
                     <span>Category</span>
                     <div class="category-select-down">
-                        <div class="task_input_field_styling dropdown" id="dropdown">Select category</div>
+                        <div class="task_input_field_styling dropdown" onclick="openDropdownMenu()" id="dropdown">Select category</div>
                         <img class="category-down" onclick="openDropdownMenu()" src="assets/img/category-down.svg"
                             alt="">
                     </div>
                     <ul class="task_input_field_styling dropdown-content" id="add_task_category_select">
                         <li onclick="handleCategoryChange(this)">New category</li>
+                        <li onclick="clearCategories()">Clear Cateories</li>
                     </ul>
 
                 </div>

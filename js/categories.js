@@ -81,7 +81,7 @@ async function loadNewCategory(newCategory, currentColorOfCategory) {
 async function showCategories() {
     await loadCategories();
     let categoryselection = document.getElementById('add_task_category_select');
-    categoryselection.innerHTML = `<li onclick="handleCategoryChange(this)">New category</li>`;
+    categoryselection.innerHTML = `<li onclick="handleCategoryChange(this)">New category</li> <li onclick="clearCategories()">Clear Cateories</li>` ;
     
     for (let i = 0; i < allCategories.length; i++) {
         const category = allCategories[i]['createdCategories'];
@@ -178,5 +178,11 @@ async function loadCategories() {
         console.error('Loading error:', e);
 
     }
+}
+
+function clearCategories() {
+     allCategories = [];
+     saveCategories();
+     showCategories();
 }
 
