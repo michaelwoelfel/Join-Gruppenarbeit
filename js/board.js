@@ -131,6 +131,7 @@ async function findTask() {
         if (searchtask.toLowerCase().includes(search) && taskstatus == 'toDo') {
             document.getElementById('toDo').innerHTML += await taskTemplate(task);
             await renderUsersInTask(task);
+            
         }
         if (searchtask.toLowerCase().includes(search) && taskstatus == 'inProgress') {
             document.getElementById('inProgress').innerHTML += await taskTemplate(task);

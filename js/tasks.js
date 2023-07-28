@@ -101,6 +101,7 @@ async function changeTask(i, event) {
     await saveSelectedUsers();
     // Displays the animation in add Task
     await taskAddedToBoard();
+    closePopup();
 };
 
 /**
