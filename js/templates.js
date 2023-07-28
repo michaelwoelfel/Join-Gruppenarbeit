@@ -55,9 +55,9 @@ async function generateTaskDetailsHTML(index) {
             </div>
             <div class="prioritycontainer">
                 <span><b>Priority:</b></span>
-                <div id="colorpriobigtask" class="prioritybigtask">
-                    <span id="priobigtask"></span>
-                    <div id="urgencyimg"></div>
+                <div id="colorPrioBigTask" class="prioritybigtask">
+                    <span id="prioBigTask"></span>
+                    <div id="urgencyImg"></div>
                 </div>
             </div>
             <div class="bigtaskusers">

@@ -197,17 +197,18 @@ function colorUrgency(index) {
     prio = task['priority'];
 
     // Changes the display depending on the priority level
-    if (prio === 'high') {
+    if (prio === 'assets/img/priohigh.png') {
         document.getElementById('colorPrioBigTask').classList.add('urgent');
         document.getElementById('prioBigTask').innerHTML = `Urgent`;
         document.getElementById('urgencyImg').innerHTML = `<img src="assets/img/prio.png">`;
     }
-    if (prio === 'medium') {
+   
+    if (prio === 'assets/img/priomedium.png') {
         document.getElementById('colorPrioBigTask').classList.add('medium');
         document.getElementById('prioBigTask').innerHTML = `Medium`;
         document.getElementById('urgencyImg').innerHTML = `=`;
     }
-    if (prio === 'low') {
+    if (prio === 'assets/img/priolow.png') {
         document.getElementById('colorPrioBigTask').classList.add('low');
         document.getElementById('prioBigTask').innerHTML = `Low`;
         document.getElementById('urgencyImg').innerHTML = `<img src="assets/img/priolowwhite.png">`;
