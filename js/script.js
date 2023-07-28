@@ -106,7 +106,7 @@ async function initAddTask() {
     await includeHTML(async () => {
         await colorAddTask();
         await renderTaskContacts();
-        clickName();
+        
     });
 }
 

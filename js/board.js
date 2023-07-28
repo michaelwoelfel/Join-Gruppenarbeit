@@ -75,7 +75,7 @@ function prioColorGreen() {
 async function renderTaskContacts() {
     await loadContacts();
     let userSelection = `
-        <div id="selectInnerUser">`;
+        <div>`;
     for (let i = 2; i < contacts.length; i++) {
         let contact = contacts[i];
         userSelection += `

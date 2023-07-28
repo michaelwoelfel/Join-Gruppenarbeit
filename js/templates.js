@@ -7,11 +7,13 @@ async function taskTemplate(task) {
             <div class="tasktext">${task['tasktext']}</div>
             <div class="progresscontainer">
             <div class="taskfooter"><div class="usersintaks" id="usersInTask${task['id']}"></div>
+                <div class="priority">
+                    <img src="${task['priority']}">
+                </div>
             </div>
         </div>
     `;
 }
-
 
 async function taskUserTemplate(randomColor, firstLetter, secondLetter) {
     return /*html*/ `<div class="contact-container">
@@ -53,9 +55,9 @@ async function generateTaskDetailsHTML(index) {
             </div>
             <div class="prioritycontainer">
                 <span><b>Priority:</b></span>
-                <div id="colorPrioBigTask" class="prioritybigtask">
-                    <span id="prioBigTask"></span>
-                    <div id="urgencyImg"></div>
+                <div id="colorpriobigtask" class="prioritybigtask">
+                    <span id="priobigtask"></span>
+                    <div id="urgencyimg"></div>
                 </div>
             </div>
             <div class="bigtaskusers">

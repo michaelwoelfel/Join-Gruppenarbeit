@@ -176,15 +176,15 @@ function clearTask(event) {
  */
 function getTaskPrio(prio) {
     if (prio === 'urgent' || prio === `assets/img/priohigh.png`) {
-        taskPrio = `high`;
+        taskPrio = `assets/img/priohigh.png`;
         prioColorRed();
     }
     if (prio === 'medium' || prio === `assets/img/priomedium.png`) {
-        taskPrio = `medium`;
+        taskPrio = `assets/img/priomedium.png`;
         prioColorOrange();
     }
     if (prio === 'low' || prio === `assets/img/priolow.png`) {
-        taskPrio = `low`;
+        taskPrio = `assets/img/priolow.png`;
         prioColorGreen();
     }
     return taskPrio;
@@ -193,24 +193,24 @@ function getTaskPrio(prio) {
 // Coloring the urgency level in the detailed view
 function colorUrgency(index) {
     // Retrieves the task and its priority level
-    let task = tasks[index];
-    let prio = task['priority'];
+    task = tasks[index]
+    prio = task['priority'];
 
     // Changes the display depending on the priority level
-    if (prio === 'high') {
-        document.getElementById('colorPrioBigTask').classList.add('urgent');
-        document.getElementById('prioBigTask').innerHTML = `Urgent`;
-        document.getElementById('urgencyImg').innerHTML = `<img src="assets/img/prio.png">`;
+    if (prio === 'assets/img/priohigh.png') {
+        document.getElementById('colorpriobigtask').classList.add('urgent');
+        document.getElementById('priobigtask').innerHTML = `Urgent`;
+        document.getElementById('urgencyimg').innerHTML = `<img src="assets/img/prio.png">`;
     }
-    if (prio === 'medium') {
-        document.getElementById('colorPrioBigTask').classList.add('medium');
-        document.getElementById('prioBigTask').innerHTML = `Medium`;
-        document.getElementById('urgencyImg').innerHTML = `=`;
+    if (prio === 'assets/img/priomedium.png') {
+        document.getElementById('colorpriobigtask').classList.add('medium');
+        document.getElementById('priobigtask').innerHTML = `Medium`;
+        document.getElementById('urgencyimg').innerHTML = `=`;
     }
-    if (prio === 'low') {
-        document.getElementById('colorPrioBigTask').classList.add('low');
-        document.getElementById('prioBigTask').innerHTML = `Low`;
-        document.getElementById('urgencyImg').innerHTML = `<img src="assets/img/priolowwhite.png">`;
+    if (prio === 'assets/img/priolow.png') {
+        document.getElementById('colorpriobigtask').classList.add('low');
+        document.getElementById('priobigtask').innerHTML = `Low`;
+        document.getElementById('urgencyimg').innerHTML = `<img src="assets/img/priolowwhite.png">`;
     }
 }
 
@@ -261,8 +261,9 @@ async function renderToDo() {
     for (let index = 0; index < toDo.length; index++) {
         const task = toDo[index];
         document.getElementById('toDo').innerHTML += await taskTemplate(task);
-        renderUsersInTask(task);
+        await renderUsersInTask(task);
     }
+    
 }
 
 async function renderUsersInTask(task) {
@@ -270,6 +271,7 @@ async function renderUsersInTask(task) {
     userTasks = task['user'];
     let idTask = task.id;
     let userContainer = document.getElementById(`usersInTask${idTask}`);
+    console.log('userContainer');
 
     for (let i = 0; i < userTasks.length; i++) {
         const element = userTasks[i];
@@ -316,7 +318,7 @@ async function renderInProgress() {
     for (let index = 0; index < inProgress.length; index++) {
         const task = inProgress[index];
         document.getElementById('inProgress').innerHTML += await taskTemplate(task);
-        renderUsersInTask(task);
+        await renderUsersInTask(task);
     }
 }
 
@@ -329,7 +331,7 @@ async function renderAwaitFb() {
     for (let index = 0; index < awaitingFeedback.length; index++) {
         const task = awaitingFeedback[index];
         document.getElementById('awaitingFeedback').innerHTML += await taskTemplate(task);
-        renderUsersInTask(task);
+        await renderUsersInTask(task);
     }
 }
 
@@ -342,7 +344,7 @@ async function renderDone() {
     for (let index = 0; index < done.length; index++) {
         const task = done[index];
         document.getElementById('done').innerHTML += await taskTemplate(task);
-        renderUsersInTask(task);
+        await renderUsersInTask(task);
     }
 }
 
@@ -356,7 +358,7 @@ async function openTask(i) {
     // Insert the task details HTML into the 'showTask' element
     document.getElementById('showTask').innerHTML = await taskDetailsHTML;
     // Calls a function to display the task's priority level
-    colorUrgency(index);
+    await colorUrgency(index);
     renderUsersInOpenTask(index);
 }
 
