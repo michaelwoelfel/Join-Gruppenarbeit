@@ -7,7 +7,7 @@ async function taskTemplate(task) {
             <div class="tasktext">${task['tasktext']}</div>
             <div class="progresscontainer">
             
-            <div class="taskfooter"><div class="usersintaks" id="usersintask${task['id']}"></div>
+            <div class="taskfooter"><div class="usersintaks" id="usersInTask${task['id']}"></div>
                 <div class="priority">
                     <img src="${task['priority']}">
                 </div>
@@ -56,9 +56,9 @@ async function generateTaskDetailsHTML(index) {
             </div>
             <div class="prioritycontainer">
                 <span><b>Priority:</b></span>
-                <div id="colorpriobigtask" class="prioritybigtask">
-                    <span id="priobigtask"></span>
-                    <div id="urgencyimg"></div>
+                <div id="colorPrioBigTask" class="prioritybigtask">
+                    <span id="prioBigTask'"></span>
+                    <div id="urgencyImg"></div>
                 </div>
             </div>
             <div class="bigtaskusers">
@@ -162,9 +162,9 @@ async function renderPopUp(popup) {
             </div>
             <div class="buttons-clear-create">
                 <div class="clear-btn btn" onclick="clearTask(event)">Clear <img src="assets/img/add_task_cancel.png" alt="check"></div>
-                <div id="buttonedit" class="create-btn btn" onclick="addTask(event)">Create Task <img src="assets/img/add_task_check.png" alt="cancel"></div>
+                <div id="buttonEdit" class="create-btn btn" onclick="addTask(event)">Create Task <img src="assets/img/add_task_check.png" alt="cancel"></div>
             </div>
-            <div class="buttons-clear-create" id="buttonafteredit"> 
+            <div class="buttons-clear-create" id="buttonAfterEdit"> 
             </div>
             <div class="animation-addedToBoard">
                 <span class="addedTaskToBoard_content">Task added to board <img class="board" src="assets/img/board_img.png" alt="board"></span>

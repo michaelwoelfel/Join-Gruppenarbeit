@@ -136,9 +136,9 @@ async function editTask(i) {
     let taskprio = task['priority'];
     getTaskPrio(taskprio);
     await loadTaskDetails(task);
-    document.getElementById('buttonedit').classList.add('d-none');
-    document.getElementById('buttonafteredit').innerHTML = `<div id="buttonaftereditd-none"  class="create-btn btn d-none" onclick="changeTask(${i},event)">Change Task <img src="assets/img/add_task_check.png" alt="cancel"></div>`;
-    document.getElementById('buttonaftereditd-none').classList.remove('d-none');
+    document.getElementById('buttonEdit').classList.add('d-none');
+    document.getElementById('buttonAfterEdit').innerHTML = `<div id="buttonAfterEditNone"  class="create-btn btn d-none" onclick="changeTask(${i},event)">Change Task <img src="assets/img/add_task_check.png" alt="cancel"></div>`;
+    document.getElementById('buttonAfterEditNone').classList.remove('d-none');
 }
 
 /**
@@ -165,7 +165,7 @@ function clearTask(event) {
     document.getElementById('addTaskDescription').value = '';
     document.getElementById('addTaskCategorySelect').value = '';
     document.getElementById('addTaskInputDate').value = '';
-    document.getElementById('show-subtasks').innerHTML = '';
+    document.getElementById('showSubtasks').innerHTML = '';
 }
 
 /**
@@ -243,7 +243,7 @@ async function renderUsersInTask(task) {
     await loadContacts(); // Kontakte werden benötigt, um auf die gespeicherte Farbe zuzugreifen
     userTasks = task['user'];
     let idTask = task.id;
-    let userContainer = document.getElementById(`usersintask${idTask}`);
+    let userContainer = document.getElementById(`usersInTask${idTask}`);
     for (let i = 0; i < userTasks.length; i++) {
         const element = userTasks[i];
         let nameParts = element.split(' '); // Name in Teile aufteilen
@@ -357,19 +357,19 @@ function colorUrgency(index) {
 
     // Changes the display depending on the priority level
     if (prio === 'assets/img/priohigh.png') {
-        document.getElementById('colorpriobigtask').classList.add('urgent');
-        document.getElementById('priobigtask').innerHTML = `Urgent`;
-        document.getElementById('urgencyimg').innerHTML = `<img src="assets/img/prio.png">`;
+        document.getElementById('colorPrioBigTask').classList.add('urgent');
+        document.getElementById('prioBigTask').innerHTML = `Urgent`;
+        document.getElementById('urgencyImg').innerHTML = `<img src="assets/img/prio.png">`;
     }
     if (prio === 'assets/img/priomedium.png') {
-        document.getElementById('colorpriobigtask').classList.add('medium');
-        document.getElementById('priobigtask').innerHTML = `Medium`;
-        document.getElementById('urgencyimg').innerHTML = `=`;
+        document.getElementById('colorPrioBigTask').classList.add('medium');
+        document.getElementById('prioBigTask').innerHTML = `Medium`;
+        document.getElementById('urgencyImg').innerHTML = `=`;
     }
     if (prio === 'assets/img/priolow.png') {
-        document.getElementById('colorpriobigtask').classList.add('low');
-        document.getElementById('priobigtask').innerHTML = `Low`;
-        document.getElementById('urgencyimg').innerHTML = `<img src="assets/img/priolowwhite.png">`;
+        document.getElementById('colorPrioBigTask').classList.add('low');
+        document.getElementById('prioBigTask').innerHTML = `Low`;
+        document.getElementById('urgencyImg').innerHTML = `<img src="assets/img/priolowwhite.png">`;
     }
 }
 
@@ -404,7 +404,7 @@ function taskAddedToBoard() {
 // Adds new Subtasks under subtask-field
 function addNewSubtask() {
     const newSubtask = document.getElementById('addTaskInputSubtask').value;
-    let currentSubtasks = document.getElementById('show-subtasks');
+    let currentSubtasks = document.getElementById('showSubtasks');
     if (newSubtask === '')
         alert('Bitte Feld ausfüllen!!')
     else {
