@@ -118,36 +118,7 @@ async function loadSelectedUsers() {
 }
 
 // SEARCH FUNCTIONS
-/**
- * Searches for tasks based on the search input value and filters them according to their status.
- */
-// async function findTask() {
-//     let search = document.getElementById('searchTaskInput').value.toLowerCase();
-//     await clearAllTasks();
-//     for (let i = 0; i < tasks.length; i++) {
-//         const task = tasks[i];
-//         let searchTask = task['name'].toLowerCase();
-//         let taskStatus = task['status'];
-//         if (searchTask.includes(search)) {
-//             document.getElementById(taskStatus).innerHTML += taskTemplate(task);
-//         }
-//         // await renderUsersInTask(task);
-//     }
-//     if (search === '') {
-//         await clearAllTasks();
-//         renderTasks();
-//     }
-// }
 
-// /**
-//  * Clears all tasks from their respective task containers.
-//  */
-// function clearAllTasks() {
-//     const taskContainers = ['inProgress', 'toDo', 'awaitingFeedback', 'done'];
-//     for (const container of taskContainers) {
-//         document.getElementById(container).innerHTML = '';
-//     }
-// }
 
 async function findTask() {
     let search = document.getElementById('searchTaskInput').value;
@@ -183,3 +154,36 @@ function clearAllTasks() {
     document.getElementById('awaitingFeedback').innerHTML = '';
     document.getElementById('done').innerHTML = '';
 }
+
+
+// Angepasst ... funktioniert aber nicht ...
+/**
+ * Searches for tasks based on the search input value and filters them according to their status.
+ */
+// async function findTask() {
+//     let search = document.getElementById('searchTaskInput').value.toLowerCase();
+//     await clearAllTasks();
+//     for (let i = 0; i < tasks.length; i++) {
+//         const task = tasks[i];
+//         let searchTask = task['name'].toLowerCase();
+//         let taskStatus = task['status'];
+//         if (searchTask.includes(search)) {
+//             document.getElementById(taskStatus).innerHTML += taskTemplate(task);
+//         }
+//         // await renderUsersInTask(task);
+//     }
+//     if (search === '') {
+//         await clearAllTasks();
+//         renderTasks();
+//     }
+// }
+
+// /**
+//  * Clears all tasks from their respective task containers.
+//  */
+// function clearAllTasks() {
+//     const taskContainers = ['inProgress', 'toDo', 'awaitingFeedback', 'done'];
+//     for (const container of taskContainers) {
+//         document.getElementById(container).innerHTML = '';
+//     }
+// }

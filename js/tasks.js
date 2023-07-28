@@ -270,6 +270,7 @@ async function renderUsersInTask(task) {
     userTasks = task['user'];
     let idTask = task.id;
     let userContainer = document.getElementById(`usersInTask${idTask}`);
+
     for (let i = 0; i < userTasks.length; i++) {
         const element = userTasks[i];
         let nameParts = element.split(' '); // Name in Teile aufteilen
@@ -278,7 +279,6 @@ async function renderUsersInTask(task) {
         let contact = getContactFromName(nameParts.join(' ')); // Suche nach Name
         let randomColor = contact ? contact.color : getRandomColor(); // Wenn Name da, dann contact.color, wenn nicht function ... 
         userContainer.innerHTML += await taskUserTemplate(randomColor, firstLetter, secondLetter);
-
     };
 }
 
