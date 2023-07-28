@@ -134,7 +134,7 @@ async function renderPopUp(popup) {
                             </ul>
                         </div>
                         <span id="assignto">Assign to</span>
-                        <div id="userselection" class="assign fd_column selectinneruser">
+                        <div id="selectInnerUser" class="assign fd_column selectinneruser">
                         </div>  
                     </div>
                 </form>
@@ -147,9 +147,9 @@ async function renderPopUp(popup) {
                     <div class="prio fd_column">
                         <span>Prio</span>
                         <div class="prio-btns-container">
-                            <div onclick="getTaskPrio('urgent')" id="prio_urgent" class="prio-btn">Urgent <img  src="./assets/img/urgent_prio.png" alt="urgent"></div>
-                            <div onclick="getTaskPrio('medium')" id="prio_medium" class="prio-btn">Medium <img  src="assets/img/medium_prio.png" alt="medium"></div>
-                            <div onclick="getTaskPrio('low')" id="prio_low" class="prio-btn">Low <img  src="assets/img/low_prio.png" alt="low"></div>
+                            <div onclick="getTaskPrio('urgent')" id="prioUrgent" class="prio-btn">Urgent <img  src="./assets/img/urgent_prio.png" alt="urgent"></div>
+                            <div onclick="getTaskPrio('medium')" id="prioMedium" class="prio-btn">Medium <img  src="assets/img/medium_prio.png" alt="medium"></div>
+                            <div onclick="getTaskPrio('low')" id="prioLow" class="prio-btn">Low <img  src="assets/img/low_prio.png" alt="low"></div>
                         </div>
                     </div>
                     <div class="subtasks fd_column">

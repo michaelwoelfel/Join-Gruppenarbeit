@@ -7,18 +7,17 @@ let selectedUsers = [];
  * Displays the add task popup.
  */
 async function addTaskPopUp() {
-    let popup = document.getElementById('popup_add_task');
+    let popup = document.getElementById('popupAddTask');
     popup.classList.remove('d-none');
     renderPopUp(popup);
     await renderTaskContacts();
-
 }
 
 /**
  * Closes the add task popup and re-renders the tasks.
  */
 function closePopup() {
-    let popup = document.getElementById('popup_add_task');
+    let popup = document.getElementById('popupAddTask');
     popup.classList.add('d-none');
     renderTasks();
 }
@@ -35,9 +34,9 @@ function doNotClose(event) {
  * Changes the color of the priority to red when the "Urgent" button is clicked.
  */
 function prioColorRed() {
-    let urgent = document.getElementById('prio_urgent');
-    let medium = document.getElementById('prio_medium');
-    let low = document.getElementById('prio_low');
+    let urgent = document.getElementById('prioUrgent');
+    let medium = document.getElementById('prioMedium');
+    let low = document.getElementById('prioLow');
     urgent.classList.toggle('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
@@ -47,9 +46,9 @@ function prioColorRed() {
  * Changes the color of the priority to orange when the "Medium" button is clicked.
  */
 function prioColorOrange() {
-    let urgent = document.getElementById('prio_urgent');
-    let medium = document.getElementById('prio_medium');
-    let low = document.getElementById('prio_low');
+    let urgent = document.getElementById('prioUrgent');
+    let medium = document.getElementById('prioMedium');
+    let low = document.getElementById('prioLow');
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.toggle('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
@@ -59,33 +58,33 @@ function prioColorOrange() {
  * Changes the color of the priority to green when the "Low" button is clicked.
  */
 function prioColorGreen() {
-    let urgent = document.getElementById('prio_urgent');
-    let medium = document.getElementById('prio_medium');
-    let low = document.getElementById('prio_low');
+    let urgent = document.getElementById('prioUrgent');
+    let medium = document.getElementById('prioMedium');
+    let low = document.getElementById('prioLow');
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.toggle('prio-btn-low-clicked');
 }
 
-
+// VERBESSERN XXXXXXXXXXXXXXXXXXXXXXXXX
 /**
- * Renders the Contacts in the "Assign to" Selector on Add Task.
+ * Renders the Contacts in the "Assign to" Selector on Add Task. 
  */
 async function renderTaskContacts() {
     await loadContacts();
-
-    let userselection = ` 
-        <div id="selectinneruser">`;
+    let userSelection = `
+        <div id="selectInnerUser">`;
     for (let i = 2; i < contacts.length; i++) {
-        let contact = contacts[i]
-        userselection += ` <input onclick="pushCurrentContact(event)" type="checkbox" id="name${i}" name="${contact['name']}" value="${contact['name']}">
-        <label for="name${i}">${contact['name']}</label><br>`;
+        let contact = contacts[i];
+        userSelection += `
+            <input onclick="pushCurrentContact(event)" type="checkbox" id="name${i}" name="${contact['name']}" value="${contact['name']}">
+            <label for="name${i}">${contact['name']}</label><br>`;
     }
-    userselection += `</div>`;
-    document.getElementById('userselection').innerHTML = '';
-    document.getElementById('userselection').innerHTML += `${userselection}`;
-
+    userSelection += `
+        </div>`;
+    document.getElementById('selectInnerUser').innerHTML = userSelection;
 }
+
 
 function pushCurrentContact(event) {
     let checked = event.target.checked;
@@ -99,7 +98,6 @@ function pushCurrentContact(event) {
             return user !== name;
         });
     }
-
     saveSelectedUsers();
 }
 
@@ -107,45 +105,65 @@ async function saveSelectedUsers() {
     await setItem('selectedUsers', JSON.stringify(selectedUsers));
 }
 
-
-async function loadselectedUsers() {
+async function loadSelectedUsers() {
     try {
         selectedUsers = JSON.parse(await getItem('selectedUsers'));
     } catch (e) {
         console.error('Loading error:', e);
-
     }
 }
 
-
+// async function findTask() {
+//     let search = document.getElementById('searchTaskInput').value;
+//     search = search.toLowerCase();
+//     await clearAllTasks();
+//     for (let i = 0; i < tasks.length; i++) {
+//         const task = tasks[i];
+//         let searchTask = task['name'];
+//         let taskStatus = task['status']
+//         if (searchTask.toLowerCase().includes(search) && taskStatus == 'todo') {
+//             document.getElementById('todo').innerHTML += await taskTemplate(task);
+//         }
+//         if (searchTask.toLowerCase().includes(search) && taskStatus == 'inprogress') {
+//             document.getElementById('inprogress').innerHTML += await taskTemplate(task);
+//         }
+//         if (searchTask.toLowerCase().includes(search) && taskStatus == 'awaitingfb') {
+//             document.getElementById('awaitingfb').innerHTML += await taskTemplate(task);
+//         }
+//         if (searchTask.toLowerCase().includes(search) && taskStatus == 'done') {
+//             document.getElementById('done').innerHTML += await taskTemplate(task);
+//         }
+//         await renderUsersInTask(task);
+//     }
+//     if (search == '') {
+//         await clearAllTasks();
+//         renderTasks();
+//     }
+// }
 
 async function findTask() {
-    let search = document.getElementById('searchtaskinput').value;
-    search = search.toLowerCase();
+    let search = document.getElementById('searchTaskInput').value.toLowerCase();
     await clearAllTasks();
+
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
-        let searchtask = task['name'];
-        let taskstatus = task['status']
-        if (searchtask.toLowerCase().includes(search) && taskstatus == 'todo') {
-            document.getElementById('todo').innerHTML += await taskTemplate(task);
-        }
-        if (searchtask.toLowerCase().includes(search) && taskstatus == 'inprogress') {
-            document.getElementById('inprogress').innerHTML += await taskTemplate(task);
-        }
-        if (searchtask.toLowerCase().includes(search) && taskstatus == 'awaitingfb') {
-            document.getElementById('awaitingfb').innerHTML += await taskTemplate(task);
-        }
-        if (searchtask.toLowerCase().includes(search) && taskstatus == 'done') {
-            document.getElementById('done').innerHTML += await taskTemplate(task);
+        let searchTask = task['name'].toLowerCase();
+        let taskStatus = task['status'];
+
+        if (searchTask.includes(search)) {
+            document.getElementById(taskStatus).innerHTML += await taskTemplate(task);
         }
         await renderUsersInTask(task);
     }
-    if (search == '') {
+
+    if (search === '') {
         await clearAllTasks();
         renderTasks();
     }
 }
+
+
+
 
 function clearAllTasks() {
     document.getElementById('inprogress').innerHTML = '';

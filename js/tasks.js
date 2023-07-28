@@ -48,10 +48,10 @@ async function addTaskToList(task) {
 
 // Hauptfunktion
 async function addTask(event) {
-  
+
     event.stopPropagation();
     await checkLastTaskId();
-    await loadselectedUsers();
+    await loadSelectedUsers();
     taskName = document.getElementById('add_task_title').value;
     let taskSubtask = document.getElementById('add_task_input_subtask').value;
     let taskDescription = document.getElementById('add_task_description').value;
@@ -61,15 +61,19 @@ async function addTask(event) {
     let taskDate = document.getElementById('add_task_input_date').value;
     if (typeof taskPrio === 'undefined') {
         alert('Lege zuerst die Priorität des Tasks fest !');
-    }else { getTaskPrio();
-        let taskPrio;
+    } else {
+        let taskPrio = getTaskPrio();
         let taskId = taskIdCounter++;
-    let task = createTaskElement(taskName, taskSubtask, taskDescription, taskCategory, taskCategorybc, taskAssign, taskDate, taskPrio, taskId);
-    await addTaskToList(task);
-    selectedUsers = [];
-    await saveSelectedUsers();
+        let task = createTaskElement(taskName, taskSubtask, taskDescription, taskCategory, taskCategorybc, taskAssign, taskDate, taskPrio, taskId);
+        await addTaskToList(task);
+        selectedUsers = [];
+        await saveSelectedUsers();
     }
     closePopup();
+}
+
+function clearAllTasks() {
+    tasks = [];
 }
 
 /**
@@ -282,9 +286,9 @@ function renderUsersInOpenTask(index) {
  * Changes the color of the priority symbol to red.
  */
 function prioColorRed() {
-    let urgent = document.getElementById('prio_urgent');
-    let medium = document.getElementById('prio_medium');
-    let low = document.getElementById('prio_low');
+    let urgent = document.getElementById('prioUrgent');
+    let medium = document.getElementById('prioMedium');
+    let low = document.getElementById('prioLow');
     urgent.classList.toggle('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
@@ -295,9 +299,9 @@ function prioColorRed() {
  * Changes the color of the priority symbol to orange.
  */
 function prioColorOrange() {
-    let urgent = document.getElementById('prio_urgent');
-    let medium = document.getElementById('prio_medium');
-    let low = document.getElementById('prio_low');
+    let urgent = document.getElementById('prioUrgent');
+    let medium = document.getElementById('prioMedium');
+    let low = document.getElementById('prioLow');
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.toggle('prio-btn-medium-clicked');
     low.classList.remove('prio-btn-low-clicked');
@@ -307,9 +311,9 @@ function prioColorOrange() {
  * Changes the color of the priority symbol to green.
  */
 function prioColorGreen() {
-    let urgent = document.getElementById('prio_urgent');
-    let medium = document.getElementById('prio_medium');
-    let low = document.getElementById('prio_low');
+    let urgent = document.getElementById('prioUrgent');
+    let medium = document.getElementById('prioMedium');
+    let low = document.getElementById('prioLow');
     urgent.classList.remove('prio-btn-urgent-clicked');
     medium.classList.remove('prio-btn-medium-clicked');
     low.classList.toggle('prio-btn-low-clicked');
