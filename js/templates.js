@@ -19,8 +19,8 @@ async function taskTemplate(task) {
 async function taskUserTemplate(randomColor, firstLetter, secondLetter) {
     return /*html*/ `<div class="contact-container">
     <div class="imgcontainer" style="background-color: ${randomColor};">
-        <span id="firstletter">${firstLetter}</span>
-        <span id="secondletter">${secondLetter}</span>
+        <span id="firstLetter">${firstLetter}</span>
+        <span id="secondLetter">${secondLetter}</span>
     </div>
 </div>`;
 
@@ -30,8 +30,8 @@ async function taskUserTemplate(randomColor, firstLetter, secondLetter) {
 function createUserHTML(randomColor, firstLetter, secondLetter, nameParts) {
     return `
         <div class="imgcontainer" style="background-color: ${randomColor};">
-            <span id="firstletter">${firstLetter}</span>
-            <span id="secondletter">${secondLetter}</span>
+            <span id="firstLetter">${firstLetter}</span>
+            <span id="secondLetter">${secondLetter}</span>
         </div>
         <div class="name">${nameParts.join(' ')}</div>
     `;
@@ -109,7 +109,7 @@ async function renderPopUp(popup) {
                     <img class="join-logo-mobile-header" src="assets/img/logo_dark.png" alt="logo_dark">
                 </div>
                 <div class="headline_h1_cancel">
-                    <h1 id="add_task_h1" class="add_task_h1">Add Task</h1>
+                    <h1 id="addTaskHeaderText" class="add_task_h1">Add Task</h1>
                     <img class="closeimgpopup" src="assets/img/add_task_cancel.png" alt="cancel" onclick="closePopup()">
                 </div>
                 <div class="add_task_container"> 

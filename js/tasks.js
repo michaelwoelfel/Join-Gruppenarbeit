@@ -117,7 +117,7 @@ async function changeTask(i, event) {
  */
 // Funktion um Aufgabendetails in Eingabefelder zu laden
 async function loadTaskDetails(task) {
-    document.getElementById('add_task_h1').innerHTML = `Edit Task`;
+    document.getElementById('addTaskHeaderText').innerHTML = `Edit Task`;
     document.getElementById('addTaskTitle').value = task.name;
     document.getElementById('addTaskInputSubtask').value = task.subtask;
     document.getElementById('addTaskDescription').value = task.tasktext;

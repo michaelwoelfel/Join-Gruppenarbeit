@@ -27,7 +27,7 @@ async function addContact() {
     renderContacts();
     document.getElementById('addedtoboard').style.zIndex = "1500";
     await taskAddedToBoard();
-    setTimeout(closeAddContact, 1000); 
+    setTimeout(closeAddContact, 1000);
 
 };
 
@@ -63,9 +63,9 @@ async function renderContacts() {
 /**
  * Creates a Task for a Contact with specific name.
  */
-async function createTaskForContact(name){
+async function createTaskForContact(name) {
     localStorage.setItem('contactName', name);
-    window.open('add_task.html','_self');
+    window.open('add_task.html', '_self');
 }
 /**
  * Shows a notification about the added contact.
@@ -91,11 +91,11 @@ async function showContact(i, randomColor, secondLetter) {
     const contactInfoHTML = await createContactInfoHTML(i, contact, randomColor, firstLetter, secondLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
     document.getElementById('showcontact').innerHTML = contactInfoHTML;
     if (window.matchMedia("(max-width: 800px)").matches) {
-      document.getElementById('contact-info').classList.add('d-flex');
+        document.getElementById('contact-info').classList.add('d-flex');
     }
 }
 
-function closeBigContact(){
+function closeBigContact() {
     document.getElementById('contact-info').classList.remove('d-flex');
 }
 
@@ -113,8 +113,8 @@ function editContact(i, firstLetter, secondLetter, randomColor) {
     document.getElementById('contactmailedit').value = contact.mail;
     document.getElementById('contactphoneedit').value = contact.phone;
     document.getElementById('img-add-contactedit').innerHTML = ` 
-    <span id="firstletter">${firstLetter}</span>
-     <span id="secondletter">${secondLetter}</span>`;
+    <span id="firstLetter">${firstLetter}</span>
+     <span id="secondLetter">${secondLetter}</span>`;
     document.getElementById('img-add-contactedit').style.backgroundColor = `${randomColor}`;
     document.getElementById('editbuttons').innerHTML = document.getElementById('editbuttons').innerHTML = createEditContactButtonsHTML(i);  // HTML AUSGELAGERT IN CONTACTS TEMPLATE
 }
@@ -135,9 +135,9 @@ async function saveContact(i) {
     contact.phone = ContactPhone;
     await setItem('contacts', JSON.stringify(contacts));
     renderContacts();
-    setTimeout(closeEditContact, 500); 
-   
-   
+    setTimeout(closeEditContact, 500);
+
+
 
 };
 

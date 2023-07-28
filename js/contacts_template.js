@@ -16,8 +16,8 @@ function createContact(index, contact, randomColor, secondLetter) {
         <div class="contact-container">
             <div onclick="showContact(${index},'${randomColor}','${secondLetter}')" class="contact">
                 <div class="imgcontainer" style="background-color: ${randomColor};">
-                    <span id="firstletter">${name.charAt(0).toUpperCase()}</span>
-                    <span id="secondletter">${secondLetter}</span>
+                    <span id="firstLetter">${name.charAt(0).toUpperCase()}</span>
+                    <span id="secondLetter">${secondLetter}</span>
                 </div>
                 <div class="contactinfo">
                     <span id="name">${name}</span>
@@ -32,8 +32,8 @@ function createContactInfoHTML(i, contact, randomColor, firstLetter, secondLette
     return `
         <div class="headinfo">
             <div id="bigcontactimg" class="bigcontactimg" style="background-color: ${randomColor};">
-                <span id="firstletter">${firstLetter}</span>
-                <span id="secondletter">${secondLetter}</span>
+                <span id="firstLetter">${firstLetter}</span>
+                <span id="secondLetter">${secondLetter}</span>
             </div>
             <div class="name-and-editbutton"> 
                 <span id="bigname">${contact['name']}</span> 
