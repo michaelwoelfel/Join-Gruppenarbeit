@@ -10,9 +10,9 @@ colorIndex = 0;
  * @returns {Promise<void>}
  */
 async function addContact() {
-    let ContactName = document.getElementById('contactname').value;
-    let ContactMail = document.getElementById('contactmail').value;
-    let ContactPhone = document.getElementById('contactphone').value;
+    let ContactName = document.getElementById('contactName').value;
+    let ContactMail = document.getElementById('contactMail').value;
+    let ContactPhone = document.getElementById('contactPhone').value;
     // Create a new contact and push it to the list
     contacts.push({
         name: ContactName,
