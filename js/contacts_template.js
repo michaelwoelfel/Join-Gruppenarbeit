@@ -31,19 +31,19 @@ function createContact(index, contact, randomColor, secondLetter) {
 function createContactInfoHTML(i, contact, randomColor, firstLetter, secondLetter) {
     return `
         <div class="headinfo">
-            <div id="bigcontactimg" class="bigcontactimg" style="background-color: ${randomColor};">
+            <div id="bigContactImg" class="bigcontactimg" style="background-color: ${randomColor};">
                 <span id="firstLetter">${firstLetter}</span>
                 <span id="secondLetter">${secondLetter}</span>
             </div>
             <div class="name-and-editbutton"> 
-                <span id="bigname">${contact['name']}</span> 
-                <img onclick="createTaskForContact('${contact["name"]}')" id="blueaddtask" src="assets/img/addtaskblue.png">
+                <span id="bigName">${contact['name']}</span> 
+                <img onclick="createTaskForContact('${contact["name"]}')" id="blueAddTask" src="assets/img/addtaskblue.png">
             </div>
         </div>
         <div class="contactinfobig">
             <div class="contactinfoedit">
                 <span>Contact Information:</span>
-                <img onclick="editContact(${i},'${firstLetter}','${secondLetter}','${randomColor}')" id="editcontactsimg" src="assets/img/editcontacts.png">
+                <img onclick="editContact(${i},'${firstLetter}','${secondLetter}','${randomColor}')" id="editContactsImg" src="assets/img/editcontacts.png">
             </div>
             <div class="contactmailbig">
                 <span><b>Email</b></span>
@@ -62,7 +62,7 @@ function createEditContactButtonsHTML(i) {
         <button onclick="deleteContact(${i})" class="cancel-btn">Delete</button>
         <button onclick="saveContact(${i})" class="create-btn">Save</button>
         <button onclick="closeEditContact(${i})" class="cancel-btn" >Close</button>
-        <span id="addedtoboard" class="addedTaskToBoard_content">Contact Added <img class="board"
+        <span id="addedToBoard" class="addedTaskToBoard_content">Contact Added <img class="board"
             src="assets/img/board_img.png" alt="board"></span>
     `;
 }

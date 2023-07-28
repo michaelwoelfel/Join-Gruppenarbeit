@@ -297,13 +297,13 @@ h3 {
         border-radius: 5px;
       }
     
-      #editcontactsimg{
+      #editContactsImg{
         border: 1px solid transparent;
         width: 62px;
         height: 24px;
       }
     
-      #editcontactsimg:hover{
+      #editContactsImg:hover{
         border: 1px solid #29ABE2;
         border-radius: 5px;
         width: 62px;

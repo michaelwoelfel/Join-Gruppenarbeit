@@ -25,7 +25,7 @@ async function addContact() {
     getRandomColor();
     // Update the view
     renderContacts();
-    document.getElementById('addedtoboard').style.zIndex = "1500";
+    document.getElementById('addedToBoard').style.zIndex = "1500";
     await taskAddedToBoard();
     setTimeout(closeAddContact, 1000);
 
