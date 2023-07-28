@@ -39,14 +39,14 @@ async function renderContacts() {
     await sortContactsAlphabetically();
 
     let currentLetter = '';
-    document.getElementById('contact-list').innerHTML = '';
+    document.getElementById('contactList').innerHTML = '';
 
     for (let i = 2; i < contacts.length; i++) {
         const contact = contacts[i];
         const firstLetter = contact['name'].charAt(0).toUpperCase();
         if (firstLetter !== currentLetter) {
             currentLetter = firstLetter;
-            document.getElementById('contact-list').innerHTML += createLetterHeader(currentLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
+            document.getElementById('contactList').innerHTML += createLetterHeader(currentLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
         }
         let secondLetter = '';
         let nameParts = contact['name'].split(' ');
@@ -55,7 +55,7 @@ async function renderContacts() {
         }
         let randomColor = contact.color || getRandomColor();
         contact.color = randomColor;
-        document.getElementById('contact-list').innerHTML += createContact(i, contact, randomColor, secondLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
+        document.getElementById('contactList').innerHTML += createContact(i, contact, randomColor, secondLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
     }
 }
 
@@ -89,14 +89,14 @@ async function showContact(i, randomColor, secondLetter) {
     const contact = contacts[i];
     const firstLetter = contact['name'].charAt(0).toUpperCase();
     const contactInfoHTML = await createContactInfoHTML(i, contact, randomColor, firstLetter, secondLetter); // HTML AUSGELAGERT IN CONTACTS TEMPLATE
-    document.getElementById('showcontact').innerHTML = contactInfoHTML;
+    document.getElementById('showContact').innerHTML = contactInfoHTML;
     if (window.matchMedia("(max-width: 800px)").matches) {
-        document.getElementById('contact-info').classList.add('d-flex');
+        document.getElementById('contactInfo').classList.add('d-flex');
     }
 }
 
 function closeBigContact() {
-    document.getElementById('contact-info').classList.remove('d-flex');
+    document.getElementById('contactInfo').classList.remove('d-flex');
 }
 
 /**
@@ -109,14 +109,14 @@ function closeBigContact() {
 function editContact(i, firstLetter, secondLetter, randomColor) {
     const contact = contacts[i];
     openEditContact();
-    document.getElementById('contactnameedit').value = contact.name;
-    document.getElementById('contactmailedit').value = contact.mail;
-    document.getElementById('contactphoneedit').value = contact.phone;
-    document.getElementById('img-add-contactedit').innerHTML = ` 
+    document.getElementById('contactNameEdit').value = contact.name;
+    document.getElementById('contactMailEdit').value = contact.mail;
+    document.getElementById('contactPhoneEdit').value = contact.phone;
+    document.getElementById('imgAddContactEdit').innerHTML = ` 
     <span id="firstLetter">${firstLetter}</span>
      <span id="secondLetter">${secondLetter}</span>`;
-    document.getElementById('img-add-contactedit').style.backgroundColor = `${randomColor}`;
-    document.getElementById('editbuttons').innerHTML = document.getElementById('editbuttons').innerHTML = createEditContactButtonsHTML(i);  // HTML AUSGELAGERT IN CONTACTS TEMPLATE
+    document.getElementById('imgAddContactEdit').style.backgroundColor = `${randomColor}`;
+    document.getElementById('editButtons').innerHTML = document.getElementById('editButtons').innerHTML = createEditContactButtonsHTML(i);  // HTML AUSGELAGERT IN CONTACTS TEMPLATE
 }
 
 /**
@@ -127,9 +127,9 @@ function editContact(i, firstLetter, secondLetter, randomColor) {
  */
 async function saveContact(i) {
     let contact = contacts[i];
-    let ContactName = document.getElementById('contactnameedit').value;
-    let ContactMail = document.getElementById('contactmailedit').value;
-    let ContactPhone = document.getElementById('contactphoneedit').value;
+    let ContactName = document.getElementById('contactNameEdit').value;
+    let ContactMail = document.getElementById('contactMailEdit').value;
+    let ContactPhone = document.getElementById('contactPhoneEdit').value;
     contact.name = ContactName;
     contact.mail = ContactMail;
     contact.phone = ContactPhone;
@@ -158,7 +158,7 @@ async function deleteContact(i) {
  * Opens the add contact form.
  */
 function openAddContact() {
-    document.getElementById('modal-one').classList.remove('d-none');
+    document.getElementById('modalOne').classList.remove('d-none');
 
 }
 
@@ -166,19 +166,19 @@ function openAddContact() {
  * Opens the edit contact form.
  */
 function openEditContact() {
-    document.getElementById('modal-one-edit').classList.remove('d-none');
+    document.getElementById('modalOneEdit').classList.remove('d-none');
 
 }
 
 function closeEditContact() {
-    document.getElementById('modal-one-edit').classList.add('d-none');
+    document.getElementById('modalOneEdit').classList.add('d-none');
 }
 
 /**
  * Closes the edit contact form.
  */
 function closeEditContact() {
-    document.getElementById('modal-one-edit').classList.add('d-none');
+    document.getElementById('modalOneEdit').classList.add('d-none');
 
 }
 
@@ -186,7 +186,7 @@ function closeEditContact() {
  * Closes the add contact form.
  */
 function closeAddContact() {
-    document.getElementById('modal-one').classList.add('d-none');
+    document.getElementById('modalOne').classList.add('d-none');
 
 }
 

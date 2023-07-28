@@ -33,7 +33,7 @@ body {
     overflow: hidden;
   }
 
-#contact-list {
+#contactList {
     
     overflow: auto;
     display: flex;
@@ -44,7 +44,7 @@ body {
     overflow-x: hidden;
 }
 
-#contact-info {
+#contactInfo {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -239,7 +239,7 @@ h3 {
         border: 3px solid white;
     }
 
-    #showcontact {
+    #showContact {
         display: flex;
         width: 100%;
         flex-direction: column;
@@ -772,7 +772,7 @@ border: 2px solid white;
         flex-direction: column;
     }
 
-    #contact-list {
+    #contactList {
         width: 100%;
         height: 77vh;
     }
@@ -785,7 +785,7 @@ border: 2px solid white;
         width: 90%;
     }
 
-    #contact-info {
+    #contactInfo {
         display: none;
         width: 100%;
         height: 100%;
