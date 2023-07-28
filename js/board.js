@@ -75,7 +75,7 @@ function prioColorGreen() {
 async function renderTaskContacts() {
     await loadContacts();
     let userSelection = `
-        <div id="selectInnerUser">`;
+        <div ">`;
     for (let i = 2; i < contacts.length; i++) {
         let contact = contacts[i];
         userSelection += `
@@ -130,17 +130,21 @@ async function findTask() {
         let taskstatus = task['status']
         if (searchtask.toLowerCase().includes(search) && taskstatus == 'toDo') {
             document.getElementById('toDo').innerHTML += await taskTemplate(task);
+            await renderUsersInTask(task);
         }
         if (searchtask.toLowerCase().includes(search) && taskstatus == 'inProgress') {
             document.getElementById('inProgress').innerHTML += await taskTemplate(task);
+            await renderUsersInTask(task);
         }
         if (searchtask.toLowerCase().includes(search) && taskstatus == 'awaitingFeedback') {
             document.getElementById('awaitingFeedback').innerHTML += await taskTemplate(task);
+            await renderUsersInTask(task);
         }
         if (searchtask.toLowerCase().includes(search) && taskstatus == 'done') {
             document.getElementById('done').innerHTML += await taskTemplate(task);
+            await renderUsersInTask(task);
         }
-        // await renderUsersInTask(task);
+        
     }
     if (search == '') {
         await clearAllTasks();

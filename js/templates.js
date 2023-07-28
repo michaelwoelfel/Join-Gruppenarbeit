@@ -6,7 +6,10 @@ async function taskTemplate(task) {
             <div class="subtaskdescription"><b>${task['subtask']}</b></div>
             <div class="tasktext">${task['tasktext']}</div>
             <div class="progresscontainer">
-            <div class="taskfooter"><div class="usersintaks" id="usersInTask${task['id']}"></div>
+           <div class="taskfooter"><div class="usersintaks" id="usersInTask${task['id']}"></div>
+                <div class="priority">
+                    <img src="${task['priority']}">
+                </div>
             </div>
         </div>
     `;
