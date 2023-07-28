@@ -103,33 +103,27 @@ function colorBoard() {
  * Load HTML and add black color to the 'tasks' element.
  */
 async function initAddTask() {
-     await  includeHTML(async() => {
-         await colorAddTask();
+    await includeHTML(async () => {
+        await colorAddTask();
         await renderTaskContacts();
-         clickName();
-        
-       
-        
+        clickName();
     });
-   
-   
-   
 }
 
 /**
  * Clicks on the name on add_task when before clicked on addtask on a specific Contact.
  */
-function clickName(){
-        let name = localStorage.getItem('contactName');
-        if (name !== null) {
-          
-            let checkbox = document.querySelector(`input[name="${name}"]`);
-            if (checkbox !== null) {
-                checkbox.checked = true;
-                checkbox.dispatchEvent(new Event('click'));
-            }
-            localStorage.removeItem('contactName'); 
+function clickName() {
+    let name = localStorage.getItem('contactName');
+    if (name !== null) {
+
+        let checkbox = document.querySelector(`input[name="${name}"]`);
+        if (checkbox !== null) {
+            checkbox.checked = true;
+            checkbox.dispatchEvent(new Event('click'));
         }
+        localStorage.removeItem('contactName');
+    }
 }
 
 /**
@@ -184,12 +178,38 @@ function colorLegalNotice() {
 
 // LEGAL NOTICE END
 
-function showMenu(){
+function showMenu() {
     document.getElementById('menu').classList.add('show-overlay-menu');
     document.getElementById('hide-menu').classList.remove('hide');
 }
 
-function hideMenu(){
+function hideMenu() {
     document.getElementById("menu").classList.remove("show-overlay-menu");
     document.getElementById('hide-menu').classList.add("hide");
+}
+
+// TASK MOBILE BOARD
+
+function editTaskStatus(index, newStatus) {
+    let task = tasks[index];
+    task.status = newStatus;
+    updateHTML();
+}
+
+// Function to check the screen width
+function isMobileWidth() {
+    return window.innerWidth <= 800;
+}
+
+// Function to handle the task click event
+function handleTaskClick(taskId) {
+    if (isMobileWidth()) {
+        editTaskResponsive(taskId); // For mobile devices, call openTask function
+    } else {
+        openTask(taskId); // For desktop devices, call editTaskResponsive function
+    }
+}
+
+function closeEditTaskModal() {
+    document.getElementById('showtask').classList.add('d-none');
 }
