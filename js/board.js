@@ -121,30 +121,65 @@ async function loadSelectedUsers() {
 /**
  * Searches for tasks based on the search input value and filters them according to their status.
  */
+// async function findTask() {
+//     let search = document.getElementById('searchTaskInput').value.toLowerCase();
+//     await clearAllTasks();
+//     for (let i = 0; i < tasks.length; i++) {
+//         const task = tasks[i];
+//         let searchTask = task['name'].toLowerCase();
+//         let taskStatus = task['status'];
+//         if (searchTask.includes(search)) {
+//             document.getElementById(taskStatus).innerHTML += taskTemplate(task);
+//         }
+//         // await renderUsersInTask(task);
+//     }
+//     if (search === '') {
+//         await clearAllTasks();
+//         renderTasks();
+//     }
+// }
+
+// /**
+//  * Clears all tasks from their respective task containers.
+//  */
+// function clearAllTasks() {
+//     const taskContainers = ['inProgress', 'toDo', 'awaitingFeedback', 'done'];
+//     for (const container of taskContainers) {
+//         document.getElementById(container).innerHTML = '';
+//     }
+// }
+
 async function findTask() {
-    let search = document.getElementById('searchTaskInput').value.toLowerCase();
-    clearAllTasks();
+    let search = document.getElementById('searchTaskInput').value;
+    search = search.toLowerCase();
+    await clearAllTasks();
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
-        let searchTask = task['name'].toLowerCase();
-        let taskStatus = task['status'];
-        if (searchTask.includes(search)) {
-            document.getElementById(taskStatus).innerHTML += taskTemplate(task);
+        let searchtask = task['name'];
+        let taskstatus = task['status']
+        if (searchtask.toLowerCase().includes(search) && taskstatus == 'toDo') {
+            document.getElementById('toDo').innerHTML += await taskTemplate(task);
+        }
+        if (searchtask.toLowerCase().includes(search) && taskstatus == 'inProgress') {
+            document.getElementById('inProgress').innerHTML += await taskTemplate(task);
+        }
+        if (searchtask.toLowerCase().includes(search) && taskstatus == 'awaitingFeedback') {
+            document.getElementById('awaitingFeedback').innerHTML += await taskTemplate(task);
+        }
+        if (searchtask.toLowerCase().includes(search) && taskstatus == 'done') {
+            document.getElementById('done').innerHTML += await taskTemplate(task);
         }
         // await renderUsersInTask(task);
     }
-    if (search === '') {
-        clearAllTasks();
+    if (search == '') {
+        await clearAllTasks();
         renderTasks();
     }
 }
 
-/**
- * Clears all tasks from their respective task containers.
- */
 function clearAllTasks() {
-    const taskContainers = ['inProgress', 'toDo', 'awaitingFeedback', 'done'];
-    for (const container of taskContainers) {
-        document.getElementById(container).innerHTML = '';
-    }
+    document.getElementById('inProgress').innerHTML = '';
+    document.getElementById('toDo').innerHTML = '';
+    document.getElementById('awaitingFeedback').innerHTML = '';
+    document.getElementById('done').innerHTML = '';
 }
