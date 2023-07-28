@@ -56,7 +56,9 @@
     flex-direction: row;
 }
 
-#selectInnerUser {
+
+
+.selectInnerUser {
     border: 1px solid black;
     overflow: auto;
     height: 50px;
