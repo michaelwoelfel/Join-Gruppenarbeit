@@ -143,7 +143,7 @@ async function findTask() {
  * Clears all tasks from their respective task containers.
  */
 function clearAllTasks() {
-    const taskContainers = ['inprogress', 'todo', 'awaitingfb', 'done'];
+    const taskContainers = ['inProgress', 'toDo', 'awaitingFeedback', 'done'];
     for (const container of taskContainers) {
         document.getElementById(container).innerHTML = '';
     }

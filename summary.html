@@ -14,19 +14,21 @@
     <script src="js/script.js"></script>
     <script src="js/tasks.js"></script>
     <script src="js/summary.js"></script>
-    
+
     <title>Summary</title>
 </head>
 
 <body onload="initSummary()">
-    <nav id="menu" class="nav hide-overlay-menu"  >
+    <nav id="menu" class="nav hide-overlay-menu">
         <div id="burger-menu">
-            <img class="crosswhite" onclick="hideMenu()" id="hide-menu" src="assets/img/cross_white.png" alt="menu-icon"/>
+            <img class="crosswhite" onclick="hideMenu()" id="hide-menu" src="assets/img/cross_white.png"
+                alt="menu-icon" />
         </div>
         <a class="nav--a a__active logoutbutton" href="index.html"><span class="loginbuttonmenu">Logout</span></a>
-        <div class="legalnoticemenu"><a  class="nav--a" href="legal_notice.html"><img class="legalnoticeimgmenu" src="assets/img/legal_notice.png" class="side-bar-image">Legal Notice</a></div>
-        
-      </nav>
+        <div class="legalnoticemenu"><a class="nav--a" href="legal_notice.html"><img class="legalnoticeimgmenu"
+                    src="assets/img/legal_notice.png" class="side-bar-image">Legal Notice</a></div>
+
+    </nav>
     <!-- SIDEBAR TEMPLATE -->
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
     <!-- HOLE SUMMARY CONTAINER -->
@@ -61,7 +63,7 @@
                         </div>
                         <div onclick="location.href='board.html'" class="small-task-container task-box-style">
                             <div>
-                                <div id="awaitFbNumber" class="number-style"></div>
+                                <div id="awaitFeedbackNumber" class="number-style"></div>
                                 <p class="text-style">Awaiting <br> Feedback</p>
                             </div>
                         </div>

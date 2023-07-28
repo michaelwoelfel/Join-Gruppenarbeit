@@ -4,10 +4,10 @@
 async function updateSummary() {
     await loadTasks();
     updateTaskCount();
-    updateTasksCountByStatus('todo', 'toDoNumber');
+    updateTasksCountByStatus('toDo', 'toDoNumber');
     updateTasksCountByStatus('done', 'doneNumber');
-    updateTasksCountByStatus('inprogress', 'tasksInProgressNumber');
-    updateTasksCountByStatus('awaitingfb', 'awaitFbNumber');
+    updateTasksCountByStatus('inProgress', 'tasksInProgressNumber');
+    updateTasksCountByStatus('awaitingFeedback', 'awaitFeedbackNumber');
     updateTasksUrgent();
     updateUrgentDate();
 }

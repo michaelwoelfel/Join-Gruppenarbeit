@@ -29,7 +29,7 @@ function addNewCategory() {
 // Creates a new category and closes popup by click on the submit btn
 function submitNewCategory() {
     const newCategory = document.getElementById('new-category-input').value;
-    const newLi = document.getElementById('add_task_category_select');
+    const newLi = document.getElementById('addTaskCategorySelect');
     currentCategory = newCategory;
     setColorForNewCategory(newLi);
     newLi.innerHTML += /*html*/`
@@ -80,7 +80,7 @@ async function loadNewCategory(newCategory, currentColorOfCategory) {
 
 async function showCategories() {
     await loadCategories();
-    let categoryselection = document.getElementById('add_task_category_select');
+    let categoryselection = document.getElementById('addTaskCategorySelect');
     categoryselection.innerHTML = `<li onclick="handleCategoryChange(this)">New category</li> <li onclick="clearCategories()">Clear Cateories</li>`;
 
     for (let i = 0; i < allCategories.length; i++) {
@@ -121,7 +121,7 @@ async function getItemCategory(key) {
 
 async function openDropdownMenu() {
     await loadCategories();
-    let dropdownMenu = document.getElementById('add_task_category_select');
+    let dropdownMenu = document.getElementById('addTaskCategorySelect');
     dropdownMenu.classList.toggle('d-block');
     let dropdown = document.getElementById('dropdown');
     dropdown.classList.toggle('border-radius');
@@ -131,7 +131,7 @@ async function openDropdownMenu() {
 
 
 function closeDropdown(liElement) {
-    let dropdownMenu = document.getElementById('add_task_category_select');
+    let dropdownMenu = document.getElementById('addTaskCategorySelect');
     dropdownMenu.classList.remove('d-block');
     let dropdown = document.getElementById('dropdown');
     dropdown.classList.remove('border-radius');

@@ -35,7 +35,7 @@ function createTaskElement(taskName, taskSubtask, taskDescription, taskCategory,
         user: taskAssign,
         date: taskDate,
         priority: taskPrio,
-        status: 'todo',
+        status: 'toDo',
     };
 }
 
@@ -52,13 +52,13 @@ async function addTask(event) {
     event.stopPropagation();
     await checkLastTaskId();
     await loadSelectedUsers();
-    taskName = document.getElementById('add_task_title').value;
-    let taskSubtask = document.getElementById('add_task_input_subtask').value;
-    let taskDescription = document.getElementById('add_task_description').value;
+    taskName = document.getElementById('addTaskTitle').value;
+    let taskSubtask = document.getElementById('addTaskInputSubtask').value;
+    let taskDescription = document.getElementById('addTaskDescription').value;
     let taskCategory = currentCategory;
     let taskCategorybc = currentColorOfCategory;
     let taskAssign = selectedUsers;
-    let taskDate = document.getElementById('add_task_input_date').value;
+    let taskDate = document.getElementById('addTaskInputDate').value;
     if (typeof taskPrio === 'undefined') {
         alert('Lege zuerst die Priorität des Tasks fest !');
     } else {
@@ -85,13 +85,13 @@ async function changeTask(i, event) {
     event.stopPropagation();
     let task = tasks[i];
     let taskId = task.id;
-    let taskName = document.getElementById('add_task_title').value;
-    let taskSubtask = document.getElementById('add_task_input_subtask').value;
-    let taskDescription = document.getElementById('add_task_description').value;
+    let taskName = document.getElementById('addTaskTitle').value;
+    let taskSubtask = document.getElementById('addTaskInputSubtask').value;
+    let taskDescription = document.getElementById('addTaskDescription').value;
     let taskCategory = currentCategory;
     let taskCategorybc = currentColorOfCategory;
     let taskAssign = selectedUsers;
-    let taskDate = document.getElementById('add_task_input_date').value;
+    let taskDate = document.getElementById('addTaskInputDate').value;
     let taskPrio = getTaskPrio();
     let taskStatus = task.status;
     task.id = taskId;
@@ -118,12 +118,12 @@ async function changeTask(i, event) {
 // Funktion um Aufgabendetails in Eingabefelder zu laden
 async function loadTaskDetails(task) {
     document.getElementById('add_task_h1').innerHTML = `Edit Task`;
-    document.getElementById('add_task_title').value = task.name;
-    document.getElementById('add_task_input_subtask').value = task.subtask;
-    document.getElementById('add_task_description').value = task.tasktext;
-    document.getElementById('add_task_category_select').value = task.category;
+    document.getElementById('addTaskTitle').value = task.name;
+    document.getElementById('addTaskInputSubtask').value = task.subtask;
+    document.getElementById('addTaskDescription').value = task.tasktext;
+    document.getElementById('addTaskCategorySelect').value = task.category;
     await checkboxUsers(task);
-    document.getElementById('add_task_input_date').value = task.date;
+    document.getElementById('addTaskInputDate').value = task.date;
     taskStatus = task.status;
     taskId = task.id;
 }
@@ -160,11 +160,11 @@ function checkboxUsers(task) {
  */
 function clearTask(event) {
     event.stopPropagation();
-    document.getElementById('add_task_title').value = '';
-    document.getElementById('add_task_input_subtask').value = '';
-    document.getElementById('add_task_description').value = '';
-    document.getElementById('add_task_category_select').value = '';
-    document.getElementById('add_task_input_date').value = '';
+    document.getElementById('addTaskTitle').value = '';
+    document.getElementById('addTaskInputSubtask').value = '';
+    document.getElementById('addTaskDescription').value = '';
+    document.getElementById('addTaskCategorySelect').value = '';
+    document.getElementById('addTaskInputDate').value = '';
     document.getElementById('show-subtasks').innerHTML = '';
 }
 
@@ -230,11 +230,11 @@ function updateHTML() {
  * Updates the HTML representation of the 'to-do' tasks.
  */
 async function renderToDo() {
-    let toDo = tasks.filter(t => t['status'] == 'todo');
-    document.getElementById('todo').innerHTML = '';
+    let toDo = tasks.filter(t => t['status'] == 'toDo');
+    document.getElementById('toDo').innerHTML = '';
     for (let index = 0; index < toDo.length; index++) {
         const task = toDo[index];
-        document.getElementById('todo').innerHTML += await taskTemplate(task);
+        document.getElementById('toDo').innerHTML += await taskTemplate(task);
         renderUsersInTask(task);
     }
 }
@@ -285,24 +285,24 @@ function renderUsersInOpenTask(index) {
  * Updates the HTML representation of the 'in-progress' tasks.
  */
 async function renderInProgress() {
-    let inprogress = tasks.filter(t => t['status'] == 'inprogress');
-    document.getElementById('inprogress').innerHTML = '';
-    for (let index = 0; index < inprogress.length; index++) {
-        const task = inprogress[index];
-        document.getElementById('inprogress').innerHTML += await taskTemplate(task);
+    let inProgress = tasks.filter(t => t['status'] == 'inProgress');
+    document.getElementById('inProgress').innerHTML = '';
+    for (let index = 0; index < inProgress.length; index++) {
+        const task = inProgress[index];
+        document.getElementById('inProgress').innerHTML += await taskTemplate(task);
         renderUsersInTask(task);
     }
 }
 
 /**
- * Updates the HTML representation of the 'awaitingfb' tasks.
+ * Updates the HTML representation of the 'awaitingFeedback' tasks.
  */
 async function renderAwaitFb() {
-    let awaitingfb = tasks.filter(t => t['status'] == 'awaitingfb');
-    document.getElementById('awaitingfb').innerHTML = '';
-    for (let index = 0; index < awaitingfb.length; index++) {
-        const task = awaitingfb[index];
-        document.getElementById('awaitingfb').innerHTML += await taskTemplate(task);
+    let awaitingFeedback = tasks.filter(t => t['status'] == 'awaitingFeedback');
+    document.getElementById('awaitingFeedback').innerHTML = '';
+    for (let index = 0; index < awaitingFeedback.length; index++) {
+        const task = awaitingFeedback[index];
+        document.getElementById('awaitingFeedback').innerHTML += await taskTemplate(task);
         renderUsersInTask(task);
 
     }
@@ -327,13 +327,13 @@ async function renderDone() {
 
 async function openTask(i) {
     // Removes the 'd-none' class to make the task details visible
-    document.getElementById('showtask').classList.remove('d-none');
+    document.getElementById('showTask').classList.remove('d-none');
     // Finds the index of the task with the given ID
     let index = tasks.findIndex(task => task.id === i);
     // Generate the HTML for task details using the separate function
     let taskDetailsHTML = await generateTaskDetailsHTML(index);
-    // Insert the task details HTML into the 'showtask' element
-    document.getElementById('showtask').innerHTML = await taskDetailsHTML;
+    // Insert the task details HTML into the 'showTask' element
+    document.getElementById('showTask').innerHTML = await taskDetailsHTML;
     // Calls a function to display the task's priority level
     colorUrgency(index);
     renderUsersInOpenTask(index);
@@ -345,8 +345,8 @@ async function openTask(i) {
  */
 function closeTask() {
     // Adds the 'd-none' class to hide the task details and removes it from the task container to make the tasks visible again
-    document.getElementById('taskcontainer').classList.remove('d-none');
-    document.getElementById('showtask').classList.add('d-none');
+    document.getElementById('taskContainer').classList.remove('d-none');
+    document.getElementById('showTask').classList.add('d-none');
 }
 
 // Coloring the urgency level in the detailed view
@@ -403,7 +403,7 @@ function taskAddedToBoard() {
 
 // Adds new Subtasks under subtask-field
 function addNewSubtask() {
-    const newSubtask = document.getElementById('add_task_input_subtask').value;
+    const newSubtask = document.getElementById('addTaskInputSubtask').value;
     let currentSubtasks = document.getElementById('show-subtasks');
     if (newSubtask === '')
         alert('Bitte Feld ausfüllen!!')
@@ -413,7 +413,7 @@ function addNewSubtask() {
         } else {
             renderSubtask(currentSubtasks, newSubtask);
             subtasks.push(newSubtask);
-            document.getElementById('add_task_input_subtask').value = '';
+            document.getElementById('addTaskInputSubtask').value = '';
         }
     }
 }

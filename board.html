@@ -69,15 +69,15 @@
             </div>
         </div>
         <!-- OVERLAY SHOW TASK -->
-        <div id="showtask" class="showtask d-none"></div>
+        <div id="showTask" class="showtask d-none"></div>
         <!-- TASK TODO -->
-        <div id="taskcontainer" class="taskcontainer">
+        <div id="taskContainer" class="taskcontainer">
             <div class="task">
                 <div class="taskheading">
                     <h3>To do</h3><img class="plusbutton" src="assets/img/plus_button.png" onclick="addTaskPopUp()">
                 </div>
-                <div class="task-status-container" id="todo" ondragover="allowDrop(event); highlight('todo')"
-                    ondragleave="removeHighlight('todo')" ondrop="moveTo('todo'); removeHighlight()">
+                <div class="task-status-container" id="toDo" ondragover="allowDrop(event); highlight('toDo')"
+                    ondragleave="removeHighlight('toDo')" ondrop="moveTo('toDo'); removeHighlight()">
                 </div>
             </div>
             <!-- TASK IN PROGRESS -->
@@ -86,9 +86,9 @@
                     <h3>In progress</h3><img class="plusbutton" src="assets/img/plus_button.png"
                         onclick="addTaskPopUp()">
                 </div>
-                <div class="task-status-container" id="inprogress"
-                    ondragover="allowDrop(event); highlight('inprogress')" ondragleave="removeHighlight('inprogress')"
-                    ondrop="moveTo('inprogress'); removeHighlight()">
+                <div class="task-status-container" id="inProgress"
+                    ondragover="allowDrop(event); highlight('inProgress')" ondragleave="removeHighlight('inProgress')"
+                    ondrop="moveTo('inProgress'); removeHighlight()">
                 </div>
             </div>
             <!-- TASK AWAITING FEEDBACK -->
@@ -97,9 +97,10 @@
                     <h3>Awaiting Feedback</h3><img class="plusbutton" src="assets/img/plus_button.png"
                         onclick="addTaskPopUp()">
                 </div>
-                <div class="task-status-container" id="awaitingfb"
-                    ondragover="allowDrop(event); highlight('awaitingfb')" ondragleave="removeHighlight('awaitingfb')"
-                    ondrop=" moveTo('awaitingfb'); removeHighlight()">
+                <div class="task-status-container" id="awaitingFeedback"
+                    ondragover="allowDrop(event); highlight('awaitingFeedback')"
+                    ondragleave="removeHighlight('awaitingFeedback')"
+                    ondrop=" moveTo('awaitingFeedback'); removeHighlight()">
                 </div>
             </div>
             <!-- TASK DONE -->

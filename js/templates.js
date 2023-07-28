@@ -81,9 +81,9 @@ function editTaskResponsive(index) {
             <span class="edit-task-popup-header" id="taskNameHeader">${task['name']}</span>
             <div class="edit-task-popup-buttons">
             <span class="edit-task-popup-header-category">Change Status</span>
-                <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'todo')">To Do</button>
-                <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'inprogress')">In Progress</button>
-                <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'awaitingfb')">Awaiting Feedback</button>
+                <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'toDo')">To Do</button>
+                <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'inProgress')">In Progress</button>
+                <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'awaitingFeedback')">Awaiting Feedback</button>
                 <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'done')">Done</button>
                 <span class="edit-task-popup-header-category">Task</span>
                 <button class="edit-task-popup-button-style" onclick="openTask(${index})">Show Task</button>
@@ -93,8 +93,8 @@ function editTaskResponsive(index) {
         </div>
     </div>
 `;
-    document.getElementById('showtask').innerHTML = modalContent;
-    document.getElementById('showtask').classList.remove('d-none');
+    document.getElementById('showTask').innerHTML = modalContent;
+    document.getElementById('showTask').classList.remove('d-none');
 }
 
 /**
@@ -116,11 +116,11 @@ async function renderPopUp(popup) {
                     <form class="add_task_left">
                         <div class="title fd_column">
                             <span>Title</span>
-                            <input class="task_input_field_styling" type="text" placeholder="Enter a title" id="add_task_title" required>
+                            <input class="task_input_field_styling" type="text" placeholder="Enter a title" id="addTaskTitle" required>
                         </div>
                         <div class="description fd_column">
                             <span>Description</span>
-                            <textarea class="task_input_field_styling" name="description" id="add_task_description" cols="30" rows="5" placeholder="Enter a description" required></textarea>
+                            <textarea class="task_input_field_styling" name="description" id="addTaskDescription" cols="30" rows="5" placeholder="Enter a description" required></textarea>
                         </div>
                         <div class=" fd_column">
                             <span>Category</span>
@@ -128,7 +128,7 @@ async function renderPopUp(popup) {
                                 <div class="task_input_field_styling dropdown" onclick="openDropdownMenu()" id="dropdown">Select category</div>
                                 <img class="category-down" onclick="openDropdownMenu()" src="assets/img/category-down.svg" alt="">
                             </div>
-                            <ul class="task_input_field_styling dropdown-content" id="add_task_category_select">
+                            <ul class="task_input_field_styling dropdown-content" id="addTaskCategorySelect">
                                 <li onclick="handleCategoryChange(this)">New category</li>
                                 <li onclick="clearCategories()">Clear Cateories</li>
                             </ul>
@@ -142,7 +142,7 @@ async function renderPopUp(popup) {
                 <form type="submit" class="add_task_right">
                     <div class="date fd_column">
                         <span>Due date</span>
-                        <input class="task_input_field_styling" type="date" name="" id="add_task_input_date" required min="2023-07-20">
+                        <input class="task_input_field_styling" type="date" name="" id="addTaskInputDate" required min="2023-07-20">
                     </div>
                     <div class="prio fd_column">
                         <span>Prio</span>
@@ -154,7 +154,7 @@ async function renderPopUp(popup) {
                     </div>
                     <div class="subtasks fd_column">
                         <span>Subtasks</span>
-                        <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask" placeholder="Add new subtask"><img src="" alt="">
+                        <input class="task_input_field_styling" type="text" name="" id="addTaskInputSubtask" placeholder="Add new subtask"><img src="" alt="">
                     </div>
                     <div class="show_subtask">
                     </div>

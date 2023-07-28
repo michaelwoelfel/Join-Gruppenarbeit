@@ -211,5 +211,5 @@ function handleTaskClick(taskId) {
 }
 
 function closeEditTaskModal() {
-    document.getElementById('showtask').classList.add('d-none');
+    document.getElementById('showTask').classList.add('d-none');
 }

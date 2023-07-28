@@ -22,7 +22,7 @@ function highlight(id) {
 
 function removeHighlight(id) {
     // Entferne das Highlight von allen anderen Containern
-    const containerIds = ['todo', 'inprogress', 'awaitingfb', 'done'];
+    const containerIds = ['toDo', 'inProgress', 'awaitingFeedback', 'done'];
     containerIds.forEach(containerId => {
         if (containerId !== id) {
             document.getElementById(containerId).classList.remove('task-status-container-highlight');
