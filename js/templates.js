@@ -15,7 +15,6 @@ async function taskTemplate(task) {
     `;
 }
 
-
 async function taskUserTemplate(randomColor, firstLetter, secondLetter) {
     return /*html*/ `<div class="contact-container">
     <div class="imgcontainer" style="background-color: ${randomColor};">
@@ -56,9 +55,9 @@ async function generateTaskDetailsHTML(index) {
             </div>
             <div class="prioritycontainer">
                 <span><b>Priority:</b></span>
-                <div id="colorPrioBigTask" class="prioritybigtask">
-                    <span id="prioBigTask"></span>
-                    <div id="urgencyImg"></div>
+                <div id="colorpriobigtask" class="prioritybigtask">
+                    <span id="priobigtask"></span>
+                    <div id="urgencyimg"></div>
                 </div>
             </div>
             <div class="bigtaskusers">

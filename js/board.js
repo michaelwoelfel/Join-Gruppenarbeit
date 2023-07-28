@@ -75,7 +75,7 @@ function prioColorGreen() {
 async function renderTaskContacts() {
     await loadContacts();
     let userSelection = `
-        <div ">`;
+        <div id="selectInnerUser">`;
     for (let i = 2; i < contacts.length; i++) {
         let contact = contacts[i];
         userSelection += `
@@ -160,8 +160,6 @@ function clearAllTasks() {
 }
 
 
-// Angepasst ... funktioniert aber nicht ...
-/**
  * Searches for tasks based on the search input value and filters them according to their status.
  */
 // async function findTask() {
