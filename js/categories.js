@@ -4,7 +4,7 @@ const CATEGORY_URL = 'https://remote-storage.developerakademie.org/item';
 let currentCategory;
 let currentColorOfCategory;
 let allCategories = [];
-                            
+
 loadNewCategory();
 
 
@@ -64,9 +64,9 @@ async function saveNewCategory(newCategory, currentColorOfCategory) {
     };
 
     allCategories.push(categoriesAndColors);
-   await  saveCategories();
+    await saveCategories();
 }
-    
+
 
 async function loadNewCategory(newCategory, currentColorOfCategory) {
 
@@ -81,12 +81,12 @@ async function loadNewCategory(newCategory, currentColorOfCategory) {
 async function showCategories() {
     await loadCategories();
     let categoryselection = document.getElementById('add_task_category_select');
-    categoryselection.innerHTML = `<li onclick="handleCategoryChange(this)">New category</li> <li onclick="clearCategories()">Clear Cateories</li>` ;
-    
+    categoryselection.innerHTML = `<li onclick="handleCategoryChange(this)">New category</li> <li onclick="clearCategories()">Clear Cateories</li>`;
+
     for (let i = 0; i < allCategories.length; i++) {
         const category = allCategories[i]['createdCategories'];
         const colorDot = allCategories[i]['createdColors'];
-        categoryselection.innerHTML +=  await /*html*/`
+        categoryselection.innerHTML += await /*html*/`
             <li onclick="closeDropdown(this)" class="liElement">${category} 
                 <div style="background-color: ${colorDot}" class="color_dot"></div>
             </li>  
@@ -94,7 +94,7 @@ async function showCategories() {
     }
 }
 
-async function setCurrentCategory(category,colorDot) {
+async function setCurrentCategory(category, colorDot) {
     currentCategory = category;
     currentColorOfCategory = colorDot;
     await setItem('currentCategory', JSON.stringify(currentCategory));
@@ -108,8 +108,8 @@ async function setCurrentCategory(category,colorDot) {
 
 async function setItemCategory(key, value) {
     const payload = { key, value, token: CATEGORY_TOKEN };
-    return fetch(CATEGORY_URL, { method: 'POST', body: JSON.stringify(payload)})
-    .then(res => res.json());
+    return fetch(CATEGORY_URL, { method: 'POST', body: JSON.stringify(payload) })
+        .then(res => res.json());
 }
 
 async function getItemCategory(key) {
@@ -126,7 +126,7 @@ async function openDropdownMenu() {
     let dropdown = document.getElementById('dropdown');
     dropdown.classList.toggle('border-radius');
     await showCategories();
-    
+
 }
 
 
@@ -173,7 +173,7 @@ async function saveCategories() {
 
 async function loadCategories() {
     try {
-        allCategories= JSON.parse(await getItem('allCategories'));
+        allCategories = JSON.parse(await getItem('allCategories'));
     } catch (e) {
         console.error('Loading error:', e);
 
@@ -181,8 +181,8 @@ async function loadCategories() {
 }
 
 function clearCategories() {
-     allCategories = [];
-     saveCategories();
-     showCategories();
+    allCategories = [];
+    saveCategories();
+    showCategories();
 }
 

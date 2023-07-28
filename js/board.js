@@ -30,6 +30,7 @@ function doNotClose(event) {
     event.stopPropagation();
 }
 
+// COLOR FUNCTIONS
 /**
  * Changes the color of the priority to red when the "Urgent" button is clicked.
  */
@@ -66,7 +67,8 @@ function prioColorGreen() {
     low.classList.toggle('prio-btn-low-clicked');
 }
 
-// VERBESSERN XXXXXXXXXXXXXXXXXXXXXXXXX
+
+// CONTACT FUNCTIONS
 /**
  * Renders the Contacts in the "Assign to" Selector on Add Task. 
  */
@@ -85,7 +87,9 @@ async function renderTaskContacts() {
     document.getElementById('selectInnerUser').innerHTML = userSelection;
 }
 
-
+/**
+ * Adds or removes the name of the selected contact to/from the 'selectedUsers' array based on checkbox status.
+ */
 function pushCurrentContact(event) {
     let checked = event.target.checked;
     let name = event.target.value;
@@ -113,61 +117,34 @@ async function loadSelectedUsers() {
     }
 }
 
-// async function findTask() {
-//     let search = document.getElementById('searchTaskInput').value;
-//     search = search.toLowerCase();
-//     await clearAllTasks();
-//     for (let i = 0; i < tasks.length; i++) {
-//         const task = tasks[i];
-//         let searchTask = task['name'];
-//         let taskStatus = task['status']
-//         if (searchTask.toLowerCase().includes(search) && taskStatus == 'todo') {
-//             document.getElementById('todo').innerHTML += await taskTemplate(task);
-//         }
-//         if (searchTask.toLowerCase().includes(search) && taskStatus == 'inprogress') {
-//             document.getElementById('inprogress').innerHTML += await taskTemplate(task);
-//         }
-//         if (searchTask.toLowerCase().includes(search) && taskStatus == 'awaitingfb') {
-//             document.getElementById('awaitingfb').innerHTML += await taskTemplate(task);
-//         }
-//         if (searchTask.toLowerCase().includes(search) && taskStatus == 'done') {
-//             document.getElementById('done').innerHTML += await taskTemplate(task);
-//         }
-//         await renderUsersInTask(task);
-//     }
-//     if (search == '') {
-//         await clearAllTasks();
-//         renderTasks();
-//     }
-// }
-
+// SEARCH FUNCTIONS
+/**
+ * Searches for tasks based on the search input value and filters them according to their status.
+ */
 async function findTask() {
     let search = document.getElementById('searchTaskInput').value.toLowerCase();
     await clearAllTasks();
-
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
         let searchTask = task['name'].toLowerCase();
         let taskStatus = task['status'];
-
         if (searchTask.includes(search)) {
             document.getElementById(taskStatus).innerHTML += await taskTemplate(task);
         }
         await renderUsersInTask(task);
     }
-
     if (search === '') {
         await clearAllTasks();
         renderTasks();
     }
 }
 
-
-
-
+/**
+ * Clears all tasks from their respective task containers.
+ */
 function clearAllTasks() {
-    document.getElementById('inprogress').innerHTML = '';
-    document.getElementById('todo').innerHTML = '';
-    document.getElementById('awaitingfb').innerHTML = '';
-    document.getElementById('done').innerHTML = '';
+    const taskContainers = ['inprogress', 'todo', 'awaitingfb', 'done'];
+    for (const container of taskContainers) {
+        document.getElementById(container).innerHTML = '';
+    }
 }
