@@ -173,19 +173,19 @@ function initLegal_Notice() {
  * Adds the class 'sidebar-color-black' to the 'legalnotice' element.
  */
 function colorLegalNotice() {
-    document.getElementById('legalnotice').classList.add('sidebar-color-black');
+    document.getElementById('legalNotice').classList.add('sidebar-color-black');
 }
 
 // LEGAL NOTICE END
 
 function showMenu() {
     document.getElementById('menu').classList.add('show-overlay-menu');
-    document.getElementById('hide-menu').classList.remove('hide');
+    document.getElementById('hideMenu').classList.remove('hide');
 }
 
 function hideMenu() {
     document.getElementById("menu").classList.remove("show-overlay-menu");
-    document.getElementById('hide-menu').classList.add("hide");
+    document.getElementById('hideMenu').classList.add("hide");
 }
 
 // TASK MOBILE BOARD

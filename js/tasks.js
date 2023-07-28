@@ -335,7 +335,7 @@ async function openTask(i) {
     // Insert the task details HTML into the 'showTask' element
     document.getElementById('showTask').innerHTML = await taskDetailsHTML;
     // Calls a function to display the task's priority level
-    colorUrgency(index);
+    // colorUrgency(index);
     renderUsersInOpenTask(index);
 }
 

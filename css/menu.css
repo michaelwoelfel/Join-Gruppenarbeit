@@ -81,14 +81,14 @@ position: absolute;
     display: block;
 }
 
-#hide-menu {
+#hideMenu {
   
     z-index: 120;
     position: absolute;
           
     }
 
-#hide-menu:hover {
+#hideMenu:hover {
     filter: drop-shadow(0 0 8px #249d24b5);
     transition: 125ms;
 }
