@@ -1,12 +1,8 @@
-
-
 let tasks = [];
 let taskIdCounter = 0;
 let currentDraggedElement;
 let subtasks = [];
 let colorIndex = 0;
-
-
 
 /**
  * Checks and updates the task ID based on the existing tasks.
@@ -72,10 +68,6 @@ async function addTask(event) {
     closePopup();
 }
 
-function clearAllTasks() {
-    tasks = [];
-}
-
 /**
  * Modifies an existing task.
  * @param {number} i - The index of the task to be changed in the 'tasks' list.
@@ -128,6 +120,16 @@ async function loadTaskDetails(task) {
     taskId = task.id;
 }
 
+function clearAllTasks() {
+    tasks = []; // Lösche alle Tasks im Array
+    const taskStatusContainers = ['toDo', 'inProgress', 'awaitingFeedback', 'done'];
+
+    for (const containerId of taskStatusContainers) {
+        document.getElementById(containerId).innerHTML = ''; // Leere die HTML-Container für die einzelnen Task-Status
+    }
+}
+
+
 // Hauptfunktion um Aufgabenbearbeitung zu initialisieren
 async function editTask(i) {
     let task = tasks[i];
@@ -174,18 +176,42 @@ function clearTask(event) {
  */
 function getTaskPrio(prio) {
     if (prio === 'urgent' || prio === `assets/img/priohigh.png`) {
-        taskPrio = `assets/img/priohigh.png`;
+        taskPrio = `high`;
         prioColorRed();
     }
     if (prio === 'medium' || prio === `assets/img/priomedium.png`) {
-        taskPrio = `assets/img/priomedium.png`;
+        taskPrio = `medium`;
         prioColorOrange();
     }
     if (prio === 'low' || prio === `assets/img/priolow.png`) {
-        taskPrio = `assets/img/priolow.png`;
+        taskPrio = `low`;
         prioColorGreen();
     }
     return taskPrio;
+}
+
+// Coloring the urgency level in the detailed view
+function colorUrgency(index) {
+    // Retrieves the task and its priority level
+    let task = tasks[index];
+    let prio = task['priority'];
+
+    // Changes the display depending on the priority level
+    if (prio === 'high') {
+        document.getElementById('colorPrioBigTask').classList.add('urgent');
+        document.getElementById('prioBigTask').innerHTML = `Urgent`;
+        document.getElementById('urgencyImg').innerHTML = `<img src="assets/img/prio.png">`;
+    }
+    if (prio === 'medium') {
+        document.getElementById('colorPrioBigTask').classList.add('medium');
+        document.getElementById('prioBigTask').innerHTML = `Medium`;
+        document.getElementById('urgencyImg').innerHTML = `=`;
+    }
+    if (prio === 'low') {
+        document.getElementById('colorPrioBigTask').classList.add('low');
+        document.getElementById('prioBigTask').innerHTML = `Low`;
+        document.getElementById('urgencyImg').innerHTML = `<img src="assets/img/priolowwhite.png">`;
+    }
 }
 
 /**
@@ -304,7 +330,6 @@ async function renderAwaitFb() {
         const task = awaitingFeedback[index];
         document.getElementById('awaitingFeedback').innerHTML += await taskTemplate(task);
         renderUsersInTask(task);
-
     }
 }
 
@@ -318,12 +343,8 @@ async function renderDone() {
         const task = done[index];
         document.getElementById('done').innerHTML += await taskTemplate(task);
         renderUsersInTask(task);
-
     }
 }
-
-
-
 
 async function openTask(i) {
     // Removes the 'd-none' class to make the task details visible
@@ -335,10 +356,9 @@ async function openTask(i) {
     // Insert the task details HTML into the 'showTask' element
     document.getElementById('showTask').innerHTML = await taskDetailsHTML;
     // Calls a function to display the task's priority level
-    // colorUrgency(index);
+    colorUrgency(index);
     renderUsersInOpenTask(index);
 }
-
 
 /**
  * Closes the detailed view of a task.
@@ -349,29 +369,6 @@ function closeTask() {
     document.getElementById('showTask').classList.add('d-none');
 }
 
-// Coloring the urgency level in the detailed view
-function colorUrgency(index) {
-    // Retrieves the task and its priority level
-    let task = tasks[index];
-    let prio = task['priority'];
-
-    // Changes the display depending on the priority level
-    if (prio === 'high') {
-        document.getElementById('colorPrioBigTask').classList.add('urgent');
-        document.getElementById('prioBigTask').innerHTML = `Urgent`;
-        document.getElementById('urgencyImg').innerHTML = `<img src="assets/img/prio.png">`;
-    }
-    if (prio === 'medium') {
-        document.getElementById('colorPrioBigTask').classList.add('medium');
-        document.getElementById('prioBigTask').innerHTML = `Medium`;
-        document.getElementById('urgencyImg').innerHTML = `=`;
-    }
-    if (prio === 'low') {
-        document.getElementById('colorPrioBigTask').classList.add('low');
-        document.getElementById('prioBigTask').innerHTML = `Low`;
-        document.getElementById('urgencyImg').innerHTML = `<img src="assets/img/priolowwhite.png">`;
-    }
-}
 
 /**
  * Deletes a specific task and updates the view.
@@ -400,7 +397,6 @@ function taskAddedToBoard() {
     }, 3000);
 }
 
-
 // Adds new Subtasks under subtask-field
 function addNewSubtask() {
     const newSubtask = document.getElementById('addTaskInputSubtask').value;
@@ -418,7 +414,6 @@ function addNewSubtask() {
     }
 }
 
-
 function renderSubtask(currentSubtasks, newSubtask) {
     currentSubtasks.innerHTML += /*html*/`
     <div>
@@ -428,7 +423,6 @@ function renderSubtask(currentSubtasks, newSubtask) {
     `;
     return;
 }
-
 
 // ADDS 'done-sign'
 function addDoneSignToSquare(event) {

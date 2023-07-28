@@ -123,18 +123,18 @@ async function loadSelectedUsers() {
  */
 async function findTask() {
     let search = document.getElementById('searchTaskInput').value.toLowerCase();
-    await clearAllTasks();
+    clearAllTasks();
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
         let searchTask = task['name'].toLowerCase();
         let taskStatus = task['status'];
         if (searchTask.includes(search)) {
-            document.getElementById(taskStatus).innerHTML += await taskTemplate(task);
+            document.getElementById(taskStatus).innerHTML += taskTemplate(task);
         }
-        await renderUsersInTask(task);
+        // await renderUsersInTask(task);
     }
     if (search === '') {
-        await clearAllTasks();
+        clearAllTasks();
         renderTasks();
     }
 }
