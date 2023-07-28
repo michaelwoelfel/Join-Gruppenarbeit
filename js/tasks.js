@@ -281,44 +281,6 @@ function renderUsersInOpenTask(index) {
 }
 
 
-
-/**
- * Changes the color of the priority symbol to red.
- */
-function prioColorRed() {
-    let urgent = document.getElementById('prioUrgent');
-    let medium = document.getElementById('prioMedium');
-    let low = document.getElementById('prioLow');
-    urgent.classList.toggle('prio-btn-urgent-clicked');
-    medium.classList.remove('prio-btn-medium-clicked');
-    low.classList.remove('prio-btn-low-clicked');
-
-}
-
-/**
- * Changes the color of the priority symbol to orange.
- */
-function prioColorOrange() {
-    let urgent = document.getElementById('prioUrgent');
-    let medium = document.getElementById('prioMedium');
-    let low = document.getElementById('prioLow');
-    urgent.classList.remove('prio-btn-urgent-clicked');
-    medium.classList.toggle('prio-btn-medium-clicked');
-    low.classList.remove('prio-btn-low-clicked');
-}
-
-/**
- * Changes the color of the priority symbol to green.
- */
-function prioColorGreen() {
-    let urgent = document.getElementById('prioUrgent');
-    let medium = document.getElementById('prioMedium');
-    let low = document.getElementById('prioLow');
-    urgent.classList.remove('prio-btn-urgent-clicked');
-    medium.classList.remove('prio-btn-medium-clicked');
-    low.classList.toggle('prio-btn-low-clicked');
-}
-
 /**
  * Updates the HTML representation of the 'in-progress' tasks.
  */
@@ -361,55 +323,7 @@ async function renderDone() {
 }
 
 
-// GENERAL FUNCTIONS ....
-/**
- * Allows for dropping an element.
- * @param {Event} ev - The drop event.
- */
-function allowDrop(ev) {
-    ev.preventDefault();
-}
 
-/**
- * Assigns a new status to the task depending on where it is moved.
- */
-function moveTo(category) {
-    tasks[currentDraggedElement]['status'] = category;
-    updateHTML();
-    updateTaskStatus(currentDraggedElement, category);
-}
-
-function highlight(id) {
-    document.getElementById(id).classList.add('task-status-container-highlight');
-}
-
-function removeHighlight(id) {
-    // Entferne das Highlight von allen anderen Containern
-    const containerIds = ['todo', 'inprogress', 'awaitingfb', 'done'];
-    containerIds.forEach(containerId => {
-        if (containerId !== id) {
-            document.getElementById(containerId).classList.remove('task-status-container-highlight');
-        }
-    });
-}
-
-/**
- * Updates the status of a task when it's moved between categories.
- * @param {number} taskIndex - The index of the task in the 'tasks' list.
- * @param {string} newStatus - The new status of the task.
- */
-function updateTaskStatus(taskIndex, newStatus) {
-    tasks[taskIndex]['status'] = newStatus;
-    setItem('tasks', JSON.stringify(tasks));
-}
-
-/**
- * Starts the dragging of an element.
- * @param {number} index - The index of the element to be dragged.
- */
-function startDragging(index) {
-    currentDraggedElement = index;
-}
 
 async function openTask(i) {
     // Removes the 'd-none' class to make the task details visible
