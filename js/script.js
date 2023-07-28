@@ -25,10 +25,10 @@ function colorSummary() {
  */
 async function getName() {
     if (currentUser == 'Guest') {
-        document.getElementById('currentuser').innerHTML = `Guest`;
+        document.getElementById('currentUser').innerHTML = `Guest`;
     } else {
         currentUser = JSON.parse(await getItem('currentUser'));
-        document.getElementById('currentuser').innerHTML = `${currentUser}`;
+        document.getElementById('currentUser').innerHTML = `${currentUser}`;
     }
 }
 

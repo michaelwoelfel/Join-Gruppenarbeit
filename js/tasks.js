@@ -352,21 +352,21 @@ function closeTask() {
 // Coloring the urgency level in the detailed view
 function colorUrgency(index) {
     // Retrieves the task and its priority level
-    task = tasks[index]
-    prio = task['priority'];
+    let task = tasks[index];
+    let prio = task['priority'];
 
     // Changes the display depending on the priority level
-    if (prio === 'assets/img/priohigh.png') {
+    if (prio === 'high') {
         document.getElementById('colorPrioBigTask').classList.add('urgent');
         document.getElementById('prioBigTask').innerHTML = `Urgent`;
         document.getElementById('urgencyImg').innerHTML = `<img src="assets/img/prio.png">`;
     }
-    if (prio === 'assets/img/priomedium.png') {
+    if (prio === 'medium') {
         document.getElementById('colorPrioBigTask').classList.add('medium');
         document.getElementById('prioBigTask').innerHTML = `Medium`;
         document.getElementById('urgencyImg').innerHTML = `=`;
     }
-    if (prio === 'assets/img/priolow.png') {
+    if (prio === 'low') {
         document.getElementById('colorPrioBigTask').classList.add('low');
         document.getElementById('prioBigTask').innerHTML = `Low`;
         document.getElementById('urgencyImg').innerHTML = `<img src="assets/img/priolowwhite.png">`;

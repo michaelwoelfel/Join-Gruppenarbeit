@@ -12,8 +12,9 @@ function allowDrop(ev) {
  */
 function moveTo(category) {
     tasks[currentDraggedElement]['status'] = category;
-    updateHTML();
     updateTaskStatus(currentDraggedElement, category);
+    updateHTML();
+
 }
 
 function highlight(id) {

@@ -134,7 +134,7 @@ async function renderPopUp(popup) {
                             </ul>
                         </div>
                         <span id="assignto">Assign to</span>
-                        <div id="selectInnerUser" class="assign fd_column selectinneruser">
+                        <div id="selectInnerUser" class="assign fd_column selectInnerUser">
                         </div>  
                     </div>
                 </form>

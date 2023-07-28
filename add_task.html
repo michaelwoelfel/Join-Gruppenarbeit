@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/add_task.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/add_task_popup.css">
     <link rel="icon" type="image/x-icon" href="assets/img/logo_dark.png">
 </head>
 
@@ -81,60 +82,62 @@
                         <li onclick="handleCategoryChange(this)">New category</li>
                         <li onclick="clearCategories()">Clear Cateories</li>
                     </ul>
-
                 </div>
                 <!-- USER SELECTION -->
-                <div id="userSelection" class="assign fd_column"></div>
-            </form>
-            <!-- SEPERATOR -->
-            <div class="seperator fd_column"></div>
-            <!-- TASK DATE -->
-            <form class="add_task_right">
-                <div class="date fd_column">
-                    <span>Due date</span>
-                    <input class="task_input_field_styling" type="date" name="" id="addTaskInputDate" required
-                        min="2023-07-28">
-                </div>
-                <!-- TASK PRIO -->
-                <div class="prio fd_column">
-                    <span>Prio</span>
-                    <div class="prio-btns-container">
-                        <div onclick="getTaskPrio('urgent')" id="prioUrgent" class="prio-btn">Urgent <img
-                                src="assets/img/urgent_prio.png" alt="urgent">
-                        </div>
-                        <div onclick="getTaskPrio('medium')" id="prioMedium" class="prio-btn">Medium <img
-                                src="assets/img/medium_prio.png" alt="medium">
-                        </div>
-                        <div onclick="getTaskPrio('low')" id="prioLow" class="prio-btn">Low <img
-                                src="assets/img/low_prio.png" alt="low"></div>
-                    </div>
-                </div>
-                <!-- SUBTASK -->
-                <div class="subtasks fd_column">
-                    <span>Subtasks</span>
-                    <div class="subtask_container">
-                        <input class="task_input_field_styling" type="text" name="" id="addTaskInputSubtask"
-                            maxlength="20" placeholder="Add new subtask" required><img class="subtask_plus"
-                            onclick="addNewSubtask()" src="assets/img/subtask_plus.png" alt="add Subtask">
-                    </div>
-                    <div class="show-subtasks" id="showSubtasks">
-                    </div>
-                </div>
+                <span id="assignto">Assign to</span>
+                <div id="selectInnerUser"></div>
             </form>
         </div>
-        <!-- BUTTONS CLEAR AND ADD TASK -->
-        <div class="buttons-clear-create">
-            <div onclick="clearTask(event)" class="clear-btn btn">Clear <img src="assets/img/add_task_cancel.png"
-                    alt="check">
+        <!-- SEPERATOR -->
+        <div class="seperator fd_column"></div>
+        <!-- TASK DATE -->
+        <form class="add_task_right">
+            <div class="date fd_column">
+                <span>Due date</span>
+                <input class="task_input_field_styling" type="date" name="" id="addTaskInputDate" required
+                    min="2023-07-28">
             </div>
-            <div onclick="addTask(event)" class="create-btn btn">Create Task <img src="assets/img/add_task_check.png"
-                    alt="cancel"></div>
+            <!-- TASK PRIO -->
+            <div class="prio fd_column">
+                <span>Prio</span>
+                <div class="prio-btns-container">
+                    <div onclick="getTaskPrio('urgent')" id="prioUrgent" class="prio-btn">Urgent <img
+                            src="assets/img/urgent_prio.png" alt="urgent">
+                    </div>
+                    <div onclick="getTaskPrio('medium')" id="prioMedium" class="prio-btn">Medium <img
+                            src="assets/img/medium_prio.png" alt="medium">
+                    </div>
+                    <div onclick="getTaskPrio('low')" id="prioLow" class="prio-btn">Low <img
+                            src="assets/img/low_prio.png" alt="low"></div>
+                </div>
+            </div>
+            <!-- SUBTASK -->
+            <div class="subtasks fd_column">
+                <span>Subtasks</span>
+                <div class="subtask_container">
+                    <input class="task_input_field_styling" type="text" name="" id="addTaskInputSubtask" maxlength="20"
+                        placeholder="Add new subtask" required><img class="subtask_plus" onclick="addNewSubtask()"
+                        src="assets/img/subtask_plus.png" alt="add Subtask">
+                </div>
+                <div class="show-subtasks" id="showSubtasks">
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- BUTTONS CLEAR AND ADD TASK -->
+    <div class="buttons-clear-create">
+        <div onclick="clearTask(event)" class="clear-btn btn">Clear <img src="assets/img/add_task_cancel.png"
+                alt="check">
         </div>
-        <!-- ADD TASK ANIMATION -->
-        <div class="animation-addedToBoard">
-            <span class="addedTaskToBoard_content">Task added to board <img class="board" src="assets/img/board_img.png"
-                    alt="board"></span>
-        </div>
+        <div onclick="addTask(event)" class="create-btn btn">Create Task <img src="assets/img/add_task_check.png"
+                alt="cancel"></div>
+    </div>
+    <!-- ADD TASK ANIMATION -->
+    <div class="animation-addedToBoard">
+        <span class="addedTaskToBoard_content">Task added to board <img class="board" src="assets/img/board_img.png"
+                alt="board"></span>
+    </div>
+
     </div>
 </body>
 

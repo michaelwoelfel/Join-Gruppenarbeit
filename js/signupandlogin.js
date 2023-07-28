@@ -44,7 +44,7 @@ function hideSignup() {
  * Opens the summary page.
  */
 function openWindow() {
-    window.open('summary.html','_self');
+    window.open('summary.html', '_self');
 }
 
 /**
@@ -60,7 +60,7 @@ function openWindowIndex() {
 function loginGuest() {
     currentUser = 'Guest';
     setItem('currentUser', JSON.stringify(currentUser));
-    window.open('summary.html','_self');
+    window.open('summary.html', '_self');
 }
 
 /**
@@ -104,7 +104,7 @@ async function login(event) {
     let password = document.getElementById('inputpassword').value;
     let user = users.find(u => u.mail == mail && u.password == password);
     let userIndex = users.findIndex(u => u.mail == mail && u.password == password);
-    if(user) {
+    if (user) {
         currentUser = users[userIndex].username;
         await setItem('currentUser', JSON.stringify(currentUser));
         openWindow();
@@ -149,8 +149,8 @@ async function getItem(key) {
 
 
 function rememberUser() {
-rememberedUserMail = document.getElementById('inputmail').value;
-rememberedUserPassword = document.getElementById('inputpassword').value;
+    rememberedUserMail = document.getElementById('inputmail').value;
+    rememberedUserPassword = document.getElementById('inputpassword').value;
     rememberedUser.push({
         mail: rememberedUserMail,
         password: rememberedUserPassword,
@@ -167,4 +167,5 @@ function loadRememberedUser() {
         document.getElementById('inputmail').value = lastStoredUser.mail;
         document.getElementById('inputpassword').value = lastStoredUser.password;
         document.getElementById('checkbox').checked = true;
-}}
+    }
+}
