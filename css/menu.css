@@ -2,6 +2,11 @@ body {
     overflow-x: hidden;
 }
 
+.menu-container{
+    display: none;
+}
+
+
 
 #burger-menu {
     
@@ -85,6 +90,7 @@ position: absolute;
   
     z-index: 120;
     position: absolute;
+
           
     }
 
