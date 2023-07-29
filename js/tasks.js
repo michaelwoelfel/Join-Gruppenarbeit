@@ -63,6 +63,33 @@ async function addTask(event) {
         await addTaskToList(task);
         selectedUsers = [];
         await saveSelectedUsers();
+        setTimeout(() => window.open('board.html', '_self'), 1000);
+    }
+    
+}
+
+
+async function addTaskWithPopup(event) {
+    event.stopPropagation();
+    await checkLastTaskId();
+    await loadSelectedUsers();
+    taskName = document.getElementById('addTaskTitle').value;
+    let taskSubtask = document.getElementById('addTaskInputSubtask').value;
+    let taskDescription = document.getElementById('addTaskDescription').value;
+    let taskCategory = currentCategory;
+    let taskCategorybc = currentColorOfCategory;
+    let taskAssign = selectedUsers;
+    let taskDate = document.getElementById('addTaskInputDate').value;
+    if (typeof taskPrio === 'undefined') {
+        showTaskPrioAlert();
+    } else {
+        let taskPrio = getTaskPrio();
+        let taskId = taskIdCounter++;
+        let task = createTaskElement(taskName, taskSubtask, taskDescription, taskCategory, taskCategorybc, taskAssign, taskDate, taskPrio, taskId);
+        await addTaskToList(task);
+        selectedUsers = [];
+        await saveSelectedUsers();
+        setTimeout(closePopup, 1000);
     }
     
 }

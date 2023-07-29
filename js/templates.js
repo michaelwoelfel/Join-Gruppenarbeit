@@ -162,7 +162,7 @@ async function renderPopUp(popup) {
             </div>
             <div class="buttons-clear-create">
                 <div class="clear-btn btn" onclick="clearTask(event)">Clear <img src="assets/img/add_task_cancel.png" alt="check"></div>
-                <div id="buttonEdit" class="create-btn btn" onclick="addTask(event)">Create Task <img src="assets/img/add_task_check.png" alt="cancel"></div>
+                <div id="buttonEdit" class="create-btn btn" onclick="addTaskWithPopup(event)">Create Task <img src="assets/img/add_task_check.png" alt="cancel"></div>
             </div>
             <div class="buttons-clear-create" id="buttonAfterEdit"> 
             </div>
