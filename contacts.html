@@ -51,40 +51,40 @@
 
         <div class="dialog-add-contact"></div>
         <!-- ADD CONTACT -->
-        <div class="modal d-none" id="modalOne>
-            <div id=" newcontact" class="modal-dialog ">
-            <div class="left-side-modal"><img src="assets/img/join_logo.png" class="contacts-join-logo">
-                <h1 class="modal-headline">Add contact</h1>
-                <img id="closeaddcontactimg" src="assets/img/cancel_white.png" alt="cancel" onclick="closeAddContact()"
-                    class="close-contact-creation">
-                <p id="text-better-with-a-team" class="modal-text">Tasks are better with a team!</p>
-                <div class="blueline-vertical"></div>
-            </div>
-
-            <div class="right-side-modal">
-                <img class="closeimgpopup3" onclick="closeAddContact()" src="assets/img/close.png">
-                <div class="img-info">
-                    <img class="img-add-contact" src="assets/img/pfp.png">
-                    <form id="contactForm" class="input-fields" onsubmit="event.preventDefault(); addContact();">
-                        <input id="contactName" type="text" required minlength="3" class="input-field"
-                            placeholder="Name">
-                        <input id="contactMail" type="email" required class="input-field-mail" placeholder="Email">
-                        <input id="contactPhone" type="number" required minlength="10" class="input-field-phone"
-                            placeholder="Phone">
-                        <div class="bottom-buttons">
-                            <button type="button" onclick="closeAddContact()" class="cancel-btn">Cancel</button>
-                            <button type="submit" id="createContactButton" class="create-btn">Create
-                                contact</button>
-                        </div>
-                        <span id="addedToBoard" class="addedTaskToBoard_content">Contact Added <img class="board"
-                                src="assets/img/board_img.png" alt="board"></span>
-                    </form>
-
+        <div class="modal d-none" id="modalOne">
+            <div id="newcontact" class="modal-dialog">
+                <div class="left-side-modal"><img src="assets/img/join_logo.png" class="contacts-join-logo">
+                    <h1 class="modal-headline">Add contact</h1>
+                    <img id="closeaddcontactimg" src="assets/img/cancel_white.png" alt="cancel"
+                        onclick="closeAddContact()" class="close-contact-creation">
+                    <p id="text-better-with-a-team" class="modal-text">Tasks are better with a team!</p>
+                    <div class="blueline-vertical"></div>
                 </div>
 
+                <div class="right-side-modal">
+                    <img class="closeimgpopup3" onclick="closeAddContact()" src="assets/img/close.png">
+                    <div class="img-info">
+                        <img class="img-add-contact" src="assets/img/pfp.png">
+                        <form id="contactForm" class="input-fields" onsubmit="event.preventDefault(); addContact();">
+                            <input id="contactName" type="text" required minlength="3" class="input-field"
+                                placeholder="Name">
+                            <input id="contactMail" type="email" required class="input-field-mail" placeholder="Email">
+                            <input id="contactPhone" type="number" required minlength="10" class="input-field-phone"
+                                placeholder="Phone">
+                            <div class="bottom-buttons">
+                                <button type="button" onclick="closeAddContact()" class="cancel-btn">Cancel</button>
+                                <button type="submit" id="createContactButton" class="create-btn">Create
+                                    contact</button>
+                            </div>
+                            <span id="addedToBoard" class="addedTaskToBoard_content">Contact Added <img class="board"
+                                    src="assets/img/board_img.png" alt="board"></span>
+                        </form>
+
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <!-- EDIT CONTACT -->
     <div class="modal d-none" id="modalOneEdit">
