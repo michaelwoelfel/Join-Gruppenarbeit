@@ -358,6 +358,14 @@ input[type=date]:invalid::-webkit-datetime-edit {
     margin-bottom: -8px;
 }
 
+.d-none {
+    display: none;
+}
+
+.priowarning {
+    color: red;
+}
+
 
 .show-subtasks {
     font-size: 14px;

@@ -44,7 +44,6 @@ async function addTaskToList(task) {
 
 // Hauptfunktion
 async function addTask(event) {
-
     event.stopPropagation();
     await checkLastTaskId();
     await loadSelectedUsers();
@@ -56,7 +55,7 @@ async function addTask(event) {
     let taskAssign = selectedUsers;
     let taskDate = document.getElementById('addTaskInputDate').value;
     if (typeof taskPrio === 'undefined') {
-        alert('Lege zuerst die Priorität des Tasks fest !');
+        showTaskPrioAlert();
     } else {
         let taskPrio = getTaskPrio();
         let taskId = taskIdCounter++;
@@ -65,7 +64,11 @@ async function addTask(event) {
         selectedUsers = [];
         await saveSelectedUsers();
     }
-    closePopup();
+    
+}
+
+function showTaskPrioAlert() {
+    document.getElementById('prioalert').classList.remove('d-none');
 }
 
 /**

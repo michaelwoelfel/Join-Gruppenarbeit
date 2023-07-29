@@ -87,12 +87,13 @@
             <form class="add_task_right">
                 <div class="date fd_column">
                     <span>Due date</span>
-                    <input class="task_input_field_styling" type="date" name="" id="add_task_input_date" required
+                    <input class="task_input_field_styling" type="date" name="" id="addTaskInputDate" required
                         min="2023-07-28">
                 </div>
                 <!-- TASK PRIO -->
                 <div class="prio fd_column">
                     <span>Prio</span>
+                    <span id="prioalert" class="priowarning d-none" >Choose the priority</span>
                     <div class="prio-btns-container">
                         <div onclick="getTaskPrio('urgent')" id="prioUrgent" class="prio-btn">Urgent <img
                                 src="assets/img/urgent_prio.png" alt="urgent">
@@ -108,7 +109,7 @@
                 <div class="subtasks fd_column">
                     <span>Subtasks</span>
                     <div class="subtask_container">
-                        <input class="task_input_field_styling" type="text" name="" id="add_task_input_subtask"
+                        <input class="task_input_field_styling" type="text" name="" id="addTaskInputSubtask"
                             maxlength="20" placeholder="Add new subtask" required><img class="subtask_plus"
                             onclick="addNewSubtask()" src="assets/img/subtask_plus.png" alt="add Subtask">
                     </div>

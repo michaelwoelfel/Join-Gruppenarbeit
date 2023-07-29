@@ -145,6 +145,7 @@ async function renderPopUp(popup) {
                     </div>
                     <div class="prio fd_column">
                         <span>Prio</span>
+                        <span id="prioalert" class="priowarning d-none" >Choose the priority !!</span>
                         <div class="prio-btns-container">
                             <div onclick="getTaskPrio('urgent')" id="prioUrgent" class="prio-btn">Urgent <img  src="./assets/img/urgent_prio.png" alt="urgent"></div>
                             <div onclick="getTaskPrio('medium')" id="prioMedium" class="prio-btn">Medium <img  src="assets/img/medium_prio.png" alt="medium"></div>
