@@ -382,9 +382,10 @@ input[type=date]:invalid::-webkit-datetime-edit {
     color: white;
 }
 
-#buttonafteredit {
+#buttonAfterEditNone {
     position: fixed;
-    right: 35%;
+    right: 10%;
+    bottom: 12.5%;
 }
 
 
@@ -457,6 +458,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     display: flex;
     justify-content: flex-end;
     z-index: 500;
+  
 }
 
 
@@ -500,6 +502,7 @@ li
     background-color: #2A3647;
     color: white;
     z-index: 1500;
+    position: fixed;
 }
 
 .create-btnpopup:hover {
@@ -678,7 +681,7 @@ li
     .create-btn {
         position: fixed;
         top: 14px;
-        right: 16px;
+        right: 5px;
         z-index: 600;
         }
 
