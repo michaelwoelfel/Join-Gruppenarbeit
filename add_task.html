@@ -58,13 +58,13 @@
             <form class="add_task_left">
                 <div class="title fd_column">
                     <span>Title</span>
-                    <input class="task_input_field_styling" type="text" placeholder="Enter a title" maxlength="25"
-                        id="add_task_title" required>
+                    <input class="task_input_field_styling" required type="text" placeholder="Enter a title" maxlength="25"
+                        id="addTaskTitle" required>
                 </div>
                 <!-- TASK DESCRIPTION -->
                 <div class="description fd_column">
                     <span>Description</span>
-                    <textarea class="task_input_field_styling" name="description" id="add_task_description" cols="30"
+                    <textarea class="task_input_field_styling" name="description" id="addTaskDescription" cols="30"
                         rows="5" placeholder="Enter a description" required></textarea>
                 </div>
                 <!-- TASK CATEGORY -->
@@ -99,13 +99,13 @@
                 <div class="prio fd_column">
                     <span>Prio</span>
                     <div class="prio-btns-container">
-                        <div onclick="getTaskPrio('urgent')" id="prio_urgent" class="prio-btn">Urgent <img
+                        <div onclick="getTaskPrio('urgent')" id="prioUrgent" class="prio-btn">Urgent <img
                                 src="assets/img/urgent_prio.png" alt="urgent">
                         </div>
-                        <div onclick="getTaskPrio('medium')" id="prio_medium" class="prio-btn">Medium <img
+                        <div onclick="getTaskPrio('medium')" id="prioMedium" class="prio-btn">Medium <img
                                 src="assets/img/medium_prio.png" alt="medium">
                         </div>
-                        <div onclick="getTaskPrio('low')" id="prio_low" class="prio-btn">Low <img
+                        <div onclick="getTaskPrio('low')" id="prioLow" class="prio-btn">Low <img
                                 src="assets/img/low_prio.png" alt="low"></div>
                     </div>
                 </div>
