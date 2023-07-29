@@ -41,16 +41,7 @@
     <!-- HOLE BOARD CONTAINER -->
     <div class="maincontainer">
         <!-- HEADER-->
-        <nav id="menu" class="nav hide-overlay-menu">
-            <div id="burger-menu">
-                <img class="crosswhite" onclick="hideMenu()" id="hideMenu" src="assets/img/cross_white.png"
-                    alt="menu-icon" />
-            </div>
-            <a class="nav--a a__active logoutbutton" href="index.html"><span class="loginbuttonmenu">Logout</span></a>
-            <div class="legalnoticemenu"><a class="nav--a" href="legal_notice.html"><img class="legalnoticeimgmenu"
-                        src="assets/img/legal_notice.png" class="side-bar-image">Legal Notice</a></div>
-
-        </nav>
+        <div w3-include-html="assets/templates/menu_template.html"></div>
         <div w3-include-html="assets/templates/header_template.html"></div>
         <div class="hidden-Kanban">Kanban Project Management Tool</div>
         <!-- BOARD TOP CONTAINER -->

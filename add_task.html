@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/add_task.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/menu.css">
-   
+
     <link rel="icon" type="image/x-icon" href="assets/img/logo_dark.png">
 </head>
 
@@ -29,14 +29,8 @@
 </head>
 
 <body onload="initAddTask()">
-    <nav id="menu" class="nav hide-overlay-menu"  >
-        <div id="burger-menu">
-            <img class="crosswhite" onclick="hideMenu()" id="hide-menu" src="assets/img/cross_white.png" alt="menu-icon"/>
-        </div>
-        <a class="nav--a a__active logoutbutton" href="index.html"><span class="loginbuttonmenu">Logout</span></a>
-        <div class="legalnoticemenu"><a  class="nav--a" href="legal_notice.html"><img class="legalnoticeimgmenu" src="assets/img/legal_notice.png" class="side-bar-image">Legal Notice</a></div>
-        
-      </nav>
+    <!-- MENU TEMPLATE -->
+    <div w3-include-html="assets/templates/menu_template.html"></div>
     <!-- SIDEBAR TEMPLATE -->
     <div w3-include-html="assets/templates/sideBar_template.html"></div>
     <!-- HOLE ADD TASK CONTAINER -->
@@ -47,7 +41,7 @@
             <span class="headspan">Kanban Project Management Tool</span>
             <div class="author"><a href="help.html" target="_self"><img class="questionimg"
                         src="assets/img/question.png"></a>
-                <img onclick="showMenu()"id="michael" src="assets/img/michael.jpg">
+                <img onclick="showMenu()" id="michael" src="assets/img/michael.jpg">
             </div>
         </div>
         <div class="hidden-Kanban">Kanban Project Management Tool</div>
@@ -58,8 +52,8 @@
             <form class="add_task_left">
                 <div class="title fd_column">
                     <span>Title</span>
-                    <input class="task_input_field_styling" required type="text" placeholder="Enter a title" maxlength="25"
-                        id="addTaskTitle" required>
+                    <input class="task_input_field_styling" required type="text" placeholder="Enter a title"
+                        maxlength="25" id="addTaskTitle" required>
                 </div>
                 <!-- TASK DESCRIPTION -->
                 <div class="description fd_column">
@@ -71,7 +65,8 @@
                 <div class="category fd_column">
                     <span>Category</span>
                     <div class="category-select-down">
-                        <div class="task_input_field_styling dropdown" onclick="openDropdownMenu()" id="dropdown">Select category</div>
+                        <div class="task_input_field_styling dropdown" onclick="openDropdownMenu()" id="dropdown">Select
+                            category</div>
                         <img class="category-down" onclick="openDropdownMenu()" src="assets/img/category-down.svg"
                             alt="">
                     </div>
@@ -84,7 +79,7 @@
                 <!-- USER SELECTION -->
                 <span id="assignto">Assign to</span>
                 <div id="selectInnerUser" class="assign fd_column selectInnerUser">
-                </div>  
+                </div>
             </form>
             <!-- SEPERATOR -->
             <div class="seperator fd_column"></div>
@@ -132,12 +127,10 @@
         </div>
         <!-- ADD TASK ANIMATION -->
         <div class="animation-addedToBoard">
-            <span class="addedTaskToBoard_content">Task added to board <img class="board"
-                    src="assets/img/board_img.png" alt="board"></span>
+            <span class="addedTaskToBoard_content">Task added to board <img class="board" src="assets/img/board_img.png"
+                    alt="board"></span>
         </div>
     </div>
 </body>
 
 </html>
-
-
