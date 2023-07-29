@@ -2,7 +2,7 @@ body {
     overflow-x: hidden;
 }
 
-.menu-container {
+.menu-container-d-none {
     display: none;
 }
 
@@ -167,10 +167,14 @@ body {
 
     #menu {
         width: 100%;
-        /* display: none; */
+        display: none;
     }
 
-    .menu-container {
+    #menu.show-overlay-menu {
+        display: flex;
+    }
+
+    .menu-container-d-none {
         display: none;
     }
 }
