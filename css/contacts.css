@@ -276,7 +276,7 @@ h3 {
         justify-content: flex-start;
       }
       
-      #blueaddtask{
+      #blueAddTask{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -291,7 +291,7 @@ h3 {
         
       }
     
-      #blueaddtask:hover{
+      #blueAddTask:hover{
         cursor: pointer;
         border: 1px solid #29ABE2;
         border-radius: 5px;

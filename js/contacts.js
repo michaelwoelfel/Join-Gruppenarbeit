@@ -152,6 +152,7 @@ async function deleteContact(i) {
     await setItem('contacts', JSON.stringify(contacts));
     await renderContacts();
     closeEditContact();
+    document.getElementById('showContact').innerHTML = ``;
 }
 
 /**
