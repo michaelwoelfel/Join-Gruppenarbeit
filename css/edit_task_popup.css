@@ -2,8 +2,8 @@
     background-color: rgba(255, 255, 255, 1);
     border-radius: 30px;
     margin-right: 230px;
-    width: 55%;
-    height: 50%;
+    width: 90%;
+    height: 90%;
     margin-right: 0;
 }
 
@@ -42,12 +42,27 @@
 }
 
 .edit-task-popup-button-style {
-    background-color: white;
-    border: none;
-    font-size: 16px;
-    padding: 8px;
-    cursor: pointer;
+    background-color: #2A3647;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+    text-align: center;
+    border-radius: 12px;
+    padding: 12px 16px;
     font-weight: bold;
+  }
+
+  .editandclosebottom {
+    display: flex;
+  }
+
+  .edit-task-popup-button-style:hover {
+    cursor: pointer;
+    background-color: #29ABE2;
+    box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
+    color: white;
   }
   
   .edit-task-popup-button-style:hover {

@@ -196,6 +196,7 @@ function hideMenu() {
 function editTaskStatus(index, newStatus) {
     let task = tasks[index];
     task.status = newStatus;
+    document.getElementById('showTask').classList.add('d-none');
     updateHTML();
 }
 

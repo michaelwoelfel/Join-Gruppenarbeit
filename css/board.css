@@ -281,11 +281,12 @@ h3 {
 }
 
 .contact-container {
-    width: 100%;
+    width:90%;
     display: flex;
     align-items: center;
     position: relative; 
     gap: 15px;
+    margin-right: 10px;
     
 }
 
@@ -347,7 +348,7 @@ h3 {
 .bigtaskusers{
     display: flex;
     flex-direction: column;
-    padding-left: 30px;
+    padding-left: 15px;
     padding-top: 30px;
 }
 
@@ -382,7 +383,7 @@ h3 {
 .users{
     padding-top: 10px;
     overflow: auto;
-    height: 200px;
+    height: 75px;
 }
 
 
@@ -401,26 +402,36 @@ h3 {
    /* Breite */
 ::-webkit-scrollbar {
     width: 10px;
+    border-radius: 8px;
+    color: white;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
+    border-radius: 10px;
+    color: white;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 8px;
+    color: white;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+    color: white;
 }
 
 .priowarning {
     color: red;
+}
+
+.modal-content {
+    
 }
    
    

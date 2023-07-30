@@ -85,9 +85,11 @@ function editTaskResponsive(index) {
                 <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'awaitingFeedback')">Awaiting Feedback</button>
                 <button class="edit-task-popup-button-style" onclick="editTaskStatus(${index}, 'done')">Done</button>
                 <span class="edit-task-popup-header-category">Task</span>
+                <div class="editandclosebottom">
                 <button class="edit-task-popup-button-style" onclick="openTask(${index})">Show Task</button>
                 <button class="edit-task-popup-button-style" onclick="editTask(${index})">Edit Task</button>
                 <button class="edit-task-popup-button-style" onclick="closeEditTaskModal(${index})">Back</button>
+</div>
             </div>
         </div>
     </div>
@@ -162,7 +164,7 @@ async function renderPopUp(popup) {
             </div>
             <div class="buttons-clear-create">
                 <div class="clear-btn btn" onclick="clearTask(event)">Clear <img src="assets/img/add_task_cancel.png" alt="check"></div>
-                <div id="buttonEdit" class="create-btn btn" onclick="addTaskWithPopup(event)">Create Task <img src="assets/img/add_task_check.png" alt="cancel"></div>
+                <div id="buttonEdit" class="create-btn btn" type="submit" onclick="addTaskWithPopup(event)">Create Task <img src="assets/img/add_task_check.png" alt="cancel"></div>
             </div>
             <div class="buttons-clear-create" id="buttonAfterEdit"> 
             </div>
