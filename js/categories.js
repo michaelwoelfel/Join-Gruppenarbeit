@@ -81,7 +81,7 @@ async function loadNewCategory(newCategory, currentColorOfCategory) {
 async function showCategories() {
     await loadCategories();
     let categoryselection = document.getElementById('addTaskCategorySelect');
-    categoryselection.innerHTML = `<li onclick="handleCategoryChange(this)">New category</li> <li onclick="clearCategories()">Clear Cateories</li>`;
+    categoryselection.innerHTML = `<li class="liElement" onclick="handleCategoryChange(this)">New category</li> <li  class="liElement" onclick="clearCategories()">Clear Cateories</li>`;
 
     for (let i = 0; i < allCategories.length; i++) {
         const category = allCategories[i]['createdCategories'];

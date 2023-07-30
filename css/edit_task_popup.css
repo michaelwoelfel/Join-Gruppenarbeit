@@ -61,10 +61,8 @@
   .edit-task-popup-button-style:hover {
     cursor: pointer;
     background-color: #29ABE2;
+    
     box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
     color: white;
   }
   
-  .edit-task-popup-button-style:hover {
-    color: #4c87af; 
-  }

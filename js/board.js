@@ -120,37 +120,31 @@ async function loadSelectedUsers() {
 // SEARCH FUNCTIONS
 
 
+
+
 async function findTask() {
-    let search = document.getElementById('searchTaskInput').value;
-    search = search.toLowerCase();
+    let search = document.getElementById('searchTaskInput').value.toLowerCase();
     await clearAllTasks();
-    for (let i = 0; i < tasks.length; i++) {
-        const task = tasks[i];
-        let searchtask = task['name'];
-        let taskstatus = task['status']
-        if (searchtask.toLowerCase().includes(search) && taskstatus == 'toDo') {
-            document.getElementById('toDo').innerHTML += await taskTemplate(task);
-            await renderUsersInTask(task);
-            
-        }
-        if (searchtask.toLowerCase().includes(search) && taskstatus == 'inProgress') {
-            document.getElementById('inProgress').innerHTML += await taskTemplate(task);
-            await renderUsersInTask(task);
-        }
-        if (searchtask.toLowerCase().includes(search) && taskstatus == 'awaitingFeedback') {
-            document.getElementById('awaitingFeedback').innerHTML += await taskTemplate(task);
-            await renderUsersInTask(task);
-        }
-        if (searchtask.toLowerCase().includes(search) && taskstatus == 'done') {
-            document.getElementById('done').innerHTML += await taskTemplate(task);
-            await renderUsersInTask(task);
-        }
+    for (let task of tasks) {
+        await handleTaskSearch(task, search, task['status'], 'toDo');
+        await handleTaskSearch(task, search, task['status'], 'inProgress');
+        await handleTaskSearch(task, search, task['status'], 'awaitingFeedback');
+        await handleTaskSearch(task, search, task['status'], 'done');
     }
     if (search == '') {
         await clearAllTasks();
         renderTasks();
     }
 }
+
+async function handleTaskSearch(task, search, taskStatus, taskStatusName) {
+    let searchTask = task['name'];
+    if (searchTask.toLowerCase().includes(search) && taskStatus == taskStatusName) {
+        document.getElementById(taskStatusName).innerHTML += await taskTemplate(task);
+        await renderUsersInTask(task);
+    }
+}
+
 
 function clearAllTasks() {
     document.getElementById('inProgress').innerHTML = '';

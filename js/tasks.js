@@ -63,36 +63,76 @@ async function addTask(event) {
         await addTaskToList(task);
         selectedUsers = [];
         await saveSelectedUsers();
-        setTimeout(() => window.open('board.html', '_self'), 1000);
+       
     }
     
 }
 
 
-async function addTaskWithPopup(event) {
+async function prepareTaskAdding(event) {
     event.stopPropagation();
     await checkLastTaskId();
     await loadSelectedUsers();
-    taskName = document.getElementById('addTaskTitle').value;
+}
+
+function gatherTaskDetails() {
+    let taskName = document.getElementById('addTaskTitle').value;
     let taskSubtask = document.getElementById('addTaskInputSubtask').value;
     let taskDescription = document.getElementById('addTaskDescription').value;
     let taskCategory = currentCategory;
     let taskCategorybc = currentColorOfCategory;
     let taskAssign = selectedUsers;
     let taskDate = document.getElementById('addTaskInputDate').value;
+    return { taskName, taskSubtask, taskDescription, taskCategory, taskCategorybc, taskAssign, taskDate };
+}
+
+async function finalizeTaskAdding(taskDetails, taskPrio) {
+    let taskId = taskIdCounter++;
+    let task = createTaskElement(taskDetails.taskName, taskDetails.taskSubtask, taskDetails.taskDescription, 
+                                taskDetails.taskCategory, taskDetails.taskCategorybc, taskDetails.taskAssign, 
+                                taskDetails.taskDate, taskPrio, taskId);
+    await addTaskToList(task);
+    selectedUsers = [];
+    await saveSelectedUsers();
+    setTimeout(closePopup, 1000);
+}
+
+async function addTaskWithPopup(event) {
+    await prepareTaskAdding(event);
+    let taskDetails = gatherTaskDetails();
+    
     if (typeof taskPrio === 'undefined') {
         showTaskPrioAlert();
     } else {
         let taskPrio = getTaskPrio();
-        let taskId = taskIdCounter++;
-        let task = createTaskElement(taskName, taskSubtask, taskDescription, taskCategory, taskCategorybc, taskAssign, taskDate, taskPrio, taskId);
-        await addTaskToList(task);
-        selectedUsers = [];
-        await saveSelectedUsers();
-        setTimeout(closePopup, 1000);
+        await finalizeTaskAdding(taskDetails, taskPrio);
     }
-    
 }
+
+async function addTask(event) {
+    await prepareTaskAdding(event);
+    let taskDetails = gatherTaskDetails();
+    if (typeof taskPrio === 'undefined') {
+        showTaskPrioAlert();
+    } else {
+        let taskPrio = getTaskPrio();
+        await finalizeTaskAddingPopup(taskDetails, taskPrio);
+    }
+}
+
+
+async function finalizeTaskAddingPopup(taskDetails, taskPrio) {
+    let taskId = taskIdCounter++;
+    let task = createTaskElement(taskDetails.taskName, taskDetails.taskSubtask, taskDetails.taskDescription, 
+                                taskDetails.taskCategory, taskDetails.taskCategorybc, taskDetails.taskAssign, 
+                                taskDetails.taskDate, taskPrio, taskId);
+    await addTaskToList(task);
+    selectedUsers = [];
+    await saveSelectedUsers();
+    setTimeout(() => window.open('board.html', '_self'), 1000);
+}
+
+
 
 function showTaskPrioAlert() {
     document.getElementById('prioalert').classList.remove('d-none');
@@ -304,7 +344,6 @@ async function renderUsersInTask(task) {
     let idTask = task.id;
     let userContainer = document.getElementById(`usersInTask${idTask}`);
     console.log('userContainer');
-
     for (let i = 0; i < userTasks.length; i++) {
         const element = userTasks[i];
         let nameParts = element.split(' '); // Name in Teile aufteilen
@@ -381,15 +420,10 @@ async function renderDone() {
 }
 
 async function openTask(i) {
-    // Removes the 'd-none' class to make the task details visible
     document.getElementById('showTask').classList.remove('d-none');
-    // Finds the index of the task with the given ID
     let index = tasks.findIndex(task => task.id === i);
-    // Generate the HTML for task details using the separate function
     let taskDetailsHTML = await generateTaskDetailsHTML(index);
-    // Insert the task details HTML into the 'showTask' element
     document.getElementById('showTask').innerHTML = await taskDetailsHTML;
-    // Calls a function to display the task's priority level
     colorUrgency(index);
     renderUsersInOpenTask(index);
 }

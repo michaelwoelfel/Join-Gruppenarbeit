@@ -70,7 +70,7 @@
                         <img class="category-down" onclick="openDropdownMenu()" src="assets/img/category-down.svg"
                             alt="">
                     </div>
-                    <ul class="task_input_field_styling dropdown-content" id="add_task_category_select">
+                    <ul class="task_input_field_styling dropdown-content" id="addTaskCategorySelect">
                         <li onclick="handleCategoryChange(this)">New category</li>
                         <li onclick="clearCategories()">Clear Cateories</li>
                     </ul>
@@ -107,14 +107,10 @@
                 </div>
                 <!-- SUBTASK -->
                 <div class="subtasks fd_column">
-                    <span>Subtasks</span>
-                    <div class="subtask_container">
-                        <input class="task_input_field_styling" type="text" name="" id="addTaskInputSubtask"
-                            maxlength="20" placeholder="Add new subtask" required><img class="subtask_plus"
-                            onclick="addNewSubtask()" src="assets/img/subtask_plus.png" alt="add Subtask">
-                    </div>
-                    <div class="show-subtasks" id="show-subtasks">
-                    </div>
+                    <span>Subtask</span>
+                    <input class="task_input_field_styling" type="text" name="" id="addTaskInputSubtask" placeholder="Add new subtask"><img src="" alt="">
+                </div>
+                <div class="show_subtask">
                 </div>
             </form>
         </div>
