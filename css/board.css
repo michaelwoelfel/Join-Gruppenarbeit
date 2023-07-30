@@ -383,13 +383,15 @@ h3 {
 .users{
     padding-top: 10px;
     overflow: auto;
-    height: 75px;
+    height: 100px;
+    margin-right: 10px;
+    
 }
 
 
 
 .tasktext {
-    padding-top: 30px;
+    padding-top: 15px;
     margin-left: 30px;
     color: #A8A8A8;
     display: flex;
