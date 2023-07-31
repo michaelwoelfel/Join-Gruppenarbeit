@@ -245,6 +245,7 @@ h3 {
 .content:hover {
     cursor: pointer;
     border: 1px solid #29ABE2;
+    transform: rotate(2deg);
 }
 
 .taskdescription {
