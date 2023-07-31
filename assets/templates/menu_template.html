@@ -10,24 +10,24 @@
 </head>
 
 <body>
-    <div id="menuContainer" class="menu-container-d-none">
-        <nav id="menu" class="nav hide-overlay-menu hide">
-            <div id="burger-menu">
-                <img class="crosswhite" onclick="hideMenu()" id="hideMenu" src="assets/img/cross_white.png"
-                    alt="menu-icon" />
-            </div>
-            <a class="nav--a a__active logoutbutton" href="index.html">
-                <span class="loginbuttonmenu">Logout</span>
+
+    <nav id="menu" class=" hide-overlay-menu">
+        <div class="menu-container">
+            <a class="menu-link" href="index.html">
+                <span class="menu-button">Logout</span>
             </a>
-            <div class="legalnoticemenu">
-                <a class="nav--a" href="legal_notice.html">
-                    <img class="legalnoticeimgmenu" src="assets/img/legal_notice.png" class="side-bar-image"
-                        alt="Legal Notice" />
-                    Legal Notice
-                </a>
-            </div>
-        </nav>
-    </div>
+            <a class="menu-link" href="help.html">
+                <span class="menu-button">Help</span>
+            </a>
+            <a class="menu-link" href="legal_notice.html">
+                <span class="menu-button">Legal Notice</span>
+            </a>
+            <a class="menu-link" onclick="hideMenu()">
+                <span class="menu-button">Back</span>
+            </a>
+        </div>
+    </nav>
+
 </body>
 
 </html>

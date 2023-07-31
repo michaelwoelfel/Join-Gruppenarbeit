@@ -179,17 +179,16 @@ function colorLegalNotice() {
 // LEGAL NOTICE END
 
 function showMenu() {
-    document.getElementById('menuContainer').classList.remove('menu-container-d-none');
+    document.getElementById('menu').classList.remove('menu-container-d-none');
     document.getElementById('menu').classList.add('show-overlay-menu');
-    document.getElementById('hideMenu').classList.remove('hide');
-
 }
 
 function hideMenu() {
-    document.getElementById('menuContainer').classList.add('menu-container-d-none');
     document.getElementById('menu').classList.remove('show-overlay-menu');
-    document.getElementById('hideMenu').classList.add('hide');
+    document.getElementById('menu').classList.add('hide-overlay-menu');
 }
+
+// 
 
 // TASK MOBILE BOARD
 
