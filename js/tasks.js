@@ -343,7 +343,6 @@ async function renderUsersInTask(task) {
     userTasks = task['user'];
     let idTask = task.id;
     let userContainer = document.getElementById(`usersInTask${idTask}`);
-    console.log('userContainer');
     for (let i = 0; i < userTasks.length; i++) {
         const element = userTasks[i];
         let nameParts = element.split(' '); // Name in Teile aufteilen
@@ -425,7 +424,7 @@ async function openTask(i) {
     let taskDetailsHTML = await generateTaskDetailsHTML(index);
     document.getElementById('showTask').innerHTML = await taskDetailsHTML;
     colorUrgency(index);
-    renderUsersInOpenTask(index);
+   renderUsersInOpenTask(index);
 }
 
 /**

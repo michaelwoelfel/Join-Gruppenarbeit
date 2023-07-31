@@ -244,7 +244,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     border: 2px solid #D1D1D1;
     outline: none;
     padding: 8px;
-    ftask_inputont-family: 'Inter', sans-serif;
     border: 2px solid #D1D1D1;
     outline: none;
     border-radius: 6px;
@@ -672,7 +671,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     }
 
     .clear-btn {
-        display: none;
+       
     }
 
     .buttons-clear-create {

@@ -44,6 +44,14 @@ body {
     overflow-x: hidden;
 }
 
+#email {
+    color:#29ABE2;
+}
+
+#email:hover {
+    color: orange;
+}
+
 #contactInfo {
     display: flex;
     flex-direction: column;
@@ -186,6 +194,7 @@ h3 {
         border-radius: 45px;
         min-width: 40px;
         min-height: 40px;
+        margin-left: 5px;
     }
 
     #letter{

@@ -1,19 +1,23 @@
+
 async function taskTemplate(task) {
     return /*html*/ `
-        <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="handleTaskClick(${task['id']})"} class="content">
+        <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="handleTaskClick(${task['id']})" class="content">
             <div style="background-color: ${task['categoryBackgroundColor']}" class="category">${task['category']}</div>
             <div class="taskdescription"><b>${task['name']}</b></div>
             <div class="subtaskdescription"><b>${task['subtask']}</b></div>
             <div class="tasktext">${task['tasktext']}</div>
             <div class="progresscontainer">
-           <div class="taskfooter"><div class="usersintaks" id="usersInTask${task['id']}"></div>
-                <div class="priority">
-                    <img src="${task['priority']}">
+                <div class="taskfooter">
+                    <div class="usersintaks" id="usersInTask${task['id']}"></div>
+                    <div class="priority">
+                        <img src="${task['priority']}">
+                    </div>
                 </div>
             </div>
         </div>
     `;
 }
+
 
 async function taskUserTemplate(randomColor, firstLetter, secondLetter) {
     return /*html*/ `<div class="contact-container">
@@ -62,7 +66,7 @@ async function generateTaskDetailsHTML(index) {
             </div>
             <div class="bigtaskusers">
                 <span><b>Assigned To:</b></span>
-                <div id="usersInOpenTask${index}" class="users"></div>
+                <div id="usersInOpenTask${task.id}" class="users"></div>
             </div>
             <div class="buttoncontainer">
                 <img id="deleteimg" onclick="deleteTask(${index})" src="assets/img/delete.png">
