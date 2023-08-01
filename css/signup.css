@@ -329,8 +329,8 @@ a{
             width: 100%;
         }
         .arrowleft {
-            left:5%;
-            top:  0.5%;
+            left:20px;
+            top:  50px;
         }
 
         .rememberme {
@@ -339,12 +339,34 @@ a{
         .maincontainer {
             height: 80%;
         }
+       
+
         .login {
-            height: 100%;
+            width: 100%;
+        }
+
+        .rememberme {
+            gap: 10px;
+        }
+        .maincontainer {
+            height: 550px;
+            top: 70px;
+        }
+        .login {
+            height: 500px;
         }
 
         .signuptop {
-            top: 560px;
+            top: 590px;
+        }
+
+        .joinlogo {
+            display: flex;
+            z-index: 10;
+            top: 10px;
+            left: 10px;
+            height: 60px;
+            width: 60px;
         }
 
   }

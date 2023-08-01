@@ -353,14 +353,24 @@ a{
             gap: 10px;
         }
         .maincontainer {
-            height: 90%;
+            height: 550px;
+            top: 70px;
         }
         .login {
-            height: 90%;
+            height: 500px;
         }
 
         .signuptop {
-            top: 570px;
+            top: 590px;
+        }
+
+        .joinlogo {
+            display: flex;
+            z-index: 10;
+            top: 10px;
+            left: 10px;
+            height: 60px;
+            width: 60px;
         }
 
   }
