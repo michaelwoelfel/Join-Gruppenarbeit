@@ -147,7 +147,7 @@ async function renderPopUp(popup) {
                 <form type="submit" class="add_task_right">
                     <div class="date fd_column">
                         <span>Due date</span>
-                        <input class="task_input_field_styling" type="date" name="" id="addTaskInputDate" required min="2023-07-20">
+                        <input class="task_input_field_styling" type="date" name="" id="addTaskInputDate" required >
                     </div>
                     <div class="prio fd_column">
                         <span>Prio</span>

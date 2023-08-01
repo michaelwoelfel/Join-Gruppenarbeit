@@ -11,6 +11,7 @@ async function addTaskPopUp() {
     popup.classList.remove('d-none');
     renderPopUp(popup);
     await renderTaskContacts();
+    currentDate();
 }
 
 /**

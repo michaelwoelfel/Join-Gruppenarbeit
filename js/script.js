@@ -107,9 +107,20 @@ async function initAddTask() {
         await colorAddTask();
         await renderTaskContacts();
         clickName();
+        currentDate();
 
     });
 }
+
+
+function currentDate(){
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); 
+    let yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("addTaskInputDate").setAttribute("min", today);
+};
 
 /**
  * Clicks on the name on add_task when before clicked on addtask on a specific Contact.

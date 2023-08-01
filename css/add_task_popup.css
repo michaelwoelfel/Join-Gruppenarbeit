@@ -197,6 +197,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     position: absolute;
     right: 8px;
     bottom: 10px; 
+    z-index: 20;
 }
 
 .new-category-popup {
@@ -254,7 +255,6 @@ li:hover{
     display: flex;
     background-color: white;
     margin-bottom: 0;
-    border-bottom-style: none;
 }
 
 

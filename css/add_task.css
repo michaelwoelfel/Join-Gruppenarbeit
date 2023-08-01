@@ -137,7 +137,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     display: inline-block;
     background-color: white;
     margin-bottom: 0;
-    border-bottom-style: none;
 }
 
 
