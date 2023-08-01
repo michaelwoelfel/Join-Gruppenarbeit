@@ -71,6 +71,11 @@ async function init() {
     loadRememberedUser();
 }
 
+async function initSignUp() {
+    loadUsers();
+}
+
+
 /**
  * Loads the users from remote storage and parses them into the 'users' array.
  */
