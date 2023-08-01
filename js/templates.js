@@ -157,15 +157,18 @@ async function renderPopUp(popup) {
                             <div onclick="getTaskPrio('medium')" id="prioMedium" class="prio-btn">Medium <img  src="assets/img/medium_prio.png" alt="medium"></div>
                             <div onclick="getTaskPrio('low')" id="prioLow" class="prio-btn">Low <img  src="assets/img/low_prio.png" alt="low"></div>
                         </div>
+                        <div class="subtasks fd_column">
+                    <span>Subtasks</span>
+                    <div class="subtask_container">
+                        <input class="task_input_field_styling" type="text" name="" id="addTaskInputSubtask"
+                            maxlength="20" placeholder="Add new subtask" required><img class="subtask_plus"
+                            onclick="addNewSubtask()" src="assets/img/subtask_plus.png" alt="add Subtask">
                     </div>
-                    <div class="subtasks fd_column">
-                        <span>Subtasks</span>
-                        <input class="task_input_field_styling" type="text" name="" id="addTaskInputSubtask" placeholder="Add new subtask"><img src="" alt="">
+                    <div class="show-subtasks" id="showSubtasks">
                     </div>
-                    <div class="show_subtask">
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
+        </div>
             <div class="buttons-clear-create">
                 <div class="clear-btn btn" onclick="clearTask(event)">Clear <img src="assets/img/add_task_cancel.png" alt="check"></div>
                 <div id="buttonEdit" class="create-btn btn" type="submit" onclick="addTaskWithPopup(event)">Create Task <img src="assets/img/add_task_check.png" alt="cancel"></div>

@@ -107,10 +107,14 @@
                 </div>
                 <!-- SUBTASK -->
                 <div class="subtasks fd_column">
-                    <span>Subtask</span>
-                    <input class="task_input_field_styling" type="text" name="" id="addTaskInputSubtask" placeholder="Add new subtask"><img src="" alt="">
-                </div>
-                <div class="show_subtask">
+                    <span>Subtasks</span>
+                    <div class="subtask_container">
+                        <input class="task_input_field_styling" type="text" name="" id="addTaskInputSubtask"
+                            maxlength="20" placeholder="Add new subtask" required><img class="subtask_plus"
+                            onclick="addNewSubtask()" src="assets/img/subtask_plus.png" alt="add Subtask">
+                    </div>
+                    <div class="show-subtasks" id="showSubtasks">
+                    </div>
                 </div>
             </form>
         </div>
