@@ -161,8 +161,7 @@ function rememberUser() {
 
 function loadRememberedUser() {
     let storedUser = JSON.parse(localStorage.getItem('rememberedUser'));
-    if (rememberedUser) {
-        // if there is a stored user, get the last stored user
+    if (storedUser != null) {
         let lastStoredUser = storedUser[storedUser.length - 1];
         document.getElementById('inputmail').value = lastStoredUser.mail;
         document.getElementById('inputpassword').value = lastStoredUser.password;
