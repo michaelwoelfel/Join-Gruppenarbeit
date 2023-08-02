@@ -146,7 +146,7 @@ h3 {
 .bigtask{
     background-color: rgba(255, 255, 255, 1);
     border-radius: 30px;
-    height: 80%;
+    height: 95%;
     margin-right: 230px;
     width: 55%;
     
@@ -311,6 +311,24 @@ h3 {
     
 }
 
+#subtasksbig {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.donesign {
+    width: 20px;
+   
+}
+
+
+.subtasksbig {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 50px;
+}
 
 
 .datecontainer {
@@ -583,7 +601,7 @@ h3 {
     .bigtask{
         margin-right: 0;
         width: 80%;
-        height: 90%;
+        height: 95%;
 
     }
 }

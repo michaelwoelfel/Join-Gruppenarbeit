@@ -369,6 +369,7 @@ async function renderInProgress() {
         const task = inProgress[index];
         document.getElementById('inProgress').innerHTML += await taskTemplate(task);
         renderUsersInTask(task);
+        await renderSubtasks(task);
     }
 }
 
@@ -382,6 +383,7 @@ async function renderAwaitFb() {
         const task = awaitingFeedback[index];
         document.getElementById('awaitingFeedback').innerHTML += await taskTemplate(task);
         renderUsersInTask(task);
+        await renderSubtasks(task);
     }
 }
 
@@ -395,6 +397,7 @@ async function renderDone() {
         const task = done[index];
         document.getElementById('done').innerHTML += await taskTemplate(task);
         await renderUsersInTask(task);
+        await renderSubtasks(task);
     }
 }
 
@@ -464,8 +467,8 @@ function addNewSubtask() {
 
 function renderSubtask(currentSubtasks, newSubtask) {
     currentSubtasks.innerHTML += /*html*/`
-    <div>
-        <img onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
+    <div class="subtasksbig">
+        <img class="donesign" onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
         <span>${newSubtask}</span> 
     </div>    
     `;
@@ -480,7 +483,6 @@ function renderSubtasks(task) {
    document.getElementById('subtasks').innerHTML += /*html*/`
     <div class="subtaskssmall">
         <span>${element}</span>
-        <img onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
     </div>    
     `;
     }
@@ -494,7 +496,7 @@ function renderSubtasksBig(task) {
         
    document.getElementById('subtasksbig').innerHTML += /*html*/`
     <div class="subtasksbig">
-        <img onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
+        <img class="donesign" onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
         <span>${element}</span> 
     </div>    
     `;

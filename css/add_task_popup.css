@@ -112,6 +112,22 @@
     animation: 3s addToBoard;
 }
 
+.show-subtasks {
+    padding-left: 20px;
+    
+    gap: 10px;
+    align-items: center;
+}
+
+.subtask_plus {
+    height: 20px;
+    width: 20px;
+    margin-left: -32px;
+    margin-bottom: -8px;
+    z-index: 10;
+}
+
+
 @keyframes addToBoard {
     0% {
         transform: translate(0%, 0%);
@@ -198,6 +214,15 @@ input[type=date]:invalid::-webkit-datetime-edit {
     right: 8px;
     bottom: 10px; 
     z-index: 20;
+}
+
+.subtask_container {
+    display: flex;
+    align-items: center;
+}
+
+.subtask_plus {
+    margin-bottom: 7px;
 }
 
 .new-category-popup {
