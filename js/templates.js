@@ -4,7 +4,7 @@ async function taskTemplate(task) {
         <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="handleTaskClick(${task['id']})" class="content">
             <div style="background-color: ${task['categoryBackgroundColor']}" class="category">${task['category']}</div>
             <div class="taskdescription"><b>${task['name']}</b></div>
-            <div class="subtaskdescription"><b>${task['subtask']}</b></div>
+            <div class="subtaskdescription"><div id="subtasks"></div></div>
             <div class="tasktext">${task['tasktext']}</div>
             <div class="progresscontainer">
                 <div class="taskfooter">
@@ -51,7 +51,7 @@ async function generateTaskDetailsHTML(index) {
                 <div onclick="closeTask()"><img id="closeimg" src="assets/img/close.png"></div>
             </div>
             <div id="taskNameHeader" class="taskdescriptionbig"><b>${task['name']}</b></div>
-            <div class="subtaskdescriptionbig"><b>${task['subtask']}</b></div>
+            <div class="subtaskdescription"><div id="subtasksbig"></div></div>
             <div class="tasktext">${task['tasktext']}</div>
             <div class="datecontainer">
                 <span><b>Due date:</b></span>

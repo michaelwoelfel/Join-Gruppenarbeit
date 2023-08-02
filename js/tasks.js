@@ -39,34 +39,12 @@ function createTaskElement(taskName, taskSubtask, taskDescription, taskCategory,
 async function addTaskToList(task) {
     tasks.push(task);
     await setItem('tasks', JSON.stringify(tasks));
+    subtasks = [];
     await taskAddedToBoard();
 }
 
 // Hauptfunktion
-async function addTask(event) {
-    event.stopPropagation();
-    await checkLastTaskId();
-    await loadSelectedUsers();
-    taskName = document.getElementById('addTaskTitle').value;
-    let taskSubtask = document.getElementById('addTaskInputSubtask').value;
-    let taskDescription = document.getElementById('addTaskDescription').value;
-    let taskCategory = currentCategory;
-    let taskCategorybc = currentColorOfCategory;
-    let taskAssign = selectedUsers;
-    let taskDate = document.getElementById('addTaskInputDate').value;
-    if (typeof taskPrio === 'undefined') {
-        showTaskPrioAlert();
-    } else {
-        let taskPrio = getTaskPrio();
-        let taskId = taskIdCounter++;
-        let task = createTaskElement(taskName, taskSubtask, taskDescription, taskCategory, taskCategorybc, taskAssign, taskDate, taskPrio, taskId);
-        await addTaskToList(task);
-        selectedUsers = [];
-        await saveSelectedUsers();
-       
-    }
-    
-}
+
 
 
 async function prepareTaskAdding(event) {
@@ -77,7 +55,7 @@ async function prepareTaskAdding(event) {
 
 function gatherTaskDetails() {
     let taskName = document.getElementById('addTaskTitle').value;
-    let taskSubtask = document.getElementById('addTaskInputSubtask').value;
+    let taskSubtask = subtasks;
     let taskDescription = document.getElementById('addTaskDescription').value;
     let taskCategory = currentCategory;
     let taskCategorybc = currentColorOfCategory;
@@ -148,7 +126,7 @@ async function changeTask(i, event) {
     let task = tasks[i];
     let taskId = task.id;
     let taskName = document.getElementById('addTaskTitle').value;
-    let taskSubtask = document.getElementById('addTaskInputSubtask').value;
+    let taskSubtask = task['subtask'];
     let taskDescription = document.getElementById('addTaskDescription').value;
     let taskCategory = currentCategory;
     let taskCategorybc = currentColorOfCategory;
@@ -182,7 +160,6 @@ async function changeTask(i, event) {
 async function loadTaskDetails(task) {
     document.getElementById('addTaskHeaderText').innerHTML = `Edit Task`;
     document.getElementById('addTaskTitle').value = task.name;
-    document.getElementById('addTaskInputSubtask').value = task.subtask;
     document.getElementById('addTaskDescription').value = task.tasktext;
     document.getElementById('addTaskCategorySelect').value = task.category;
     await checkboxUsers(task);
@@ -212,6 +189,8 @@ async function editTask(i) {
     document.getElementById('buttonEdit').classList.add('d-none');
     document.getElementById('buttonAfterEdit').innerHTML = `<div id="buttonAfterEditNone"  class="create-btn btn d-none" onclick="changeTask(${i},event)">Change Task <img src="assets/img/add_task_check.png" alt="cancel"></div>`;
     document.getElementById('buttonAfterEditNone').classList.remove('d-none');
+    subtasks = [];
+    renderSubtasksEdit(task);
 }
 
 /**
@@ -334,6 +313,7 @@ async function renderToDo() {
         const task = toDo[index];
         document.getElementById('toDo').innerHTML += await taskTemplate(task);
         await renderUsersInTask(task);
+        await renderSubtasks(task);
     }
     
 }
@@ -425,6 +405,7 @@ async function openTask(i) {
     document.getElementById('showTask').innerHTML = await taskDetailsHTML;
     colorUrgency(index);
    renderUsersInOpenTask(index);
+   renderSubtasksBig(task);
 }
 
 /**
@@ -490,6 +471,52 @@ function renderSubtask(currentSubtasks, newSubtask) {
     `;
     return;
 }
+
+function renderSubtasks(task) {
+    subtask = task.subtask;
+    for (let i = 0; i < subtask.length; i++) {
+        const element = subtask[i];
+        
+   document.getElementById('subtasks').innerHTML += /*html*/`
+    <div class="subtaskssmall">
+        <span>${element}</span>
+        <img onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
+    </div>    
+    `;
+    }
+}
+
+
+function renderSubtasksBig(task) {
+    subtask = task.subtask;
+    for (let i = 0; i < subtask.length; i++) {
+        const element = subtask[i];
+        
+   document.getElementById('subtasksbig').innerHTML += /*html*/`
+    <div class="subtasksbig">
+        <img onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
+        <span>${element}</span> 
+    </div>    
+    `;
+    }
+}
+
+function renderSubtasksEdit(task) {
+    subtask = task.subtask;
+    for (let i = 0; i < subtask.length; i++) {
+        const element = subtask[i];
+        
+    
+    let currentSubtasks = document.getElementById('showSubtasks');
+    currentSubtasks.innerHTML += /*html*/`
+    <div>
+        <img onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
+        <span>${element}</span> 
+    </div>    
+    `;
+    }
+}
+
 
 // ADDS 'done-sign'
 function addDoneSignToSquare(event) {
