@@ -482,6 +482,7 @@ function renderSubtasks(task) {
         
    document.getElementById('subtasks').innerHTML += /*html*/`
     <div class="subtaskssmall">
+    <img class="donesign" onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
         <span>${element}</span>
     </div>    
     `;
@@ -522,6 +523,7 @@ function renderSubtasksEdit(task) {
 
 // ADDS 'done-sign'
 function addDoneSignToSquare(event) {
+    event.stopPropagation();
     if (event.target.src.includes("subtask_square.png")) {
         event.target.src = "assets/img/done_white.png";
     } else {
