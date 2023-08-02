@@ -311,7 +311,7 @@ h3 {
     
 }
 
-#subtasksbig {
+.subtasksbig {
     display: flex;
     gap: 20px;
     align-items: center;

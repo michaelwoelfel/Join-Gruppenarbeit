@@ -3,6 +3,7 @@ let taskIdCounter = 0;
 let currentDraggedElement;
 let subtasks = [];
 let colorIndex = 0;
+let taskStatus = `toDo`;
 
 /**
  * Checks and updates the task ID based on the existing tasks.
@@ -31,7 +32,7 @@ function createTaskElement(taskName, taskSubtask, taskDescription, taskCategory,
         user: taskAssign,
         date: taskDate,
         priority: taskPrio,
-        status: 'toDo',
+        status: taskStatus,
     };
 }
 
@@ -41,6 +42,25 @@ async function addTaskToList(task) {
     await setItem('tasks', JSON.stringify(tasks));
     subtasks = [];
     await taskAddedToBoard();
+}
+
+
+function addTaskInProgress() {
+    addTaskPopUp();
+    taskStatus = "inProgress"
+
+}
+
+function addTaskAwaitingFb() {
+    addTaskPopUp();
+    taskStatus = "awaitingFeedback"
+
+}
+
+function addTaskDone() {
+    addTaskPopUp();
+    taskStatus = "done"
+
 }
 
 // Hauptfunktion
@@ -85,6 +105,7 @@ async function addTaskWithPopup(event) {
         let taskPrio = getTaskPrio();
         await finalizeTaskAdding(taskDetails, taskPrio);
     }
+    taskStatus = 'toDo';
 }
 
 async function addTask(event) {
@@ -96,6 +117,7 @@ async function addTask(event) {
         let taskPrio = getTaskPrio();
         await finalizeTaskAddingPopup(taskDetails, taskPrio);
     }
+    taskStatus = 'toDo';
 }
 
 
@@ -477,10 +499,11 @@ function renderSubtask(currentSubtasks, newSubtask) {
 
 function renderSubtasks(task) {
     subtask = task.subtask;
+    id = task.id;
     for (let i = 0; i < subtask.length; i++) {
         const element = subtask[i];
         
-   document.getElementById('subtasks').innerHTML += /*html*/`
+   document.getElementById(`subtasks${id}`).innerHTML += /*html*/`
     <div class="subtaskssmall">
     <img class="donesign" onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
         <span>${element}</span>
@@ -492,10 +515,11 @@ function renderSubtasks(task) {
 
 function renderSubtasksBig(task) {
     subtask = task.subtask;
+    id = task.id;
     for (let i = 0; i < subtask.length; i++) {
         const element = subtask[i];
         
-   document.getElementById('subtasksbig').innerHTML += /*html*/`
+   document.getElementById(`subtasksbig${id}`).innerHTML += /*html*/`
     <div class="subtasksbig">
         <img class="donesign" onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
         <span>${element}</span> 
@@ -506,6 +530,7 @@ function renderSubtasksBig(task) {
 
 function renderSubtasksEdit(task) {
     subtask = task.subtask;
+    id = task.id;
     for (let i = 0; i < subtask.length; i++) {
         const element = subtask[i];
         
