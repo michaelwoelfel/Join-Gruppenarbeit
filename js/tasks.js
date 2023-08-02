@@ -481,7 +481,10 @@ function addNewSubtask() {
             alert('Maximal drei Subtasks erstellen');
         } else {
             renderSubtask(currentSubtasks, newSubtask);
-            subtasks.push(newSubtask);
+            subtasks.push({
+                name: newSubtask,
+                clicked: `false`,
+            });
             document.getElementById('addTaskInputSubtask').value = '';
         }
     }
@@ -501,12 +504,13 @@ function renderSubtasks(task) {
     subtask = task.subtask;
     id = task.id;
     for (let i = 0; i < subtask.length; i++) {
-        const element = subtask[i];
+        let element = subtask[i];
+       
         
    document.getElementById(`subtasks${id}`).innerHTML += /*html*/`
     <div class="subtaskssmall">
-    <img class="donesign" onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
-        <span>${element}</span>
+    <img class="donesign" onclick="addDoneSignToSquare(event,'${element}')" src="assets/img/subtask_square.png" alt="Subtasks">
+        <span>${element['name']}</span>
     </div>    
     `;
     }
@@ -521,8 +525,8 @@ function renderSubtasksBig(task) {
         
    document.getElementById(`subtasksbig${id}`).innerHTML += /*html*/`
     <div class="subtasksbig">
-        <img class="donesign" onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
-        <span>${element}</span> 
+        <img class="donesign" onclick="addDoneSignToSquare(event,'${element}')" src="assets/img/subtask_square.png" alt="Subtasks">
+        <span>${element['name']}</span> 
     </div>    
     `;
     }
@@ -538,20 +542,26 @@ function renderSubtasksEdit(task) {
     let currentSubtasks = document.getElementById('showSubtasks');
     currentSubtasks.innerHTML += /*html*/`
     <div>
-        <img onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
-        <span>${element}</span> 
+        <img onclick="addDoneSignToSquare(event,'${element}')" src="assets/img/subtask_square.png" alt="Subtasks">
+        <span>${element['name']}</span> 
     </div>    
     `;
     }
+    debugger;
 }
 
 
 // ADDS 'done-sign'
-function addDoneSignToSquare(event) {
+function addDoneSignToSquare(event,element) {
     event.stopPropagation();
+    
+    console.log('Hallo');
     if (event.target.src.includes("subtask_square.png")) {
         event.target.src = "assets/img/done_white.png";
     } else {
         event.target.src = "assets/img/subtask_square.png";
     }
+   
 }
+
+

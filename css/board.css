@@ -322,6 +322,12 @@ h3 {
    
 }
 
+.subtaskssmall {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 
 .subtasksbig {
     display: flex;
