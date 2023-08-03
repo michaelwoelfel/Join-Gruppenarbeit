@@ -440,6 +440,7 @@ function closeTask() {
     // Adds the 'd-none' class to hide the task details and removes it from the task container to make the tasks visible again
     document.getElementById('taskContainer').classList.remove('d-none');
     document.getElementById('showTask').classList.add('d-none');
+    initBoard();
 }
 
 
@@ -500,68 +501,96 @@ function renderSubtask(currentSubtasks, newSubtask) {
     return;
 }
 
-function renderSubtasks(task) {
-    subtask = task.subtask;
-    id = task.id;
+async function renderSubtasks(task) {
+    await loadTasks();
+    const subtask = task.subtask;
+    const id = task.id;
     for (let i = 0; i < subtask.length; i++) {
         let element = subtask[i];
-       
-        
-   document.getElementById(`subtasks${id}`).innerHTML += /*html*/`
-    <div class="subtaskssmall">
-    <img class="donesign" onclick="addDoneSignToSquare(event,'${element}')" src="assets/img/subtask_square.png" alt="Subtasks">
-        <span>${element['name']}</span>
-    </div>    
-    `;
+        elementString = JSON.stringify(element);
+        let imgSrc = "assets/img/subtask_square.png";
+        let clicked = element['clicked']
+        if (clicked == 'true') {
+            imgSrc = "assets/img/done_white.png";
+            clicked = 'true';
+        }
+        document.getElementById(`subtasks${id}`).innerHTML += /*html*/`
+        <div class="subtaskssmall">
+            <img class="donesign" onclick="addDoneSignToSquare(event,'${id}',${i})" src="${imgSrc}" alt="Subtasks" data-clicked="${clicked}">
+            <span>${element['name']}</span>
+        </div>    
+        `;
     }
 }
 
 
-function renderSubtasksBig(task) {
-    subtask = task.subtask;
-    id = task.id;
+async function renderSubtasksBig(task) {
+    await loadTasks();
+    const subtask = task.subtask;
+    const id = task.id;
     for (let i = 0; i < subtask.length; i++) {
-        const element = subtask[i];
-        
-   document.getElementById(`subtasksbig${id}`).innerHTML += /*html*/`
-    <div class="subtasksbig">
-        <img class="donesign" onclick="addDoneSignToSquare(event,'${element}')" src="assets/img/subtask_square.png" alt="Subtasks">
+        let element = subtask[i];
+        elementString = JSON.stringify(element);
+        let imgSrc = "assets/img/subtask_square.png";
+        let clicked = element['clicked']
+        if (clicked == 'true') {
+            imgSrc = "assets/img/done_white.png";
+            clicked = 'true';
+        }
+        document.getElementById(`subtasksbig${id}`).innerHTML += /*html*/`
+        <div class="subtasksbig">
+            <img class="donesign" onclick="addDoneSignToSquare(event,'${id}',${i})" src="${imgSrc}" alt="Subtasks" data-clicked="${clicked}">
+            <span>${element['name']}</span>
+        </div>    
+        `;
+    }
+}
+
+
+
+
+
+
+async function renderSubtasksEdit(task) {
+    await loadTasks();
+    const subtask = task.subtask;
+    const id = task.id;
+    for (let i = 0; i < subtask.length; i++) {
+        let element = subtask[i];
+        elementString = JSON.stringify(element);
+        let imgSrc = "assets/img/subtask_square.png";
+        let clicked = element['clicked']
+        if (clicked == 'true') {
+            imgSrc = "assets/img/done_white.png";
+            clicked = 'true';
+        }
+        document.getElementById(`showSubtasks`).innerHTML += /*html*/`
+        <div>
+        <img class="donesign" onclick="addDoneSignToSquare(event,'${id}',${i})" src="${imgSrc}" alt="Subtasks">
         <span>${element['name']}</span> 
     </div>    
-    `;
+        `;
     }
 }
 
-function renderSubtasksEdit(task) {
-    subtask = task.subtask;
-    id = task.id;
-    for (let i = 0; i < subtask.length; i++) {
-        const element = subtask[i];
-        
-    
-    let currentSubtasks = document.getElementById('showSubtasks');
-    currentSubtasks.innerHTML += /*html*/`
-    <div>
-        <img onclick="addDoneSignToSquare(event,'${element}')" src="assets/img/subtask_square.png" alt="Subtasks">
-        <span>${element['name']}</span> 
-    </div>    
-    `;
-    }
-    debugger;
-}
 
 
 // ADDS 'done-sign'
-function addDoneSignToSquare(event,element) {
+async function addDoneSignToSquare(event,id,i) {
     event.stopPropagation();
-    
-    console.log('Hallo');
+    await loadTasks();
+    let taskIndex = tasks.findIndex(task => task.id.toString() === id.toString());
+        let task = tasks[taskIndex];
+        let subtask = task['subtask'];
     if (event.target.src.includes("subtask_square.png")) {
         event.target.src = "assets/img/done_white.png";
+        subtask[i].clicked = 'true'; 
     } else {
         event.target.src = "assets/img/subtask_square.png";
+        subtask[i].clicked = 'false'; 
     }
-   
+    setItem('tasks', JSON.stringify(tasks));
+    console.log('clicked');
 }
 
 
