@@ -639,6 +639,17 @@ border: 2px solid white;
         top: 0;
 
   }
+
+  #michael {
+    pointer-events: none; 
+}
+
+@media (max-width: 800px) {
+    #michael {
+        pointer-events: auto; 
+    }
+}
+
   
 @keyframes addToBoard {
     0% {
