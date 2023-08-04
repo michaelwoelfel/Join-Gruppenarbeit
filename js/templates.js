@@ -158,12 +158,14 @@ async function renderPopUp(popup) {
                             <div onclick="getTaskPrio('low')" id="prioLow" class="prio-btn">Low <img  src="assets/img/low_prio.png" alt="low"></div>
                         </div>
                         <div class="subtasks fd_column">
+                            <div>
                     <span>Subtasks</span>
                     <div class="subtask_container">
                         <input class="task_input_field_styling" type="text" name="" id="addTaskInputSubtask"
                             maxlength="20" placeholder="Add new subtask" required><img class="subtask_plus"
                             onclick="addNewSubtask()" src="assets/img/subtask_plus.png" alt="add Subtask">
                     </div>
+</div>
                     <div class="show-subtasks" id="showSubtasks">
                     </div>
                 </div>

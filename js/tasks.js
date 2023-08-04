@@ -564,7 +564,7 @@ async function renderSubtasksEdit(task) {
             clicked = 'true';
         }
         document.getElementById(`showSubtasks`).innerHTML += /*html*/`
-        <div>
+        <div class="subtasksbig">
         <img class="donesign" onclick="addDoneSignToSquare(event,'${id}',${i})" src="${imgSrc}" alt="Subtasks">
         <span>${element['name']}</span> 
     </div>    
