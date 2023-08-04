@@ -386,6 +386,7 @@ h3 {
         flex-direction: column;
         margin-top: 60px;
         margin-right: 40px;
+        width: 100%;
     }
 
     .input-field {
@@ -526,19 +527,17 @@ justify-content: center;
 align-items: center;
 gap: 2px;
 margin-left: 12px;
-border-radius: 45px;
-width: 80px;
-height: 80px;
+border-radius: 50px;
+min-width: 100px;
+min-height: 100px;
 margin-top: 10px;
-border: 2px solid white;
 }
 .imgcontacteditcontainer {
     display: flex;
     height: 100%;
     align-items: center;
-    height: 100%;
     justify-content: center;
-    width: 100%;
+    width: 50%;
 }
 .imginfocontainer {
     display: flex;
@@ -640,15 +639,7 @@ border: 2px solid white;
 
   }
 
-  #michael {
-    pointer-events: none; 
-}
 
-@media (max-width: 800px) {
-    #michael {
-        pointer-events: auto; 
-    }
-}
 
   
 @keyframes addToBoard {
@@ -694,6 +685,16 @@ border: 2px solid white;
         height: 80%;
     }
 
+    .input-fields {
+        width: 100%;
+        margin-left: 35%;
+    }
+
+    .img-add-contactedit {
+        min-width: 80px;
+        min-height: 80px;
+    }
+
     .img-info {
         flex-direction: column;
         align-items: center;
@@ -728,6 +729,17 @@ border: 2px solid white;
         width: 75px;
     }
 
+    .input-fields {
+        width: 100%;
+        margin-left: 20%;
+        
+    }
+
+    .input-field{
+       display: flex;
+       justify-content: space-evenly;
+    }
+
     .text-better-with-a-team {
         display: none;
     }
@@ -758,11 +770,20 @@ border: 2px solid white;
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 850px) {
   
 
 .closeimgpopup3{
     display: none;
+}
+
+.img-add-contactedit {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.bottom-buttons {
+    margin-top: 10px;
 }
     
 
@@ -892,4 +913,26 @@ border: 2px solid white;
         top: 16px;
         right: 16px;    
     }
+  }
+
+
+  @media(max-width: 960px) {
+    
+
+    .input-fields {
+        width: 80%;
+        margin: 0;
+    }
+
+    .input-field-mail{
+       width: 100%;
+    }
+
+    .input-field {
+        width: 100%;
+     }
+
+     .input-field-phone {
+        width: 100%;
+     }
   }
