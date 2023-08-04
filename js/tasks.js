@@ -494,8 +494,8 @@ function addNewSubtask() {
 function renderSubtask(currentSubtasks, newSubtask) {
     currentSubtasks.innerHTML += /*html*/`
     <div class="subtasksbig">
-        <img class="donesign" onclick="addDoneSignToSquare(event)" src="assets/img/subtask_square.png" alt="Subtasks">
-        <span>${newSubtask}</span> 
+        <img class="donesign" src="assets/img/subtask_square.png" alt="Subtasks">
+        <span class="subtasknumber"></span> <span>${newSubtask}</span>
     </div>    
     `;
     return;
@@ -535,8 +535,7 @@ async function renderSubtasksBig(task) {
         let clicked = element['clicked']
         if (clicked == 'true') {
             imgSrc = "assets/img/done_white.png";
-            clicked = 'true';
-        }
+            clicked = 'true'; }
         document.getElementById(`subtasksbig${id}`).innerHTML += /*html*/`
         <div class="subtasksbig">
             <img class="donesign" onclick="addDoneSignToSquare(event,'${id}',${i})" src="${imgSrc}" alt="Subtasks" data-clicked="${clicked}">

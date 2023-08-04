@@ -98,6 +98,10 @@ input[type=date]:invalid::-webkit-datetime-edit {
     bottom: 10px; 
 }
 
+.donesign {
+    width: 20px;
+}
+
 
 .category-down:hover {
     cursor: pointer;
@@ -339,10 +343,26 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 .show-subtasks {
     padding-left: 20px;
-    
+    margin-top: 5px;
     gap: 10px;
-    align-items: center;
+    
 }
+
+.show-subtasks {
+    padding-left: 20px;
+    margin-top: 5px;
+    gap: 10px;
+    
+}
+
+.subtasksbig {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 30px;
+    font-size: 16px;
+}
+
 
 
 
@@ -381,8 +401,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 
 .show-subtasks img {
-    height: 12px;
-    width: 12px;
+    height: 20px;
+    width: 20px;
 }
 
 
