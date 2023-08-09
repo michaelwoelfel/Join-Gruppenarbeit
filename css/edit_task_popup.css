@@ -7,7 +7,8 @@
     margin-right: 0;
 }
 
-.edit-task-popup-header  {
+
+.edit-task-popup-header {
     font-size: 40px;
     padding-top: 40px;
     padding-bottom: 20px;
@@ -16,6 +17,7 @@
     display: flex;
     justify-content: center;
 }
+
 
 .btn {
     display: flex;
@@ -28,13 +30,13 @@
 }
 
 
-
-.edit-task-popup-header-category{
+.edit-task-popup-header-category {
     font-size: 24px;
     padding-top: 20px;
     font-weight: bold;
     justify-content: center;
 }
+
 
 .edit-task-popup-buttons  {
     display: flex;
@@ -42,6 +44,7 @@
     align-items: center;
     gap: 12px;
 }
+
 
 .edit-task-popup-button-style {
     background-color: #2A3647;
@@ -54,17 +57,18 @@
     border-radius: 12px;
     padding: 12px 16px;
     font-weight: bold;
-  }
+}
 
-  .editandclosebottom {
+
+.editandclosebottom {
     display: flex;
-  }
+}
 
-  .edit-task-popup-button-style:hover {
+
+.edit-task-popup-button-style:hover {
     cursor: pointer;
     background-color: #29ABE2;
-    
     box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
     color: white;
-  }
+}
   
