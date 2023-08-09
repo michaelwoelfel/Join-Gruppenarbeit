@@ -3,6 +3,7 @@ body{
     overflow-y: hidden;
 }
 
+
 .maincontainer {
     background-color: #F6F7F8;
 }
@@ -13,10 +14,10 @@ body{
     flex-direction: row;
 }
 
+
 #assignto {
     padding-top: 15px;
 }
-
 
 
 .selectInnerUser {
@@ -32,7 +33,6 @@ body{
     outline: none;
     background-color: white; 
 }
-
 
 
 .fd_column {
@@ -75,7 +75,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
-
 /* LEFT Side of the Task-fields */
 
 .add_task_left {
@@ -98,6 +97,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     bottom: 10px; 
     margin-bottom: 3px;
 }
+
 
 .donesign {
     width: 20px;
@@ -149,6 +149,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     border-radius: 6px 6px 0 0;
 }
   
+
 .dropdown-content {
     display: none;
     position: relative;
@@ -159,9 +160,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
     border-radius: 0 0 6px 6px;
 }
   
-  .d-block {
+
+.d-block {
     display: block;
 }
+
 
 .category ul li, .liElement{
     list-style: none;
@@ -185,8 +188,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     background-color: #29ABE2;
     margin-right: 24px;
 }
-
-
 
 
 /* MIDDLE SEPERATOR  */
@@ -223,6 +224,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     margin: 8px 0;
 }
 
+
 .new-category-popup {
     height: 150px;
     width: 350px;
@@ -242,6 +244,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     z-index: 1000;
 }
 
+
 .task_input_field_styling_popup {
     padding: 8px;
     font-family: 'Inter', sans-serif;
@@ -253,27 +256,30 @@ input[type=date]:invalid::-webkit-datetime-edit {
     border-radius: 6px;
 }
 
+
 .create-btnpopup {
     background-color: #2A3647;
     color: white;
     z-index: 1500;
 }
 
+
 .closeimgpopup2{
     margin-right: 15px;
-    
 }
+
+
 .closeimgpopup2:hover{
     box-shadow: 2px 3px 5px black;
     border-radius: 5px;
 }
+
 
 .create-btnpopup:hover {
     cursor: pointer;
     background-color: #29ABE2;
     box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
 }
-
 
 
 .prio-btn {
@@ -336,25 +342,27 @@ input[type=date]:invalid::-webkit-datetime-edit {
     filter: invert(0%) sepia(100%) saturate(100%) hue-rotate(245deg) brightness(160%) contrast(110%)
 }
 
+
 /* SUBTASKS */
 
 .subtasks {
     margin-top: 20px;
 }
 
-.show-subtasks {
-    padding-left: 20px;
-    margin-top: 5px;
-    gap: 10px;
-    
-}
 
 .show-subtasks {
     padding-left: 20px;
     margin-top: 5px;
     gap: 10px;
-    
 }
+
+
+.show-subtasks {
+    padding-left: 20px;
+    margin-top: 5px;
+    gap: 10px;
+}
+
 
 .subtasksbig {
     display: flex;
@@ -363,8 +371,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     height: 30px;
     font-size: 16px;
 }
-
-
 
 
 .subtask_container {
@@ -385,9 +391,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
     margin-bottom: -8px;
 }
 
+
 .d-none {
     display: none;
 }
+
 
 .priowarning {
     color: red;
@@ -468,7 +476,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
-
 /* ANIMATION ADDED TO BOARD */
 
 .animation-addedToBoard {
@@ -494,19 +501,23 @@ input[type=date]:invalid::-webkit-datetime-edit {
     z-index: 1001;
 }
 
+
 .closeimg{
     margin-right: 15px;
-   
 }
+
+
 .closeimg:hover{
     box-shadow: 2px 3px 5px black;
     border-radius: 5px;
     cursor: pointer;
 }
 
+
 .show {
     animation: 3s addToBoard;
 }
+
 
 @keyframes addToBoard {
     0% {
@@ -534,9 +545,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
     display: flex;
 }
 
+
 .join-logo-mobile-header {
     height: 50px;
 }
+
 
 .author {
     display: flex;
@@ -544,6 +557,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     padding-right: 40px;
     align-items: center;
 }
+
 
 .projectheader {
     background-color: white;
@@ -556,14 +570,15 @@ input[type=date]:invalid::-webkit-datetime-edit {
     width: 100%;
 }
 
+
 .headspan {
     margin-left: 100px;
 }
 
+
 .questionimg {
     height: 20px;
 }
-
 
 
 /* RESPONSIVE DESIGN */
@@ -577,6 +592,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
         display: none;
     }
 }
+
 
 @media(max-width: 1500px) {
     .prio-btn {
@@ -672,7 +688,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     .headingboard {
         width: 77%;
     }
-        
 }
 
 
@@ -701,6 +716,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     .clear-btn {
        
     }
+
 
     .buttons-clear-create {
         position: fixed;
@@ -762,6 +778,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     }
 }
 
+
 @media(max-width: 700px) {
     .add_task_left {
         margin-left: 20px;
@@ -792,6 +809,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
         margin: 0 40px;
     }
 }
+
 
 @media(max-width: 550px) {
     .add_task_left,
@@ -824,6 +842,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     }
 }
 
+
 @media(max-width: 400px) {
     .add_task_h1 {
         font-size: 20px;
@@ -842,6 +861,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
         right: 5px;
     }
 }
+
 
 @media(max-width: 350px) {
     .add_task_h1 {
