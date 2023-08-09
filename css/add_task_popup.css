@@ -7,6 +7,8 @@
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 20;
 }
+
+
 .selectuser {
     border: 1px solid black;
     display: flex;
@@ -18,6 +20,7 @@
      justify-content: center;
 }
 
+
 .color_dot {
     height: 16px;
     width: 16px;
@@ -27,15 +30,15 @@
 }
 
 
-
 .border-radius {
     border-radius: 6px 6px 0 0;
 }
 
+
 .d-block {
     display: flex !important;
 }
-  
+
 
 .popup-content {
     background-color: white;
@@ -55,7 +58,6 @@
     display: flex;
     flex-direction: row;
 }
-
 
 
 .selectInnerUser {
@@ -86,7 +88,6 @@
 }
 
 
-
 /* HEADLINE STYLING */
 
 .add_task_h1 {
@@ -108,9 +109,11 @@
     margin: 32px;
 }
 
+
 .show {
     animation: 3s addToBoard;
 }
+
 
 .show-subtasks {
     padding-left: 20px;
@@ -123,6 +126,7 @@
     width: 60%;
     margin-left: 30px;
 }
+
 
 .subtask_plus {
     height: 20px;
@@ -154,13 +158,12 @@
 }
 
 
-
 /* INPUT STYLING */
-
 
 input {
     background-color: white;
 }
+
 
 .task_input_field_styling {
     border-radius: 6px;
@@ -172,6 +175,8 @@ input {
     outline: none;
     z-index: 9;
 }
+
+
 .task_input_field_styling {
     border-radius: 6px;
     margin-bottom: 16px;
@@ -206,8 +211,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
-
-
 .add_task_category_select {
     padding: 32px;
 }
@@ -222,14 +225,17 @@ input[type=date]:invalid::-webkit-datetime-edit {
     margin-bottom: 3px;
 }
 
+
 .subtask_container {
     display: flex;
     align-items: center;
 }
 
+
 .subtask_plus {
     margin-bottom: 7px;
 }
+
 
 .new-category-popup {
     height: 150px;
@@ -250,29 +256,31 @@ input[type=date]:invalid::-webkit-datetime-edit {
     z-index: 1000;
 }
 
+
 ul.dropdown-content {
     list-style-type: none;
 }
 
-li:hover{
+
+li:hover {
     background-color: #D1D1D1;
     cursor: pointer;
     border-radius: 8px;
    padding-left: 5px;
    padding-right: 5px;
-   
 }
+
 
 #assignto {
     padding-top: 15px;
 }
 
 
-
 .category-down:hover {
     cursor: pointer;
     transform: scale(1.2);
 }
+
 
 .category ul li:hover {
     background-color: #D1D1D1;
@@ -287,8 +295,6 @@ li:hover{
     background-color: white;
     margin-bottom: 0;
 }
-
-
 
 
 .dropdown-content {
@@ -310,8 +316,6 @@ li:hover{
 }
 
 
-
-
 .task_input_field_styling:hover {
     cursor: pointer;
 }
@@ -327,7 +331,6 @@ li:hover{
 input[type=date]:invalid::-webkit-datetime-edit {
     color: #D1D1D1;
 }
-
 
 
 /* LEFT Side of the Task-fields */
@@ -350,7 +353,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
-
 /* MIDDLE SEPERATOR  */
 
 .seperator {
@@ -361,7 +363,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
-
 /* RIGHT Side of the Task-fields */
 
 .add_task_right {
@@ -370,7 +371,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     flex-direction: column;
     margin-right: 200px;
     margin-left: 100px;
-   
 }
 
 
@@ -412,6 +412,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     background-color: #FFA800;
     color: white;
 }
+
 
 #buttonAfterEditNone {
     position: fixed;
@@ -464,15 +465,16 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
-
-.closeimgpopup2{
+.closeimgpopup2 {
     margin-right: 15px;
-    
 }
-.closeimgpopup2:hover{
+
+
+.closeimgpopup2:hover {
     box-shadow: 2px 3px 5px black;
     border-radius: 5px;
 }
+
 
 .category ul li, .liElement{
     list-style: none;
@@ -483,10 +485,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 
-
-
-
-
 /* BUTTONS CLEAR & CREATE */
 
 .buttons-clear-create {
@@ -495,7 +493,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     right: 200px;
     gap: 20px;
     z-index: 500;
-  
 }
 
 
@@ -515,6 +512,7 @@ li
 .btn img {
     height: 18px;
 }
+
 
 ._field_styling_popup {
     padding: 8px;
@@ -536,21 +534,22 @@ li
     right: 10%;
     bottom: 12.5%;
     height: 20px;
-    
 }
+
 
 .create-btnpopup {
     background-color: #2A3647;
     color: white;
     z-index: 1500;
-    
 }
+
 
 .create-btnpopup:hover {
     cursor: pointer;
     background-color: #29ABE2;
     box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
 }
+
 
 .create-btn:hover {
     cursor: pointer;
@@ -566,7 +565,6 @@ li
     position: fixed;
     bottom: 12%;
     height: 20px;
-    
 }
 
 
@@ -593,6 +591,8 @@ li
     width: 100%;
     z-index: 11;
 }
+
+
 .task_input_field_styling_popup {
     padding: 8px;
     font-family: 'Inter', sans-serif;
@@ -603,7 +603,6 @@ li
     outline: none;
     border-radius: 6px;
 }
-
 
 
 /* ANIMATION ADDED TO BOARD */
@@ -632,9 +631,6 @@ li
 }
 
 
-
-
-
 /* RESPONSIVE DESIGN */
 
 @media(min-width: 800px) {
@@ -642,6 +638,7 @@ li
         display: none;
     }
 }
+
 
 @media(max-width: 1500px) {
     .seperator {
@@ -668,8 +665,6 @@ li
     .add_task_left {
         width: 30%;
     }
-
-    
 }
 
 
@@ -680,10 +675,7 @@ li
         right: 0;
         z-index: 80;
         border-radius: 20px;
-       
     }
-
-   
 }
 
 
@@ -695,25 +687,29 @@ li
         right: 35%;
     }
 
+
     .create-btn {
         position: fixed;
         top: 50px;
         right: 10%;
         z-index: 501;
-
     }
+
 
     .add_task_h1 {
         margin-left: 20px;
     }
 
+
     .popup-content {
         padding: 64px;
     }
     
+
     .add_task_container {
         flex-direction: column;
     }
+
 
     .add_task_left,
     .add_task_right {
@@ -721,6 +717,7 @@ li
         margin-left: 16px;
         margin-right: 16px;
     }
+
 
     .seperator {
         display: none;
@@ -734,16 +731,19 @@ li
         top: 14px;
         right: 10%;
         z-index: 600;
-        }
+    }
 
-        .clear-btn {
-            top: 14px;
-            right: 35%;
-        }
+
+    .clear-btn {
+        top: 14px;
+        right: 35%;
+     }
+
 
     .headline_h1_cancel img {
         margin-right: 0;
     }
+
 
     .subtasks {
         margin-top: 48px;
@@ -752,10 +752,10 @@ li
         align-items: center;
     }
 
+
     .show-subtasks {
         flex-direction: column;
     }
-    
 }
 
 
@@ -765,17 +765,20 @@ li
         gap: 16px;
     }
 
+
     .prio-btn {
         width: 95%;
     }  
     
+
     .create-btn {
         right: 1% !important;
-        }
+    }
 
-        .clear-btn {
-            right: 45% !important;
-        }
+
+    .clear-btn {
+        right: 45% !important;
+    }
 }
 
 
@@ -786,6 +789,7 @@ li
         margin-left: 8px;
     }
 
+    
     .add_task_left,
     .add_task_right {
         margin-left: 8px;
