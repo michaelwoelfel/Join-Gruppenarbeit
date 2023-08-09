@@ -2,6 +2,7 @@ body{
     font-family: 'Inter', sans-serif;
 }
 
+
 .side-bar {
     position: fixed;
     box-sizing: border-box;
@@ -19,6 +20,7 @@ body{
     z-index: 10;
 }
 
+
 .side-bar-menu-container {
     display: flex;
     flex-direction: column;
@@ -30,6 +32,7 @@ body{
     margin-top: 60px;
 }
 
+
 .justify-sidebar-menu {
     display: flex;
     flex-direction: row;
@@ -40,18 +43,22 @@ body{
     justify-content: center;
 }
 
+
 .justify-sidebar-menu:hover {
     background-color: black;
 }
+
 
 .side-bar-image {
     width: 25px;
     height: 25px;
 }
 
+
 a {
     text-decoration: none;
 }
+
 
 .sidebar-text {
     color: #CDCDCD;
@@ -62,9 +69,11 @@ a {
     width: 100px;
 }
 
+
 .justify-sidebar-menu-notice {
     padding-bottom: 100px;
 }
+
 
 @media (max-width: 800px) {
     .side-bar {
@@ -76,6 +85,7 @@ a {
         z-index: 10;
     }
 
+
     .side-bar-menu-container {
         width: 100vw;
         height: 80px;
@@ -85,6 +95,7 @@ a {
         align-items: center;
         flex-direction: row;
     }
+
 
     .justify-sidebar-menu {
         display: flex;
@@ -97,15 +108,18 @@ a {
         justify-content: center;
     }
 
+
     .sidebar-text {
         margin: 0;
         width: auto;
     }
 
+
     .legal-notice {
         display: none;
     }
 
+    
     .join-logo {
         display: none;
     }
