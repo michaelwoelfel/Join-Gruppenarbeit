@@ -7,8 +7,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-   
 }
+
 
 .logowhite {
     width: 200px;
@@ -16,9 +16,12 @@ body {
     animation-fill-mode: forwards;
     position: absolute;
 }
+
+
 a {
     color:#29ABE2;
 }
+
 
 .startcontainer {
     position: fixed;
@@ -33,19 +36,17 @@ a {
     animation:  2s opacitystart;
     animation-fill-mode: forwards;
 }
+   
 
-
-
-    
-  
-
-  @keyframes moveLogoStart {
-    0%{
+@keyframes moveLogoStart {
+    0% {
         transform: translate(0%, 0%);
         top: 50%;
         left: 50%;
         width: 200px;
     }
+
+
     100% {
         transform: translate(0, 0);
         top: 80px;
@@ -54,29 +55,32 @@ a {
     }
 }
 
-  @keyframes opacity {
-    0% , 60%{
+
+@keyframes opacity {
+    0% , 60% {
       opacity:0;
     }
+
+
     100% {
      opacity: 1;
     }
 }
 
+
 @keyframes opacitystart {
     0%, 30% {
         opacity: 1;
     }
+
+
     100% {
         opacity: 0;
     }
 }
-  
-  
-/*
-  header
-*/
 
+
+/* HEADER */
 
 .joinlogo {
     width: 100px;
@@ -87,6 +91,7 @@ a {
     animation-fill-mode: forwards;
     animation: 1s opacity;
 }
+
 
 .signuptop{
     display: flex;
@@ -101,6 +106,7 @@ a {
     animation: 2s opacity;
 }
 
+
 .signupbutton {
     height: 51px;
     min-width: 91px;
@@ -109,8 +115,8 @@ a {
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-
 }
+
 
 .signupbutton:hover {
     cursor: pointer;
@@ -118,28 +124,27 @@ a {
     box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+
 .guestbutton:hover {
     cursor: pointer;
     background-color: #29ABE2;
     box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+
 .loginbutton:hover {
     cursor: pointer;
     background-color: #29ABE2;
     box-shadow: 1px 3px rgba(0, 0, 0, 0.1);
 }
-/*
-  header
-*/
 
-/*
- maincontainer
-*/
+
+/* MAINCONTAINER */
 
 form {
     align-items: center;
 }
+
 
 .maincontainer {
     display: flex;
@@ -148,8 +153,9 @@ form {
     top: 274px;
     width: 100%;
     animation: 200ms opacity;
-
 }
+
+
 .login {
     background-color: #FFFFFF;
     width: 40%;
@@ -158,10 +164,13 @@ form {
     box-shadow: 0px 0px 14px 3px #0000000A;
 }
 
+
 .login {
     display: flex;
     flex-direction: column;
 }
+
+
 .heading {
     text-align: center;
     font-size: 61px;
@@ -173,6 +182,7 @@ form {
     align-items: center;
 }
 
+
 .blueline {
     margin-top: 10px;
     height: 3px;
@@ -180,10 +190,12 @@ form {
     background-color: #29ABE2;
 }
 
+
 input {
     width: 100%;
     color: #D1D1D1!important;
 }
+
 
 .email {
     width: 80%;
@@ -195,9 +207,11 @@ input {
     align-items: center;
 }
 
+
 .password {
     width: 70%;
 }
+
 
 #inputmail {
     margin-left: 20px;
@@ -207,10 +221,10 @@ input {
     font-size: 21px;
 }
 
+
 input {
     color: black!important;
 }
-
 
 
 #inputpassword {
@@ -226,6 +240,7 @@ input {
     padding-right: 20px;
     height: 25px;
 }
+
 
 .imglock {
     padding-right: 23px;
@@ -244,20 +259,25 @@ input {
     padding-top: 29px;
 }
 
+
 #checkbox{
- width: 20px;
- height: 20px;
-  background-color:  #D1D1D1;
-  border-radius: 3px;
+    width: 20px;
+    height: 20px;
+    background-color:  #D1D1D1;
+    border-radius: 3px;
 }
+
 
 #forgotpw {
     color: #29ABE2;
 }
+
+
 .bottombuttons{
     display: flex;
     gap: 35px;
 }
+
 
 .loginbutton {
     height: 51px;
@@ -269,6 +289,7 @@ input {
     cursor: pointer;
 }
 
+
 .guestbutton {
     width: 110px;
     border: 1px solid black;
@@ -278,20 +299,20 @@ input {
     cursor: pointer;
     background-color: white;
     color: black;
-
 }
+
 
 #wrongpassword {
     color: red;
 }
 
 
-
 ::placeholder {
     color: #D1D1D1;
 }
 
-a{
+
+a {
     text-decoration: none;
     text-align: center;
     display: flex;
@@ -300,81 +321,80 @@ a{
     white-space: nowrap;
 }
 
-/*
- maincontainer
-*/
 
-/*
- media query
-*/
+/* MEDIA QUERY */
 
-@media  (max-width: 1200px) {
+@media(max-width: 1200px) {
     .joinlogo {
-      display: none;
+        display: none;
     }
   
-  .signuptop {
-    top: 600px;
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    width: fit-content;
 
-  }
+    .signuptop {
+        top: 600px;
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        width: fit-content;
+    }
 }
 
 
-  @media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1050px) {
     .login {
         width: 60%;
     }
-  }
+}
 
 
-  @media only screen and (max-width: 700px) {
+@media only screen and (max-width: 700px) {
     .login {
         width: 80%;
         height: 80%;
     }
+
+
     .maincontainer {
         position: fixed;
         top: 0;
         height: 90%;
-
     }
-  }
+}
 
-  @media only screen and (max-width: 500px) {
-        .login {
-            width: 100%;
-        }
 
-        .rememberme {
-            gap: 10px;
-        }
-        .maincontainer {
-            height: 550px;
-            top: 70px;
-        }
-        .login {
-            height: 500px;
-        }
+@media only screen and (max-width: 500px) {
+    .login {
+        width: 100%;
+    }
 
-        .signuptop {
-            top: 590px;
-        }
 
-        .joinlogo {
-            display: flex;
-            z-index: 10;
-            top: 10px;
-            left: 10px;
-            height: 60px;
-            width: 60px;
-        }
+    .rememberme {
+        gap: 10px;
+    }
 
-  }
 
-  /*
- media query
-*/
+    .maincontainer {
+        height: 550px;
+        top: 70px;
+    }
+
+
+    .login {
+        height: 500px;
+    }
+
+
+    .signuptop {
+        top: 590px;
+    }
+
+
+    .joinlogo {
+        display: flex;
+        z-index: 10;
+        top: 10px;
+        left: 10px;
+        height: 60px;
+        width: 60px;
+    }
+}
